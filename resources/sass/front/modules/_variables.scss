@@ -1,0 +1,27 @@
+// Color
+$white: #fff;
+$black: #000;
+$body-bg: #999999;
+$color-hr-line: #ffb737;
+$color-red: #e74c3c;
+$light-black: #222222;
+$color-light-gray: #eee;
+$color-icon: #0cb8b6;
+$color-mini-section: #29302E;
+$btn-bg-color: #0065e1;
+$btn-hover-color: #f5790b;
+
+// Typography
+//...
+
+/** Responsive */
+$medium-device : 'only screen and (min-width: 992px) and (max-width: 1200px)';
+$tab:'(max-width: 991px)';
+$tab-device:'only screen and (min-width: 768px) and (max-width: 991px)';
+$large-mobile: 'only screen and (min-width: 576px) and (max-width: 767px)';
+$small-mobile:'(max-width: 576px)';
+$xs-mobile:'(max-width: 420px)';
+$sm-mobile:'only screen and (min-width: 421px) and (max-width: 575px)';
+$big-screen:'only screen and (min-width: 1200px) and (max-width: 1500px)';
+$extra-big-screen: 'only screen and (min-width: 1200px) and (max-width: 3640px)';
+$mx-767: '(max-width: 767px)';

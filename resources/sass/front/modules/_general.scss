@@ -1,0 +1,163 @@
+body {
+  background-color: $white;
+  font-family: 'Open Sans', sans-serif;
+  color: $body-bg;
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  color: $light-black;
+}
+
+h1 {
+  font-size: 4em;
+  font-weight: 400;
+}
+
+h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 1.17em;
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+h5 {
+  font-size: .83em;
+  font-weight: 400;
+}
+
+h6 {
+  font-size: .67em;
+  font-weight: 400;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  outline: none;
+}
+
+ol, ul,
+ul li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+.hide {
+  display: none;
+}
+
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+.section-padding{
+  padding: 60px 0px;
+}
+
+hr.botm-line {
+  height: 3px;
+  width: 60px;
+  background: $color-hr-line;
+  position: relative;
+  border: 0;
+  margin: 20px 0 20px 0;
+}
+
+.text-bold {
+  font-weight: 800;
+}
+
+.content {
+  p {
+    padding-bottom: 20px;
+  }
+}
+
+.red {
+  color: $color-red;
+}
+
+.info {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  color: $color-red;
+}
+
+.warn-info {
+  color: $black;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  button {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.sticky-footer {
+  margin-bottom: 294px;
+
+  @media #{$tab} {
+    margin-bottom: 679px;
+  }
+
+  @media #{$tab-device} {
+    margin-bottom: 679px;
+  }
+
+  @media #{$large-mobile} {
+    margin-bottom: 694px;
+  }
+
+  @media #{$small-mobile} {
+    margin-bottom: 714px;
+  }
+
+  @media #{$xs-mobile} {
+    margin-bottom: 714px;
+  }
+
+  @media #{$sm-mobile} {
+    margin-bottom: 694px;
+  }
+}

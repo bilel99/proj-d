@@ -1,0 +1,12 @@
+/***************************************
+make appointment
+***************************************/
+#make-appointment{
+  background-color: $white;
+  
+  @media #{$tab} {
+    img {
+      display: none;
+    }
+  }
+}

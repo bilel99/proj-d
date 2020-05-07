@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('front.home.index');
+})->name('homepage');
 
 Route::get('/comment-prendre-un-rendez-vous', function () {
     return view('welcome');
-});
+})->name('appointement');
 
 Route::get('/tarifs', function () {
     return view('welcome');
-});
+})->name('tarifs');

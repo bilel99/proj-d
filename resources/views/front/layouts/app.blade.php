@@ -17,7 +17,7 @@
     <!-- Styles -->
     <link href="{{ asset('front/css/app.css') }}" rel="stylesheet">
 </head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" class="sticky-footer">
+<body class="sticky-footer">
     <div id="app">
         <main>
             @include('front.layouts.partials._header')

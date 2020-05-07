@@ -1,0 +1,35 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+
+// Modules
+@import 'modules/variables';
+@import "modules/mixins";
+@import "modules/animate";
+@import "modules/panel-tabs";
+@import "modules/custom_accordion";
+@import "modules/custom_alert";
+@import 'modules/general';
+@import "modules/form";
+@import "modules/buttons";
+@import "modules/header";
+@import "modules/grid_prices";
+@import 'modules/footer';
+
+// Home
+@import 'modules/banner';
+@import "modules/section-to-transition";
+@import 'modules/service';
+@import 'modules/about';
+@import 'modules/make-appointment';
+@import 'modules/medical-house';
+@import 'modules/other-section';
+@import 'modules/prices';
+@import 'modules/contact';
+
+// Pages
+@import 'modules/banner-appointement';
+@import 'modules/banner-prices';
+@import 'modules/detail-page';
+
+// Import
+@import '~bootstrap/scss/bootstrap';

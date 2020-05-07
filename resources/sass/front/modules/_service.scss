@@ -1,0 +1,46 @@
+/***************************************
+services
+***************************************/
+#service {
+  background-color: $color-light-gray;
+
+  .card {
+    padding: 20px;
+    width: 100%;
+    background-color: $white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+    &:hover {
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  .icon i{
+    padding: 15px;
+    background-color: $color-icon;
+    border-radius: 50%;
+    color: $white;
+    font-size: 45px;
+    margin-bottom: 25px;
+  }
+  .service-info{
+    margin-bottom: 20px;
+  }
+  .icon-info p{
+    font-size: 15px !important;
+  }
+
+  @media #{$tab} {
+    .icon {
+      text-align: center;
+    }
+
+    h4 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+}

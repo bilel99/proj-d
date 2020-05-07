@@ -1,7 +1,5 @@
 <section id="banner" class="banner">
     <div class="bg-color">
-
-
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

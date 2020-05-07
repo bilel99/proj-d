@@ -1,0 +1,63 @@
+.btn-appoint, .btn-appoint:hover, .btn-appoint:focus{
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 12px;
+  background-color: rgba(12, 184, 182, 0.91);
+  border-radius: 3px;
+  color: #fff;
+}
+
+.btn-float{
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:40px;
+  right:40px;
+  background-color:$color-icon;
+  color:$white;
+  border-radius:50%;
+  text-align:center;
+  box-shadow: 2px 2px 3px #999;
+
+  .position-center {
+    margin-top:22px;
+  }
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.btn-contact {
+  width: 15%;
+  padding: 10px 20px;
+  font-size: 12px;
+  background-color: rgba(12, 184, 182, 0.91);
+  color: $white;
+  text-align: center;
+
+  &:hover {
+    transform: scale(1.1);
+    color: $white;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.btn-prim {
+  width: 15%;
+  padding: 10px 20px;
+  font-size: 12px;
+  background-color: rgba(12, 184, 182, 0.91);
+  color: $white;
+  text-align: center;
+
+  &:hover {
+    transform: scale(1.1);
+    color: $white;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.btn-sec {
+
+}

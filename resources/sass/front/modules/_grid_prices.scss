@@ -1,0 +1,61 @@
+.membership-pricing-table {
+  width: 100%;
+
+  table {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+
+    .plan-header {
+      text-align: center;
+      font-size: 48px;
+      border: 1px solid $white;
+      padding: 15px 0;
+    }
+
+    .plan-header-blue {
+      color: $white;
+      background-color: $color-icon;
+      border: 1px solid $white;
+    }
+
+    .plan-header-standard {
+      color: $white;
+      background-color: $color-icon;
+      border: 1px solid $white;
+    }
+
+    td {
+      color: $black;
+      text-align: center;
+      width: 20%;
+      padding: 15px;
+      background-color: $white;
+      font-size: 14px;
+      -webkit-box-shadow: 0 1px 0 $white inset;
+      box-shadow: 0 1px 0 $white inset;
+    }
+
+    tr td:first-child {
+      background-color: $white;
+      text-align: right;
+      width: 20%;
+    }
+
+    td {
+      border: 1px solid $color-light-gray;
+    }
+
+    tr td:nth-child(5) {
+      background-color: $white;
+    }
+
+    tr:first-child th:first-child {
+      border-top: none;
+      border-left: none;
+      border-right-color: $color-light-gray;
+    }
+
+    tr:first-child th {
+      font-size: 22px
+    }
+  }
+}
