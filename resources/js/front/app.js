@@ -1,3 +1,7 @@
+// Import Plugins for Front Office
+require('smartwizard/dist/js/jquery.smartWizard.min')
+
+// ###
 (function (jQuery) {
     disableCopyAndPaste()
     backToTop()
