@@ -1,6 +1,13 @@
 #other-section {
   background-color: $color-light-gray;
-  
+  border-bottom: 45px solid $color-icon;
+
+  @media #{$tab} {
+    img {
+      display: none;
+    }
+  }
+
   .info-paragraph {
     padding: 20px;
   }

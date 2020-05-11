@@ -18,9 +18,13 @@ Route::get('/', function () {
 })->name('homepage');
 
 Route::get('/comment-prendre-un-rendez-vous', function () {
-    return view('welcome');
+    return view('front.appointement.index');
 })->name('appointement');
 
 Route::get('/tarifs', function () {
-    return view('welcome');
-})->name('tarifs');
+    return view('front.prices.index');
+})->name('prices');
+
+Route::get('/nous-contacter', function () {
+    return view('front.contact.index');
+})->name('contacts');

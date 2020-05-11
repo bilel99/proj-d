@@ -16,7 +16,7 @@
 @import 'modules/footer';
 
 // Home
-@import 'modules/banner';
+@import 'modules/banners/banner';
 @import "modules/section-to-transition";
 @import 'modules/service';
 @import 'modules/about';
@@ -27,9 +27,12 @@
 @import 'modules/contact';
 
 // Pages
-@import 'modules/banner-appointement';
-@import 'modules/banner-prices';
+@import 'modules/banners/banner-appointement';
+@import 'modules/banners/banner-prices';
 @import 'modules/detail-page';
 
 // Import
 @import '~bootstrap/scss/bootstrap';
+@import '~smartwizard/dist/css/smart_wizard.min.css';
+@import '~smartwizard/dist/css/smart_wizard_theme_dots.min.css';
+@import '~select2/dist/css/select2.min.css';

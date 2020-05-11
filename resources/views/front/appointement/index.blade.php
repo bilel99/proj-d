@@ -1,13 +1,13 @@
 @extends('front.layouts.app')
 
 @section('content')
-    @include('front.appointement.layout._banner')
+    @include('front.appointement.partials._banner')
 
     <!-- section appointment -->
     <section id="detail-page" class="section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-12 py-3 px-3">
                     <h2 class="title">Comment prendre rendez-vous ?</h2>
                     <hr class="botm-line">
 
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-12 py-3 px-3">
                     <h2 class="title">Ce que les Docteurs de Garde® ne font pas :</h2>
                     <hr class="botm-line">
 
@@ -90,7 +90,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-12 py-3 px-3">
                     <h2 class="title">Un rendez-vous dans quel délai ?</h2>
                     <hr class="botm-line">
 

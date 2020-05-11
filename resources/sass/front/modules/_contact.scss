@@ -1,3 +1,12 @@
+// Transition contact home
+#transition-contact {
+  background: url('../../../../public/front/img/banniere-mobile-contact.jpg') no-repeat ;
+  background-size: cover;
+  min-height: 250px;
+  position: relative;
+}
+
+// Page
 #contact {
   background-color: $white;
   border-bottom: 45px solid $color-icon;
@@ -11,27 +20,38 @@
   }
 
   .card {
-    padding: 30px;
+    padding: 15px;
     background-color: $white;
     width: 100%;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+}
 
-    form {
-      input {
-        border: none;
-        background-color: $color-light-gray;
-        box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-        border-radius: 0;
-        height: 50px;
+.contact-info{
+  margin-bottom: 25px;
 
-        &:focus {
-          box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
-        }
+  &__icon{
+    margin-right: 20px;
+    i,span{
+      color: #8f9195;
+      font-size: 27px;
+    }
+  }
 
-        &:hover {
-          box-shadow: 0 0 0 3px $color-icon;
+  .media-body{
+    h3{
+      font-size: 16px;
+      margin-bottom: 0;
+      color: #2a2a2a;
+      a{
+        &:hover{
+          color: $theme-color2;
         }
       }
+    }
+
+    p{
+      color: #8a8a8a;
     }
   }
 }

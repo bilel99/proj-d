@@ -1,4 +1,45 @@
 #medical-house {
   background-color: $white;
-  
+
+  .nav{
+    display: inline-flex;
+    background: #f8fafe;
+    @include border-radius(3px);
+    margin-bottom: 80px;
+    margin-top: 33px;
+    @media #{$tab} {
+      margin-bottom: 40px;
+    }
+
+    a{
+      font-size: 16px;
+      color: #234262;
+      font-weight: 400;
+      display: inline-block;
+      padding: 8px 22px;
+      @media #{$tab} {
+        padding: 8px 16px;
+      }
+      &.active{
+        background: #60d3e4;
+        color: #fff;
+        @include border-radius(3px);
+      }
+    }
+  }
+
+  .map-responsive {
+    overflow:hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+
+    iframe {
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+    }
+  }
 }
