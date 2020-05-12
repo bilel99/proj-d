@@ -8,6 +8,7 @@
 @import "modules/panel-tabs";
 @import "modules/custom_accordion";
 @import "modules/custom_alert";
+// @todo voir si on externalise le custom_alert dans le fichier scss global car il es utilisé dans le back et le front
 @import 'modules/general';
 @import "modules/form";
 @import "modules/buttons";
@@ -35,4 +36,3 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~smartwizard/dist/css/smart_wizard.min.css';
 @import '~smartwizard/dist/css/smart_wizard_theme_dots.min.css';
-@import '~select2/dist/css/select2.min.css';

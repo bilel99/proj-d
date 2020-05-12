@@ -73,10 +73,33 @@
 
                         </tbody>
                     </table>
-                    
-                    <div class="d-flex p-5 flex-wrap justify-content-center">
-                        <a href="{{ route('admin.users.edit', $user->id) }}" class="text-center btn btn-primary m-3">Modifier</a>
-                        <a href="{{ route('admin.users.destroy', $user->id) }}" class="text-center btn btn-danger m-3">Supprimer</a>
+
+                    <!-- Buttons -->
+                    <div id="saveActions" class="form-group">
+                        <div class="btn-group" role="group">
+                            <a href="{{ route('admin.users.edit', $user->id) }}"
+                               class="btn btn-success btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </span>
+                                <span class="text">Modifier</span>
+                            </a>
+                        </div>
+
+                        <div class="btn-group" role="group">
+                            <form action="{{ route('admin.users.destroy', $user->id) }}" method="post"
+                                  data-id="{{ $user->id }}">
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="submit" class="btn btn-danger btn-icon-split btn-delete">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-ban"></i>
+                                    </span>
+                                    <span class="text">Supprimer</span>
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div><!-- /.box-body -->
             </div>

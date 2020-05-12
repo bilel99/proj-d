@@ -21,3 +21,7 @@ Route::get('/admin/dashboard', function () {
  * Resource Laravel
  */
 Route::resource('/admin/users', 'UsersController');
+Route::resource('/admin/doctors', 'DoctorsController');
+Route::resource('/admin/contacts', 'ContactsController')->except('create', 'store', 'edit', 'update');
+Route::resource('/admin/horaires', 'SchedulesController')->except('create', 'show', 'edit');
+Route::resource('/admin/pages', 'PagesController')->except('show');

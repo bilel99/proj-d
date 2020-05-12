@@ -20,6 +20,7 @@
     <script src="{{ asset('admin/js/sb-admin-2.js') }}" defer></script>
 
     <!-- Styles -->
+    <link href="{{ asset('global/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/sb-admin-2.css') }}" rel="stylesheet">
 </head>
 

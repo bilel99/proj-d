@@ -109,7 +109,12 @@
                                 <span class="text">Save and back</span>
                             </button>
                         </div>
-                        <a href="{{ URL::previous() }}" class="btn btn-default"><i class="fas fa-ban"></i> &nbsp;Cancel</a>
+                        <a href="{{ route('admin.users.index') }}" class="btn btn-default btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-ban"></i>
+                            </span>
+                            <span class="text">Cancel</span>
+                        </a>
                     </div>
                 </form>
             </div>

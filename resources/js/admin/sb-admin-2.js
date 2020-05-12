@@ -1,3 +1,6 @@
+import {Users} from "./users";
+import {Ajax} from "./ajax";
+
 (function($) {
   "use strict"; // Start of use strict
 
@@ -48,9 +51,26 @@
 
   $('#dataTable').DataTable();
 
+  // Init Select2 plugins
+  initSelect2()
+
   /**
    * Instance Class JS
    */
-  //...
+  const ajax = new Ajax()
+  ajax.delete()
+  
+  const user = new Users()
 
 })(jQuery); // End of use strict
+
+/**
+ * Init Select 2 plugins
+ */
+function initSelect2() {
+  jQuery('select.form-control').each(function () {
+    jQuery(this).select2({
+      width: 'resolve' // need to override the changed default
+    })
+  })
+}

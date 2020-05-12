@@ -25,8 +25,6 @@ class CreateContactsTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->date('date_consultation');
-            $table->string('name_doctor');
-            $table->string('firstname_doctor');
             $table->string('objet_demande_doctor');
             $table->longText('precisions');
             $table->timestamps();

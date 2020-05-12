@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Contacts extends Model
 {
+    public const OBJECT_DEMANDE_1 = 'Contacter le médecin qui vous a consulté';
+    public const OBJECT_DEMANDE_2 = 'Contacter la société docteur de garde';
+    public const CIVILITY_MR = 'Mr';
+    public const CIVILITY_MS = 'Mme';
+
     /**
      * The attributes that are mass assignables.
      *
@@ -23,8 +28,6 @@ class Contacts extends Model
         'email',
         'phone',
         'date_consultation',
-        'name_doctor',
-        'firstname_doctor',
         'objet_demande_doctor',
         'precisions'
     ];
@@ -32,5 +35,33 @@ class Contacts extends Model
     public function doctor(): BelongsTo
     {
         return $this->belongsTo(Doctors::class);
+    }
+
+    /**
+     * @return false|string
+     */
+    public function getDateConsultAttribute()
+    {
+        return date('D d m Y', date_timestamp_get(date_create($this->date_consultation)));
+    }
+
+    /**
+     * @param $phoneNumber
+     * @return string
+     */
+    public function getPhoneFormated($phoneNumber): string 
+    {
+        if ($phoneNumber) {
+            return
+                substr($phoneNumber, 0, 2)
+                . ' ' .
+                substr($phoneNumber, 3, 2)
+                . ' ' .
+                substr($phoneNumber, 5, 2)
+                . ' ' .
+                substr($phoneNumber, 7, 2)
+                . ' ' .
+                substr($phoneNumber, 8);
+        }
     }
 }

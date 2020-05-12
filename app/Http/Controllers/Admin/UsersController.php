@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
@@ -24,26 +24,40 @@ class UsersController extends Controller
 
         return view('admin.users.index', compact('users'));
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return View
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('admin.users.partials._create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Response
+     * @param UserRequest $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $user = new User();
+
+        $user->name = $request->get('name');
+        $user->firstname = $request->get('firstname');
+        $user->email = $request->get('email');
+        $user->password = $request->get('password');
+        $user->status = $request->get('status');
+
+        if (!empty($request->get('password'))) {
+            $user->password = Hash::make($request->get('password'));
+        }
+
+        $user->save();
+
+        return redirect()->route('admin.users.index')->with('success', 'create message');
     }
 
     /**
@@ -86,23 +100,35 @@ class UsersController extends Controller
         if (!empty($request->get('password'))) {
             $user->password = Hash::make($request->get('password'));
         }
-        
+
         $user->save();
 
-        return redirect()->back();
+        return redirect()->route('admin.users.index')->with('success', 'update message');
     }
 
     /**
+     * Ajax Request Method
      * Remove the specified resource from storage.
      *
+     * @param Request $request
      * @param User $user
-     * @return RedirectResponse
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\JsonResponse
      * @throws \Exception
      */
-    public function destroy(User $user)
+    public function destroy(Request $request, User $user): JsonResponse
     {
         $user->delete();
 
-        return redirect()->back()->with('success', 'message suppression!');
+        if ($request->isXmlHttpRequest()) {
+            $response = new JsonResponse();
+
+            return $response->setData([
+                'message' => 'delete message',
+                'routeIndex' => route('admin.users.index'),
+                'currentURL' => url()->current(),
+            ]);
+        }
+
+        throw new \RuntimeException(__('globals.ajax.error'));
     }
 }

@@ -17,41 +17,53 @@
     <script src="https://kit.fontawesome.com/629711cf8f.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
+    <script src="{{ asset('plugins/iziToast/dist/js/iziToast.js') }}"></script>
     <script src="{{ asset('global/js/app.js') }}" defer></script>
     <script src="{{ asset('admin/js/sb-admin-2.js') }}" defer></script>
 
     <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('plugins/iziToast/dist/css/iziToast.css') }}">
+    <link href="{{ asset('global/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/sb-admin-2.css') }}" rel="stylesheet">
 </head>
 
 <body id="page-top">
-<div id="app">
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-    @include('admin.layouts.partials._sidebar')
-    <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-            <!-- Main Content -->
-            <div id="content">
-            @include('admin.layouts.partials._nav')
+<div class="message-toast">
+    @include('admin.layouts.success-alert')
+    @include('admin.layouts.error-alert')
+    @include('admin.layouts.warning-alert')
+    @include('admin.layouts.info-alert')
+</div>
 
-            <!-- Begin Page Content -->
-                <div class="container-fluid">
+<!-- Page Wrapper -->
+<div id="wrapper">
 
-                    @yield('content')
+@include('admin.layouts.partials._sidebar')
+<!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+        @include('admin.layouts.partials._nav')
 
-                </div>
+        <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                @yield('content')
+
             </div>
-
-            @include('admin.layouts.partials._footer')
         </div>
+
+        @include('admin.layouts.partials._footer')
     </div>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
 </div>
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<div id="app"></div>
 </body>
 </html>

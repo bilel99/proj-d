@@ -7,9 +7,7 @@ require('./bootstrap')
 require('select2/dist/js/select2.min')
 require('smartwizard/dist/js/jquery.smartWizard.min')
 require('datatables/media/js/jquery.dataTables.min')
-
-// Load SweetAlert2
-import Swal from 'sweetalert2'
+require('izitoast/dist/js/iziToast')
 
 window.Vue = require('vue')
 
