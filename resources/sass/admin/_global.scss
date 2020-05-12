@@ -15,6 +15,11 @@ a {
   }
 }
 
+.mandatory {
+  font-size: 1.2em;
+  color: darkred;
+}
+
 // Main page wrapper
 #wrapper {
   display: flex;

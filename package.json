@@ -22,6 +22,8 @@
         "sass-loader": "^8.0.0",
         "select2": "^4.0.13",
         "smartwizard": "^4.4.1",
+        "datatables": "^1.10.18",
+        "sweetalert2": "^9.10.12",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.11"
     }

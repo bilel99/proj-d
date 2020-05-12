@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,34 +23,12 @@
     <link href="{{ asset('admin/css/sb-admin-2.css') }}" rel="stylesheet">
 </head>
 
-<body id="page-top">
-<div id="app">
-
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-    @include('admin.layouts.partials._sidebar')
-    <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-            <!-- Main Content -->
-            <div id="content">
-            @include('admin.layouts.partials._nav')
-
-            <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    @yield('content')
-
-                </div>
-            </div>
-
-            @include('admin.layouts.partials._footer')
-        </div>
+<body class="bg-gradient-primary">
+<div class="container">
+    <div id="app">
+        @yield('content')
     </div>
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
 </div>
 </body>
+
 </html>

@@ -46,4 +46,11 @@
     e.preventDefault();
   });
 
+  $('#dataTable').DataTable();
+
+  /**
+   * Instance Class JS
+   */
+  //...
+
 })(jQuery); // End of use strict

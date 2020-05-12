@@ -8,6 +8,9 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    public const STATUS_ACTIF = 1;
+    public const STATUS_INACTIF = 2;
+
     use Notifiable;
 
     /**
@@ -16,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'firstname', 'email', 'password',
     ];
 
     /**
@@ -36,4 +39,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @return string
+     */
+    public function getStringStatus()
+    {
+        if (User::STATUS_ACTIF === $this->status) {
+            return 'Actif';
+        }
+
+        return 'Inactif';
+    }
 }

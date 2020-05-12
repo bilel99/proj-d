@@ -28,5 +28,3 @@ Route::get('/tarifs', function () {
 Route::get('/nous-contacter', function () {
     return view('front.contact.index');
 })->name('contacts');
-
-Route::get('/home', 'HomeController@index')->name('home');

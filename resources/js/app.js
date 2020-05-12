@@ -3,10 +3,15 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-require('./bootstrap');
+require('./bootstrap')
 require('select2/dist/js/select2.min')
-require('smartwizard/dist/js/jquery.smartWizard.min');
-window.Vue = require('vue');
+require('smartwizard/dist/js/jquery.smartWizard.min')
+require('datatables/media/js/jquery.dataTables.min')
+
+// Load SweetAlert2
+import Swal from 'sweetalert2'
+
+window.Vue = require('vue')
 
 /**
  * The following block of code may be used to automatically register your
