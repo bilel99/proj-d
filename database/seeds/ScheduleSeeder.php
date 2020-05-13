@@ -12,7 +12,7 @@ class ScheduleSeeder extends Seeder
      */
     public function run()
     {
-        $schedule = [
+        $schedules = [
             [
                 'title' => 'En semaine',
                 'content' => '20h à minuit',
@@ -27,10 +27,10 @@ class ScheduleSeeder extends Seeder
             ],
         ];
 
-        foreach ($schedule as $item) {
-            if (null === Horaires::where(['id' => $item['id']])->first()) {
+        foreach ($schedules as $schedule) {
+            //if (null === Horaires::where(['id' => $schedule['id']])->first()) {
                 Horaires::create($schedule);
-            }
+            //}
         }
     }
 }

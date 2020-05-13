@@ -23,31 +23,14 @@ class PagesController extends Controller
 
         return view('admin.pages.index', compact('pages'));
     }
-    
+
     /**
+     * @param Pages $page
      * @return View
      */
-    public function create(): View
+    public function show(Pages $page): View
     {
-       return view('admin.pages.partials._create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param PageRequest $request
-     * @return RedirectResponse
-     */
-    public function store(PageRequest $request)
-    {
-        $page = new pages();
-
-        $page->unique_name = Str::slug(strtolower($request->get('unique_name')), '-');
-        $page->title = $request->get('title');
-        $page->content = $request->get('content');
-        $page->save();
-
-        return redirect()->route('admin.pages.index')->with('success', 'create message');
+        return view('admin.pages.partials._view', compact('page'));
     }
 
     /**

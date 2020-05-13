@@ -1,16 +1,18 @@
 <!-- Modal -->
-<div class="modal fade" id="add_alert" tabindex="-1" role="dialog" aria-labelledby="add_alert"
+<div class="modal fade" id="edit_alert_{{ $alert->id }}" tabindex="-1" role="dialog"
+     aria-labelledby="edit_alert_{{ $alert->id }}"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="add_alert">Création d'une alert</h5>
+                <h5 class="modal-title" id="edit_alert_{{ $alert->id }}">Edition d'une alert</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('admin.alerts.store') }}" method="post">
+            <form action="{{ route('admin.alerts.update', $alert->id) }}" method="post">
                 @csrf
+                @method('PUT')
 
                 <div class="modal-body">
                     <div class="form-row">
@@ -19,7 +21,7 @@
                             <select name="page_id" id="page_id"
                                     class="form-control @error('page_id') is-invalid @enderror">
                                 @foreach($pages as $page)
-                                    <option value="{{ $page->id }}">{{ $page->title }}</option>
+                                    <option value="{{ $page->id }}" {{ $page->page_id === $alert->id ? 'selected' : '' }}>{{ $page->title }}</option>
                                 @endforeach
                             </select>
 
@@ -35,7 +37,7 @@
                         <div class="form-group col-12">
                             <label for="">title <i class="mandatory">*</i></label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
-                                   id="title" placeholder="title" required>
+                                   id="title" placeholder="title" value="{{ $alert->title }}" required>
 
                             @error('title')
                             <span class="invalid-feedback" role="alert">
@@ -49,7 +51,7 @@
                         <div class="form-group col-12">
                             <label for="">content <i class="mandatory">*</i></label>
                             <input type="text" class="form-control @error('content') is-invalid @enderror"
-                                   name="content" id="content" placeholder="content"
+                                   name="content" id="content" value="{{ $alert->content }}" placeholder="content"
                                    required>
 
                             @error('content')
@@ -64,7 +66,7 @@
                         <div class="form-group col-12">
                             <label for="">icon </label>
                             <input type="text" class="form-control @error('icon') is-invalid @enderror"
-                                   name="icon" id="icon" placeholder="icon">
+                                   name="icon" id="icon" value="{{ $alert->icon }}" placeholder="icon">
 
                             @error('icon')
                             <span class="invalid-feedback" role="alert">
@@ -80,7 +82,7 @@
                             <select name="types" id="types" class="form-control @error('types') is-invalid @enderror"
                                     required>
                                 @foreach($types as $type)
-                                    <option value="{{ $loop->iteration }}">{{ $type }}</option>
+                                    <option value="{{ $loop->iteration }}" {{ $loop->iteration === $alert->types ? 'selected' : '' }}>{{ $type }}</option>
                                 @endforeach
                             </select>
 
@@ -98,7 +100,7 @@
                             <select name="levels" id="levels" class="form-control @error('levels') is-invalid @enderror"
                                     required>
                                 @foreach($levels as $level)
-                                    <option value="{{ $loop->iteration }}">{{ $level }}</option>
+                                    <option value="{{ $loop->iteration }}" {{ $loop->iteration === $alert->levels ? 'selected' : '' }}>{{ $level }}</option>
                                 @endforeach
                             </select>
 

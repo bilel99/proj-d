@@ -96,7 +96,7 @@
                     <span>Maisons médicales</span>
                 </a>
 
-                <a class="collapse-item" href="{{ route('admin.horaires.index') }}">
+                <a class="collapse-item" href="{{ route('admin.alerts.index') }}">
                     <i class="fas fa-exclamation"></i>
                     <span>Les alerts</span>
                 </a>

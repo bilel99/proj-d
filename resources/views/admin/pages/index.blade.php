@@ -10,17 +10,6 @@
             <h6 class="m-0 font-weight-bold text-primary">List pages</h6>
         </div>
         <div class="card-body">
-            <!-- Buttons -->
-            <div id="saveActions" class="form-group float-right">
-                <div class="btn-group" role="group">
-                    <a href="{{ route('admin.pages.create') }}" class="btn btn-success btn-icon-split">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-plus"></i>
-                                </span>
-                        <span class="text">Create</span>
-                    </a>
-                </div>
-            </div>
             <div class="table-responsive">
                 <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                     <thead>

@@ -20,6 +20,7 @@ class CreateAlertsTable extends Migration
             $table->text('content')->nullable();
             $table->string('icon')->nullable();
             $table->integer('types')->nullable()->comment('1 = alert, 2 = alert-message, 3 = plain-text, ...');
+            $table->integer('levels')->nullable()->comment('1 = default, 2 = info, 3 = warning, 4 = danger');
             $table->timestamps();
 
             $table->foreign('page_id')->references('id')->on('pages')
