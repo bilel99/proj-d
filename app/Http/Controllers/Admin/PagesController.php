@@ -30,15 +30,6 @@ class PagesController extends Controller
      * @param Pages $page
      * @return View
      */
-    public function show(Pages $page): View
-    {
-        return view('admin.pages.partials._view', compact('page'));
-    }
-
-    /**
-     * @param Pages $page
-     * @return View
-     */
     public function edit(Pages $page): View
     {
         $alerts = Alerts::all();

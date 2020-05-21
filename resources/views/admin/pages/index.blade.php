@@ -43,11 +43,6 @@
                             <td>{{ $page->created_at->format('D d M Y') }}</td>
                             <td>
                                 <div class="d-flex justify-content-center">
-                                    <a href="{{ route('admin.pages.show', $page->id) }}"
-                                       class="btn btn-info btn-circle mr-1">
-                                        <i class="far fa-eye"></i>
-                                    </a>
-
                                     <a href="{{ route('admin.pages.edit', $page->id) }}"
                                        class="btn btn-primary btn-circle mr-1">
                                         <i class="fas fa-pen"></i>

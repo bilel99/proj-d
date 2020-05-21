@@ -10,7 +10,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use mysql_xdevapi\XSession;
 
 class AlertsController extends Controller
 {
@@ -52,7 +51,7 @@ class AlertsController extends Controller
             $response = new JsonResponse();
 
             return $response->setData([
-                'alert' => $alert,
+                'model' => $alert,
                 'message' => 'Created message',
                 'routeIndex' => route('admin.alerts.index'),
             ]);

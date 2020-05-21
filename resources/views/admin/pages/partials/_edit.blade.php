@@ -75,7 +75,7 @@
                             </button>
 
                             <select name="alerts" id="alerts" class="form-control @error('alerts') is-invalid @enderror"
-                                    multiple>
+                                    multiple style="width: 100%">
 
                                 @foreach($alerts as $alert)
                                     @foreach($page->alert as $myAlert)

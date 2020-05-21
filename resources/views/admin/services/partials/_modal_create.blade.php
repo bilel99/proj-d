@@ -1,18 +1,16 @@
 <!-- Modal -->
-<div class="modal fade" id="edit_alert_{{ $alert->id }}" tabindex="-1" role="dialog"
-     aria-labelledby="edit_alert_{{ $alert->id }}"
+<div class="modal fade" id="add_service" tabindex="-1" role="dialog" aria-labelledby="add_service"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="edit_alert_{{ $alert->id }}">Edition d'une alert</h5>
+                <h5 class="modal-title" id="add_service">Création d'un service</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('admin.alerts.update', $alert->id) }}" method="post">
+            <form action="{{ route('admin.services.store') }}" id="form-created" method="post">
                 @csrf
-                @method('PUT')
 
                 <div class="modal-body">
                     <div class="form-row">
@@ -21,7 +19,7 @@
                             <select name="page_id" id="page_id"
                                     class="form-control @error('page_id') is-invalid @enderror" style="width: 100%">
                                 @foreach($pages as $page)
-                                    <option value="{{ $page->id }}" {{ $page->id === $alert->page_id ? 'selected' : '' }}>{{ $page->title }}</option>
+                                    <option value="{{ $page->id }}">{{ $page->title }}</option>
                                 @endforeach
                             </select>
 
@@ -37,7 +35,7 @@
                         <div class="form-group col-12">
                             <label for="">title <i class="mandatory">*</i></label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
-                                   id="title" placeholder="title" value="{{ $alert->title }}" required>
+                                   id="title" placeholder="title" required>
 
                             @error('title')
                             <span class="invalid-feedback" role="alert">
@@ -51,7 +49,7 @@
                         <div class="form-group col-12">
                             <label for="">content <i class="mandatory">*</i></label>
                             <input type="text" class="form-control @error('content') is-invalid @enderror"
-                                   name="content" id="content" value="{{ $alert->content }}" placeholder="content"
+                                   name="content" id="content" placeholder="content"
                                    required>
 
                             @error('content')
@@ -66,45 +64,9 @@
                         <div class="form-group col-12">
                             <label for="">icon </label>
                             <input type="text" class="form-control @error('icon') is-invalid @enderror"
-                                   name="icon" id="icon" value="{{ $alert->icon }}" placeholder="icon">
+                                   name="icon" id="icon" placeholder="icon">
 
                             @error('icon')
-                            <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-12">
-                            <label for="">types <i class="mandatory">*</i></label>
-                            <select name="types" id="types" class="form-control @error('types') is-invalid @enderror"
-                                    required style="width: 100%">
-                                @foreach($types as $type)
-                                    <option value="{{ $loop->iteration }}" {{ $loop->iteration === $alert->types ? 'selected' : '' }}>{{ $type }}</option>
-                                @endforeach
-                            </select>
-
-                            @error('types')
-                            <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-12">
-                            <label for="">levels <i class="mandatory">*</i></label>
-                            <select name="levels" id="levels" class="form-control @error('levels') is-invalid @enderror"
-                                    required style="width: 100%">
-                                @foreach($levels as $level)
-                                    <option value="{{ $loop->iteration }}" {{ $loop->iteration === $alert->levels ? 'selected' : '' }}>{{ $level }}</option>
-                                @endforeach
-                            </select>
-
-                            @error('levels')
                             <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

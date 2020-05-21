@@ -24,5 +24,6 @@ Route::resource('/admin/users', 'UsersController');
 Route::resource('/admin/doctors', 'DoctorsController');
 Route::resource('/admin/contacts', 'ContactsController')->except('create', 'store', 'edit', 'update');
 Route::resource('/admin/horaires', 'SchedulesController')->except('create', 'show', 'edit');
-Route::resource('/admin/pages', 'PagesController')->except('create', 'store', 'destroy');
+Route::resource('/admin/pages', 'PagesController')->except('create', 'store', 'show', 'destroy');
+Route::resource('/admin/services', 'ServicesController')->except('create', 'show', 'edit');
 Route::resource('/admin/alerts', 'AlertsController')->except('create', 'show', 'edit');

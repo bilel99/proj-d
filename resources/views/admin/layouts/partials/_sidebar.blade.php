@@ -81,8 +81,8 @@
                     <span>Pages</span>
                 </a>
 
-                <a class="collapse-item" href="{{ route('admin.doctors.index') }}">
-                    <i class="fas fa-file-alt"></i>
+                <a class="collapse-item" href="{{ route('admin.services.index') }}">
+                    <i class="fas fa-concierge-bell"></i>
                     <span>Services</span>
                 </a>
 

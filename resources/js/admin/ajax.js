@@ -70,11 +70,11 @@ export class Ajax extends Helpers {
                     jQuery('#add_alert').modal('hide');
 
                     // Set the value, creating a new option if necessary
-                    if (jQuery('#alerts').find("option[value='" + res.alert.id + "']").length) {
-                        jQuery('#alerts').val(res.alert.id).trigger('change');
+                    if (jQuery('#alerts').find("option[value='" + res.model.id + "']").length) {
+                        jQuery('#alerts').val(res.model.id).trigger('change');
                     } else {
                         // Create a DOM Option and pre-select by default
-                        let newOption = new Option(res.alert.title, res.alert.id, true, true);
+                        let newOption = new Option(res.model.title, res.model.id, true, true);
                         // Append it to the select
                         jQuery('#alerts').append(newOption).trigger('change');
                     }
