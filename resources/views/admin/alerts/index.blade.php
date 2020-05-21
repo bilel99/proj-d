@@ -64,8 +64,8 @@
                                     <i class="{{ $alert->icon }}"></i>
                                 </div>
                             </td>
-                            <td>{{ $alert->types }}</td>
-                            <td>{{ $alert->levels }}</td>
+                            <td>{{ $alert->returnGetType($alert->types) }}</td>
+                            <td>{{ $alert->returnGetLevel($alert->levels) }}</td>
                             <td>{{ $alert->created_at->format('D d M Y') }}</td>
                             <td>
                                 <div class="d-flex justify-content-center">

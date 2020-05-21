@@ -94,7 +94,7 @@
 /***/ (function(module, exports) {
 
 (function (jQuery) {
-  disableCopyAndPaste();
+  //disableCopyAndPaste()
   backToTop();
   navbar();
   switchRadioButton();

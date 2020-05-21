@@ -59,6 +59,7 @@ import {Ajax} from "./ajax";
    */
   const ajax = new Ajax()
   ajax.delete()
+  ajax.created()
   
   const user = new Users()
 
@@ -73,4 +74,8 @@ function initSelect2() {
       width: 'resolve' // need to override the changed default
     })
   })
+}
+
+function addAutomaticallyAlertToSelect () {
+  
 }

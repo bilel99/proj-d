@@ -3,7 +3,11 @@
 @section('content')
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Pages</h1>
-    <p class="mb-4"></p>
+    <div class="alert-message alert-message-warning mb-4">
+        <p>
+            <i class="fas fa-exclamation"></i>&nbsp; Les pages représente les différentes sections de votre site internet, un titre représente une page
+        </p>
+    </div>
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -48,16 +52,6 @@
                                        class="btn btn-primary btn-circle mr-1">
                                         <i class="fas fa-pen"></i>
                                     </a>
-                                    
-                                    <form action="{{ route('admin.pages.destroy', $page->id) }}" method="post"
-                                          data-id="{{ $page->id }}">
-                                        @csrf
-                                        @method('DELETE')
-
-                                        <button type="submit" class="btn-delete btn btn-danger btn-circle mr-1">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </form>
                                 </div>
                             </td>
                         </tr>

@@ -10,6 +10,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use mysql_xdevapi\XSession;
 
 class AlertsController extends Controller
 {
@@ -32,9 +33,10 @@ class AlertsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param AlertRequest $request
-     * @return RedirectResponse
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\JsonResponse
+     * @throws \Exception
      */
-    public function store(AlertRequest $request): RedirectResponse
+    public function store(AlertRequest $request): JsonResponse
     {
         $alert = new Alerts();
 
@@ -43,9 +45,22 @@ class AlertsController extends Controller
         $alert->content = $request->get('content');
         $alert->icon = $request->get('icon');
         $alert->types = $request->get('types');
+        $alert->levels = $request->get('levels');
         $alert->save();
 
-        return redirect()->route('admin.alerts.index')->with('success', 'create message');
+        if ($request->isXmlHttpRequest()) {
+            $response = new JsonResponse();
+
+            return $response->setData([
+                'alert' => $alert,
+                'message' => 'Created message',
+                'routeIndex' => route('admin.alerts.index'),
+            ]);
+        }
+
+        throw new \RuntimeException(__('globals.ajax.error'));
+
+        //return redirect()->route('admin.alerts.index')->with('success', 'create message');
     }
 
     /**
@@ -62,6 +77,7 @@ class AlertsController extends Controller
         $alert->content = $request->get('content');
         $alert->icon = $request->get('icon');
         $alert->types = $request->get('types');
+        $alert->levels = $request->get('levels');
         $alert->save();
 
         return redirect()->route('admin.alerts.index')->with('success', 'update message');

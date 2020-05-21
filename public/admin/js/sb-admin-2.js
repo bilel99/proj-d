@@ -4067,6 +4067,60 @@ var Ajax = /*#__PURE__*/function (_Helpers) {
         });
       });
     }
+  }, {
+    key: "created",
+    value: function created() {
+      jQuery('.btn-created').on('click', function (e) {
+        e.preventDefault();
+        var $this = jQuery(e.currentTarget);
+        var form = jQuery('#form-created');
+        var url = form.attr('action');
+        var type = 'POST';
+        var data = form.serialize();
+        var currentURL = window.location.href;
+
+        var ajxSuccessFn = /*#__PURE__*/function () {
+          var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(res) {
+            var newOption;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    if (currentURL === res.routeIndex) {
+                      setTimeout(function () {
+                        window.location.href = res.routeIndex;
+                      }, 1500);
+                    } else {
+                      jQuery('#add_alert').modal('hide'); // Set the value, creating a new option if necessary
+
+                      if (jQuery('#alerts').find("option[value='" + res.alert.id + "']").length) {
+                        jQuery('#alerts').val(res.alert.id).trigger('change');
+                      } else {
+                        // Create a DOM Option and pre-select by default
+                        newOption = new Option(res.alert.title, res.alert.id, true, true); // Append it to the select
+
+                        jQuery('#alerts').append(newOption).trigger('change');
+                      }
+                    }
+
+                    _helpers__WEBPACK_IMPORTED_MODULE_2__["Helpers"].showMessageSuccess(res.message);
+
+                  case 2:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            }, _callee2);
+          }));
+
+          return function ajxSuccessFn(_x2) {
+            return _ref2.apply(this, arguments);
+          };
+        }();
+
+        _helpers__WEBPACK_IMPORTED_MODULE_2__["Helpers"].ajaxCall(url, data, type, 'json', null, true, 'application/x-www-form-urlencoded; charset=UTF-8').then(ajxSuccessFn, _helpers__WEBPACK_IMPORTED_MODULE_2__["Helpers"].handleErrorFn);
+      });
+    }
   }]);
 
   return Ajax;
@@ -4537,6 +4591,7 @@ __webpack_require__.r(__webpack_exports__);
 
   var ajax = new _ajax__WEBPACK_IMPORTED_MODULE_1__["Ajax"]();
   ajax["delete"]();
+  ajax.created();
   var user = new _users__WEBPACK_IMPORTED_MODULE_0__["Users"]();
 })(jQuery); // End of use strict
 
@@ -4553,6 +4608,8 @@ function initSelect2() {
     });
   });
 }
+
+function addAutomaticallyAlertToSelect() {}
 
 /***/ }),
 

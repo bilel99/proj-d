@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PageRequest;
+use App\Models\Alerts;
 use App\Models\Pages;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -34,12 +36,17 @@ class PagesController extends Controller
     }
 
     /**
-     * @param Pages $pages
+     * @param Pages $page
      * @return View
      */
-    public function edit(Pages $pages): View
+    public function edit(Pages $page): View
     {
-        return view('admin.pages.partials._edit', compact('pages'));
+        $alerts = Alerts::all();
+        $pages = Pages::all();
+        $types = Alerts::getTypes();
+        $levels = Alerts::getLevels();
+
+        return view('admin.pages.partials._edit', compact('page', 'alerts', 'pages', 'types', 'levels'));
     }
 
     /**
@@ -57,31 +64,5 @@ class PagesController extends Controller
         $page->save();
 
         return redirect()->route('admin.pages.index')->with('success', 'update message');
-    }
-
-    /**
-     * Ajax Request Method
-     * Remove the specified resource from storage.
-     *
-     * @param Request $request
-     * @param pages $page
-     * @return JsonResponse|\Symfony\Component\HttpFoundation\JsonResponse
-     * @throws \Exception
-     */
-    public function destroy(Request $request, Pages $page): JsonResponse
-    {
-        $page->delete();
-
-        if ($request->isXmlHttpRequest()) {
-            $response = new JsonResponse();
-
-            return $response->setData([
-                'message' => 'delete message',
-                'routeIndex' => route('admin.pages.index'),
-                'currentURL' => url()->current(),
-            ]);
-        }
-
-        throw new \RuntimeException(__('globals.ajax.error'));
     }
 }

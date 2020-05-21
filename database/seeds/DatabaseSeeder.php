@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DoctorSeeder::class);
         $this->call(ContactSeeder::class);
         $this->call(AlertSeeder::class);
+        $this->call(PagesSeeder::class);
     }
 }

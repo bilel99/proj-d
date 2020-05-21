@@ -59,7 +59,10 @@ class AlertRequest extends FormRequest
             ],
             'types' => [
                 'nullable',
-                'max:1',
+                'numeric',
+            ],
+            'levels' => [
+                'nullable',
                 'numeric',
             ],
         ];

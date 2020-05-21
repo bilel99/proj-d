@@ -15,19 +15,8 @@
                 <div class="modal-body">
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">Page </label>
-                            <select name="page_id" id="page_id"
-                                    class="form-control @error('page_id') is-invalid @enderror" style="width: 100%">
-                                @foreach($pages as $page)
-                                    <option value="{{ $page->id }}">{{ $page->title }}</option>
-                                @endforeach
-                            </select>
-
-                            @error('page_id')
-                            <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            <input type="hidden" name="page_id" id="page_id" class="form-control" value="{{ $page->id }}"
+                                   required>
                         </div>
                     </div>
 

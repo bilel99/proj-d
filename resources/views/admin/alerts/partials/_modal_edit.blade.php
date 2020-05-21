@@ -80,7 +80,7 @@
                         <div class="form-group col-12">
                             <label for="">types <i class="mandatory">*</i></label>
                             <select name="types" id="types" class="form-control @error('types') is-invalid @enderror"
-                                    required>
+                                    required style="width: 100%">
                                 @foreach($types as $type)
                                     <option value="{{ $loop->iteration }}" {{ $loop->iteration === $alert->types ? 'selected' : '' }}>{{ $type }}</option>
                                 @endforeach
@@ -98,7 +98,7 @@
                         <div class="form-group col-12">
                             <label for="">levels <i class="mandatory">*</i></label>
                             <select name="levels" id="levels" class="form-control @error('levels') is-invalid @enderror"
-                                    required>
+                                    required style="width: 100%">
                                 @foreach($levels as $level)
                                     <option value="{{ $loop->iteration }}" {{ $loop->iteration === $alert->levels ? 'selected' : '' }}>{{ $level }}</option>
                                 @endforeach

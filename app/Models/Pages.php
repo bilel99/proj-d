@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Pages extends Model
 {
@@ -18,8 +19,11 @@ class Pages extends Model
         'content'
     ];
 
-    public function alert(): BelongsTo
+    /**
+     * @return HasMany
+     */
+    public function alert(): HasMany
     {
-        return $this->belongsTo(Alerts::class);
+        return $this->hasMany(Alerts::class, 'page_id');
     }
 }

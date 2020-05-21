@@ -1,5 +1,5 @@
 (function (jQuery) {
-    disableCopyAndPaste()
+    //disableCopyAndPaste()
     backToTop()
     navbar()
     switchRadioButton()

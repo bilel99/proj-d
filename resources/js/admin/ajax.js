@@ -50,4 +50,40 @@ export class Ajax extends Helpers {
             })
         })
     }
+
+    created() {
+        jQuery('.btn-created').on('click', function (e) {
+            e.preventDefault()
+            const $this = jQuery(e.currentTarget)
+            const form = jQuery('#form-created')
+            const url = form.attr('action')
+            const type = 'POST'
+            const data = form.serialize()
+            const currentURL = window.location.href
+
+            let ajxSuccessFn = async (res) => {
+                if (currentURL === res.routeIndex) {
+                    setTimeout(() => {
+                        window.location.href = res.routeIndex
+                    }, 1500)
+                } else {
+                    jQuery('#add_alert').modal('hide');
+
+                    // Set the value, creating a new option if necessary
+                    if (jQuery('#alerts').find("option[value='" + res.alert.id + "']").length) {
+                        jQuery('#alerts').val(res.alert.id).trigger('change');
+                    } else {
+                        // Create a DOM Option and pre-select by default
+                        let newOption = new Option(res.alert.title, res.alert.id, true, true);
+                        // Append it to the select
+                        jQuery('#alerts').append(newOption).trigger('change');
+                    }
+                }
+
+                Helpers.showMessageSuccess(res.message)
+            }
+
+            Helpers.ajaxCall(url, data, type, 'json', null, true, 'application/x-www-form-urlencoded; charset=UTF-8').then(ajxSuccessFn, Helpers.handleErrorFn)
+        })
+    }
 }

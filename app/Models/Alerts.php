@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Alerts extends Model
@@ -28,12 +29,16 @@ class Alerts extends Model
         'title',
         'content',
         'icon',
-        'types'
+        'types',
+        'levels',
     ];
 
-    public function page(): HasMany
+    /**
+     * @return BelongsTo
+     */
+    public function page(): BelongsTo
     {
-        return $this->hasMany(Pages::class);
+        return $this->belongsTo(Pages::class);
     }
 
     /**
@@ -59,5 +64,51 @@ class Alerts extends Model
             '3' => self::LEVELS_WARNING,
             '4' => self::LEVELS_DANGER,
         ];
+    }
+
+    /**
+     * @param int $types
+     * @return string
+     */
+    public function returnGetType(int $types): string 
+    {
+        switch ($types) {
+            case 1:
+                return self::TYPES_ALERT;
+                break;
+            case 2:
+                return self::TYPES_ALERT_MESSAGE;
+                break;
+            case 3:
+                return self::TYPES_PLAIN_TEXT;
+                break;
+            default:
+                return self::TYPES_ALERT;
+
+        }
+    }
+
+    /**
+     * @param int $levels
+     * @return string
+     */
+    public function returnGetLevel(int $levels): string
+    {
+        switch ($levels) {
+            case 1:
+                return self::LEVELS_DEFAULT;
+                break;
+            case 2:
+                return self::LEVELS_INFO;
+                break;
+            case 3:
+                return self::LEVELS_WARNING;
+                break;
+            case 4:
+                return self::LEVELS_DANGER;
+                break;
+            default:
+                return self::LEVELS_DEFAULT;
+        }
     }
 }

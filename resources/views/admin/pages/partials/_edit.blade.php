@@ -18,15 +18,17 @@
         <div class="card-body">
             <div class="col-md-12">
                 <!-- Default box -->
-                <form action="{{ route('admin.pages.store') }}" method="post">
+                <form action="{{ route('admin.pages.update', $page->id) }}" method="post">
                     @csrf
+                    @method('PUT')
 
                     <div class="form-row">
                         <div class="form-group col-md-6 col-sm-12">
-                            <label for="">unique_name <i class="mandatory">*</i></label>
+                            <label for="unique_name">unique_name <i class="mandatory">*</i></label>
                             <input type="text" class="form-control @error('unique_name') is-invalid @enderror"
                                    name="unique_name"
-                                   id="unique_name" placeholder="unique_name" required>
+                                   id="unique_name" placeholder="unique_name" required
+                                   value="{{ $page->unique_name }}">
 
                             @error('unique_name')
                             <span class="invalid-feedback" role="alert">
@@ -36,9 +38,9 @@
                         </div>
 
                         <div class="form-group col-md-6 col-sm-12">
-                            <label for="">title <i class="mandatory">*</i></label>
+                            <label for="title">title </label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
-                                   id="title" placeholder="title" required>
+                                   id="title" placeholder="title" value="{{ $page->title }}">
 
                             @error('title')
                             <span class="invalid-feedback" role="alert">
@@ -50,10 +52,10 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">content <i class="mandatory">*</i></label>
-                            <input type="text" class="form-control @error('content') is-invalid @enderror"
-                                   name="content" id="content" placeholder="content"
-                                   required>
+                            <label for="content">content </label>
+                            <textarea name="content" id="content"
+                                      class="form-control @error('content') is-invalid @enderror" cols="30"
+                                      rows="10">{!! $page->content !!}</textarea>
 
                             @error('content')
                             <span class="invalid-feedback" role="alert">
@@ -63,20 +65,23 @@
                         </div>
                     </div>
 
-                    <!-- @todo crée des alerte directement depuis la création d'une page réfléchir à l'UI -->
-
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">alerts </label>
-                            <button type="button" class="btn btn-sm btn-link float-right" data-toggle="modal" data-target="#add_alert">
+                            <label for="alerts">alerts </label>
+                            <button type="button" class="btn btn-sm btn-link float-right" data-toggle="modal"
+                                    data-target="#add_alert">
                                 <i class="fas fa-plus"></i>
                                 Ajouter
                             </button>
 
                             <select name="alerts" id="alerts" class="form-control @error('alerts') is-invalid @enderror"
                                     multiple>
-                                <option value=""></option>
 
+                                @foreach($alerts as $alert)
+                                    @foreach($page->alert as $myAlert)
+                                        <option value="{{ $alert->id }}" {{ $alert->id === $myAlert->id ? 'selected': '' }}>{{ $alert->title }}</option>
+                                    @endforeach
+                                @endforeach
                             </select>
 
                             @error('alerts')
@@ -111,5 +116,5 @@
     </div>
 
     <!-- Import Modal -->
-    @include('admin.alerts.partials._modal_create')
+    @include('admin.pages.partials._modal_create_alert')
 @endsection
