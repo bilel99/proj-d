@@ -4,9 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Spatie\Image\Exceptions\InvalidManipulation;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\Models\Media;
 
-class Pages extends Model
+class Pages extends Model implements HasMedia
 {
+    use InteractsWithMedia;
+
     public const PAGE_QUI_SOMME_NOUS = 'qui-sommes-nous';
     public const PAGE_NOS_SERVICES = 'nos-services';
     public const PAGE_COMMENT_PRENDRE_RDV = 'comment-prendre-rendez-vous';
@@ -44,5 +50,27 @@ class Pages extends Model
             'alert_id')
             ->using(PageAlert::class)
             ->withTimestamps();
+    }
+
+    /**
+     * is there a picture
+     *
+     * @param string $collection
+     * @return bool
+     */
+    public function hasFile(string $collection): bool
+    {
+        return count($this->getMedia($collection)) > 0;
+    }
+
+    /**
+     * I use the MediaLibrary Bundle
+     *
+     * @param string $collection
+     * @return string
+     */
+    public function getRetrievingFile(string $collection): string
+    {
+        return $this->getMedia($collection)->first()->getFullUrl();
     }
 }

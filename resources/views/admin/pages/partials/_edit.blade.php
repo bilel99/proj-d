@@ -18,7 +18,7 @@
         <div class="card-body">
             <div class="col-md-12">
                 <!-- Default box -->
-                <form action="{{ route('admin.pages.update', $page->id) }}" method="post">
+                <form action="{{ route('admin.pages.update', $page->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -60,7 +60,8 @@
                                 Ajouter
                             </button>
 
-                            <select name="alerts[]" id="alerts" class="form-control @error('alerts') is-invalid @enderror"
+                            <select name="alerts[]" id="alerts"
+                                    class="form-control @error('alerts') is-invalid @enderror"
                                     multiple style="width: 100%">
 
                                 @foreach($page->alerts as $myAlert)
@@ -80,7 +81,31 @@
                         </div>
                     </div>
 
+                    <div class="form-row">
+                        <div class="col-md-6 col-sm-12">
+                            <span class="text-center font-weight-bold d-block">Image: </span>
+                            @if($page->hasFile($page->unique_name))
+                                <img src="{{ $page->getRetrievingFile($page->unique_name) }}" class="d-block img-responsive" alt="image pour page {{ $page->unique_name }}">
+                            @else
+                                <span class="text-center font-weight-bold text-muted">
+                                    Vous avez uploader aucune image pour l'instant!
+                                </span>
+                            @endif
+                        </div>
 
+                        <div class="form-group col-md-6 col-sm-12">
+                            <label for="files">Medias </label>
+                            <input
+                                    type="file"
+                                    name="files"
+                                    id="files"
+                                    label="Déposez des fichiers ici ou cliquez pour télécharger"
+                                    help="Uploader des fichiers ici"
+                                    is="drop-files"
+                            />
+                        </div>
+                    </div>
+                    
                     <!-- Buttons -->
                     <div id="saveActions" class="form-group">
                         <div class="btn-group" role="group">

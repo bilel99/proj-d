@@ -63,3 +63,11 @@ a {
     font-weight: 800;
   }
 }
+
+.drop-files {
+  border: 3px dashed $brand-facebook !important;
+  border-radius: 3px !important;
+  position: relative !important;
+  transition: border .3s !important;
+  padding: 10px 5px !important;
+}

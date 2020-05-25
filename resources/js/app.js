@@ -8,6 +8,7 @@ require('select2/dist/js/select2.min')
 require('smartwizard/dist/js/jquery.smartWizard.min')
 require('datatables/media/js/jquery.dataTables.min')
 require('izitoast/dist/js/iziToast')
+require('@grafikart/drop-files-element')
 
 window.Vue = require('vue')
 
