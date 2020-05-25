@@ -17,7 +17,7 @@
                 <div class="modal-body">
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">title <i class="mandatory">*</i></label>
+                            <label for="title">title <i class="mandatory">*</i></label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
                                    id="title" placeholder="title" value="{{ $alert->title }}" required>
 
@@ -31,7 +31,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">content <i class="mandatory">*</i></label>
+                            <label for="content">content <i class="mandatory">*</i></label>
                             <input type="text" class="form-control @error('content') is-invalid @enderror"
                                    name="content" id="content" value="{{ $alert->content }}" placeholder="content"
                                    required>
@@ -46,7 +46,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">icon </label>
+                            <label for="icon">icon </label>
                             <input type="text" class="form-control @error('icon') is-invalid @enderror"
                                    name="icon" id="icon" value="{{ $alert->icon }}" placeholder="icon">
 
@@ -60,9 +60,9 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">types <i class="mandatory">*</i></label>
+                            <label for="types">types </label>
                             <select name="types" id="types" class="form-control @error('types') is-invalid @enderror"
-                                    required style="width: 100%">
+                                    style="width: 100%">
                                 @foreach($types as $type)
                                     <option value="{{ $loop->iteration }}" {{ $loop->iteration === $alert->types ? 'selected' : '' }}>{{ $type }}</option>
                                 @endforeach
@@ -78,9 +78,9 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">levels <i class="mandatory">*</i></label>
+                            <label for="levels">levels </label>
                             <select name="levels" id="levels" class="form-control @error('levels') is-invalid @enderror"
-                                    required style="width: 100%">
+                                    style="width: 100%">
                                 @foreach($levels as $level)
                                     <option value="{{ $loop->iteration }}" {{ $loop->iteration === $alert->levels ? 'selected' : '' }}>{{ $level }}</option>
                                 @endforeach

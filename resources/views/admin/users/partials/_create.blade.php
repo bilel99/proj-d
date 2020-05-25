@@ -23,7 +23,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-6 col-sm-12">
-                            <label for="">Nom <i class="mandatory">*</i></label>
+                            <label for="name">Nom <i class="mandatory">*</i></label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
                                    id="name" placeholder="name" required>
 
@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="form-group col-md-6 col-sm-12">
-                            <label for="">Prénom <i class="mandatory">*</i></label>
+                            <label for="firstname">Prénom <i class="mandatory">*</i></label>
                             <input type="text" class="form-control @error('firstname') is-invalid @enderror"
                                    name="firstname" id="firstname" placeholder="firstname"
                                    required>
@@ -50,7 +50,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-6 col-sm-12">
-                            <label for="">email <i class="mandatory">*</i></label>
+                            <label for="email">email <i class="mandatory">*</i></label>
                             <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
                                    id="email" placeholder="email" required>
 
@@ -62,9 +62,8 @@
                         </div>
 
                         <div class="form-group col-md-6 col-sm-12">
-                            <label for="">status <i class="mandatory">*</i></label>
-                            <select name="status" id="status" class="form-control @error('status') is-invalid @enderror"
-                                    required>
+                            <label for="status">status </label>
+                            <select name="status" id="status" class="form-control @error('status') is-invalid @enderror">
                                 <option value="{{\App\Models\User::STATUS_ACTIF}}" selected>
                                     Actif
                                 </option>
@@ -83,7 +82,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-6 col-sm-12">
-                            <label for="">New password </label>
+                            <label for="password">New password </label>
                             <input type="password" class="form-control @error('password') is-invalid @enderror"
                                    name="password" id="password"
                                    placeholder="password">
@@ -96,7 +95,7 @@
                         </div>
 
                         <div class="form-group col-md-6 col-sm-12">
-                            <label for="">confirm password </label>
+                            <label for="password_confirmation">confirm password </label>
                             <input type="password" class="form-control" name="password_confirmation"
                                    id="password_confirmation"
                                    placeholder="password_confirmation">

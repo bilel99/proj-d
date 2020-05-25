@@ -17,7 +17,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">icon </label>
+                            <label for="icon">icon </label>
                             <input type="text" class="form-control @error('icon') is-invalid @enderror"
                                    name="icon" id="icon" placeholder="icon">
 
@@ -31,7 +31,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">title <i class="mandatory">*</i></label>
+                            <label for="title">title <i class="mandatory">*</i></label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
                                    id="title" placeholder="title" required>
 
@@ -45,7 +45,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">infos <i class="mandatory">*</i></label>
+                            <label for="infos">infos <i class="mandatory">*</i></label>
                             <input type="text" class="form-control @error('infos') is-invalid @enderror"
                                    name="infos" id="infos" placeholder="infos"
                                    required>

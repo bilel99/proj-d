@@ -23,7 +23,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-6 col-sm-12">
-                            <label for="">Nom <i class="mandatory">*</i></label>
+                            <label for="name">Nom <i class="mandatory">*</i></label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
                                    id="name" placeholder="name" required>
 
@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="form-group col-md-6 col-sm-12">
-                            <label for="">Prénom <i class="mandatory">*</i></label>
+                            <label for="firstname">Prénom <i class="mandatory">*</i></label>
                             <input type="text" class="form-control @error('firstname') is-invalid @enderror"
                                    name="firstname" id="firstname" placeholder="firstname"
                                    required>
@@ -50,7 +50,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-6 col-sm-12">
-                            <label for="">civility </label>
+                            <label for="civility">civility </label>
                             <select name="civility" id="civility" class="form-control @error('civility') is-invalid @enderror">
                                 <option value="{{\App\Models\Doctors::CIVILITY_MR}}" selected>
                                     {{\App\Models\Doctors::CIVILITY_MR}}
@@ -68,7 +68,7 @@
                         </div>
 
                         <div class="form-group col-md-6 col-sm-12">
-                            <label for="">email <i class="mandatory">*</i></label>
+                            <label for="email">email <i class="mandatory">*</i></label>
                             <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
                                    id="email" placeholder="email" required>
 

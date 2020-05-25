@@ -5,11 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InfoRequest;
 use App\Http\Requests\MedicalHouseRequest;
-use App\Models\Alerts;
-use App\Models\Informations;
 use App\Models\MedicalHouses;
-use App\Models\Pages;
 use App\Models\Transports;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -29,7 +27,11 @@ class MedicalHouseController extends Controller
         return view('admin.medical-house.index', compact('houses'));
     }
 
-    public function show(MedicalHouses $medical_house)
+    /**
+     * @param MedicalHouses $medical_house
+     * @return View
+     */
+    public function show(MedicalHouses $medical_house): View
     {
         return view('admin.medical-house.partials._view', compact('medical_house'));
     }
@@ -45,7 +47,7 @@ class MedicalHouseController extends Controller
     }
 
     /**
-     * @param InfoRequest $request
+     * @param MedicalHouseRequest $request
      * @return RedirectResponse
      */
     public function store(MedicalHouseRequest $request): RedirectResponse
@@ -83,7 +85,7 @@ class MedicalHouseController extends Controller
      * @param MedicalHouses $medical_house
      * @return RedirectResponse
      */
-    public function update(MedicalHouseRequest $request, MedicalHouses $medical_house)
+    public function update(MedicalHouseRequest $request, MedicalHouses $medical_house): RedirectResponse
     {
         $medical_house->title = $request->get('title');
         $medical_house->content = $request->get('content');
@@ -106,7 +108,7 @@ class MedicalHouseController extends Controller
      * @param Request $request
      * @param MedicalHouses $medical_house
      * @return JsonResponse|\Symfony\Component\HttpFoundation\JsonResponse
-     * @throws \Exception
+     * @throws Exception
      */
     public function destroy(Request $request, MedicalHouses $medical_house): JsonResponse
     {

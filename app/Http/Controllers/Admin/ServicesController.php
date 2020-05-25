@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\AlertRequest;
 use App\Http\Requests\ServiceRequest;
 use App\Models\Pages;
 use App\Models\Services;
@@ -55,7 +54,7 @@ class ServicesController extends Controller
      * @param Services $service
      * @return RedirectResponse
      */
-    public function update(ServiceRequest $request, Services $service)
+    public function update(ServiceRequest $request, Services $service): RedirectResponse
     {
         $service->icon = $request->get('icon');
         $service->title = $request->get('title');

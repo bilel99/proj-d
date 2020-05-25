@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TransportRequest;
 use App\Models\MedicalHouses;
 use App\Models\Transports;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -81,7 +82,7 @@ class TransportsController extends Controller
      * @param Transports $transport
      * @return RedirectResponse
      */
-    public function update(TransportRequest $request, Transports $transport)
+    public function update(TransportRequest $request, Transports $transport): RedirectResponse
     {
         $transport->icon = $request->get('icon');
         $transport->title = $request->get('title');
@@ -98,7 +99,7 @@ class TransportsController extends Controller
      * @param Request $request
      * @param Transports $transport
      * @return JsonResponse|\Symfony\Component\HttpFoundation\JsonResponse
-     * @throws \Exception
+     * @throws Exception
      */
     public function destroy(Request $request, Transports $transport): JsonResponse
     {

@@ -44,7 +44,7 @@ class PagesController extends Controller
      * @param pages $page
      * @return RedirectResponse
      */
-    public function update(PageRequest $request, Pages $page)
+    public function update(PageRequest $request, Pages $page): RedirectResponse
     {
         $page->title = $request->get('title');
         $page->content = $request->get('content');

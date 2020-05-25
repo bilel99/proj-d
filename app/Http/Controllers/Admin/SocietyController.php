@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SocietyRequest;
 use App\Models\Society;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class SocietyController extends Controller
@@ -28,7 +27,7 @@ class SocietyController extends Controller
      *
      * @param SocietyRequest $request
      * @param Society $society
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function update(SocietyRequest $request, Society $society): RedirectResponse
     {

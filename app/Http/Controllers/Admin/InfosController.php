@@ -7,6 +7,7 @@ use App\Http\Requests\InfoRequest;
 use App\Models\Alerts;
 use App\Models\Informations;
 use App\Models\Pages;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -75,7 +76,7 @@ class InfosController extends Controller
      * @param Informations $information
      * @return RedirectResponse
      */
-    public function update(InfoRequest $request, Informations $information)
+    public function update(InfoRequest $request, Informations $information): RedirectResponse
     {
         $information->alert_id = $request->get('alert_id');
         $information->title = $request->get('title');
@@ -92,7 +93,7 @@ class InfosController extends Controller
      * @param Request $request
      * @param Informations $information
      * @return JsonResponse|\Symfony\Component\HttpFoundation\JsonResponse
-     * @throws \Exception
+     * @throws Exception
      */
     public function destroy(Request $request, Informations $information): JsonResponse
     {

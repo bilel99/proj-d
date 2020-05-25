@@ -23,7 +23,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">title <i class="mandatory">*</i></label>
+                            <label for="title">title <i class="mandatory">*</i></label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
                                    id="title" placeholder="title" required>
 
@@ -37,7 +37,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">content </label>
+                            <label for="content">content </label>
                             <textarea name="content" id="content"
                                       class="form-control @error('firstname') is-invalid @enderror" cols="30"
                                       rows="10"></textarea>
@@ -52,7 +52,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">map </label>
+                            <label for="map">map </label>
                             <input type="text" class="form-control @error('map') is-invalid @enderror" name="map"
                                    id="map" placeholder="map">
 
@@ -66,7 +66,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">address </label>
+                            <label for="address">address </label>
                             <input type="text" class="form-control @error('address') is-invalid @enderror"
                                    name="address"
                                    id="address" placeholder="address">
@@ -81,7 +81,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">compl_address </label>
+                            <label for="compl_address">compl_address </label>
                             <input type="text" class="form-control @error('compl_address') is-invalid @enderror"
                                    name="compl_address"
                                    id="compl_address" placeholder="compl_address">
@@ -96,7 +96,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">phone </label>
+                            <label for="phone">phone </label>
                             <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone"
                                    id="phone" placeholder="phone">
 
@@ -110,7 +110,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">hours </label>
+                            <label for="hours">hours </label>
                             <input type="text" class="form-control @error('hours') is-invalid @enderror" name="hours"
                                    id="hours" placeholder="hours">
 
@@ -124,7 +124,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="alerts">Transports </label>
+                            <label for="transports">Transports </label>
                             <button type="button" class="btn btn-sm btn-link float-right" data-toggle="modal"
                                     data-target="#add_transport">
                                 <i class="fas fa-plus"></i>

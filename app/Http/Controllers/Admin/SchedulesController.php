@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\HoraireRequest;
 use App\Models\Horaires;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class SchedulesController extends Controller
      * @param HoraireRequest $request
      * @return RedirectResponse
      */
-    public function store(HoraireRequest $request)
+    public function store(HoraireRequest $request): RedirectResponse
     {
         $horaire = new Horaires();
 
@@ -48,7 +49,7 @@ class SchedulesController extends Controller
      * @param Horaires $horaire
      * @return RedirectResponse
      */
-    public function update(HoraireRequest $request, Horaires $horaire)
+    public function update(HoraireRequest $request, Horaires $horaire): RedirectResponse
     {
         $horaire->title = $request->get('title');
         $horaire->content = $request->get('content');
@@ -64,7 +65,7 @@ class SchedulesController extends Controller
      * @param Request $request
      * @param Horaires $horaire
      * @return JsonResponse|\Symfony\Component\HttpFoundation\JsonResponse
-     * @throws \Exception
+     * @throws Exception
      */
     public function destroy(Request $request, Horaires $horaire): JsonResponse
     {

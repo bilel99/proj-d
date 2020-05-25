@@ -16,7 +16,7 @@
                 <div class="modal-body">
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">title <i class="mandatory">*</i></label>
+                            <label for="title">title <i class="mandatory">*</i></label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
                                    id="title" placeholder="title" value="{{ $horaire->title }}" required>
 
@@ -30,7 +30,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">content <i class="mandatory">*</i></label>
+                            <label for="content">content <i class="mandatory">*</i></label>
                             <input type="text" class="form-control @error('content') is-invalid @enderror"
                                    name="content" id="content" value="{{ $horaire->content }}" placeholder="content"
                                    required>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -41,7 +42,7 @@ class UsersController extends Controller
      * @param UserRequest $request
      * @return RedirectResponse
      */
-    public function store(UserRequest $request)
+    public function store(UserRequest $request): RedirectResponse
     {
         $user = new User();
 
@@ -89,7 +90,7 @@ class UsersController extends Controller
      * @param User $user
      * @return RedirectResponse
      */
-    public function update(UserRequest $request, User $user)
+    public function update(UserRequest $request, User $user): RedirectResponse
     {
         $user->name = $request->get('name');
         $user->firstname = $request->get('firstname');
@@ -113,7 +114,7 @@ class UsersController extends Controller
      * @param Request $request
      * @param User $user
      * @return JsonResponse|\Symfony\Component\HttpFoundation\JsonResponse
-     * @throws \Exception
+     * @throws Exception
      */
     public function destroy(Request $request, User $user): JsonResponse
     {

@@ -93,7 +93,7 @@ class AlertsController extends Controller
      * @param Alerts $alert
      * @return RedirectResponse
      */
-    public function update(AlertRequest $request, Alerts $alert)
+    public function update(AlertRequest $request, Alerts $alert): RedirectResponse
     {
         $alert->title = $request->get('title');
         $alert->content = $request->get('content');

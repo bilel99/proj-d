@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class MedicalHouses extends Model
 {
@@ -14,7 +13,7 @@ class MedicalHouses extends Model
      * @var array
      */
     protected $fillable = [
-        'page_id',
+        'title',
         'content',
         'map',
         'address',

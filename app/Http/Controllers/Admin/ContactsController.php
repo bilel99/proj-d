@@ -30,11 +30,7 @@ class ContactsController extends Controller
      */
     public function show(Contacts $contact): View
     {
-        $contact =
-            Contacts
-                ::with('doctor')
-                ->where('id', $contact->id)
-                ->first();
+        $contact = Contacts::with('doctor')->where('id', $contact->id)->first();
 
         return view('admin.contacts.partials._view', compact('contact'));
     }

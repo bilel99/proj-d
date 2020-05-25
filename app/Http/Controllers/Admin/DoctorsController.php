@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DoctorRequest;
 use App\Models\Doctors;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -40,7 +41,7 @@ class DoctorsController extends Controller
      * @param DoctorRequest $request
      * @return RedirectResponse
      */
-    public function store(DoctorRequest $request)
+    public function store(DoctorRequest $request): RedirectResponse
     {
         $doctor = new Doctors();
 
@@ -82,7 +83,7 @@ class DoctorsController extends Controller
      * @param Doctors $doctor
      * @return RedirectResponse
      */
-    public function update(DoctorRequest $request, Doctors $doctor)
+    public function update(DoctorRequest $request, Doctors $doctor): RedirectResponse
     {
         $doctor->name = $request->get('name');
         $doctor->firstname = $request->get('firstname');
@@ -100,7 +101,7 @@ class DoctorsController extends Controller
      * @param Request $request
      * @param Doctors $doctor
      * @return JsonResponse|\Symfony\Component\HttpFoundation\JsonResponse
-     * @throws \Exception
+     * @throws Exception
      */
     public function destroy(Request $request, Doctors $doctor): JsonResponse
     {

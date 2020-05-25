@@ -23,20 +23,6 @@
                     @method('PUT')
 
                     <div class="form-row">
-                        {{-- <div class="form-group col-md-6 col-sm-12">
-                            <label for="unique_name">unique_name <i class="mandatory">*</i></label>
-                            <input type="text" class="form-control @error('unique_name') is-invalid @enderror"
-                                   name="unique_name"
-                                   id="unique_name" placeholder="unique_name" required
-                                   value="{{ $page->unique_name }}">
-
-                            @error('unique_name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div> --}}
-
                         <div class="form-group col-12">
                             <label for="title">title </label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
