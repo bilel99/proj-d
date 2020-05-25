@@ -25,28 +25,20 @@
                 <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>title</th>
-                        <th>content</th>
-                        <th>map</th>
-                        <th>address</th>
-                        <th>compl_address</th>
                         <th>phone</th>
                         <th>hours</th>
-                        <th>transport...</th>
                         <th>created</th>
                         <th>actions</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
+                        <th>#</th>
                         <th>title</th>
-                        <th>content</th>
-                        <th>map</th>
-                        <th>address</th>
-                        <th>compl_address</th>
                         <th>phone</th>
                         <th>hours</th>
-                        <th>transport...</th>
                         <th>created</th>
                         <th>actions</th>
                     </tr>
@@ -54,14 +46,10 @@
                     <tbody>
                     @foreach($houses as $house)
                         <tr>
+                            <td>{{ $house->id }}</td>
                             <td>{{ $house->title }}</td>
-                            <td>{{ $house->content }}</td>
-                            <td>{{ $house->map }}</td>
-                            <td>{{ $house->address }}</td>
-                            <td>{{ $house->compl_address }}</td>
                             <td>{{ $house->phone }}</td>
                             <td>{{ $house->hours }}</td>
-                            <td>...</td>
                             <td>{{ $house->created_at->format('D d M Y') }}</td>
                             <td>
                                 <div class="d-flex justify-content-center">

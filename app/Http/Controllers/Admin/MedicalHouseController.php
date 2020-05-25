@@ -31,7 +31,7 @@ class MedicalHouseController extends Controller
 
     public function show(MedicalHouses $medical_house)
     {
-
+        return view('admin.medical-house.partials._view', compact('medical_house'));
     }
 
     /**

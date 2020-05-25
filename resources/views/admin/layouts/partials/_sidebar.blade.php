@@ -55,7 +55,7 @@
                     <span>Nos horaires</span>
                 </a>
 
-                <a class="collapse-item" href="{{ route('admin.horaires.index') }}">
+                <a class="collapse-item" href="{{ route('admin.society.index') }}">
                     <i class="fas fa-building"></i>
                     <span>Entreprise</span>
                 </a>
