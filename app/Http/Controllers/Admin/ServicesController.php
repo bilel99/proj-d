@@ -36,9 +36,10 @@ class ServicesController extends Controller
      */
     public function store(ServiceRequest $request): RedirectResponse
     {
-        $service = new Services();
+        $pageService = Pages::where('unique_name', Pages::PAGE_NOS_SERVICES)->first();
 
-        $service->page_id = $request->get('page_id');
+        $service = new Services();
+        $service->page_id = $pageService->id;
         $service->icon = $request->get('icon');
         $service->title = $request->get('title');
         $service->content = $request->get('content');
@@ -56,7 +57,6 @@ class ServicesController extends Controller
      */
     public function update(ServiceRequest $request, Services $service)
     {
-        $service->page_id = $request->get('page_id');
         $service->icon = $request->get('icon');
         $service->title = $request->get('title');
         $service->content = $request->get('content');

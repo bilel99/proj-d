@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Alerts extends Model
@@ -25,7 +26,6 @@ class Alerts extends Model
      * @var array
      */
     protected $fillable = [
-        'page_id',
         'title',
         'content',
         'icon',
@@ -34,11 +34,25 @@ class Alerts extends Model
     ];
 
     /**
+     * @return BelongsToMany
+     */
+    public function pages(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            Pages::class,
+            'pages_alerts',
+            'alert_id',
+            'page_id')
+            ->using(PageAlert::class)
+            ->withTimestamps();
+    }
+
+    /**
      * @return BelongsTo
      */
-    public function page(): BelongsTo
+    public function informations(): BelongsTo
     {
-        return $this->belongsTo(Pages::class);
+        return $this->belongsTo(Informations::class);
     }
 
     /**

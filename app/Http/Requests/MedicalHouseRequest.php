@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
-class AlertRequest extends FormRequest
+class MedicalHouseRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -44,22 +44,29 @@ class AlertRequest extends FormRequest
                 'max:255',
             ],
             'content' => [
-                'required',
+                'nullable',
+            ],
+            'map' => [
+                'nullable',
+                'max:255',
+            ],
+            'address' => [
+                'nullable',
                 'min:2',
                 'max:255',
             ],
-            'icon' => [
+            'compl_address' => [
                 'nullable',
                 'min:2',
                 'max:255',
             ],
-            'types' => [
+            'phone' => [
                 'nullable',
-                'numeric',
+                'regex:/^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$/',
             ],
-            'levels' => [
+            'hours' => [
                 'nullable',
-                'numeric',
+                'max:255',
             ],
         ];
     }

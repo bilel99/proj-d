@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Informations extends Model
@@ -18,8 +19,11 @@ class Informations extends Model
         'content'
     ];
 
-    public function alert(): HasOne
+    /**
+     * @return BelongsTo
+     */
+    public function alert(): BelongsTo
     {
-        return $this->hasOne(Alerts::class);
+        return $this->belongsTo(Alerts::class);
     }
 }

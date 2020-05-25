@@ -13,24 +13,8 @@
                 @csrf
 
                 <div class="modal-body">
-                    <div class="form-row">
-                        <div class="form-group col-12">
-                            <label for="">Page </label>
-                            <select name="page_id" id="page_id"
-                                    class="form-control @error('page_id') is-invalid @enderror" style="width: 100%">
-                                @foreach($pages as $page)
-                                    <option value="{{ $page->id }}">{{ $page->title }}</option>
-                                @endforeach
-                            </select>
-
-                            @error('page_id')
-                            <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-
+                    <div class="alert alert-danger col-8 mt-3 text-center mx-auto" id="alert-message-error" role="alert" style="display: none"></div>
+                    
                     <div class="form-row">
                         <div class="form-group col-12">
                             <label for="">title <i class="mandatory">*</i></label>
@@ -114,7 +98,7 @@
                     <!-- Buttons -->
                     <div id="saveActions" class="form-group">
                         <div class="btn-group" role="group">
-                            <button type="submit" class="btn-created btn btn-success btn-icon-split">
+                            <button type="submit" class="btn-created-alert btn btn-success btn-icon-split">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-save"></i>
                                     </span>

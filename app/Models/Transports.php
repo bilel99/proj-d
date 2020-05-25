@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Transports extends Model
@@ -13,14 +15,22 @@ class Transports extends Model
      * @var array
      */
     protected $fillable = [
-        'medical_house_id',
         'icon',
         'title',
         'infos'
     ];
 
-    public function medicalHouse(): HasOne
+    /**
+     * @return BelongsToMany
+     */
+    public function medicalHouse(): BelongsToMany
     {
-        return $this->hasOne(MedicalHouses::class);
+        return $this->belongsToMany(
+            MedicalHouses::class,
+            'medical_houses_transports',
+            'transport_id',
+            'medical_house_id')
+            ->using(MedicalHouseTransport::class)
+            ->withTimestamps();
     }
 }

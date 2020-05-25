@@ -13,12 +13,7 @@
                 @csrf
 
                 <div class="modal-body">
-                    <div class="form-row">
-                        <div class="form-group col-12">
-                            <input type="hidden" name="page_id" id="page_id" class="form-control" value="{{ $page->id }}"
-                                   required>
-                        </div>
-                    </div>
+                    <div class="alert alert-danger col-8 mt-3 text-center mx-auto" id="alert-message-error" role="alert" style="display: none"></div>
 
                     <div class="form-row">
                         <div class="form-group col-12">
@@ -27,7 +22,7 @@
                                    id="title" placeholder="title" required>
 
                             @error('title')
-                            <span class="invalid-feedback" role="alert">
+                                <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -42,7 +37,7 @@
                                    required>
 
                             @error('content')
-                            <span class="invalid-feedback" role="alert">
+                                <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -56,7 +51,7 @@
                                    name="icon" id="icon" placeholder="icon">
 
                             @error('icon')
-                            <span class="invalid-feedback" role="alert">
+                                <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -74,7 +69,7 @@
                             </select>
 
                             @error('types')
-                            <span class="invalid-feedback" role="alert">
+                                <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -92,7 +87,7 @@
                             </select>
 
                             @error('levels')
-                            <span class="invalid-feedback" role="alert">
+                                <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -103,7 +98,7 @@
                     <!-- Buttons -->
                     <div id="saveActions" class="form-group">
                         <div class="btn-group" role="group">
-                            <button type="submit" class="btn-created btn btn-success btn-icon-split">
+                            <button type="submit" class="btn-created-alert btn btn-success btn-icon-split">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-save"></i>
                                     </span>

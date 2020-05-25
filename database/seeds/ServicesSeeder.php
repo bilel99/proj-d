@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Alerts;
+use App\Models\Services;
 use Illuminate\Database\Seeder;
 
-class AlertSeeder extends Seeder
+class ServicesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,39 +12,35 @@ class AlertSeeder extends Seeder
      */
     public function run()
     {
-        $alerts = [
+        $services = [
             [
-                'title' => 'Titre alert',
+                'page_id' => 2,
+                'title' => 'Titre Service 1',
                 'content' => 'du lorem ipsum',
                 'icon' => 'fas fa-plus',
-                'levels' => 1,
-                'types' => 1,
             ],
             [
-                'title' => 'Titre alert2',
+                'page_id' => 2,
+                'title' => 'Titre Service 2',
                 'content' => 'du lorem ipsum',
                 'icon' => 'fas fa-plus',
-                'levels' => 2,
-                'types' => 2,
             ],
             [
-                'title' => 'Titre alert3',
+                'page_id' => 2,
+                'title' => 'Titre Service 3',
                 'content' => 'du lorem ipsum',
                 'icon' => 'fas fa-plus',
-                'levels' => 3,
-                'types' => 3,
             ],
             [
-                'title' => 'Titre alert4',
+                'page_id' => 2,
+                'title' => 'Titre Service 4',
                 'content' => 'du lorem ipsum',
                 'icon' => 'fas fa-plus',
-                'levels' => 1,
-                'types' => 4,
             ],
         ];
 
-        foreach ($alerts as $alert) {
-            Alerts::create($alert);
+        foreach ($services as $service) {
+            Services::create($service);
         }
     }
 }

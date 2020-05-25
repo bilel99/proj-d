@@ -6,10 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PageRequest;
 use App\Models\Alerts;
 use App\Models\Pages;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class PagesController extends Controller
@@ -49,11 +46,12 @@ class PagesController extends Controller
      */
     public function update(PageRequest $request, Pages $page)
     {
-        $page->unique_name = Str::slug(strtolower($request->get('unique_name')), '-');
         $page->title = $request->get('title');
         $page->content = $request->get('content');
         $page->save();
 
+        $page->alerts()->sync($request->get('alerts'));
+        
         return redirect()->route('admin.pages.index')->with('success', 'update message');
     }
 }

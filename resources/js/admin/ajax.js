@@ -51,8 +51,51 @@ export class Ajax extends Helpers {
         })
     }
 
-    created() {
-        jQuery('.btn-created').on('click', function (e) {
+    createdAlert() {
+        jQuery('.btn-created-alert').on('click', function (e) {
+            e.preventDefault()
+            const $this = jQuery(e.currentTarget)
+            const form = jQuery('#form-created')
+            const url = form.attr('action')
+            const type = 'POST'
+            const data = form.serialize()
+            const currentURL = window.location.href
+            
+            let ajxSuccessFn = async (res) => {
+                if (res.error) {
+                    jQuery('#alert-message-error').html('<strong>Invalid form!</strong> <br />' + res.error.title + '<br />' + res.error.content)
+                    jQuery('#alert-message-error').show()
+                } else {
+                    jQuery('#alert-message-error').hide()
+                    
+                    if (currentURL === res.routeIndex) {
+                        setTimeout(() => {
+                            window.location.href = res.routeIndex
+                        }, 1500)
+                    } else {
+                        jQuery('#add_alert').modal('hide');
+
+                        // Set the value, creating a new option if necessary
+                        if (jQuery('#alerts').find("option[value='" + res.model.id + "']").length) {
+                            jQuery('#alerts').val(res.model.id).trigger('change');
+                        } else {
+                            // Create a DOM Option and pre-select by default
+                            let newOption = new Option(res.model.title, res.model.id, true, true);
+                            // Append it to the select
+                            jQuery('#alerts').append(newOption).trigger('change');
+                        }
+                    }
+
+                    Helpers.showMessageSuccess(res.message)
+                }
+            }
+
+            Helpers.ajaxCall(url, data, type, 'json', null, true, 'application/x-www-form-urlencoded; charset=UTF-8').then(ajxSuccessFn, Helpers.handleErrorFn)
+        })
+    }
+
+    createdTransport() {
+        jQuery('.btn-created-transport').on('click', function (e) {
             e.preventDefault()
             const $this = jQuery(e.currentTarget)
             const form = jQuery('#form-created')
@@ -62,25 +105,32 @@ export class Ajax extends Helpers {
             const currentURL = window.location.href
 
             let ajxSuccessFn = async (res) => {
-                if (currentURL === res.routeIndex) {
-                    setTimeout(() => {
-                        window.location.href = res.routeIndex
-                    }, 1500)
+                if (res.error) {
+                    jQuery('#alert-message-error').html('<strong>Invalid form!</strong> <br />' + res.error.title + '<br />' + res.error.infos)
+                    jQuery('#alert-message-error').show()
                 } else {
-                    jQuery('#add_alert').modal('hide');
+                    jQuery('#alert-message-error').hide()
 
-                    // Set the value, creating a new option if necessary
-                    if (jQuery('#alerts').find("option[value='" + res.model.id + "']").length) {
-                        jQuery('#alerts').val(res.model.id).trigger('change');
+                    if (currentURL === res.routeIndex) {
+                        setTimeout(() => {
+                            window.location.href = res.routeIndex
+                        }, 1500)
                     } else {
-                        // Create a DOM Option and pre-select by default
-                        let newOption = new Option(res.model.title, res.model.id, true, true);
-                        // Append it to the select
-                        jQuery('#alerts').append(newOption).trigger('change');
-                    }
-                }
+                        jQuery('#add_transport').modal('hide');
 
-                Helpers.showMessageSuccess(res.message)
+                        // Set the value, creating a new option if necessary
+                        if (jQuery('#transports').find("option[value='" + res.model.id + "']").length) {
+                            jQuery('#transports').val(res.model.id).trigger('change');
+                        } else {
+                            // Create a DOM Option and pre-select by default
+                            let newOption = new Option(res.model.title, res.model.id, true, true);
+                            // Append it to the select
+                            jQuery('#transports').append(newOption).trigger('change');
+                        }
+                    }
+
+                    Helpers.showMessageSuccess(res.message)
+                }
             }
 
             Helpers.ajaxCall(url, data, type, 'json', null, true, 'application/x-www-form-urlencoded; charset=UTF-8').then(ajxSuccessFn, Helpers.handleErrorFn)

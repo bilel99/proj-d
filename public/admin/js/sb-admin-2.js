@@ -4068,9 +4068,9 @@ var Ajax = /*#__PURE__*/function (_Helpers) {
       });
     }
   }, {
-    key: "created",
-    value: function created() {
-      jQuery('.btn-created').on('click', function (e) {
+    key: "createdAlert",
+    value: function createdAlert() {
+      jQuery('.btn-created-alert').on('click', function (e) {
         e.preventDefault();
         var $this = jQuery(e.currentTarget);
         var form = jQuery('#form-created');
@@ -4086,26 +4086,33 @@ var Ajax = /*#__PURE__*/function (_Helpers) {
               while (1) {
                 switch (_context2.prev = _context2.next) {
                   case 0:
-                    if (currentURL === res.routeIndex) {
-                      setTimeout(function () {
-                        window.location.href = res.routeIndex;
-                      }, 1500);
+                    if (res.error) {
+                      jQuery('#alert-message-error').html('<strong>Invalid form!</strong> <br />' + res.error.title + '<br />' + res.error.content);
+                      jQuery('#alert-message-error').show();
                     } else {
-                      jQuery('#add_alert').modal('hide'); // Set the value, creating a new option if necessary
+                      jQuery('#alert-message-error').hide();
 
-                      if (jQuery('#alerts').find("option[value='" + res.model.id + "']").length) {
-                        jQuery('#alerts').val(res.model.id).trigger('change');
+                      if (currentURL === res.routeIndex) {
+                        setTimeout(function () {
+                          window.location.href = res.routeIndex;
+                        }, 1500);
                       } else {
-                        // Create a DOM Option and pre-select by default
-                        newOption = new Option(res.model.title, res.model.id, true, true); // Append it to the select
+                        jQuery('#add_alert').modal('hide'); // Set the value, creating a new option if necessary
 
-                        jQuery('#alerts').append(newOption).trigger('change');
+                        if (jQuery('#alerts').find("option[value='" + res.model.id + "']").length) {
+                          jQuery('#alerts').val(res.model.id).trigger('change');
+                        } else {
+                          // Create a DOM Option and pre-select by default
+                          newOption = new Option(res.model.title, res.model.id, true, true); // Append it to the select
+
+                          jQuery('#alerts').append(newOption).trigger('change');
+                        }
                       }
+
+                      _helpers__WEBPACK_IMPORTED_MODULE_2__["Helpers"].showMessageSuccess(res.message);
                     }
 
-                    _helpers__WEBPACK_IMPORTED_MODULE_2__["Helpers"].showMessageSuccess(res.message);
-
-                  case 2:
+                  case 1:
                   case "end":
                     return _context2.stop();
                 }
@@ -4115,6 +4122,67 @@ var Ajax = /*#__PURE__*/function (_Helpers) {
 
           return function ajxSuccessFn(_x2) {
             return _ref2.apply(this, arguments);
+          };
+        }();
+
+        _helpers__WEBPACK_IMPORTED_MODULE_2__["Helpers"].ajaxCall(url, data, type, 'json', null, true, 'application/x-www-form-urlencoded; charset=UTF-8').then(ajxSuccessFn, _helpers__WEBPACK_IMPORTED_MODULE_2__["Helpers"].handleErrorFn);
+      });
+    }
+  }, {
+    key: "createdTransport",
+    value: function createdTransport() {
+      jQuery('.btn-created-transport').on('click', function (e) {
+        e.preventDefault();
+        var $this = jQuery(e.currentTarget);
+        var form = jQuery('#form-created');
+        var url = form.attr('action');
+        var type = 'POST';
+        var data = form.serialize();
+        var currentURL = window.location.href;
+
+        var ajxSuccessFn = /*#__PURE__*/function () {
+          var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(res) {
+            var newOption;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+              while (1) {
+                switch (_context3.prev = _context3.next) {
+                  case 0:
+                    if (res.error) {
+                      jQuery('#alert-message-error').html('<strong>Invalid form!</strong> <br />' + res.error.title + '<br />' + res.error.infos);
+                      jQuery('#alert-message-error').show();
+                    } else {
+                      jQuery('#alert-message-error').hide();
+
+                      if (currentURL === res.routeIndex) {
+                        setTimeout(function () {
+                          window.location.href = res.routeIndex;
+                        }, 1500);
+                      } else {
+                        jQuery('#add_transport').modal('hide'); // Set the value, creating a new option if necessary
+
+                        if (jQuery('#transports').find("option[value='" + res.model.id + "']").length) {
+                          jQuery('#transports').val(res.model.id).trigger('change');
+                        } else {
+                          // Create a DOM Option and pre-select by default
+                          newOption = new Option(res.model.title, res.model.id, true, true); // Append it to the select
+
+                          jQuery('#transports').append(newOption).trigger('change');
+                        }
+                      }
+
+                      _helpers__WEBPACK_IMPORTED_MODULE_2__["Helpers"].showMessageSuccess(res.message);
+                    }
+
+                  case 1:
+                  case "end":
+                    return _context3.stop();
+                }
+              }
+            }, _callee3);
+          }));
+
+          return function ajxSuccessFn(_x3) {
+            return _ref3.apply(this, arguments);
           };
         }();
 
@@ -4591,7 +4659,8 @@ __webpack_require__.r(__webpack_exports__);
 
   var ajax = new _ajax__WEBPACK_IMPORTED_MODULE_1__["Ajax"]();
   ajax["delete"]();
-  ajax.created();
+  ajax.createdAlert();
+  ajax.createdTransport();
   var user = new _users__WEBPACK_IMPORTED_MODULE_0__["Users"]();
 })(jQuery); // End of use strict
 

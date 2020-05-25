@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class MedicalHouses extends Model
@@ -22,8 +23,17 @@ class MedicalHouses extends Model
         'hours'
     ];
 
-    public function page(): HasMany
+    /**
+     * @return BelongsToMany
+     */
+    public function transports(): BelongsToMany
     {
-        return $this->hasMany(Pages::class);
+        return $this->belongsToMany(
+            Transports::class,
+            'medical_houses_transports',
+            'medical_house_id',
+            'transport_id')
+            ->using(MedicalHouseTransport::class)
+            ->withTimestamps();
     }
 }

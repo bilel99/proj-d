@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Society extends Model
 {
     /**
+     * @var string
+     */
+    protected $table = 'society';
+
+    /**
      * The attributes that are mass assignables.
      *
      * @var array

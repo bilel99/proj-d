@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Pages</h1>
+    <h1 class="h3 mb-2 text-gray-800">Information</h1>
 
     <div class="alert-message alert-message-warning mb-4">
         <p>
@@ -12,35 +12,46 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Create pages</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Edit information</h6>
         </div>
 
         <div class="card-body">
             <div class="col-md-12">
                 <!-- Default box -->
-                <form action="{{ route('admin.pages.update', $page->id) }}" method="post">
+                <form action="{{ route('admin.informations.update', $information->id) }}" method="post">
                     @csrf
                     @method('PUT')
 
                     <div class="form-row">
-                        {{-- <div class="form-group col-md-6 col-sm-12">
-                            <label for="unique_name">unique_name <i class="mandatory">*</i></label>
-                            <input type="text" class="form-control @error('unique_name') is-invalid @enderror"
-                                   name="unique_name"
-                                   id="unique_name" placeholder="unique_name" required
-                                   value="{{ $page->unique_name }}">
+                        <div class="form-group col-12">
+                            <label for="alerts">alerts </label>
+                            <button type="button" class="btn btn-sm btn-link float-right" data-toggle="modal"
+                                    data-target="#add_alert">
+                                <i class="fas fa-plus"></i>
+                                Ajouter
+                            </button>
 
-                            @error('unique_name')
+                            <select name="alert_id" id="alerts"
+                                    class="form-control @error('alert_id') is-invalid @enderror">
+
+                                @foreach($alerts as $alert)
+                                    <option value="{{ $alert->id }}" {{ $alert->id === $information->alert_id ? 'selected': '' }}>{{ $alert->title }}</option>
+                                @endforeach
+                            </select>
+
+                            @error('alert_id')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div> --}}
+                        </div>
+                    </div>
 
+                    <div class="form-row">
                         <div class="form-group col-12">
                             <label for="title">title </label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
-                                   id="title" placeholder="title" value="{{ $page->title }}">
+                                   id="title" placeholder="title" value="{{ $information->title }}">
 
                             @error('title')
                             <span class="invalid-feedback" role="alert">
@@ -55,7 +66,7 @@
                             <label for="content">content </label>
                             <textarea name="content" id="content"
                                       class="form-control @error('content') is-invalid @enderror" cols="30"
-                                      rows="10">{!! $page->content !!}</textarea>
+                                      rows="10">{!! $information->content !!}</textarea>
 
                             @error('content')
                             <span class="invalid-feedback" role="alert">
@@ -64,36 +75,6 @@
                             @enderror
                         </div>
                     </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-12">
-                            <label for="alerts">alerts </label>
-                            <button type="button" class="btn btn-sm btn-link float-right" data-toggle="modal"
-                                    data-target="#add_alert">
-                                <i class="fas fa-plus"></i>
-                                Ajouter
-                            </button>
-
-                            <select name="alerts[]" id="alerts" class="form-control @error('alerts') is-invalid @enderror"
-                                    multiple style="width: 100%">
-
-                                @foreach($page->alerts as $myAlert)
-                                    <option value="{{ $myAlert->id }}" selected>{{ $myAlert->title }}</option>
-                                @endforeach
-
-                                @foreach($alerts as $alert)
-                                    <option value="{{ $alert->id }}">{{ $alert->title }}</option>
-                                @endforeach
-                            </select>
-
-                            @error('alerts')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-
 
                     <!-- Buttons -->
                     <div id="saveActions" class="form-group">
@@ -119,4 +100,5 @@
 
     <!-- Import Modal -->
     @include('admin.pages.partials._modal_create_alert')
+
 @endsection

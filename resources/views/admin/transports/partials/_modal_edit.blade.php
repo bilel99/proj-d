@@ -1,23 +1,39 @@
 <!-- Modal -->
-<div class="modal fade" id="add_service" tabindex="-1" role="dialog" aria-labelledby="add_service"
+<div class="modal fade" id="edit_transport_{{ $transport->id }}" tabindex="-1" role="dialog"
+     aria-labelledby="edit_transport_{{ $transport->id }}"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="add_service">Création d'un service</h5>
+                <h5 class="modal-title" id="edit_transport_{{ $transport->id }}">Edition d'un transport</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('admin.services.store') }}" id="form-created" method="post">
+            <form action="{{ route('admin.transports.update', $transport->id) }}" method="post">
                 @csrf
+                @method('PUT')
 
                 <div class="modal-body">
                     <div class="form-row">
                         <div class="form-group col-12">
+                            <label for="">icon </label>
+                            <input type="text" class="form-control @error('icon') is-invalid @enderror"
+                                   name="icon" id="icon" value="{{ $transport->icon }}" placeholder="icon">
+
+                            @error('icon')
+                            <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-12">
                             <label for="">title <i class="mandatory">*</i></label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
-                                   id="title" placeholder="title" required>
+                                   id="title" placeholder="title" value="{{ $transport->title }}" required>
 
                             @error('title')
                             <span class="invalid-feedback" role="alert">
@@ -29,26 +45,12 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="">content <i class="mandatory">*</i></label>
-                            <input type="text" class="form-control @error('content') is-invalid @enderror"
-                                   name="content" id="content" placeholder="content"
+                            <label for="">infos <i class="mandatory">*</i></label>
+                            <input type="text" class="form-control @error('infos') is-invalid @enderror"
+                                   name="infos" id="infos" value="{{ $transport->infos }}" placeholder="infos"
                                    required>
 
-                            @error('content')
-                            <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-12">
-                            <label for="">icon </label>
-                            <input type="text" class="form-control @error('icon') is-invalid @enderror"
-                                   name="icon" id="icon" placeholder="icon">
-
-                            @error('icon')
+                            @error('infos')
                             <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

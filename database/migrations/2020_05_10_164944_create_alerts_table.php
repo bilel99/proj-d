@@ -26,6 +26,22 @@ class CreateAlertsTable extends Migration
             $table->foreign('page_id')->references('id')->on('pages')
                 ->onDelete('cascade');
         });
+
+        Schema::create('pages_alerts', function (Blueprint $table) {
+            $table->primary(['page_id','alert_id']);
+            $table->unsignedInteger('page_id')->index();
+            $table->unsignedInteger('alert_id')->index();
+
+            $table->foreign('page_id')
+                ->references('id')
+                ->on('pages');
+
+            $table->foreign('alert_id')
+                ->references('id')
+                ->on('alerts');
+
+            $table->timestamps();
+        });
     }
 
     /**
@@ -35,6 +51,11 @@ class CreateAlertsTable extends Migration
      */
     public function down()
     {
+        Schema::table('pages_alerts', function (Blueprint $table) {
+            $table->dropForeign('pages_alerts_page_id_foreign');
+            $table->dropForeign('pages_alerts_alert_id_foreign');
+        });
+
         Schema::dropIfExists('alerts');
     }
 }

@@ -54,6 +54,11 @@
                     <i class="fas fa-clock"></i>
                     <span>Nos horaires</span>
                 </a>
+
+                <a class="collapse-item" href="{{ route('admin.horaires.index') }}">
+                    <i class="fas fa-building"></i>
+                    <span>Entreprise</span>
+                </a>
             </div>
         </div>
     </li>
@@ -86,14 +91,19 @@
                     <span>Services</span>
                 </a>
 
-                <a class="collapse-item" href="{{ route('admin.contacts.index') }}">
+                <a class="collapse-item" href="{{ route('admin.informations.index') }}">
                     <i class="fas fa-info"></i>
                     <span>Informations</span>
                 </a>
 
-                <a class="collapse-item" href="{{ route('admin.horaires.index') }}">
+                <a class="collapse-item" href="{{ route('admin.medical-house.index') }}">
                     <i class="fas fa-hospital"></i>
                     <span>Maisons médicales</span>
+                </a>
+
+                <a class="collapse-item" href="{{ route('admin.transports.index') }}">
+                    <i class="fas fa-subway"></i>
+                    <span>Transports</span>
                 </a>
 
                 <a class="collapse-item" href="{{ route('admin.alerts.index') }}">

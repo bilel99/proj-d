@@ -39,7 +39,7 @@ class PageRequest extends FormRequest
     {
         return [
             'unique_name' => [
-                'required',
+                'nullable',
                 'min:2',
                 'max:255',
                 'unique' => Rule::unique('pages')->ignore($this->page),

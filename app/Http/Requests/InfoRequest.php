@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
-class AlertRequest extends FormRequest
+class InfoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -38,28 +38,16 @@ class AlertRequest extends FormRequest
     public function rules(): array 
     {
         return [
+            'alert_id' => [
+                'nullable',
+            ],
             'title' => [
-                'required',
+                'nullable',
                 'min:2',
                 'max:255',
             ],
             'content' => [
-                'required',
-                'min:2',
-                'max:255',
-            ],
-            'icon' => [
                 'nullable',
-                'min:2',
-                'max:255',
-            ],
-            'types' => [
-                'nullable',
-                'numeric',
-            ],
-            'levels' => [
-                'nullable',
-                'numeric',
             ],
         ];
     }

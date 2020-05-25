@@ -15,15 +15,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard.index');
-})->name('dashboard');
+})->name('dashboard')->middleware('auth');
 
 /**
  * Resource Laravel
  */
-Route::resource('/admin/users', 'UsersController');
-Route::resource('/admin/doctors', 'DoctorsController');
-Route::resource('/admin/contacts', 'ContactsController')->except('create', 'store', 'edit', 'update');
-Route::resource('/admin/horaires', 'SchedulesController')->except('create', 'show', 'edit');
-Route::resource('/admin/pages', 'PagesController')->except('create', 'store', 'show', 'destroy');
-Route::resource('/admin/services', 'ServicesController')->except('create', 'show', 'edit');
-Route::resource('/admin/alerts', 'AlertsController')->except('create', 'show', 'edit');
+Route::resource('/admin/users', 'UsersController')->middleware('auth');
+Route::resource('/admin/doctors', 'DoctorsController')->middleware('auth');
+Route::resource('/admin/contacts', 'ContactsController')->except('create', 'store', 'edit', 'update')->middleware('auth');
+Route::resource('/admin/horaires', 'SchedulesController')->except('create', 'show', 'edit')->middleware('auth');
+Route::resource('/admin/pages', 'PagesController')->except('create', 'store', 'show', 'destroy')->middleware('auth');
+Route::resource('/admin/services', 'ServicesController')->except('create', 'show', 'edit')->middleware('auth');
+Route::resource('/admin/informations', 'InfosController')->except('show')->middleware('auth');
+Route::resource('/admin/medical-house', 'MedicalHouseController')->middleware('auth');
+Route::resource('/admin/transports', 'TransportsController')->except('create', 'show', 'edit')->middleware('auth');
+Route::resource('/admin/alerts', 'AlertsController')->except('create', 'show', 'edit')->middleware('auth');

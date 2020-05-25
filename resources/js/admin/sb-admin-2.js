@@ -59,8 +59,9 @@ import {Ajax} from "./ajax";
    */
   const ajax = new Ajax()
   ajax.delete()
-  ajax.created()
-  
+  ajax.createdAlert()
+  ajax.createdTransport()
+
   const user = new Users()
 
 })(jQuery); // End of use strict
