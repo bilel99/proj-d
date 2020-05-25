@@ -31,6 +31,7 @@
                 <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>title</th>
                         <th>content</th>
                         <th>icon</th>
@@ -42,6 +43,7 @@
                     </thead>
                     <tfoot>
                     <tr>
+                        <th>#</th>
                         <th>title</th>
                         <th>content</th>
                         <th>icon</th>
@@ -54,6 +56,7 @@
                     <tbody>
                     @foreach($alerts as $alert)
                         <tr>
+                            <td>{{ $alert->id }}</td>
                             <td>{{ $alert->title }}</td>
                             <td>{{ $alert->content }}</td>
                             <td>

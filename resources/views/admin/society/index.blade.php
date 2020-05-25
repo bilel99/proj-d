@@ -14,6 +14,7 @@
                 <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>name</th>
                         <th>email</th>
                         <th>created</th>
@@ -22,6 +23,7 @@
                     </thead>
                     <tfoot>
                     <tr>
+                        <th>#</th>
                         <th>name</th>
                         <th>email</th>
                         <th>created</th>
@@ -31,6 +33,7 @@
                     <tbody>
                     @foreach($society as $item)
                         <tr>
+                            <td>{{ $item->id }}</td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->created_at->format('D d M Y') }}</td>

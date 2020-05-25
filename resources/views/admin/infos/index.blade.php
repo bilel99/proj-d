@@ -30,6 +30,7 @@
                 <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>alert_id</th>
                         <th>title</th>
                         <th>content</th>
@@ -39,6 +40,7 @@
                     </thead>
                     <tfoot>
                     <tr>
+                        <th>#</th>
                         <th>alert_id</th>
                         <th>title</th>
                         <th>content</th>
@@ -49,6 +51,7 @@
                     <tbody>
                     @foreach($infos as $info)
                         <tr>
+                            <td>{{ $info->id }}</td>
                             <td>{{ $info->alert->title }}</td>
                             <td>{{ $info->title }}</td>
                             <td>{{ $info->content }}</td>

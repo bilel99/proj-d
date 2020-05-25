@@ -26,6 +26,7 @@
                 <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>page</th>
                         <th>title</th>
                         <th>content</th>
@@ -36,6 +37,7 @@
                     </thead>
                     <tfoot>
                     <tr>
+                        <th>#</th>
                         <th>page</th>
                         <th>title</th>
                         <th>content</th>
@@ -47,7 +49,8 @@
                     <tbody>
                     @foreach($services as $service)
                         <tr>
-                            <td>{{ $service->page_id }}</td>
+                            <td>{{ $service->id }}</td>
+                            <td>{{ $service->page->title }}</td>
                             <td>{{ $service->title }}</td>
                             <td>{{ $service->content }}</td>
                             <td>

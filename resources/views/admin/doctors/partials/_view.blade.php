@@ -40,7 +40,9 @@
                                 <strong>email:</strong>
                             </td>
                             <td>
-                                <span>{{ $doctor->email }}</span>
+                                <a href="mailto:{{ $doctor->email }}">
+                                    {{ $doctor->email }}
+                                </a>
                             </td>
                         </tr>
 

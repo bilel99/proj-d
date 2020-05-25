@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Services extends Model
@@ -19,8 +20,8 @@ class Services extends Model
         'content'
     ];
 
-    public function page(): HasMany
+    public function page(): BelongsTo
     {
-        return $this->hasMany(Pages::class);
+        return $this->BelongsTo(Pages::class);
     }
 }

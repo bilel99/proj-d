@@ -27,6 +27,7 @@
                 <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>title</th>
                         <th>content</th>
                         <th>created</th>
@@ -35,6 +36,7 @@
                     </thead>
                     <tfoot>
                     <tr>
+                        <th>#</th>
                         <th>title</th>
                         <th>content</th>
                         <th>created</th>
@@ -44,6 +46,7 @@
                     <tbody>
                     @foreach($horaires as $horaire)
                         <tr>
+                            <td>{{ $horaire->id }}</td>
                             <td>{{ $horaire->title }}</td>
                             <td>{{ $horaire->content }}</td>
                             <td>{{ $horaire->created_at->format('D d M Y') }}</td>

@@ -58,7 +58,9 @@
                                 <strong>email:</strong>
                             </td>
                             <td>
-                                <span>{{ $contact->email }}</span>
+                                <a href="mailto:{{ $contact->email }}">
+                                    {{ $contact->email }}
+                                </a>
                             </td>
                         </tr>
 
@@ -67,7 +69,9 @@
                                 <strong>phone:</strong>
                             </td>
                             <td>
-                                <span>{{ $contact->phone }}</span>
+                                <a href="tel:{{ $contact->phone }}">
+                                    {{ $contact->getPhoneFormated($contact->phone) }}
+                                </a>
                             </td>
                         </tr>
 

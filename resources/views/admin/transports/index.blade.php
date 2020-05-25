@@ -31,6 +31,7 @@
                 <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>icon</th>
                         <th>title</th>
                         <th>infos</th>
@@ -40,6 +41,7 @@
                     </thead>
                     <tfoot>
                     <tr>
+                        <th>#</th>
                         <th>icon</th>
                         <th>title</th>
                         <th>infos</th>
@@ -50,6 +52,7 @@
                     <tbody>
                     @foreach($transports as $transport)
                         <tr>
+                            <td>{{ $transport->id }}</td>
                             <td>
                                 <div class="d-flex justify-content-center">
                                     <i class="{{ $transport->icon }}"></i>

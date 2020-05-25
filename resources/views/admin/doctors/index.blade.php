@@ -25,6 +25,7 @@
                 <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>name</th>
                         <th>firstname</th>
                         <th>civility</th>
@@ -35,6 +36,7 @@
                     </thead>
                     <tfoot>
                     <tr>
+                        <th>#</th>
                         <th>name</th>
                         <th>firstname</th>
                         <th>civility</th>
@@ -46,10 +48,15 @@
                     <tbody>
                     @foreach($doctors as $doctor)
                         <tr>
+                            <td>{{ $doctor->id }}</td>
                             <td>{{ $doctor->name }}</td>
                             <td>{{ $doctor->firstname }}</td>
                             <td>{{ $doctor->civility }}</td>
-                            <td>{{ $doctor->email }}</td>
+                            <td>
+                                <a href="mailto:{{ $doctor->email }}">
+                                    {{ $doctor->email }}
+                                </a>
+                            </td>
                             <td>{{ $doctor->created_at->format('D d M Y') }}</td>
                             <td>
                                 <div class="d-flex justify-content-center">

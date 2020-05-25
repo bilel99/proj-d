@@ -18,6 +18,7 @@
                 <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>unique_name</th>
                         <th>title</th>
                         <th>content</th>
@@ -27,6 +28,7 @@
                     </thead>
                     <tfoot>
                     <tr>
+                        <th>#</th>
                         <th>unique_name</th>
                         <th>title</th>
                         <th>content</th>
@@ -37,6 +39,7 @@
                     <tbody>
                     @foreach($pages as $page)
                         <tr>
+                            <td>{{ $page->id }}</td>
                             <td>{{ $page->unique_name }}</td>
                             <td>{{ $page->title }}</td>
                             <td>{{ $page->content }}</td>

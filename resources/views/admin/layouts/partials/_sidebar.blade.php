@@ -11,10 +11,10 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
-
+    
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('admin.dashboard') }}">
+        <a class="nav-link {{ preg_match('/admin\.dashboard\./', Route::currentRouteName()) ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -35,27 +35,27 @@
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">#admin</h6>
-                <a class="collapse-item" href="{{ route('admin.users.index') }}">
+                <a class="collapse-item {{ preg_match('/admin\.users\./', Route::currentRouteName()) ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
                     <i class="fas fa-users"></i>
                     <span>Utilisateurs</span>
                 </a>
 
-                <a class="collapse-item" href="{{ route('admin.doctors.index') }}">
+                <a class="collapse-item {{ preg_match('/admin\.doctors\./', Route::currentRouteName()) ? 'active' : '' }}" href="{{ route('admin.doctors.index') }}">
                     <i class="fas fa-user-md"></i>
                     <span>médecins</span>
                 </a>
 
-                <a class="collapse-item" href="{{ route('admin.contacts.index') }}">
+                <a class="collapse-item {{ preg_match('/admin\.contacts\./', Route::currentRouteName()) ? 'active' : '' }}" href="{{ route('admin.contacts.index') }}">
                     <i class="fas fa-envelope-open-text"></i>
                     <span>demande de contact</span>
                 </a>
 
-                <a class="collapse-item" href="{{ route('admin.horaires.index') }}">
+                <a class="collapse-item {{ preg_match('/admin\.horaires\./', Route::currentRouteName()) ? 'active' : '' }}" href="{{ route('admin.horaires.index') }}">
                     <i class="fas fa-clock"></i>
                     <span>Nos horaires</span>
                 </a>
 
-                <a class="collapse-item" href="{{ route('admin.society.index') }}">
+                <a class="collapse-item {{ preg_match('/admin\.society\./', Route::currentRouteName()) ? 'active' : '' }}" href="{{ route('admin.society.index') }}">
                     <i class="fas fa-building"></i>
                     <span>Entreprise</span>
                 </a>
@@ -81,32 +81,32 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">#Content</h6>
-                <a class="collapse-item" href="{{ route('admin.pages.index') }}">
+                <a class="collapse-item {{ preg_match('/admin\.pages\./', Route::currentRouteName()) ? 'active' : '' }}" href="{{ route('admin.pages.index') }}">
                     <i class="fas fa-file-alt"></i>
                     <span>Pages</span>
                 </a>
 
-                <a class="collapse-item" href="{{ route('admin.services.index') }}">
+                <a class="collapse-item {{ preg_match('/admin\.services\./', Route::currentRouteName()) ? 'active' : '' }}" href="{{ route('admin.services.index') }}">
                     <i class="fas fa-concierge-bell"></i>
                     <span>Services</span>
                 </a>
 
-                <a class="collapse-item" href="{{ route('admin.informations.index') }}">
+                <a class="collapse-item {{ preg_match('/admin\.informations\./', Route::currentRouteName()) ? 'active' : '' }}" href="{{ route('admin.informations.index') }}">
                     <i class="fas fa-info"></i>
                     <span>Informations</span>
                 </a>
 
-                <a class="collapse-item" href="{{ route('admin.medical-house.index') }}">
+                <a class="collapse-item {{ preg_match('/admin\.medical-house\./', Route::currentRouteName()) ? 'active' : '' }}" href="{{ route('admin.medical-house.index') }}">
                     <i class="fas fa-hospital"></i>
                     <span>Maisons médicales</span>
                 </a>
 
-                <a class="collapse-item" href="{{ route('admin.transports.index') }}">
+                <a class="collapse-item {{ preg_match('/admin\.transports\./', Route::currentRouteName()) ? 'active' : '' }}" href="{{ route('admin.transports.index') }}">
                     <i class="fas fa-subway"></i>
                     <span>Transports</span>
                 </a>
 
-                <a class="collapse-item" href="{{ route('admin.alerts.index') }}">
+                <a class="collapse-item {{ preg_match('/admin\.alerts\./', Route::currentRouteName()) ? 'active' : '' }}" href="{{ route('admin.alerts.index') }}">
                     <i class="fas fa-exclamation"></i>
                     <span>Les alerts</span>
                 </a>

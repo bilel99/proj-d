@@ -14,6 +14,7 @@
                 <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>civility</th>
                         <th>name</th>
                         <th>firstname</th>
@@ -25,6 +26,7 @@
                     </thead>
                     <tfoot>
                     <tr>
+                        <th>#</th>
                         <th>civility</th>
                         <th>name</th>
                         <th>firstname</th>
@@ -37,6 +39,7 @@
                     <tbody>
                     @foreach($contacts as $contact)
                         <tr>
+                            <td>{{ $contact->id }}</td>
                             <td>{{ $contact->civility }}</td>
                             <td>{{ $contact->name }}</td>
                             <td>{{ $contact->firstname }}</td>
