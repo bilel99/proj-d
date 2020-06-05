@@ -8,6 +8,9 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    public const CIVILITY_MR = 'Mr';
+    public const CIVILITY_MS = 'Mme';
+
     public const STATUS_ACTIF = 1;
     public const STATUS_INACTIF = 2;
 
@@ -19,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'firstname', 'email', 'password',
+        'civility', 'name', 'firstname', 'email', 'avatar', 'password',
     ];
 
     /**
@@ -39,6 +42,28 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @return array
+     */
+    public static function civilityOptions(): array
+    {
+        return [
+            static::CIVILITY_MR => __('globals.attributes.civility.mr_label'),
+            static::CIVILITY_MS => __('globals.attributes.civility.ms_label'),
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public static function getWorkflowStatus(): array
+    {
+        return [
+            static::STATUS_ACTIF => __('globals.attributes.status.actif'),
+            static::STATUS_INACTIF => __('globals.attributes.status.inactif'),
+        ];
+    }
 
     /**
      * @return string

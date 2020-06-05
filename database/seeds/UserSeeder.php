@@ -15,6 +15,7 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
+                'civility' => 'Mr',
                 'name' => 'Bilel',
                 'firstname' => 'Bekkouche',
                 'email' => 'bilel.bekkouche@gmail.com',
@@ -22,6 +23,7 @@ class UserSeeder extends Seeder
                 'status' => User::STATUS_ACTIF,
             ],
             [
+                'civility' => 'Mr',
                 'name' => 'Amin',
                 'firstname' => 'Famille',
                 'email' => 'amin.d@gmail.com',

@@ -67,7 +67,7 @@ class MedicalHouseRequest extends FormRequest
             'hours' => [
                 'nullable',
                 'max:255',
-            ],
+            ],                      
         ];
     }
 }

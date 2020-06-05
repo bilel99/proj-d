@@ -20,4 +20,15 @@ class Doctors extends Model
         'civility',
         'email'
     ];
+
+    /**
+     * @return array
+     */
+    public static function civilityOptions(): array
+    {
+        return [
+            static::CIVILITY_MR => __('globals.attributes.civility.mr_label'),
+            static::CIVILITY_MS => __('globals.attributes.civility.ms_label'),
+        ];
+    }
 }
