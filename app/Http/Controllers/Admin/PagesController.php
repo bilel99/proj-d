@@ -6,9 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PageRequest;
 use App\Models\Alerts;
 use App\Models\Pages;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class PagesController extends Controller
@@ -57,20 +55,11 @@ class PagesController extends Controller
         $page->alerts()->sync($request->get('alerts'));
 
         // Upload Files Laravel Spatie Media Library Bundles
-        $page->clearMediaCollection($page->unique_name);
-        $page->addMedia($request->file('files'))->preservingOriginal()->toMediaCollection($page->unique_name);
+        if (!empty($request->file('files'))) {
+            $page->clearMediaCollection($page->unique_name);
+            $page->addMedia($request->file('files'))->preservingOriginal()->toMediaCollection($page->unique_name);
+        }
 
         return redirect()->route('admin.pages.index')->with('success', 'update message');
-    }
-
-    public function getFiles(Request $request, Pages $page)
-    {
-        if ($request->isXmlHttpRequest()) {
-            $response = new JsonResponse();
-
-            return $response->setData([
-                'file' => $page->hasFile($page->unique_name) ?? $page->getRetrievingFile($page->unique_name),
-            ]);
-        }
     }
 }

@@ -31,3 +31,6 @@ Route::resource('/admin/medical-house', 'MedicalHouseController')->middleware('a
 Route::resource('/admin/transports', 'TransportsController')->except('create', 'show', 'edit')->middleware('auth');
 Route::resource('/admin/alerts', 'AlertsController')->except('create', 'show', 'edit')->middleware('auth');
 Route::resource('/admin/society', 'SocietyController')->except('create', 'show', 'edit', 'destroy')->middleware('auth');
+
+// Ckeditor Upload
+Route::post('ckeditor/upload/{method}/{model}/{id?}', 'CkeditorController@upload')->name('ckeditor.upload')->middleware('auth');

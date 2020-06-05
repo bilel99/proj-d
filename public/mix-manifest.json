@@ -4,5 +4,6 @@
     "/global/js/app.js": "/global/js/app.js",
     "/global/css/app.css": "/global/css/app.css",
     "/front/css/app.css": "/front/css/app.css",
-    "/admin/css/sb-admin-2.css": "/admin/css/sb-admin-2.css"
+    "/admin/css/sb-admin-2.css": "/admin/css/sb-admin-2.css",
+    "/admin/js/app.js": "/admin/js/app.js"
 }

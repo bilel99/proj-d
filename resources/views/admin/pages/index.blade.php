@@ -21,7 +21,6 @@
                         <th>#</th>
                         <th>unique_name</th>
                         <th>title</th>
-                        <th>content</th>
                         <th>created</th>
                         <th>actions</th>
                     </tr>
@@ -31,7 +30,6 @@
                         <th>#</th>
                         <th>unique_name</th>
                         <th>title</th>
-                        <th>content</th>
                         <th>created</th>
                         <th>actions</th>
                     </tr>
@@ -42,7 +40,6 @@
                             <td>{{ $page->id }}</td>
                             <td>{{ $page->unique_name }}</td>
                             <td>{{ $page->title }}</td>
-                            <td>{{ $page->content }}</td>
                             <td>{{ $page->created_at->format('D d M Y') }}</td>
                             <td>
                                 <div class="d-flex justify-content-center">

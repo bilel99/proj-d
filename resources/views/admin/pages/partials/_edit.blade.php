@@ -39,9 +39,15 @@
                     <div class="form-row">
                         <div class="form-group col-12">
                             <label for="content">content </label>
-                            <textarea name="content" id="content"
-                                      class="form-control @error('content') is-invalid @enderror" cols="30"
-                                      rows="10">{!! $page->content !!}</textarea>
+                            <textarea
+                                    name="content"
+                                    id="wysywig"
+                                    class="form-control @error('content') is-invalid @enderror"
+                                    cols="30"
+                                    rows="10"
+                                    data-wysywig-upload-url="{{ route('admin.ckeditor.upload', ['post' ,get_class($page)]) }}">
+                                {!! $page->content !!}
+                            </textarea>
 
                             @error('content')
                             <span class="invalid-feedback" role="alert">
@@ -85,7 +91,8 @@
                         <div class="col-md-6 col-sm-12">
                             <span class="text-center font-weight-bold d-block">Image: </span>
                             @if($page->hasFile($page->unique_name))
-                                <img src="{{ $page->getRetrievingFile($page->unique_name) }}" class="d-block img-responsive" alt="image pour page {{ $page->unique_name }}">
+                                <img src="{{ $page->getRetrievingFile($page->unique_name) }}"
+                                     class="d-block img-responsive" alt="image pour page {{ $page->unique_name }}">
                             @else
                                 <span class="text-center font-weight-bold text-muted">
                                     Vous avez uploader aucune image pour l'instant!
@@ -105,7 +112,7 @@
                             />
                         </div>
                     </div>
-                    
+
                     <!-- Buttons -->
                     <div id="saveActions" class="form-group">
                         <div class="btn-group" role="group">

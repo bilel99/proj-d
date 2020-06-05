@@ -26,6 +26,7 @@
         "sweetalert2": "^9.10.12",
         "izitoast": "^1.4.0",
         "@grafikart/drop-files-element": "^1.0.9",
+        "ckeditor5-build-laravel-image": "^1.0.1",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.11"
     }
