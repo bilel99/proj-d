@@ -6,9 +6,8 @@
 require('./bootstrap')
 require('select2/dist/js/select2.min')
 require('smartwizard/dist/js/jquery.smartWizard.min')
-require('datatables/media/js/jquery.dataTables.min')
-require('izitoast/dist/js/iziToast')
-require('@grafikart/drop-files-element')
+
+// @todo faire que du JS 6 et ne plus utiliser jQuery essayer de créer des composant vue.js utiliser une version lite de jquery
 
 window.Vue = require('vue')
 
