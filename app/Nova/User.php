@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class User extends Resource
 {
@@ -31,8 +33,24 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email',
+        'id', 'name', 'firstname', 'email',
     ];
+
+    /**
+     * @return array|string|null
+     */
+    public static function group()
+    {
+        return __('nova.groups.admin');
+    }
+
+    /**
+     * @return string
+     */
+    public static function label()
+    {
+        return __('nova.labels.user');
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -42,18 +60,32 @@ class User extends Resource
      */
     public function fields(Request $request)
     {
+        $optionsCivility = UserModel::civilityOptions();
+
         return [
             ID::make()->sortable(),
 
-            Gravatar::make()->maxWidth(50),
+            Gravatar::make(__('globals.attributes.avatar'))->maxWidth(50),
 
-            Text::make('Name')
+            Select::make(__('globals.attributes.civility.civility'), 'civility')
+                ->options($optionsCivility)
+                ->displayUsing(function ($civility) use ($optionsCivility) {
+                    return $optionsCivility[$civility] ?? '';
+                })
                 ->sortable()
-                ->rules('required', 'max:255'),
+                ->rules('required'),
 
-            Text::make('Email')
+            Text::make(__('globals.attributes.name'), 'name')
                 ->sortable()
-                ->rules('required', 'email', 'max:254')
+                ->rules('required', 'min:2', 'max:255'),
+
+            Text::make(__('globals.attributes.firstname'), 'firstname')
+                ->sortable()
+                ->rules('required', 'min:2', 'max:255'),
+
+            Text::make(__('globals.attributes.email'), 'email')
+                ->sortable()
+                ->rules('required', 'email', 'min:2', 'max:255')
                 ->creationRules('unique:users,email')
                 ->updateRules('unique:users,email,{{resourceId}}'),
 
@@ -61,6 +93,12 @@ class User extends Resource
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
+
+            Select::make(__('globals.attributes.status.status'), 'status')
+                ->options(UserModel::getWorkflowStatus())
+                ->displayUsingLabels()
+                ->rules('required')
+                ->sortable(),
         ];
     }
 
@@ -105,6 +143,11 @@ class User extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            (new Actions\ChangeStatusToUser)
+                ->confirmText(__('nova.actions.edit_status.confirm_change_workflow'))
+                ->confirmButtonText(__('nova.actions.edit_status.btn_yes'))
+                ->cancelButtonText(__('nova.actions.edit_status.btn_no')),
+        ];
     }
 }
