@@ -3,10 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class MedicalHouses extends Model
 {
+    /**
+     * @var string
+     */
+    protected $table = 'medical_houses';
+
     /**
      * The attributes that are mass assignables.
      *
@@ -23,16 +28,10 @@ class MedicalHouses extends Model
     ];
 
     /**
-     * @return BelongsToMany
+     * @return HasMany
      */
-    public function transports(): BelongsToMany
+    public function transport(): HasMany
     {
-        return $this->belongsToMany(
-            Transports::class,
-            'medical_houses_transports',
-            'medical_house_id',
-            'transport_id')
-            ->using(MedicalHouseTransport::class)
-            ->withTimestamps();
+        return $this->hasMany(Transports::class, 'medical_house_id');
     }
 }

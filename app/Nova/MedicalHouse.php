@@ -3,12 +3,13 @@
 namespace App\Nova;
 
 use App\Models\MedicalHouses as MedicalHouseModel;
+use Ek0519\Quilljs\Quilljs;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
-use Waynestate\Nova\CKEditor;
 
 class MedicalHouse extends Resource
 {
@@ -54,7 +55,7 @@ class MedicalHouse extends Resource
     /**
      * Get the fields displayed by the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function fields(Request $request)
@@ -62,10 +63,12 @@ class MedicalHouse extends Resource
         return [
             new Panel(__('nova.panel.info_prin'), $this->infoPrincPanel()),
             new Panel(__('nova.panel.address'), $this->addressPanel()),
+            new Panel(__('nova.panel.transport'), $this->transportPanel()),
         ];
     }
 
-    public function infoPrincPanel (): array {
+    public function infoPrincPanel(): array
+    {
         return [
             ID::make()->sortable(),
 
@@ -73,18 +76,32 @@ class MedicalHouse extends Resource
                 ->sortable()
                 ->rules('required', 'min:2', 'max:255'),
 
-            /*CKEditor::make(__('globals.attributes.content'), 'content')
-                ->sortable()
+            Quilljs::make(__('globals.attributes.content'), 'content')
+                ->withFiles('public')
+                ->fullWidth('option')
+                ->height(300)
+                ->tooltip(true)
+                ->placeholder('Vous pouvez rentrer votre contenu ici ...')
                 ->rules('nullable')
-                ->hideFromIndex(),*/
+                ->hideFromIndex(),
 
             Text::make(__('globals.attributes.map'), 'map')
                 ->sortable()
+                ->help(
+                    '<a href="https://www.google.fr/maps">Outils intégration d\'une map sous google map</a> 
+                           <ul>
+                           <li>Dans un premier temps, entrer votre adresse</li>
+                           <li>Ensuite utiliser l\'outil d\'intégration de google map pour copier l\'Iframe d\'intégration</li>
+                           <li>Et enfin coller l\'Iframe ci-dessus</li>
+                           </ul>'
+                )
                 ->rules('nullable', 'max:255')
                 ->hideFromIndex(),
         ];
     }
-    public function addressPanel (): array {
+
+    public function addressPanel(): array
+    {
         return [
             Text::make(__('globals.attributes.address'), 'address')
                 ->sortable()
@@ -107,10 +124,17 @@ class MedicalHouse extends Resource
         ];
     }
 
+    public function transportPanel(): array
+    {
+        return [
+            HasMany::make('Transport'),
+        ];
+    }
+
     /**
      * Get the cards available for the request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function cards(Request $request)
@@ -121,7 +145,7 @@ class MedicalHouse extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function filters(Request $request)
@@ -132,7 +156,7 @@ class MedicalHouse extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function lenses(Request $request)
@@ -143,7 +167,7 @@ class MedicalHouse extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function actions(Request $request)

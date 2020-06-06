@@ -3,32 +3,32 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Transports extends Model
 {
+    /**
+     * @var string
+     */
+    protected $table = 'transports';
+
     /**
      * The attributes that are mass assignables.
      *
      * @var array
      */
     protected $fillable = [
+        'medical_house_id',
         'icon',
         'title',
         'infos'
     ];
 
     /**
-     * @return BelongsToMany
+     * @return BelongsTo
      */
-    public function medicalHouse(): BelongsToMany
+    public function medicalHouse(): BelongsTo
     {
-        return $this->belongsToMany(
-            MedicalHouses::class,
-            'medical_houses_transports',
-            'transport_id',
-            'medical_house_id')
-            ->using(MedicalHouseTransport::class)
-            ->withTimestamps();
+        return $this->belongsTo(MedicalHouses::class);
     }
 }

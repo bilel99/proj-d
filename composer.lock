@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "841e93ba74182b4c14d18523c4de9a5f",
+    "content-hash": "2824b51189d7ffc6ac21d8551e26e0bd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -785,6 +785,47 @@
                 "validator"
             ],
             "time": "2020-02-13T22:36:52+00:00"
+        },
+        {
+            "name": "ek0519/quilljs",
+            "version": "0.1.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ek0519/nova-quilljs.git",
+                "reference": "7c3673af7f211b2cb36bfb76eb8b9d93ecf9a11a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ek0519/nova-quilljs/zipball/7c3673af7f211b2cb36bfb76eb8b9d93ecf9a11a",
+                "reference": "7c3673af7f211b2cb36bfb76eb8b9d93ecf9a11a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Ek0519\\Quilljs\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ek0519\\Quilljs\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova field.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2020-02-28T16:47:23+00:00"
         },
         {
             "name": "fideloper/proxy",
@@ -1795,6 +1836,48 @@
                 "zip"
             ],
             "time": "2020-05-30T13:11:16+00:00"
+        },
+        {
+            "name": "mdixon18/fontawesome",
+            "version": "v0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mdixon18/fontawesome.git",
+                "reference": "9df1b85b64541ff8b711fa3f09491ea060cb50ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mdixon18/fontawesome/zipball/9df1b85b64541ff8b711fa3f09491ea060cb50ab",
+                "reference": "9df1b85b64541ff8b711fa3f09491ea060cb50ab",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mdixon18\\Fontawesome\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mdixon18\\Fontawesome\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A FontAwesome Nova field.",
+            "keywords": [
+                "FontAwesome",
+                "laravel",
+                "nova"
+            ],
+            "time": "2019-01-11T15:24:45+00:00"
         },
         {
             "name": "monolog/monolog",

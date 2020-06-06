@@ -15,6 +15,7 @@ return [
 
     'groups' => [
         'admin' => 'Administration',
+        'page' => 'Page',
     ],
 
     'labels' => [
@@ -22,12 +23,15 @@ return [
         'doctor' => 'Docteurs',
         'society' => 'Docteur de garde',
         'medicalHouse' => 'Maison de garde',
+        'transport' => 'Transport',
     ],
 
     'panel' => [
         'info_prin' => 'Information principal',
         'info_sec' => 'Information secondaire',
         'address' => 'Adresses',
+        'transport' => 'Transport',
+        'medicalHouse' => 'Maison médical',
     ],
 
     'actions' => [

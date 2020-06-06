@@ -35,5 +35,16 @@ return [
         'compl_address' => 'Complément d\'adresse',
         'phone' => 'Numéro de téléphone',
         'hours' => 'Heure',
+        'infos' => 'Information supplémentaire',
+        'icon' => 'Icone',
     ],
+
+    'helps' => [
+        'icon' => [
+            'title' => 'Panel d\'icone',
+            'step1' => 'Au clic sur le bouton icone',
+            'step2' => 'Vous pouvez choisir parmis une liste exhaustif votre icone',
+            'step3' => 'Vous pouvez aussi retrouver toutes les icones <a href="https://fontawesome.com/icons?d=gallery">ici</a>',
+        ]
+    ]
 ];
