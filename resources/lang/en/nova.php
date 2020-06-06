@@ -29,6 +29,7 @@ return [
         'page' => 'Page',
         'alert' => 'Message d\'alertes',
         'service' => 'Services',
+        'information' => 'Informations',
     ],
 
     'panel' => [

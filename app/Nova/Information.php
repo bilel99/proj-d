@@ -2,24 +2,22 @@
 
 namespace App\Nova;
 
-use App\Models\Services as ServiceModel;
-use Benjaminhirsch\NovaSlugField\TextWithSlug;
+use App\Models\Informations as InformationModel;
 use Ek0519\Quilljs\Quilljs;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Mdixon18\Fontawesome\Fontawesome;
 
-class Service extends Resource
+class Information extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = ServiceModel::class;
+    public static $model = InformationModel::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -50,7 +48,7 @@ class Service extends Resource
      */
     public static function label()
     {
-        return __('nova.labels.service');
+        return __('nova.labels.information');
     }
 
     /**
@@ -63,17 +61,6 @@ class Service extends Resource
     {
         return [
             ID::make()->sortable(),
-
-            Fontawesome::make(__('globals.attributes.icon'), 'icon')
-                ->addButtonText('Icone')
-                ->help(
-                    'Panel d\'icone 
-                           <ul>
-                           <li>Au clic sur le bouton icone</li>
-                           <li>Vous pouvez choisir parmis une liste exhaustif votre icone</li>
-                           <li>Vous pouvez aussi retrouver toutes les icones <a href="https://fontawesome.com/icons?d=gallery">ici</a></li>
-                           </ul>'
-                ),
 
             Text::make(__('globals.attributes.title'), 'title')
                 ->sortable()
@@ -88,7 +75,7 @@ class Service extends Resource
                 ->rules('nullable')
                 ->hideFromIndex(),
 
-            BelongsTo::make('page'),
+            BelongsTo::make('alert'),
         ];
     }
 

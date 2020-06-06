@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Alerts extends Model
@@ -44,14 +43,6 @@ class Alerts extends Model
             'page_id')
             ->using(PageAlert::class)
             ->withTimestamps();
-    }
-
-    /**
-     * @return BelongsTo
-     */
-    public function informations(): BelongsTo
-    {
-        return $this->belongsTo(Informations::class);
     }
 
     /**
