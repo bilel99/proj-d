@@ -28,6 +28,7 @@ return [
         'contact' => 'Demande de contact',
         'page' => 'Page',
         'alert' => 'Message d\'alertes',
+        'service' => 'Services',
     ],
 
     'panel' => [
