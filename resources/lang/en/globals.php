@@ -38,7 +38,17 @@ return [
         'infos' => 'Information supplémentaire',
         'icon' => 'Icone',
         'day' => 'Jours',
-        'open' => 'Ouvertures'
+        'open' => 'Ouvertures',
+        'doctor' => 'Docteur',
+        'objet_demande' => 'L\'objet de la demande',
+        'postal_code' => 'Code postal',
+        'date_consultation' => 'Date de consultation',
+        'objet_demande_doctor' => 'L\'objet de la demande du docteur',
+        'precisions' => 'Précision',
+        'objetDemandeOptions' => [
+            'demande1' => 'Contacter le médecin qui vous a consulté',
+            'demande2' => 'Contacter la société docteur de garde',
+        ],
     ],
 
     'helps' => [

@@ -9,6 +9,7 @@ class Contacts extends Model
 {
     public const OBJECT_DEMANDE_1 = 'Contacter le médecin qui vous a consulté';
     public const OBJECT_DEMANDE_2 = 'Contacter la société docteur de garde';
+
     public const CIVILITY_MR = 'Mr';
     public const CIVILITY_MS = 'Mme';
 
@@ -30,6 +31,13 @@ class Contacts extends Model
         'date_consultation',
         'objet_demande_doctor',
         'precisions'
+    ];
+
+    /**
+     * @var string[] 
+     */
+    protected $casts = [
+        'date_consultation' => 'date',
     ];
 
     public function doctor(): BelongsTo
@@ -63,5 +71,27 @@ class Contacts extends Model
                 . ' ' .
                 substr($phoneNumber, 8);
         }
+    }
+
+    /**
+     * @return array
+     */
+    public static function civilityOptions(): array
+    {
+        return [
+            static::CIVILITY_MR => __('globals.attributes.civility.mr_label'),
+            static::CIVILITY_MS => __('globals.attributes.civility.ms_label'),
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public static function objDemandeOptions(): array
+    {
+        return [
+            static::OBJECT_DEMANDE_1 => __('globals.attributes.objetDemandeOptions.demande1'),
+            static::OBJECT_DEMANDE_2 => __('globals.attributes.objetDemandeOptions.demande2'),
+        ];
     }
 }

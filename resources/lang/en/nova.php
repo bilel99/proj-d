@@ -25,6 +25,7 @@ return [
         'medicalHouse' => 'Maison de garde',
         'transport' => 'Transport',
         'hours' => 'Horaires',
+        'contact' => 'Demande de contact',
     ],
 
     'panel' => [
@@ -33,6 +34,7 @@ return [
         'address' => 'Adresses',
         'transport' => 'Transport',
         'medicalHouse' => 'Maison médical',
+        'consult' => 'Consultation',
     ],
 
     'actions' => [
