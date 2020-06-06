@@ -37,6 +37,8 @@ return [
         'hours' => 'Heure',
         'infos' => 'Information supplémentaire',
         'icon' => 'Icone',
+        'day' => 'Jours',
+        'open' => 'Ouvertures'
     ],
 
     'helps' => [

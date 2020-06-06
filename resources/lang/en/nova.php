@@ -24,6 +24,7 @@ return [
         'society' => 'Docteur de garde',
         'medicalHouse' => 'Maison de garde',
         'transport' => 'Transport',
+        'hours' => 'Horaires',
     ],
 
     'panel' => [
