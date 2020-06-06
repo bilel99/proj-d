@@ -28,6 +28,7 @@ return [
             'actif' => 'Actif',
             'inactif' => 'Inactif'
         ],
+        'unique_name' => 'slug',
         'title' => 'Titre',
         'content' => 'Contenu',
         'map' => 'Map',
@@ -49,6 +50,9 @@ return [
             'demande1' => 'Contacter le médecin qui vous a consulté',
             'demande2' => 'Contacter la société docteur de garde',
         ],
+        'page_id' => 'Page',
+        'types' => 'Types d\'alerte',
+        'levels' => 'Niveau d\'alerte',
     ],
 
     'helps' => [

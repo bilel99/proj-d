@@ -15,16 +15,12 @@ class CreateAlertsTable extends Migration
     {
         Schema::create('alerts', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('page_id')->index()->nullable();
             $table->string('title')->nullable();
             $table->text('content')->nullable();
             $table->string('icon')->nullable();
             $table->integer('types')->nullable()->comment('1 = alert, 2 = alert-message, 3 = plain-text, ...');
             $table->integer('levels')->nullable()->comment('1 = default, 2 = info, 3 = warning, 4 = danger');
             $table->timestamps();
-
-            $table->foreign('page_id')->references('id')->on('pages')
-                ->onDelete('cascade');
         });
 
         Schema::create('pages_alerts', function (Blueprint $table) {

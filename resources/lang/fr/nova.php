@@ -26,6 +26,8 @@ return [
         'transport' => 'Transport',
         'hours' => 'Horaires',
         'contact' => 'Demande de contact',
+        'page' => 'Page',
+        'alert' => 'Message d\'alertes',
     ],
 
     'panel' => [
@@ -35,6 +37,7 @@ return [
         'transport' => 'Transport',
         'medicalHouse' => 'Maison médical',
         'consult' => 'Consultation',
+        'relations' => 'Relations',
     ],
 
     'actions' => [
