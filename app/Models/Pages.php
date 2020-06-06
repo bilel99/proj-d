@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Pages extends Model implements HasMedia
 {
@@ -50,25 +51,17 @@ class Pages extends Model implements HasMedia
             ->withTimestamps();
     }
 
-    /**
-     * is there a picture
-     *
-     * @param string $collection
-     * @return bool
-     */
-    public function hasFile(string $collection): bool
+    public function registerMediaConversions(Media $media = null): void
     {
-        return count($this->getMedia($collection)) > 0;
+        $this->addMediaConversion('thumb')
+            ->width(130)
+            ->height(130)
+            ->sharpen(10);
     }
 
-    /**
-     * I use the MediaLibrary Bundle
-     *
-     * @param string $collection
-     * @return string
-     */
-    public function getRetrievingFile(string $collection): string
+    public function registerMediaCollections(): void
     {
-        return $this->getMedia($collection)->first()->getFullUrl();
+        $this->addMediaCollection('main')->singleFile();
+        $this->addMediaCollection('my_multi_collection');
     }
 }

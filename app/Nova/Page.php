@@ -5,6 +5,7 @@ namespace App\Nova;
 use App\Models\Pages as PageModel;
 use Benjaminhirsch\NovaSlugField\Slug;
 use Benjaminhirsch\NovaSlugField\TextWithSlug;
+use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 use Ek0519\Quilljs\Quilljs;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsToMany;
@@ -64,6 +65,7 @@ class Page extends Resource
         return [
             new Panel(__('nova.panel.info_prin'), $this->infoPrincPanel()),
             new Panel(__('nova.panel.relations'), $this->relationsPanel()),
+            new Panel(__('nova.panel.medias'), $this->mediasPanel()),
         ];
     }
 
@@ -80,8 +82,6 @@ class Page extends Resource
                 ->sortable()
                 ->rules('required', 'min:2', 'max:255'),
 
-            Slug::make('unique_name'),
-
             Quilljs::make(__('globals.attributes.content'), 'content')
                 ->withFiles('public')
                 ->fullWidth('option')
@@ -90,6 +90,8 @@ class Page extends Resource
                 ->placeholder('Vous pouvez rentrer votre contenu ici ...')
                 ->rules('nullable')
                 ->hideFromIndex(),
+
+            Slug::make('unique_name'),
         ];
     }
 
@@ -100,9 +102,20 @@ class Page extends Resource
     {
         return [
             BelongsToMany::make('alerts'),
+        ];
+    }
 
+    public function mediasPanel(): array
+    {
+        return [
             // Upload Laravel Spatie
-            
+            Images::make(__('globals.attributes.medias'), 'page') // second parameter is the media collection name
+            ->conversionOnIndexView('thumb') // conversion used to display the image
+            ->enableExistingMedia()
+            ->withResponsiveImages()
+            ->showDimensions()
+            ->nullable(true)
+            ->rules('nullable', 'max:2048'),
         ];
     }
 

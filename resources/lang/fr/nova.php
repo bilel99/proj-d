@@ -38,6 +38,7 @@ return [
         'medicalHouse' => 'Maison médical',
         'consult' => 'Consultation',
         'relations' => 'Relations',
+        'medias' => 'Media',
     ],
 
     'actions' => [

@@ -53,6 +53,7 @@ return [
         'page_id' => 'Page',
         'types' => 'Types d\'alerte',
         'levels' => 'Niveau d\'alerte',
+        'medias' => 'Medias',
     ],
 
     'helps' => [
