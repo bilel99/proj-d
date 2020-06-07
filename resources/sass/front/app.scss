@@ -5,10 +5,10 @@
 @import 'modules/variables';
 @import "modules/mixins";
 @import "modules/animate";
+@import "modules/auth";
 @import "modules/panel-tabs";
 @import "modules/custom_accordion";
 @import "modules/custom_alert";
-// @todo voir si on externalise le custom_alert dans le fichier scss global car il es utilisé dans le back et le front
 @import 'modules/general';
 @import "modules/form";
 @import "modules/buttons";

@@ -14,6 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::group(
+    [
+        'middleware' => ['auth:api'], //api_token is needed in the request
+        'namespace' => 'Api', // Api Folder in Http\Controller
+    ],
+    function () {
+        //apiResource let you to have show, store, update, delete (GET, POST, PUT, DELETE)
+        Route::apiResources(
+            [
+                'user' => 'UserController',
+            ]
+        );
+    }
+);
+    

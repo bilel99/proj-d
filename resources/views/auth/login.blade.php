@@ -4,7 +4,7 @@
     <!-- Outer Row -->
     <div class="row justify-content-center">
         <div class="col-xl-10 col-lg-12 col-md-9">
-            <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card border-0 shadow-lg my-5">
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
                     <div class="row">
@@ -14,8 +14,9 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                 </div>
+                                <hr>
 
-                                <form method="POST" action="{{ route('login') }}" class="user">
+                                <form method="POST" action="{{ route('login') }}">
                                     @csrf
 
                                     <div class="form-group">
@@ -64,7 +65,7 @@
 
                                 @if (Route::has('password.request'))
                                     <div class="text-center">
-                                        <a class="small"
+                                        <a class="small auth-link"
                                            href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
                                     </div>
                                 @endif

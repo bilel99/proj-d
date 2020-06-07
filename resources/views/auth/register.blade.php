@@ -11,6 +11,7 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                         </div>
+                        <hr>
 
                         <form method="POST" action="{{ route('register') }}" class="user">
                             @csrf
@@ -69,13 +70,13 @@
 
                         @if (Route::has('password.request'))
                             <div class="text-center">
-                                <a class="small"
+                                <a class="small auth-link"
                                    href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
                             </div>
                         @endif
 
                         <div class="text-center">
-                            <a class="small" href="{{ route('login') }}">Already have an account? Login!</a>
+                            <a class="small auth-link" href="{{ route('login') }}">Already have an account? Login!</a>
                         </div>
                     </div>
                 </div>

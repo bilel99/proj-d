@@ -1,0 +1,26 @@
+.bg-login-image, .bg-register-image, .bg-forgot-email-image, .bg-reset-image {
+  background-image: url("../../../../public/front/img/logos/logo-fond-bleu.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #072453;
+}
+
+.form-check-label {
+  font-weight: 800;
+}
+
+.auth-link {
+  font-weight: 800;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+
+  &:hover {
+    text-decoration: none;
+    zoom: 1;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+  }
+}

@@ -13,6 +13,7 @@ return [
     |
     */
 
+    'title' => 'Mon Admin',
     'groups' => [
         'admin' => 'Administration',
         'page' => 'Page',

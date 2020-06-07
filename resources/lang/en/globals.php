@@ -63,5 +63,8 @@ return [
             'step2' => 'Vous pouvez choisir parmis une liste exhaustif votre icone',
             'step3' => 'Vous pouvez aussi retrouver toutes les icones <a href="https://fontawesome.com/icons?d=gallery">ici</a>',
         ]
-    ]
+    ],
+
+    'admin' => 'Administrateur',
+    'logout' => 'Je me déconnecte',
 ];

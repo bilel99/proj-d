@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Nova\Nova;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+/**
+ * NOVA ROUTING
+ */
+Nova::routes();
+
+/**
+ * Abort route nova/login
+ */
+Route::get('nova/login', function () {
+    return redirect()->route('login');
+});
 
 Route::get('/', function () {
     return view('front.home.index');

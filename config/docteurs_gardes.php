@@ -3,6 +3,14 @@
 return [
 
     /**
+     * BASE URL
+     */
+    'route_login' => 'login',
+    'login' => '/login',
+    'admin' => '/nova',
+    'home' => '/',
+
+    /**
      * Contact Form objects
      */
     'objet_contact' => [
