@@ -3,7 +3,7 @@
 @section('content')
 
     <!--banner-->
-    @include('front.layouts.partials._banner')
+    @include('front.layouts.partials._hero-banner')
     <!--/ banner-->
 
     <!-- section about -->
