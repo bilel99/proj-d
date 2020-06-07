@@ -20,12 +20,29 @@ Route::group(
         'namespace' => 'Api', // Api Folder in Http\Controller
     ],
     function () {
+    }
+);
+
+Route::group(
+    [
+        'namespace' => 'Api', // Api Folder in Http\Controller
+    ],
+    function () {
         //apiResource let you to have show, store, update, delete (GET, POST, PUT, DELETE)
         Route::apiResources(
             [
                 'user' => 'UserController',
+                'alert' => 'AlertController',
+                'contact' => 'ContactController',
+                'doctor' => 'DoctorController',
+                'horaire' => 'HoraireController',
+                'information' => 'InformationController',
+                'medicalHouse' => 'MedicalHouseController',
+                'page' => 'PageController',
+                'service' => 'ServiceController',
+                'society' => 'SocietyController',
+                'transport' => 'TransportController',
             ]
         );
     }
 );
-    

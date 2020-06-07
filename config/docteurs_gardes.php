@@ -10,6 +10,11 @@ return [
     'admin' => '/nova',
     'home' => '/',
 
+    'BASIC_AUTH' => [
+        'BASIC_AUTH_USERNAME' => env('BASIC_AUTH_USERNAME', ''),
+        'BASIC_AUTH_PASSWORD' => env('BASIC_AUTH_PASSWORD', ''),
+    ],
+
     /**
      * Contact Form objects
      */

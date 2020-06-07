@@ -2,19 +2,20 @@
 
 namespace App\Models;
 
+use App\Models\Traits\Helpers;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
+    use Notifiable, Helpers;
+    
     public const CIVILITY_MR = 'Mr';
     public const CIVILITY_MS = 'Mme';
 
     public const STATUS_ACTIF = 1;
     public const STATUS_INACTIF = 2;
-
-    use Notifiable;
 
     /**
      * The attributes that are mass assignable.

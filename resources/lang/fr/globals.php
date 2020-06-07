@@ -67,4 +67,8 @@ return [
 
     'admin' => 'Administrateur',
     'logout' => 'Je me déconnecte',
+
+    'basic_auth' => [
+        'invalid_credentials' => 'informations d\'identification invalides',
+    ],
 ];
