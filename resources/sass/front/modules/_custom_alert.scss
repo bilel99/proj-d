@@ -17,7 +17,7 @@
 
 .alert-message-success
 {
-  background-color: $white;
+  background-color: white;
   border-color: #3C763D;
 
   h4 {
@@ -25,63 +25,63 @@
   }
 
   p {
-    color: $black;
+    color: black;
   }
 }
 
 .alert-message-danger
 {
-  background-color: $white;
-  border-color: $color-red;
+  background-color: white;
+  border-color: red
 
   h4 {
-    color: $color-red;
+    color: red
   }
 
   p {
-    color: $color-red;
+    color: red
   }
 }
 
 .alert-message-warning
 {
-  background-color: $white;
-  border-color: $color-hr-line;
+  background-color: white;
+  border-color: $color-hr;
 
   h4 {
-    color: $color-hr-line;
+    color: $color-hr;
   }
 
   p {
-    color: $black;
+    color: black;
   }
 }
 
 .alert-message-info
 {
-  background-color: $white;
+  background-color: white;
   border-color: #5bc0de;
 
   h4, h2
   {
-    color: $black;
+    color: black;
   }
 
   p {
-    color: $black;
+    color: black;
   }
 }
 
 .alert-message-default
 {
-  background-color: $white;
+  background-color: white;
   border-color: #B4B4B4;
 
   h4 {
-    color: $black;
+    color: black;
   }
 
   p {
-    color: $black;
+    color: black;
   }
 }

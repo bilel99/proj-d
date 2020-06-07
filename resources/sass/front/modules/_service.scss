@@ -7,7 +7,7 @@ services
   .card {
     padding: 20px;
     width: 100%;
-    background-color: $white;
+    background-color: white;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 
     &:hover {
@@ -19,7 +19,7 @@ services
     padding: 15px;
     background-color: $color-icon;
     border-radius: 50%;
-    color: $white;
+    color: white;
     font-size: 45px;
     margin-bottom: 25px;
   }

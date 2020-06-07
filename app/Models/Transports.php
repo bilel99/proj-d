@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Laravel\Passport\HasApiTokens;
 
 class Transports extends BasesModel
 {
+    use HasApiTokens;
+
     /**
      * @var string
      */

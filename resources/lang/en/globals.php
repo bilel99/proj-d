@@ -12,6 +12,21 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'website' => [
+        'name' => 'Les Docteurs de garde ®:',
+        'info' => 'Maison Médicale de Garde Seine et Marne',
+        'navbar' => [
+            'qui-sommes-nous' => 'Qui sommes-nous',
+            'nos-services' => 'Nos services',
+            'comment-prendre-rendez-vous' => 'Comment prendre rendez-vous',
+            'tarifs' => 'Tarifs',
+            'ou-ce-situe-les-maisons-medicales-de-garde' => 'Ou se situe les maisons médicales de garde',
+            'contact' => 'Nous contacter',
+            'nos-informations' => 'Nos informations',
+        ],
+        'back-office' => 'Mon admin',
+    ],
+
     'attributes' => [
         'civility' => [
             'civility' => 'Civilité',

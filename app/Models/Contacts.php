@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Laravel\Passport\HasApiTokens;
 
 class Contacts extends BasesModel
 {
+    use HasApiTokens;
+
     public const OBJECT_DEMANDE_1 = 'Contacter le médecin qui vous a consulté';
     public const OBJECT_DEMANDE_2 = 'Contacter la société docteur de garde';
 

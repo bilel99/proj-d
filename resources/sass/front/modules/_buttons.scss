@@ -5,7 +5,7 @@
   bottom:40px;
   right:40px;
   background-color:$color-icon;
-  color:$white;
+  color: white;
   border-radius:50%;
   text-align:center;
   box-shadow: 2px 2px 3px #999;
@@ -15,7 +15,7 @@
   }
 
   &:hover {
-    color: $white;
+    color: white;
   }
 }
 
@@ -28,16 +28,16 @@
   font-size: 14px;
   font-weight: 400;
   border: 0;
-  border: 1px solid $btn-bg;
+  border: 1px solid $btn-bg-color;
   // width: 180px;
   text-align: center;
-  color: $btn-bg !important;
+  color: $btn-bg-color !important;
   text-transform: uppercase;
   cursor: pointer;
   &:hover{
-    background: $btn-bg;
+    background: $btn-bg-color;
     color: #fff !important;
-    border: 1px solid $btn-bg;
+    border: 1px solid $btn-bg-color;
   }
   &:focus{
     outline: none;
@@ -110,7 +110,7 @@
   cursor: pointer;
   &:hover{
     background: #fff;
-    color: $btn-bg !important;
+    color: $btn-bg-color !important;
     border: 1px solid transparent;
   }
   &:focus{
@@ -200,12 +200,12 @@
 .boxed-btn6{
   display: inline-block;
   font-size: 14px;
-  color: $btn-bg;
-  border: 1px solid $btn-bg;
+  color: $btn-bg-color;
+  border: 1px solid $btn-bg-color;
   text-transform: capitalize;
   padding: 10px 25px;
   &:hover{
-    background: $btn-bg;
+    background: $btn-bg-color;
     color: #fff;
   }
 }
@@ -228,9 +228,9 @@
     left: 0;
   }
   &:hover{
-    color: $btn-bg;
+    color: $btn-bg-color;
   }
   &:hover::before{
-    background: $btn-bg;
+    background: $btn-bg-color;
   }
 }

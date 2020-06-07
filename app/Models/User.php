@@ -6,10 +6,11 @@ use App\Models\Traits\Helpers;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable, Helpers;
+    use Notifiable, Helpers, HasApiTokens;
     
     public const CIVILITY_MR = 'Mr';
     public const CIVILITY_MS = 'Mme';

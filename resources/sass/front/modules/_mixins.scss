@@ -4,6 +4,7 @@
   $opacity-ie: $opacity * 100;
   filter: alpha(opacity=$opacity-ie); //IE8
 }
+
 // transition
 @mixin transition($args...) {
   -webkit-transition: $args;
@@ -11,7 +12,8 @@
   -ms-transition: $args;
   -o-transition: $args;
   transition: $args;
-}// transition
+}
+
 @mixin border-radius($man) {
   -webkit-border-radius: $man;
   -moz-border-radius: $man;
@@ -61,16 +63,19 @@
   -ms-transform: $transforms;
   transform: $transforms;
 }
+
 // Translate
-@mixin translate ($x, $y) {
+@mixin translate($x, $y) {
   @include transform(translate($x, $y));
 }
+
 // TranslateY
-@mixin translateY ($y) {
+@mixin translateY($y) {
   @include transform(translateY($y));
 }
+
 // TranslateY
-@mixin translateX ($x) {
+@mixin translateX($x) {
   @include transform(translateX($x));
 }
 
@@ -95,21 +100,6 @@
   transition: $total_time;
 }
 
-@mixin placeholder {
-  &.placeholder {
-    @content;
-  }
-  &:-moz-placeholder {
-    @content;
-  }
-  &::-moz-placeholder {
-    @content;
-  }
-  &::-webkit-input-placeholder {
-    @content;
-  }
-}
-
 @mixin transition($args: all 0.6s ease 0s) {
   -webkit-transition: $args;
   -moz-transition: $args;
@@ -117,7 +107,7 @@
   transition: $args;
 }
 
-@mixin keyframes ($animation-name) {
+@mixin keyframes($animation-name) {
   @-webkit-keyframes #{$animation-name} {
     @content;
   }
@@ -130,4 +120,11 @@
   @keyframes #{$animation-name} {
     @content;
   }
+}
+
+@mixin linear-gradient($top-color, $bottom-color, $opacity) {
+  background: -moz-linear-gradient(top, rgba($top-color, $opacity) 0%, rgba($bottom-color, $opacity) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba($top-color, $opacity) 0%, rgba($bottom-color, $opacity) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba($top-color, $opacity) 0%, rgba($bottom-color, $opacity) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str(rgba($top-color, $opacity))}', endColorstr='#{ie-hex-str(rgba($bottom-color, $opacity))}', GradientType=0); /* IE6-9 */
 }

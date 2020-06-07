@@ -2,8 +2,12 @@
 
 namespace App\Models;
 
+use Laravel\Passport\HasApiTokens;
+
 class Doctors extends BasesModel
 {
+    use HasApiTokens;
+
     public const CIVILITY_MR = 'Mr';
     public const CIVILITY_MS = 'Mme';
 

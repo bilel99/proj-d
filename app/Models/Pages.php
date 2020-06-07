@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Laravel\Passport\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Pages extends BasesModel implements HasMedia
 {
-    use InteractsWithMedia;
+    use InteractsWithMedia, HasApiTokens;
 
     public const PAGE_QUI_SOMME_NOUS = 'qui-sommes-nous';
     public const PAGE_NOS_SERVICES = 'nos-services';

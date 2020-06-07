@@ -16,8 +16,10 @@
   -moz-transition: opacity 1s ease-in-out;
   -o-transition: opacity 1s ease-in-out;
   transition: opacity 1s ease-in-out;
+  color: $ddg-secondary;
 
   &:hover {
+    color: $ddg-secondary;
     text-decoration: none;
     zoom: 1;
     filter: alpha(opacity=50);

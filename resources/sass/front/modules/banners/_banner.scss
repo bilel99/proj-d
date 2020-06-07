@@ -4,7 +4,6 @@ banner
 #banner{
   background: url('../../../../../public/front/img/bg-banner.jpg') no-repeat fixed;
   background-size: cover;
-  position: relative;
 
   @media (max-width: 1024px){
     #banner{
@@ -13,7 +12,7 @@ banner
   }
 
   .bg-color{
-    background-color: RGBA(13, 70, 83, 0.78);
+    @include linear-gradient($ddg-primary, $ddg-secondary, 0.78);
     min-height: 750px;
   }
 
@@ -39,7 +38,7 @@ banner
     position: absolute;
     bottom: 0;
     font-size: 38px;
-    color: $white;
+    color: white;
     margin: 0 auto;
   }
 
