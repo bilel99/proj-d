@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Society extends Model
+class Society extends BasesModel
 {
     /**
      * @var string

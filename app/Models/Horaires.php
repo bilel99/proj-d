@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Horaires extends Model
+class Horaires extends BasesModel
 {
     /**
      * The attributes that are mass assignables.

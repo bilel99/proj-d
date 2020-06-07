@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Doctors extends Model
+class Doctors extends BasesModel
 {
     public const CIVILITY_MR = 'Mr';
     public const CIVILITY_MS = 'Mme';

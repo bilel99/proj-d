@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Services extends Model
+class Services extends BasesModel
 {
     /**
      * The attributes that are mass assignables.
