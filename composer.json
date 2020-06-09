@@ -8,10 +8,9 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.2.5",
+        "php": "^7.3",
         "benjaminhirsch/nova-slug-field": "^1.2",
         "coderello/laravel-nova-lang": "^1.4",
-        "ebess/advanced-nova-media-library": "^3.1",
         "ek0519/quilljs": "^0.1.9",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
@@ -22,7 +21,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "mdixon18/fontawesome": "^0.1.1",
-        "spatie/laravel-medialibrary": "^8.0.0"
+        "spatie/laravel-medialibrary": "^7.0.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",

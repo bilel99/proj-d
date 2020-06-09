@@ -1,79 +1,119 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+#Website Projet - D
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+... EXPLICATION DU PROJET A FAIRE ...
 
-## About Laravel
+SOMMAIRE
+----------
+1. [Introduction](#introduction)
+2. [Installation en local](#installation-en-local)
+3. [Commandes de bases avec Lando](#commandes-de-bases-avec-lando)
+4. [Commandes de bases avec Lando + Laravel](#commandes-de-bases-avec-lando--laravel)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+INTRODUCTION
+------------
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+💾 __Technologies__ :
 
-## Learning Laravel
+- Framework Laravel ^7
+- Framework Vue.js ^2
+- Framework Bootstrap ^4
+- API REST
+- Laravel Passport
+- Laravel Nova
+- Lando
+- Php 7.3
+- Nginx 1.14
+- Mariadb 10.3
+- Redis 5
+- Phpmyadmin 4.7
+- Mailhog 1.0.0
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+🔗 __Liens utiles pour Lando__ :
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- https://projetd.lndo.site/
+- https://pma-projetd.lndo.site/
+- https://mailhog-projetd.lndo.site
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+INSTALLATION EN LOCAL
+------------
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
 
-## Contributing
+Ce dépôt se déploie facilement en local par l'utilisation de Docker.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+##### 0) Pré-requis
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Mettre à jour votre distribution **Linux**.
 
-## Security Vulnerabilities
+```bash
+$ sudo apt-get update
+$ sudo apt-get upgrade
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+##### 1) Installation de Docker CE
+##### 2) Installation de Lando
+##### 3) Mise en place du projet
+clonez le projet
 
-## License
+```bash
+$ git clone git@github.com:bilel99/proj-d.git
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+$ cd ./clients
+$ lando start
+$ lando composer install
+$ lando npm install
+$ lando dump-autoload
+$ lando artisan migrate:fresh --seed
+$ lando php artisan passport:install
+$ lando php artisan passport:keys
+$ cp .env.example .env
+
+Fournir les clés sur le fichier d\'environnement
+
+$ lando build
+$ lando artisan key:generate
+$ lando artisan migrate
+```
+
+```bash
+$ sudo cp -r ~/.lando/certs/lndo.site.pem /usr/local/share/ca-certificates/lndo.site.pem
+$ sudo update-ca-certificates
+```
+
+Le site est à présent fonctionnels 💪
+
+
+COMMANDES DE BASES AVEC LANDO
+------------
+
+⚠️ Il faut toujours se situer dans le répertoire du projet, ici **~/Developpement/clients/**
+
+| Commande                | Description |
+| -------------- | ------------- |
+| lando composer          | Exécuter des commandes composer |
+| lando config            | Afficher la configuration lando |
+| lando destroy           | Détruit l'application (Pas les données) |
+| lando info              | Informations propres à l'application |
+| lando logs              | Afficher les logs de l'application |
+| lando npm               | Exécuter des commandes npm
+| lando php               | Exécuter des commandes php |
+| lando restart           | Redémarrer l'application |
+| lando ssh               | Accès SSH à l'application principale |
+| lando start             | Démarrer l'application |
+| lando stop              | Arrêter l'application |
+| lando version           | Affiche la version de lando |
+
+
+COMMANDES DE BASES AVEC LANDO + LARAVEL
+------------
+
+| Commande                | Description |
+| -------------- | ------------- |
+| lando artisan | Afficher la liste des commandes d'artisan |
+| lando npm run watch | Lance la compilation du Sass et du JS en direct |
+| lando phpunit | Lancer les tests unitaires
+```
