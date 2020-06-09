@@ -3,6 +3,24 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+const username = 'docteur-de-garde'
+const password = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e'
+
+const get = async function (url) {
+    let response = await axios.get(url, {
+        auth: {
+            username: username,
+            password: password,
+        }
+    })
+        .then((response) => {
+            console.log(response)
+        })
+        .catch((error) => {
+            throw new Error(error.message)
+        })
+}
+
 /**
  * {
  *     1: {
@@ -24,8 +42,9 @@ export default new Vuex.Store({
         heroBanner: {}
     },
     actions: {
-        loadHeroBanner: function (context) {
-            
+        loadHeroBanner: async function (context) {
+            let response = await get('/api/page/1')
+            console.log(response)
         }
     }
 })
