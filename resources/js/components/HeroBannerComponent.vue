@@ -4,11 +4,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="banner-info">
-                            <div class="banner-logo text-center">
+                        <div class="hero-banner-info">
+                            <div class="hero-banner-logo text-center">
                                 <img src="front/img/logos/logo.png" class="img-responsive" alt="Logo">
                             </div>
-                            <div class="banner-text text-center pt-3">
+                            <div class="hero-banner-text text-center pt-3">
                                 <h1 class="text-white">Un premier titre: {{ user }}</h1>
                                 <p class="text-white pt-3">
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br>tempor
@@ -33,9 +33,6 @@
 export default {
     props: {
         user: Number,
-    },
-    mounted() {
-        this.$store.dispatch('loadHeroBanner')
     }
 }
 </script>

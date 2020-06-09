@@ -4,13 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Laravel\Passport\HasApiTokens;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\Models\Media;
 
-class Pages extends BasesModel implements HasMedia
+class Pages extends BasesModel
 {
-    use HasMediaTrait, HasApiTokens;
+    use HasApiTokens;
 
     public const PAGE_QUI_SOMME_NOUS = 'qui-sommes-nous';
     public const PAGE_NOS_SERVICES = 'nos-services';
@@ -34,7 +31,8 @@ class Pages extends BasesModel implements HasMedia
     protected $fillable = [
         'unique_name',
         'title',
-        'content'
+        'content',
+        'media'
     ];
 
     /**
@@ -49,19 +47,5 @@ class Pages extends BasesModel implements HasMedia
             'alert_id')
             ->using(PageAlert::class)
             ->withTimestamps();
-    }
-
-    public function registerMediaConversions(Media $media = null): void
-    {
-        $this->addMediaConversion('thumb')
-            ->width(130)
-            ->height(130)
-            ->sharpen(10);
-    }
-
-    public function registerMediaCollections(): void
-    {
-        $this->addMediaCollection('page')->singleFile();
-        $this->addMediaCollection('my_multi_collection');
     }
 }

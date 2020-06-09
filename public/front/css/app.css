@@ -1215,18 +1215,18 @@ footer ul.quick-links li:hover a i {
 banner
 ***************************************/
 
-#hero-banner {
+.hero-banner {
   background: url(/images/bg-banner.jpg?0643ffb7a7698c5f64600280bb246934) no-repeat fixed;
   background-size: cover;
 }
 
 @media (max-width: 1024px) {
-  #hero-banner #banner {
+  .hero-banner .hero-banner {
     background-attachment: scroll;
   }
 }
 
-#hero-banner .bg-color {
+.hero-banner .bg-color {
   /* FF3.6-15 */
   /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, rgba(7, 36, 83, 0.78) 0%, rgba(130, 99, 8, 0.78) 100%);
@@ -1236,22 +1236,22 @@ banner
   min-height: 750px;
 }
 
-#hero-banner .banner-info {
+.hero-banner .hero-banner-info {
   padding-top: 100px;
 }
 
-#hero-banner .banner-logo img {
+.hero-banner .hero-banner-logo img {
   display: inline-block;
   width: 250px;
 }
 
-#hero-banner .banner-text h1 {
+.hero-banner .hero-banner-text h1 {
   font-family: "Candal", sans-serif;
   font-size: 35px;
   text-transform: uppercase;
 }
 
-#hero-banner .overlay-detail a i {
+.hero-banner .overlay-detail a i {
   text-align: center;
   position: absolute;
   bottom: 0;
@@ -1260,7 +1260,7 @@ banner
   margin: 0 auto;
 }
 
-#hero-banner .text-primary i {
+.hero-banner .text-primary i {
   padding-top: 8px;
   display: inline-block;
 }

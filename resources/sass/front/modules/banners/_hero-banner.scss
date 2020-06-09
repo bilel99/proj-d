@@ -1,12 +1,12 @@
 /***************************************
 banner
 ***************************************/
-#hero-banner{
+.hero-banner{
   background: url('../../../../../public/front/img/bg-banner.jpg') no-repeat fixed;
   background-size: cover;
 
   @media (max-width: 1024px){
-    #banner{
+    .hero-banner{
       background-attachment: scroll;
     }
   }
@@ -16,16 +16,16 @@ banner
     min-height: 750px;
   }
 
-  .banner-info{
+  .hero-banner-info{
     padding-top: 100px;
   }
 
-  .banner-logo img{
+  .hero-banner-logo img{
     display: inline-block;
     width: 250px;
   }
 
-  .banner-text{
+  .hero-banner-text{
     h1{
       font-family: 'Candal', sans-serif;
       font-size: 35px;

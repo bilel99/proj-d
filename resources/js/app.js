@@ -8,37 +8,16 @@ require('./bootstrap')
 require('select2/dist/js/select2.min')
 require('smartwizard/dist/js/jquery.smartWizard.min')
 
-// @todo faire que du JS 6 et ne plus utiliser jQuery essayer de créer des composant vue.js utiliser une version lite de jquery
 
 window.Vue = require('vue')
-import store from './heroBanerStore/store'
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('hero-banner-component', require('./components/HeroBannerComponent.vue').default);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-/*const app = new Vue({
+const app = new Vue({
     el: '#app',
-});*/
+});
 
 const heroBanner = new Vue({
     el: '#heroBanner',
     store
 })
-
-

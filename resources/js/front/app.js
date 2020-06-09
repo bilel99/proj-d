@@ -1,3 +1,5 @@
+// @todo faire que du JS 6 et ne plus utiliser jQuery essayer de créer des composant vue.js utiliser une version lite de jquery
+
 (function (jQuery) {
     //disableCopyAndPaste()
     backToTop()

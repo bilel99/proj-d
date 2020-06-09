@@ -18,6 +18,7 @@ class CreatePagesTable extends Migration
             $table->string('unique_name', 255)->nullable()->unique();
             $table->string('title', 255)->nullable();
             $table->longText('content')->nullable();
+            $table->string('media')->nullable();
             $table->timestamps();
         });
     }

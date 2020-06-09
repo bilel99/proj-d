@@ -5,10 +5,12 @@ namespace App\Nova;
 use App\Models\Pages as PageModel;
 use Benjaminhirsch\NovaSlugField\Slug;
 use Benjaminhirsch\NovaSlugField\TextWithSlug;
+use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Ek0519\Quilljs\Quilljs;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
 
@@ -107,14 +109,8 @@ class Page extends Resource
     public function mediasPanel(): array
     {
         return [
-            // todo trouver un package pour upload image
-            /*Images::make(__('globals.attributes.medias'), 'page') // second parameter is the media collection name
-            ->conversionOnIndexView('thumb') // conversion used to display the image
-            ->enableExistingMedia()
-            ->withResponsiveImages()
-            ->showDimensions()
-            ->nullable(true)
-            ->rules('nullable', 'max:2048'),*/
+            MediaLibrary::make('media')
+                ->preview('thumb'),
         ];
     }
 

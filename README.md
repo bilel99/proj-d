@@ -64,19 +64,21 @@ $ git clone git@github.com:bilel99/proj-d.git
 ```bash
 $ cd ./clients
 $ lando start
+
+$ cp .env.example .env
+Fournir les clés sur le fichier d\'environnement
+
 $ lando composer install
 $ lando npm install
 $ lando dump-autoload
 $ lando artisan migrate:fresh --seed
 $ lando php artisan passport:install
 $ lando php artisan passport:keys
-$ cp .env.example .env
-
-Fournir les clés sur le fichier d\'environnement
-
-$ lando build
 $ lando artisan key:generate
 $ lando artisan migrate
+$ lando artisan storage:link
+$ lando npm run dev | watch
+$ lando build
 ```
 
 ```bash
