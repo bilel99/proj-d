@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use ClassicO\NovaMediaLibrary\API;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Laravel\Passport\HasApiTokens;
 
@@ -9,6 +10,9 @@ class Pages extends BasesModel
 {
     use HasApiTokens;
 
+    /**
+     * Constant to Pages
+     */
     public const PAGE_QUI_SOMME_NOUS = 'qui-sommes-nous';
     public const PAGE_NOS_SERVICES = 'nos-services';
     public const PAGE_COMMENT_PRENDRE_RDV = 'comment-prendre-rendez-vous';
@@ -47,5 +51,25 @@ class Pages extends BasesModel
             'alert_id')
             ->using(PageAlert::class)
             ->withTimestamps();
+    }
+
+    /**
+     * @param int $id
+     * @return string
+     */
+    public static function getRetrieveMedia(int $id)
+    {
+        $file = API::getFiles($id, null, true);
+
+        return asset(sprintf('storage/%s', $file->path));
+    }
+
+    /**
+     * @param string $unique_name
+     * @return Pages
+     */
+    public static function getPage(string $unique_name): ?Pages
+    {
+        return self::where('unique_name', $unique_name)->first();
     }
 }

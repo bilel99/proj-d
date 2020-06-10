@@ -26,18 +26,28 @@ Route::get('nova/login', function () {
     return redirect()->route('login');
 });
 
-Route::get('/', function () {
-    return view('front.home.index');
-})->name('homepage');
+/**
+ * homepage
+ */
+Route::get('/', 'HomepageController@index')->name('homepage')->middleware('auth');
 
+/**
+ * About page
+ */
 Route::get('/comment-prendre-un-rendez-vous', function () {
     return view('front.appointement.index');
 })->name('appointement');
 
+/**
+ * Price page
+ */
 Route::get('/tarifs', function () {
     return view('front.prices.index');
 })->name('prices');
 
+/**
+ * contact page
+ */
 Route::get('/nous-contacter', function () {
     return view('front.contact.index');
 })->name('contacts');

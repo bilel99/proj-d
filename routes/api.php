@@ -44,5 +44,15 @@ Route::group(
                 'transport' => 'TransportController',
             ]
         );
+
+        /**
+         * Others Pages
+         */
+        Route::get('get-relations-page/{page}', 'PageController@getRelations')->name('get.relations.page');
+
+        /**
+         * Medias
+         */
+        Route::get('retrieve-media/{id}', 'MediaController@get')->name('get.retrieve.media');
     }
 );

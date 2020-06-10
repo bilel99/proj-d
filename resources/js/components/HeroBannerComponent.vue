@@ -6,14 +6,11 @@
                     <div class="col-md-12">
                         <div class="hero-banner-info">
                             <div class="hero-banner-logo text-center">
-                                <img src="front/img/logos/logo.png" class="img-responsive" alt="Logo">
+                                <img :src="media" class="img-responsive" alt="Logo">
                             </div>
                             <div class="hero-banner-text text-center pt-3">
-                                <h1 class="text-white">Un premier titre: {{ user }}</h1>
-                                <p class="text-white pt-3">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br>tempor
-                                    incididunt ut labore et dolore magna aliqua.
-                                </p>
+                                <h1 class="text-white">{{ heroBanner.title }}</h1>
+                                <p class="text-white pt-3" v-html="heroBanner.content"></p>
 
                                 <a href="#contact" class="my-5 boxed-btn6">Faire une demande de rendez-vous</a>
                             </div>
@@ -31,8 +28,34 @@
 
 <script>
 export default {
+    data() {
+        return {
+            apiData: String,
+            heroBanner: {},
+            media: String
+        }
+    },
     props: {
-        user: Number,
+        hero_banner_id: Number,
+    },
+    watch: {},
+    mounted() {
+        this.apiData = this.$el.getAttribute('api_data')
+
+        // Get Api
+        axios.get(this.apiData + '/' + this.hero_banner_id, {
+            auth: {
+                username: 'docteur-de-garde',
+                password: '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e' // Bad password
+            }
+        })
+                .then((response) => {
+                    const data = response.data
+                    this.heroBanner = data.data
+                    this.media = data.media
+                })
+                .catch(error => console.log(error))
+
     }
 }
 </script>

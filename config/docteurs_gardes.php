@@ -9,6 +9,7 @@ return [
     'login' => '/login',
     'admin' => '/nova',
     'home' => '/',
+    'api_base_url' => env('API_BASE_URL', ''),
 
     /**
      * basic Auth Security for API

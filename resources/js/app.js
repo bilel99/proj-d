@@ -13,11 +13,10 @@ window.Vue = require('vue')
 
 Vue.component('hero-banner-component', require('./components/HeroBannerComponent.vue').default);
 
-const app = new Vue({
+/*const app = new Vue({
     el: '#app',
-});
+});*/
 
 const heroBanner = new Vue({
     el: '#heroBanner',
-    store
 })

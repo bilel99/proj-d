@@ -1936,12 +1936,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      apiData: String,
+      heroBanner: {},
+      media: String
+    };
+  },
   props: {
-    user: Number
+    hero_banner_id: Number
+  },
+  watch: {},
+  mounted: function mounted() {
+    var _this = this;
+
+    this.apiData = this.$el.getAttribute('api_data'); // Get Api
+
+    axios.get(this.apiData + '/' + this.hero_banner_id, {
+      auth: {
+        username: 'docteur-de-garde',
+        password: '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e' // Bad password
+
+      }
+    }).then(function (response) {
+      var data = response.data;
+      _this.heroBanner = data.data;
+      _this.media = data.media;
+    })["catch"](function (error) {
+      return console.log(error);
+    });
   }
 });
 
@@ -37536,17 +37560,25 @@ var render = function() {
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-md-12" }, [
               _c("div", { staticClass: "hero-banner-info" }, [
-                _vm._m(0),
+                _c("div", { staticClass: "hero-banner-logo text-center" }, [
+                  _c("img", {
+                    staticClass: "img-responsive",
+                    attrs: { src: _vm.media, alt: "Logo" }
+                  })
+                ]),
                 _vm._v(" "),
                 _c(
                   "div",
                   { staticClass: "hero-banner-text text-center pt-3" },
                   [
                     _c("h1", { staticClass: "text-white" }, [
-                      _vm._v("Un premier titre: " + _vm._s(_vm.user))
+                      _vm._v(_vm._s(_vm.heroBanner.title))
                     ]),
                     _vm._v(" "),
-                    _vm._m(1),
+                    _c("p", {
+                      staticClass: "text-white pt-3",
+                      domProps: { innerHTML: _vm._s(_vm.heroBanner.content) }
+                    }),
                     _vm._v(" "),
                     _c(
                       "a",
@@ -37559,7 +37591,7 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(2)
+                _vm._m(0)
               ])
             ])
           ])
@@ -37569,31 +37601,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "hero-banner-logo text-center" }, [
-      _c("img", {
-        staticClass: "img-responsive",
-        attrs: { src: "front/img/logos/logo.png", alt: "Logo" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "text-white pt-3" }, [
-      _vm._v(
-        "\n                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod "
-      ),
-      _c("br"),
-      _vm._v(
-        "tempor\n                                incididunt ut labore et dolore magna aliqua.\n                            "
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -49793,12 +49800,12 @@ __webpack_require__(/*! smartwizard/dist/js/jquery.smartWizard.min */ "./node_mo
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 Vue.component('hero-banner-component', __webpack_require__(/*! ./components/HeroBannerComponent.vue */ "./resources/js/components/HeroBannerComponent.vue")["default"]);
-var app = new Vue({
-  el: '#app'
-});
+/*const app = new Vue({
+    el: '#app',
+});*/
+
 var heroBanner = new Vue({
-  el: '#heroBanner',
-  store: store
+  el: '#heroBanner'
 });
 
 /***/ }),
@@ -49946,9 +49953,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/bilel/Developpement/proj-d/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/bilel/Developpement/proj-d/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/bilel/Developpement/proj-d/resources/sass/front/app.scss */"./resources/sass/front/app.scss");
+__webpack_require__(/*! /app/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /app/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /app/resources/sass/front/app.scss */"./resources/sass/front/app.scss");
 
 
 /***/ })

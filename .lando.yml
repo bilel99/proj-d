@@ -38,7 +38,6 @@ tooling:
     description: Create phpunit database
     cmd:
       - mysql -u root -e "CREATE DATABASE IF NOT EXISTS phpunit;"
-      - mysql -u root -e "CREATE DATABASE IF NOT EXISTS laravel_dusk;"
       - mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO '*';"
       - echo 'Create successfully !'
   phpunit:

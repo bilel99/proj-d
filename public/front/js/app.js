@@ -286,7 +286,7 @@ function contactWizardStepForm() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/bilel/Developpement/proj-d/resources/js/front/app.js */"./resources/js/front/app.js");
+module.exports = __webpack_require__(/*! /app/resources/js/front/app.js */"./resources/js/front/app.js");
 
 
 /***/ })
