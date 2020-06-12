@@ -44,14 +44,13 @@ export default {
     props: {
         hero_banner_id: Number,
     },
-    watch: {},
     mounted() {
         this.heroBannerClass = this.$el.getAttribute('hero_banner_class')
         this.logoDefault = this.$el.getAttribute('logo_default')
         this.apiData = this.$el.getAttribute('api_data')
 
         // Get Api
-        axios.get(this.apiData + '/' + this.hero_banner_id, {
+        axios.get(this.apiData + 'get-relations-page/' + this.hero_banner_id, {
             auth: {
                 username: basicAuthUsername,
                 password: basicAuthPassword
@@ -62,8 +61,9 @@ export default {
             this.heroBanner = data.data
             this.media = data.media
         })
-        .catch(error => console.log(error))
-
+        .catch((error) => {
+            console.log(error)
+        })
     }
 }
 </script>

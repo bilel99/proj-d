@@ -39,7 +39,6 @@ class AlertRequest extends FormRequest
     {
         return [
             'title' => [
-                'required',
                 'min:2',
                 'max:255',
             ],

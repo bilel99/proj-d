@@ -66,7 +66,8 @@ class Alert extends Resource
 
             Text::make(__('globals.attributes.title'), 'title')
                 ->sortable()
-                ->rules('required', 'min:2', 'max:255'),
+                ->nullable(true)
+                ->rules('max:255'),
 
             Textarea::make(__('globals.attributes.content'), 'content')
                 ->sortable()
