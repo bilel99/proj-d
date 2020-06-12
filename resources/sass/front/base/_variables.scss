@@ -11,6 +11,7 @@
 $white: #fff;
 $black: #000;
 $grey: #9b9b9b;
+$light-grey: #eee;
 $color1: #072453;       // The MAIN site theme color
 $color2: #826308;       // The SECOND site theme color
 $color3:#051d28;         // Darkblue
@@ -39,7 +40,7 @@ $baseFontSize: 16px;
 
 // Headings. For font-size > use pixels, the mixins does the convertion to EM
 $H1FontSize: 41px;     $H1Color:$color1;      $H1FontFamily:$font;
-$H2FontSize: 35px;     $H2Color:$color2;     $H2FontFamily:$font;
+$H2FontSize: 35px;     $H2Color:$color1;     $H2FontFamily:$font;
 $H3FontSize: 32px;     $H3Color:black;     $H3FontFamily:$font;
 $H4FontSize: 20px;     $H4Color:black;     $H4FontFamily:$font;
 $H5FontSize: 16px;     $H5Color:black;     $H5FontFamily:$font;

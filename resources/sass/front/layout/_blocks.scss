@@ -5,19 +5,16 @@
 |
 */
 
-.section-padding{
-  padding: 60px 0px;
-}
-
 hr.botm-line {
   height: 3px;
   width: 60px;
-  background: $color-hr;
+  background: $color2;
   position: relative;
   border: 0;
   margin: 20px 0 20px 0;
 }
 
+// Voir si on a besoin de sa
 .content {
   p {
     padding-bottom: 20px;

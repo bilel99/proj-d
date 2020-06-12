@@ -9,6 +9,7 @@ use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Ek0519\Quilljs\Quilljs;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
@@ -103,6 +104,8 @@ class Page extends Resource
     {
         return [
             BelongsToMany::make('alerts'),
+            
+            HasMany::make('service'),
         ];
     }
 

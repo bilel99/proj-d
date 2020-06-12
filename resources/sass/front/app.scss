@@ -20,6 +20,7 @@
 //Pages
 @import "pages/auth";
 @import 'pages/home';
+@import 'pages/service';
 
 //Components
 @import 'components/buttons';
@@ -54,8 +55,6 @@
 
 // Home
 @import "modules/section-to-transition";
-@import 'modules/service';
-@import 'modules/about';
 @import 'modules/make-appointment';
 @import 'modules/medical-house';
 @import 'modules/other-section';

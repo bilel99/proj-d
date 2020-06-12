@@ -4,6 +4,7 @@ namespace App\Models;
 
 use ClassicO\NovaMediaLibrary\API;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Laravel\Passport\HasApiTokens;
 
 class Pages extends BasesModel
@@ -51,6 +52,11 @@ class Pages extends BasesModel
             'alert_id')
             ->using(PageAlert::class)
             ->withTimestamps();
+    }
+
+    public function service(): HasMany
+    {
+        return $this->hasMany(Services::class, 'page_id');
     }
 
     /**

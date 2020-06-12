@@ -1,22 +1,29 @@
 <template>
-    <section id="about" class="section-bg-white section-padding">
+    <section id="service" class="section-bg-grey section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-sm-12">
+                <div class="col-md-4 col-sm-12">
                     <h2 class="title">{{ page.title }}</h2>
                     <hr class="botm-line">
-
-                    <div class="content" v-html="page.content"></div>
-
-
-                    <div v-for="(item, index) in page.alerts">
-                        <message-alert-component :alert_id="item.id" :api_data="apiData"></message-alert-component>
-                    </div>
+                    <p v-html="page.content"></p>
                 </div>
 
-                <div class="col-lg-6">
-                    <img v-if="media !== null" :src="media" class="img-responsive" alt="Image qui sommes nous ?">
-                    <img v-else :src="imgDefault" class="img-responsive" alt="Image qui sommes nous ?">
+                <div class="service col-md-8 col-sm-12">
+                    <div class="container">
+                        <div class="row">
+                            <div v-for="(item, key) in page.service" class="col-md-6 col-sm-12">
+                                <div class="service-info card">
+                                    <div class="icon">
+                                        <i :class="item.icon"></i>
+                                    </div>
+                                    <div class="icon-info">
+                                        <h4>{{ item.title }}</h4>
+                                        <p v-html="item.content"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -32,15 +39,12 @@ export default {
         return {
             apiData: String,
             page: {},
-            imgDefault: String,
-            media: String,
         }
     },
     props: {
         page_id: Number,
     },
     mounted() {
-        this.imgDefault = this.$el.getAttribute('img_default')
         this.apiData = this.$el.getAttribute('api_data')
 
         // Get Api
@@ -53,7 +57,6 @@ export default {
         .then((response) => {
             const data = response.data
             this.page = data.data
-            this.media = data.media
         })
         .catch((error) => {
             console.log(error)

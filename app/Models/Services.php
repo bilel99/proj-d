@@ -21,6 +21,9 @@ class Services extends BasesModel
         'content'
     ];
 
+    /**
+     * @return BelongsTo
+     */
     public function page(): BelongsTo
     {
         return $this->BelongsTo(Pages::class);

@@ -14,6 +14,7 @@ window.Vue = require('vue')
 Vue.component('hero-banner-component', require('./components/HeroBannerComponent.vue').default);
 Vue.component('about-component', require('./components/AboutComponent.vue').default);
 Vue.component('message-alert-component', require('./components/MessageAlertComponent.vue').default);
+Vue.component('service-component', require('./components/ServiceComponent.vue').default);
 
 const app = new Vue({
     el: '#app',

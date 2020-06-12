@@ -4,3 +4,23 @@
 |-----------------------
 |
 */
+
+.section-bg-white {
+  background-color: white;
+
+  @media #{$xs, $sm, $md} {
+    img {
+      display: none;
+    }
+  }
+}
+
+.section-bg-grey {
+  background-color: $light-grey;
+
+  @media #{$xs, $sm, $md} {
+    img {
+      display: none;
+    }
+  }
+}

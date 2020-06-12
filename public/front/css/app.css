@@ -245,7 +245,7 @@ h1 {
 
 h2 {
   font-size: 35px;
-  color: #826308;
+  color: #072453;
   font-family: "Agrandir", "Arial", sans-serif;
   text-shadow: 0 3px 20px rgba(53, 65, 70, 0.4);
   font-weight: bold;
@@ -306,6 +306,10 @@ a:hover {
   zoom: 1;
   filter: alpha(opacity=50);
   opacity: 0.5;
+}
+
+.section-padding {
+  padding: 60px 0px;
 }
 
 ol,
@@ -11290,14 +11294,10 @@ a.text-dark:focus {
 |
 */
 
-.section-padding {
-  padding: 60px 0px;
-}
-
 hr.botm-line {
   height: 3px;
   width: 60px;
-  background: #ffb737;
+  background: #826308;
   position: relative;
   border: 0;
   margin: 20px 0 20px 0;
@@ -11535,6 +11535,74 @@ footer ul.quick-links li:hover a i {
 |-----------------------
 |
 */
+
+.section-bg-white {
+  background-color: white;
+}
+
+@media (max-width: 575.98px), (min-width: 576px) and (max-width: 767.98px), (min-width: 768px) and (max-width: 991.98px) {
+  .section-bg-white img {
+    display: none;
+  }
+}
+
+.section-bg-grey {
+  background-color: #eee;
+}
+
+@media (max-width: 575.98px), (min-width: 576px) and (max-width: 767.98px), (min-width: 768px) and (max-width: 991.98px) {
+  .section-bg-grey img {
+    display: none;
+  }
+}
+
+/***************************************
+services
+***************************************/
+
+.service .card {
+  padding: 20px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.service .card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.service .icon i {
+  padding: 15px;
+  background-color: #826308;
+  border-radius: 50%;
+  color: white;
+  font-size: 45px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.service .service-info {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.service .icon-info p {
+  font-size: 15px;
+}
+
+@media (max-width: 575.98px), (min-width: 576px) and (max-width: 767.98px), (min-width: 768px) and (max-width: 991.98px) {
+  .service .icon {
+    text-align: center;
+  }
+
+  .service h4 {
+    text-align: center;
+  }
+
+  .service p {
+    text-align: center;
+  }
+}
 
 /*
 |-----------------------
@@ -12353,70 +12421,6 @@ form input[type=text] {
   position: relative;
   -webkit-filter: brightness(0.3);
           filter: brightness(0.3);
-}
-
-/***************************************
-services
-***************************************/
-
-#service {
-  background-color: #eee;
-}
-
-#service .card {
-  padding: 20px;
-  width: 100%;
-  background-color: white;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-}
-
-#service .card:hover {
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
-#service .icon i {
-  padding: 15px;
-  background-color: #0cb8b6;
-  border-radius: 50%;
-  color: white;
-  font-size: 45px;
-  margin-bottom: 25px;
-}
-
-#service .service-info {
-  margin-bottom: 20px;
-}
-
-#service .icon-info p {
-  font-size: 15px !important;
-}
-
-@media (max-width: 991px) {
-  #service .icon {
-    text-align: center;
-  }
-
-  #service h4 {
-    text-align: center;
-  }
-
-  #service p {
-    text-align: center;
-  }
-}
-
-/***************************************
-About
-***************************************/
-
-#about {
-  background-color: white;
-}
-
-@media (max-width: 991px) {
-  #about img {
-    display: none;
-  }
 }
 
 /***************************************
