@@ -98,25 +98,15 @@ hr.botm-line {
   font-weight: 800;
 }
 
-.content {
-  p {
-    padding-bottom: 20px;
-  }
-}
+
 
 .red {
   color: red
 }
 
-.info {
-  padding-top: 20px;
-  padding-bottom: 40px;
-  color: red
-}
 
-.warn-info {
-  color: black;
-}
+
+
 
 .flex-center {
   display: flex;
@@ -134,40 +124,7 @@ hr.botm-line {
   }
 }
 
-.box {
-  background-color: white;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-}
 
-.mandatory {
-  color: red;
-  font-weight: 700;
-}
 
-.sticky-footer {
-  margin-bottom: 480px;
 
-  @media #{$tab} {
-    margin-bottom: 679px;
-  }
 
-  @media #{$tab-device} {
-    margin-bottom: 679px;
-  }
-
-  @media #{$large-mobile} {
-    margin-bottom: 694px;
-  }
-
-  @media #{$small-mobile} {
-    margin-bottom: 714px;
-  }
-
-  @media #{$xs-mobile} {
-    margin-bottom: 714px;
-  }
-
-  @media #{$sm-mobile} {
-    margin-bottom: 694px;
-  }
-}

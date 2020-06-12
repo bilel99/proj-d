@@ -13,7 +13,6 @@ const mix = require('laravel-mix');
 
 // Global
 mix.js('resources/js/app.js', 'public/global/js')
-    .sass('resources/sass/app.scss', 'public/global/css')
 
 // Front
 mix.js('resources/js/front/app.js', 'public/front/js')

@@ -1,0 +1,129 @@
+/*
+|-----------------------
+| 	    VARIABLES
+|-----------------------
+|
+*/
+
+/*---------------------------------
+*  Colors Vars
+*---------------------------------*/
+$white: #fff;
+$black: #000;
+$grey: #9b9b9b;
+$color1: #072453;       // The MAIN site theme color
+$color2: #826308;       // The SECOND site theme color
+$color3:#051d28;         // Darkblue
+$color4: #f5f582;        // The THIRD site theme color
+$color5:#f2f2f2;         // lightgray
+$color6:#cdcecf;         // lightgray2
+$body-bg: #EEF1F4;
+
+/*---------------------------------
+ *  Various Vars
+ *---------------------------------*/
+
+ // Animation time used for main transition in this site
+$animTime: .3s;
+
+
+/*---------------------------------
+ *  Basics
+ *---------------------------------*/
+
+ // Fonts
+$font: 'Agrandir','Arial', sans-serif;
+
+// Base Font Size, applied to body tag (13px is iso SP)
+$baseFontSize: 16px;
+
+// Headings. For font-size > use pixels, the mixins does the convertion to EM
+$H1FontSize: 41px;     $H1Color:$color1;      $H1FontFamily:$font;
+$H2FontSize: 35px;     $H2Color:$color2;     $H2FontFamily:$font;
+$H3FontSize: 32px;     $H3Color:black;     $H3FontFamily:$font;
+$H4FontSize: 20px;     $H4Color:black;     $H4FontFamily:$font;
+$H5FontSize: 16px;     $H5Color:black;     $H5FontFamily:$font;
+$H6FontSize: 14px;     $H6Color:black;      $H6FontFamily:$font;
+
+// Body text color
+$BodyTextColor: $black;
+
+// Links
+$linkDefault: $color1;
+$linkDefaulthover: $color2;
+
+ // Site Width
+$siteWidth: 1280px;
+
+/*---------------------------------
+ *  Responsive Bootstrap Framework
+ *---------------------------------*/
+
+// Extra small devices (portrait phones, less than 576px)
+$xs: '(max-width: 575.98px)';
+// Small devices (landscape phones, 576px and up)
+$sm: '(min-width: 576px) and (max-width: 767.98px)';
+// Medium devices (tablets, 768px and up)
+$md: '(min-width: 768px) and (max-width: 991.98px)';
+// Large devices (desktops, 992px and up)
+$lg: '(min-width: 992px) and (max-width: 1199.98px)';
+// Extra large devices (large desktops, 1200px and up)
+$xl: '(min-width: 1200px)';
+
+
+
+
+
+
+
+
+
+
+
+
+// Faire du ménage ici
+/** Colors */
+
+$color-icon: #0cb8b6;
+$color-hr: #ffb737;
+$light-black: #222222;
+$color-light-gray: #eee;
+$color-hero-banner: #29302E;
+$btn-bg-color: #0065e1;
+$btn-hover-color: #f5790b;
+$section-1-bg: #f7f7f7;
+$section-2-bg: #454545;
+$footer-bg: #303030;
+$navbar-bg: #fff;
+$border-color: #fdcb9e;
+
+// @todo Voir pourquoi j'ai mis c'est 2 variable dans contact
+$theme-color: #1F1F1F;
+$theme-color2: #ff5e13;
+
+
+/** Typography */
+// Adobe Naskh
+$font1: 'Poppins', sans-serif;
+$font2: 'Abril Fatface', cursive;
+
+
+
+
+
+
+
+
+// @DEPRECATED
+
+
+$medium-device : 'only screen and (min-width: 992px) and (max-width: 1200px)';
+$tab:'(max-width: 991px)';
+$tab-device:'only screen and (min-width: 768px) and (max-width: 991px)';
+$large-mobile: 'only screen and (min-width: 576px) and (max-width: 767px)';
+$small-mobile:'(max-width: 576px)';
+$xs-mobile:'(max-width: 420px)';
+$sm-mobile:'only screen and (min-width: 421px) and (max-width: 575px)';
+$big-screen:'only screen and (min-width: 1200px) and (max-width: 1500px)';
+$extra-big-screen: 'only screen and (min-width: 1200px) and (max-width: 3640px)';
+$mx-767: '(max-width: 767px)';

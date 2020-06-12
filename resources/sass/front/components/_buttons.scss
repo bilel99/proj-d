@@ -1,0 +1,93 @@
+/*
+|-----------------------
+| 	      BUTTONS
+|-----------------------
+|
+*/
+
+.btn-float {
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:40px;
+  right:40px;
+  background-color:$color1;
+  color: white;
+  border-radius:50%;
+  text-align:center;
+  box-shadow: 2px 2px 3px #999;
+  .position-center {
+    margin-top:22px;
+  }
+  &:hover {
+    color: white;
+  }
+}
+
+.boxed-btn {
+  background: white;
+  display: inline-block;
+  padding: 14px 44px;
+  font-family: $font1;
+  font-size: 14px;
+  font-weight: 400;
+  border: 1px solid $color1;
+  text-align: center;
+  color: $color1;
+  text-transform: uppercase;
+  cursor: pointer;
+  &:hover{
+    background: $color2;
+    color: #fff;
+    border: 1px solid $color2;
+  }
+  &:focus{
+    outline: none;
+  }
+}
+
+.boxed-btn2 {
+  background: transparent;
+  color: white;
+  display: inline-block;
+  padding: 18px 24px;
+  font-family: $font1;
+  font-size: 14px;
+  font-weight: 400;
+  border: 1px solid white;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  &:hover{
+    background: white;
+    color: $color2;
+  }
+  &:focus{
+    outline: none;
+  }
+}
+
+.boxed-btn3 {
+  background: $color1;
+  color: white;
+  display: inline-block;
+  padding: 17px 50px;
+  font-family: $font1;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid transparent;
+  @include border-radius(3px);
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  @include transition(.5s);
+  cursor: pointer;
+  overflow: hidden;
+  &:hover{
+    background: $color2;
+    color: white;
+    border: 1px solid $color2;
+  }
+  &:focus{
+    outline: none;
+  }
+}

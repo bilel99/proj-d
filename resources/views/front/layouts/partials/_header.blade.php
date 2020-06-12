@@ -15,11 +15,11 @@
                             <div class="text_wrap">
                                 <p>
                                     @auth
-                                        <a href="/nova" class="auth-link">
+                                        <a href="/nova" class="link">
                                             <i class="fas fa-tachometer-alt"></i> {{ __('globals.website.back-office') }}
                                         </a>
 
-                                        <a class="auth-link" href="{{ route('logout') }}"
+                                        <a class="link" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
                                             <i class="fas fa-sign-out-alt"></i> {{ __('auth.logout') }}
@@ -29,7 +29,7 @@
                                         </form>
                                     @endauth
                                     @guest
-                                        <a href="{{ route('login') }}" class="auth-link">
+                                        <a href="{{ route('login') }}" class="link">
                                             <i class="far fa-user"></i> {{ __('auth.login') }}
                                         </a>
                                     @endguest

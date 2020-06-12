@@ -27,7 +27,7 @@ class PageController extends BaseResourceController
         if (!empty($page)) {
             return $response->setData([
                 'data' => $page->toArray(),
-                'media' => $page::getRetrieveMedia($page->media),
+                'media' => $page->media !== null ? $page::getRetrieveMedia($page->media) : null,
             ], 200);
         }
 

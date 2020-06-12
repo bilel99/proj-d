@@ -1,3 +1,10 @@
+/*
+|-----------------------
+| 	      NAVBAR
+|-----------------------
+|
+*/
+
 .header-area {
   //position: absolute;
   left: 0;
@@ -8,22 +15,22 @@
 
   .header-top_area {
     padding: 11px 150px;
-    background: $ddg-secondary;
-    @media #{$tab} {
+    background: $color2;
+    @media #{$xs, $sm, $md} {
       padding: 10px 10px;
     }
-    @media #{$tab} {
+    @media #{$xs, $sm, $md} {
       padding: 10px 10px;
     }
-    @media #{$tab} {
+    @media #{$xs, $sm, $md} {
       padding: 11px 50px;
     }
-    @media #{$tab} {
+    @media #{$xs, $sm, $md} {
       padding: 11px 50px;
     }
 
     .header_top_wrap {
-      @media #{$tab} {
+      @media #{$xs, $sm, $md} {
         display: block !important;
         text-align: center;
       }
@@ -54,7 +61,7 @@
           margin-left: 30px;
           padding-left: 30px;
           position: relative;
-          @media #{$tab} {
+          @media #{$xs, $sm, $md} {
             margin-left: 10px;
             padding-left: 10px;
             position: relative;
@@ -170,13 +177,13 @@
   }
 
   .nav-link {
-    color: $ddg-primary !important;
+    color: $color1 !important;
     font-weight: 500;
     transition: all 200ms linear;
   }
 
   .nav-item:hover .nav-link {
-    color: $ddg-secondary !important;
+    color: $color2 !important;
   }
 
   .nav-item.active .nav-link {
@@ -196,7 +203,7 @@
     width: 100%;
     height: 2px;
     content: '';
-    background-color: $ddg-secondary;
+    background-color: $color2;
     opacity: 0;
     transition: all 200ms linear;
   }
@@ -268,7 +275,7 @@
     background-color: rgba(129, 103, 169, .6);
   }
 
-  @media #{$mx-767} {
+  @media #{$sm} {
     .nav-item:after {
       display: none;
     }

@@ -1,0 +1,87 @@
+/*
+|-----------------------
+| 	     HEADER
+|-----------------------
+|
+*/
+
+/** Hero banner */
+.hero-banner{
+  background: url('../../../../public/front/img/bg-banner.jpg') no-repeat fixed;
+  background-size: cover;
+
+}
+
+/** hero banner appointement */
+.hero-banner-appointment{
+  background: url('../../../../public/front/img/appointment-banner.jpg') no-repeat fixed;
+  background-size: cover;
+  min-height: 650px;
+  position: relative;
+}
+
+/** hero banner contact */
+.hero-banner-contact{
+  background: url('../../../../public/front/img/bg-banner.jpg') no-repeat fixed;
+  background-size: cover;
+  min-height: 650px;
+  position: relative;
+}
+
+/** hero banner price */
+.hero-banner-price{
+  background: url('../../../../public/front/img/bg-banner.jpg') no-repeat fixed;
+  background-size: cover;
+  min-height: 650px;
+  position: relative;
+}
+
+/** Generic hero banner */
+@media #{$xl} {
+  .hero-banner, .hero-banner-appointment, .hero-banner-contact, .hero-banner-price{
+    background-attachment: scroll;
+  }
+}
+
+.bg-color{
+  @include linear-gradient($color1, $color2, 0.70);
+  min-height: 750px;
+}
+
+.hero-banner-info{
+  padding-top: 50px;
+}
+
+.hero-banner-logo img{
+  display: inline-block;
+  width: 250px;
+}
+
+.hero-banner-text{
+  h1{
+    color: white;
+    font-family: $font;
+    font-size: $h2-font-size;
+    text-transform: uppercase;
+  }
+
+  p {
+    color: white;
+    font-family: $font;
+    font-size: $baseFontSize;
+  }
+}
+
+.overlay-detail a i {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  font-size: 38px;
+  color: white;
+  margin: 0 auto;
+}
+
+.text-primary i {
+  padding-top: 8px;
+  display: inline-block;
+}

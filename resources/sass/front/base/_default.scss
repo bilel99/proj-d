@@ -1,0 +1,155 @@
+/*
+|-----------------------
+| 	    DEFAULTS
+|-----------------------
+|
+*/
+/* font threatment */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Body */
+body {
+  font-family: $font;
+  color: $BodyTextColor;
+  font-size: $baseFontSize;
+  line-height: 1.5;
+  font-weight: 400;
+  background: white;
+}
+
+/* main */
+main {
+  position: relative;
+  z-index: 2;
+}
+
+/* Section */
+.ecl-section {
+  max-width: $siteWidth;
+  margin: 0 auto 20px auto;
+}
+
+/* Headings */
+h1 {
+  font-size: $H1FontSize;
+  color: $H1Color;
+  font-family: $H1FontFamily;
+  text-shadow: 0 3px 20px rgba(53, 65, 70, 0.4);
+  font-weight: bold;
+}
+
+h2 {
+  font-size: $H2FontSize;
+  color: $H2Color;
+  font-family: $H2FontFamily;
+  text-shadow: 0 3px 20px rgba(53, 65, 70, 0.4);
+  font-weight: bold;
+}
+
+h3 {
+  font-size: $H3FontSize;
+  color: $H3Color;
+  font-family: $H3FontFamily;
+}
+
+h4 {
+  font-size: $H4FontSize;
+  color: $H4Color;
+  font-family: $H4FontFamily;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: $H5FontSize;
+  color: $H5Color;
+  font-family: $H5FontFamily;
+}
+
+h6 {
+  font-size: $H6FontSize;
+  color: $H6Color;
+  font-family: $H6FontFamily;
+}
+
+/* Paragraph */
+p {
+  font-size: $baseFontSize;
+  color: $BodyTextColor;
+}
+
+/* Links */
+a {
+  color: $linkDefault;
+  transition: color $animTime ease-in-out;
+
+  &:hover {
+    color: $linkDefaulthover;
+  }
+}
+
+.link {
+  font-weight: 800;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  color: $linkDefault;
+
+  &:hover {
+    color: $linkDefaulthover;
+    text-decoration: none;
+    zoom: 1;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+  }
+}
+
+ol, ul,
+ul li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+.hide {
+  display: none;
+}
+
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  button {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.clear {
+  float: none;
+  clear: both;
+}
+
+* {
+  box-sizing: border-box;
+}

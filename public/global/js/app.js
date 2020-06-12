@@ -1936,11 +1936,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+var basicAuthUsername = 'docteur-de-garde';
+var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       apiData: String,
       heroBanner: {},
+      heroBannerClass: String,
+      logoDefault: String,
       media: String
     };
   },
@@ -1951,13 +1956,14 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
+    this.heroBannerClass = this.$el.getAttribute('hero_banner_class');
+    this.logoDefault = this.$el.getAttribute('logo_default');
     this.apiData = this.$el.getAttribute('api_data'); // Get Api
 
     axios.get(this.apiData + '/' + this.hero_banner_id, {
       auth: {
-        username: 'docteur-de-garde',
-        password: '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e' // Bad password
-
+        username: basicAuthUsername,
+        password: basicAuthPassword
       }
     }).then(function (response) {
       var data = response.data;
@@ -37553,7 +37559,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "section",
-    { staticClass: "hero-banner", attrs: { id: "hero-banner" } },
+    { class: _vm.heroBannerClass, attrs: { id: "hero-banner" } },
     [
       _c("div", { staticClass: "bg-color" }, [
         _c("div", { staticClass: "container" }, [
@@ -37561,10 +37567,18 @@ var render = function() {
             _c("div", { staticClass: "col-md-12" }, [
               _c("div", { staticClass: "hero-banner-info" }, [
                 _c("div", { staticClass: "hero-banner-logo text-center" }, [
-                  _c("img", {
-                    staticClass: "img-responsive",
-                    attrs: { src: _vm.media, alt: "Logo" }
-                  })
+                  _vm.media !== null
+                    ? _c("img", {
+                        staticClass: "img-responsive",
+                        attrs: { src: _vm.media, alt: "Logo docteur de garde" }
+                      })
+                    : _c("img", {
+                        staticClass: "img-responsive",
+                        attrs: {
+                          src: _vm.logoDefault,
+                          alt: "Logo docteur de garde"
+                        }
+                      })
                 ]),
                 _vm._v(" "),
                 _c(
@@ -37583,7 +37597,7 @@ var render = function() {
                     _c(
                       "a",
                       {
-                        staticClass: "my-5 boxed-btn6",
+                        staticClass: "my-5 boxed-btn2",
                         attrs: { href: "#contact" }
                       },
                       [_vm._v("Faire une demande de rendez-vous")]
@@ -49924,17 +49938,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "./resources/sass/front/app.scss":
 /*!***************************************!*\
   !*** ./resources/sass/front/app.scss ***!
@@ -49947,14 +49950,13 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!*********************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/front/app.scss ***!
-  \*********************************************************************************************/
+/*!*******************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/front/app.scss ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /app/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /app/resources/sass/app.scss */"./resources/sass/app.scss");
 module.exports = __webpack_require__(/*! /app/resources/sass/front/app.scss */"./resources/sass/front/app.scss");
 
 

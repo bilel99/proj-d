@@ -1,12 +1,20 @@
+/*
+|-----------------------
+| 	      AUTH
+|-----------------------
+|
+*/
+
 .bg-login-image, .bg-register-image, .bg-forgot-email-image, .bg-reset-image {
   background-image: url("../../../../public/front/img/logos/logo-fond-bleu.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #072453;
+  background-color: $color1;
 }
 
 .form-check-label {
+  color: $color1;
   font-weight: 800;
 }
 
@@ -16,10 +24,10 @@
   -moz-transition: opacity 1s ease-in-out;
   -o-transition: opacity 1s ease-in-out;
   transition: opacity 1s ease-in-out;
-  color: $ddg-secondary;
+  color: $linkDefault;
 
   &:hover {
-    color: $ddg-secondary;
+    color: $linkDefaulthover;
     text-decoration: none;
     zoom: 1;
     filter: alpha(opacity=50);
