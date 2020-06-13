@@ -1,33 +1,38 @@
-#accordion .panel{
+#accordion .panel {
   border: none;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   border-radius: 0;
   margin-bottom: 15px;
 }
-#accordion .panel-heading{
+
+#accordion .panel-heading {
   padding: 0;
-  border-radius:0;
+  border-radius: 0;
   border: none;
 }
-#accordion .panel-title a{
+
+#accordion .panel-title a {
   display: block;
   padding: 14px 30px 14px 70px;
   font-size: 16px;
-  font-weight: bold;
+  font-family: $font3;
   color: white;
-  background: $color-icon;
+  background: $color1;
   position: relative;
   overflow: hidden;
   transition: all 0.5s ease 0s;
 }
-#accordion .panel-title a.collapsed{
+
+#accordion .panel-title a.collapsed {
   background: white;
-  color: #9f9f9f;
+  color: $color2;
 }
-#accordion .panel-title a.collapsed:hover{
-  color: $color-icon;
+
+#accordion .panel-title a.collapsed:hover {
+  color: $color2;
 }
-#accordion .panel-title a:before{
+
+#accordion .panel-title a:before {
   content: "";
   width: 55px;
   height: 100%;
@@ -38,10 +43,12 @@
   transform: skewX(-25deg);
   transition: all 0.5s ease 0s;
 }
-#accordion .panel-title a.collapsed:hover:before{
-  background: $color-icon;
+
+#accordion .panel-title a.collapsed:hover:before {
+  background: $color2;
 }
-#accordion .panel-title a:after{
+
+#accordion .panel-title a:after {
   content: "\f129";
   font-family: FontAwesome;
   position: absolute;
@@ -50,13 +57,16 @@
   color: white;
   transform: translateY(-50%);
 }
-#accordion .panel-title a.collapsed:after{
-  color: #9f9f9f;
+
+#accordion .panel-title a.collapsed:after {
+  color: $color2;
 }
-#accordion .panel-title a.collapsed:hover:after{
+
+#accordion .panel-title a.collapsed:hover:after {
   color: white;
 }
-#accordion .panel-body{
+
+#accordion .panel-body {
   font-size: 14px;
   color: black;
   line-height: 25px;
@@ -65,15 +75,17 @@
   border: none;
   transition: all 0.5s ease 0s;
 }
-#accordion .panel-body:before{
+
+#accordion .panel-body:before {
   content: "";
   width: 5px;
   height: 40px;
-  background: $color-icon;
+  background: $color2;
   position: absolute;
   top: 30px;
   left: 0;
 }
-#accordion .panel-body p{
+
+#accordion .panel-body p {
   margin-bottom: 0;
 }

@@ -26,6 +26,8 @@
 @import 'components/forms';
 @import 'components/sliders';
 @import 'components/navbar';
+@import 'components/accordion';
+//@import "components/panel-tabs";
 
 //Override elements
 @import 'override';
@@ -46,16 +48,11 @@
 
 
 // Modules
-@import "modules/animate";
-@import "modules/panel-tabs";
-@import "modules/custom_accordion";
 @import "modules/custom_alert";
 @import "modules/grid_prices";
 
 // Home
 @import "modules/section-to-transition";
-@import 'modules/medical-house';
-@import 'modules/other-section';
 @import 'modules/prices';
 @import 'modules/contact';
 

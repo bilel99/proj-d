@@ -75,7 +75,7 @@ class Information extends Resource
                 ->rules('nullable')
                 ->hideFromIndex(),
 
-            BelongsTo::make('alert'),
+            BelongsTo::make('alert')->nullable(),
         ];
     }
 

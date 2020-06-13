@@ -7,7 +7,7 @@
                     <hr class="botm-line">
                 </div>
 
-                <div class="col-12 px-5">
+                <div class="medical-house col-12 px-5">
                     <nav class="custom_tabs text-center">
                         <div class="nav" id="nav-tab" role="tablist">
                             <a v-for="(item, index) in page.medical_house"
@@ -55,7 +55,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -117,9 +116,6 @@ export default {
             const data = response.data
             this.page = data.data
             this.media = data.media
-
-            console.log(this.page)
-            console.log(_.isEmpty(this.page.medical_house))
 
             // medical_house key is not empty
             if (_.isEmpty(this.page.medical_house) === false) {

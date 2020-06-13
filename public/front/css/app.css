@@ -11585,9 +11585,12 @@ footer ul.quick-links li:hover a i {
   }
 }
 
-/***************************************
-services
-***************************************/
+/*
+|-----------------------
+| 	  SERVICES
+|-----------------------
+|
+*/
 
 .service .card {
   padding: 20px;
@@ -11637,6 +11640,69 @@ services
     text-align: center;
   }
 }
+
+/*
+|-----------------------
+| 	  MEDICAL HOUSES
+|-----------------------
+|
+*/
+
+.medical-house .nav {
+  display: inline-flex;
+  background: #f2f2f2;
+  border-radius: 3px;
+  margin-bottom: 80px;
+  margin-top: 33px;
+}
+
+@media (max-width: 575.98px), (min-width: 576px) and (max-width: 767.98px), (min-width: 768px) and (max-width: 991.98px) {
+  .medical-house .nav {
+    margin-bottom: 40px;
+  }
+}
+
+.medical-house .nav a {
+  font-size: 16px;
+  color: #072453;
+  font-family: "Agrandir-TextBold", "Arial", sans-serif;
+  display: inline-block;
+  padding: 8px 22px;
+}
+
+@media (max-width: 575.98px), (min-width: 576px) and (max-width: 767.98px), (min-width: 768px) and (max-width: 991.98px) {
+  .medical-house .nav a {
+    padding: 8px 16px;
+  }
+}
+
+.medical-house .nav a.active {
+  background: #072453;
+  color: white;
+  border-radius: 3px;
+}
+
+.medical-house .map-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.medical-house .map-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+/*
+|-----------------------
+| 	 INFORMATION
+|-----------------------
+|
+*/
 
 /*
 |-----------------------
@@ -12174,52 +12240,6 @@ form input[type=text] {
   }
 }
 
-/*
-|-----------------------
-| 	      OVERRIDE
-|-----------------------
-|
-*/
-
-/*Panel tabs*/
-
-.panel-tabs {
-  position: relative;
-  bottom: 30px;
-  clear: both;
-  border-bottom: 1px solid transparent;
-}
-
-.panel-tabs > li {
-  float: left;
-  margin-bottom: -1px;
-}
-
-.panel-tabs > li > a {
-  margin-right: 2px;
-  margin-top: 4px;
-  line-height: 0.85;
-  border: 1px solid transparent;
-  border-radius: 4px 4px 0 0;
-  color: #ffffff;
-}
-
-.panel-tabs > li > a:hover {
-  border-color: transparent;
-  color: #ffffff;
-  background-color: transparent;
-}
-
-.panel-tabs > li.active > a,
-.panel-tabs > li.active > a:hover,
-.panel-tabs > li.active > a:focus {
-  color: #fff;
-  cursor: default;
-  border-radius: 2px;
-  background-color: rgba(255, 255, 255, 0.23);
-  border-bottom-color: transparent;
-}
-
 #accordion .panel {
   border: none;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -12237,9 +12257,9 @@ form input[type=text] {
   display: block;
   padding: 14px 30px 14px 70px;
   font-size: 16px;
-  font-weight: bold;
+  font-family: "Agrandir-TextBold", "Arial", sans-serif;
   color: white;
-  background: #0cb8b6;
+  background: #072453;
   position: relative;
   overflow: hidden;
   transition: all 0.5s ease 0s;
@@ -12247,11 +12267,11 @@ form input[type=text] {
 
 #accordion .panel-title a.collapsed {
   background: white;
-  color: #9f9f9f;
+  color: #826308;
 }
 
 #accordion .panel-title a.collapsed:hover {
-  color: #0cb8b6;
+  color: #826308;
 }
 
 #accordion .panel-title a:before {
@@ -12267,7 +12287,7 @@ form input[type=text] {
 }
 
 #accordion .panel-title a.collapsed:hover:before {
-  background: #0cb8b6;
+  background: #826308;
 }
 
 #accordion .panel-title a:after {
@@ -12281,7 +12301,7 @@ form input[type=text] {
 }
 
 #accordion .panel-title a.collapsed:after {
-  color: #9f9f9f;
+  color: #826308;
 }
 
 #accordion .panel-title a.collapsed:hover:after {
@@ -12302,7 +12322,7 @@ form input[type=text] {
   content: "";
   width: 5px;
   height: 40px;
-  background: #0cb8b6;
+  background: #826308;
   position: absolute;
   top: 30px;
   left: 0;
@@ -12311,6 +12331,13 @@ form input[type=text] {
 #accordion .panel-body p {
   margin-bottom: 0;
 }
+
+/*
+|-----------------------
+| 	      OVERRIDE
+|-----------------------
+|
+*/
 
 .alert-message {
   margin: 20px 0;
@@ -12459,74 +12486,6 @@ form input[type=text] {
   position: relative;
   -webkit-filter: brightness(0.3);
           filter: brightness(0.3);
-}
-
-#medical-house {
-  background-color: white;
-}
-
-#medical-house .nav {
-  display: inline-flex;
-  background: #f8fafe;
-  border-radius: 3px;
-  margin-bottom: 80px;
-  margin-top: 33px;
-}
-
-@media (max-width: 991px) {
-  #medical-house .nav {
-    margin-bottom: 40px;
-  }
-}
-
-#medical-house .nav a {
-  font-size: 16px;
-  color: #234262;
-  font-weight: 400;
-  display: inline-block;
-  padding: 8px 22px;
-}
-
-@media (max-width: 991px) {
-  #medical-house .nav a {
-    padding: 8px 16px;
-  }
-}
-
-#medical-house .nav a.active {
-  background: #60d3e4;
-  color: #fff;
-  border-radius: 3px;
-}
-
-#medical-house .map-responsive {
-  overflow: hidden;
-  padding-bottom: 56.25%;
-  position: relative;
-  height: 0;
-}
-
-#medical-house .map-responsive iframe {
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-}
-
-#other-section {
-  background-color: #eee;
-  border-bottom: 45px solid #0cb8b6;
-}
-
-@media (max-width: 991px) {
-  #other-section img {
-    display: none;
-  }
-}
-
-#other-section .info-paragraph {
-  padding: 20px;
 }
 
 /***************************************

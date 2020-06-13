@@ -16,7 +16,9 @@ Vue.component('message-alert-component', require('./components/MessageAlertCompo
 Vue.component('page-component', require('./components/PageComponent.vue').default);
 Vue.component('service-component', require('./components/ServiceComponent.vue').default);
 Vue.component('medical-house-component', require('./components/MedicalHouseComponent.vue').default);
+Vue.component('information-component', require('./components/InformationComponent.vue').default);
 Vue.component('detail-page-component', require('./components/DetailPageComponent.vue').default);
+Vue.component('horaire-component', require('./components/HoursComponent.vue').default);
 
 const app = new Vue({
     el: '#app',

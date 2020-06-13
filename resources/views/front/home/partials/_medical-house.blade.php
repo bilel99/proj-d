@@ -1,4 +1,4 @@
-{{-- Component Page --}}
+{{-- Component MedicalHouse --}}
 <div id="medical-house">
     <medical-house-component
             :page_id="5"

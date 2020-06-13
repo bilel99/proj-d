@@ -10,6 +10,10 @@ class MedicalHouseController extends BaseResourceController
     protected $model = MedicalHouses::class;
     protected $modelResource = \App\Http\Resources\MedicalHouse::class;
 
+    /**
+     * @param MedicalHouses $house
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\JsonResponse
+     */
     public function getRelations(MedicalHouses $house)
     {
         $response = new JsonResponse();
@@ -22,12 +26,12 @@ class MedicalHouseController extends BaseResourceController
         if (!empty($house)) {
             return $response->setData([
                 'data' => $house->toArray(),
-            ], 200);
+            ]);
         }
 
         return $response->setData([
             'message' => 'collection not found',
-        ], 200);
+        ]);
     }
 
     /**

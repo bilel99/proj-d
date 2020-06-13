@@ -28,12 +28,12 @@ class PageController extends BaseResourceController
             return $response->setData([
                 'data' => $page->toArray(),
                 'media' => $page->media !== null ? $page::getRetrieveMedia($page->media) : null,
-            ], 200);
+            ]);
         }
 
         return $response->setData([
             'message' => 'collection not found',
-        ], 200);
+        ]);
     }
 
     /**

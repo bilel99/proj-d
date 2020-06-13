@@ -37,6 +37,6 @@
     <!-- /end -->
 
     <!-- section other -->
-    @include('front.home.partials._other-section')
+    @include('front.home.partials._information')
     <!-- /end section -->
 @endsection
