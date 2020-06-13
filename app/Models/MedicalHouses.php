@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class MedicalHouses extends BasesModel
@@ -27,10 +28,18 @@ class MedicalHouses extends BasesModel
     ];
 
     /**
+     * @return BelongsTo
+     */
+    public function page(): BelongsTo
+    {
+        return $this->BelongsTo(Pages::class);
+    }
+
+    /**
      * @return HasMany
      */
-    public function transport(): HasMany
+    public function infoMedHouse(): HasMany
     {
-        return $this->hasMany(Transports::class, 'medical_house_id');
+        return $this->hasMany(InfosMedicalHouse::class, 'medical_house_id');
     }
 }

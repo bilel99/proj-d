@@ -24,3 +24,59 @@
     }
   }
 }
+
+/***************************************
+services
+***************************************/
+.service {
+  .card {
+    padding: 20px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+    &:hover {
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  .icon i {
+    padding: 15px;
+    background-color: $color2;
+    border-radius: 50%;
+    color: white;
+    font-size: 45px;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .service-info {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .icon-info {
+    p {
+      font-family: $font;
+      font-size: 15px;
+    }
+
+    h4 {
+      font-family: $font;
+    }
+  }
+
+  @media #{$xs, $sm, $md} {
+    .icon {
+      text-align: center;
+    }
+
+    h4 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+}

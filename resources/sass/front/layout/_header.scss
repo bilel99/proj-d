@@ -60,15 +60,20 @@
 .hero-banner-text{
   h1{
     color: white;
-    font-family: $font;
+    font-family: $font2;
     font-size: $h2-font-size;
     text-transform: uppercase;
   }
 
   p {
     color: white;
-    font-family: $font;
+    font-family: $font2;
     font-size: $baseFontSize;
+  }
+
+  .contact-btn {
+    color: white;
+    font-family: $font3;
   }
 }
 
@@ -79,9 +84,4 @@
   font-size: 38px;
   color: white;
   margin: 0 auto;
-}
-
-.text-primary i {
-  padding-top: 8px;
-  display: inline-block;
 }

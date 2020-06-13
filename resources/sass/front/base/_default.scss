@@ -28,12 +28,6 @@ main {
   z-index: 2;
 }
 
-/* Section */
-.ecl-section {
-  max-width: $siteWidth;
-  margin: 0 auto 20px auto;
-}
-
 /* Headings */
 h1 {
   font-size: $H1FontSize;
@@ -80,6 +74,7 @@ h6 {
 p {
   font-size: $baseFontSize;
   color: $BodyTextColor;
+  font-family: $font2;
 }
 
 /* Links */
@@ -93,12 +88,12 @@ a {
 }
 
 .link {
-  font-weight: 800;
   -webkit-transition: opacity 1s ease-in-out;
   -moz-transition: opacity 1s ease-in-out;
   -o-transition: opacity 1s ease-in-out;
   transition: opacity 1s ease-in-out;
   color: $linkDefault;
+  font-family: $font2;
 
   &:hover {
     color: $linkDefaulthover;
@@ -133,6 +128,7 @@ blockquote, q {
   height: auto;
 }
 
+// Voi si on en a besoin de sa
 .flex-center {
   display: flex;
   align-items: center;

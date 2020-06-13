@@ -10,10 +10,10 @@
                                 <img v-else :src="logoDefault" class="img-responsive" alt="Logo docteur de garde">
                             </div>
                             <div class="hero-banner-text text-center pt-3">
-                                <h1 class="text-white">{{ heroBanner.title }}</h1>
-                                <p class="text-white pt-3" v-html="heroBanner.content"></p>
+                                <h1>{{ heroBanner.title }}</h1>
+                                <p v-html="heroBanner.content"></p>
 
-                                <a href="#contact" class="my-5 boxed-btn2">Faire une demande de rendez-vous</a>
+                                <a href="#contact" class="contact-btn my-5 boxed-btn2">Faire une demande de rendez-vous</a>
                             </div>
 
                             <div class="overlay-detail text-center">

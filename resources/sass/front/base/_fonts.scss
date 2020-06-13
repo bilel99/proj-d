@@ -15,39 +15,38 @@
 // 800    Black, Extra Bold or Heavy
 // 900    Extra Black, Fat, Poster or Ultra Black
 
-
 @font-face {
-	font-family: 'Agrandir';
-	src: url('../public/front/fonts/Agrandir-Thin.eot');
-	src: url('../public/front/fonts/Agrandir-Thin.woff') format('woff'),
-		 url('../public/front/fonts/Agrandir-Thin.svg#AgrandirThin') format('svg'),
-		 url('../public/front/fonts/Agrandir-Thin.eot?#iefix') format('embedded-opentype');
+	font-family: 'Agrandir-Thin';
+	src: url('../../../../public/front/fonts/Agrandir-Thin.eot');
+	src: url('../../../../public/front/fonts/Agrandir-Thin.woff') format('woff'),
+		 url('../../../../public/front/fonts/Agrandir-Thin.svg#AgrandirThin') format('svg'),
+		 url('../../../../public/front/fonts/Agrandir-Thin.eot?#iefix') format('embedded-opentype');
 	font-weight:200;
 }
 
 @font-face {
-	font-family: 'Agrandir';
-	src: url('../public/front/fonts/Agrandir-Regular.eot');
-	src: url('../public/front/fonts/Agrandir-Regular.woff') format('woff'),
-		 url('../public/front/fonts/Agrandir-Regular.svg#AgrandirRegular') format('svg'),
-		 url('../public/front/fonts/Agrandir-Regular.eot?#iefix') format('embedded-opentype');
+	font-family: 'Agrandir-Regular';
+	src: url('../../../../public/front/fonts/Agrandir-Regular.eot');
+	src: url('../../../../public/front/fonts/Agrandir-Regular.woff') format('woff'),
+		 url('../../../../public/front/fonts/Agrandir-Regular.svg#AgrandirRegular') format('svg'),
+		 url('../../../../public/front/fonts/Agrandir-Regular.eot?#iefix') format('embedded-opentype');
 	font-weight:400;
 }
 
 @font-face {
-	font-family: 'Agrandir';
-	src: url('../public/front/fonts/Agrandir-TextBold.eot');
-	src: url('../public/front/fonts/Agrandir-TextBold.woff') format('woff'),
-		 url('../public/front/fonts/Agrandir-TextBold.svg#AgrandirTextBold') format('svg'),
-		 url('../public/front/fonts/Agrandir-TextBold.eot?#iefix') format('embedded-opentype');
+	font-family: 'Agrandir-TextBold';
+	src: url('../../../../public/front/fonts/Agrandir-TextBold.eot');
+	src: url('../../../../public/front/fonts/Agrandir-TextBold.woff') format('woff'),
+		 url('../../../../public/front/fonts/Agrandir-TextBold.svg#AgrandirTextBold') format('svg'),
+		 url('../../../../public/front/fonts/Agrandir-TextBold.eot?#iefix') format('embedded-opentype');
 	font-weight:bold;
 }
 
 @font-face {
-	font-family: 'Agrandir';
-	src: url('../public/front/fonts/Agrandir-Heavy.eot');
-	src: url('../public/front/fonts/Agrandir-Heavy.woff') format('woff'),
-		 url('../public/front/fonts/Agrandir-Heavy.svg#AgrandirHeavy') format('svg'),
-		 url('../public/front/fonts/Agrandir-Heavy.eot?#iefix') format('embedded-opentype');
+	font-family: 'Agrandir-Heavy';
+	src: url('../../../../public/front/fonts/Agrandir-Heavy.eot');
+	src: url('../../../../public/front/fonts/Agrandir-Heavy.woff') format('woff'),
+		 url('../../../../public/front/fonts/Agrandir-Heavy.svg#AgrandirHeavy') format('svg'),
+		 url('../../../../public/front/fonts/Agrandir-Heavy.eot?#iefix') format('embedded-opentype');
 	font-weight:800;
 }

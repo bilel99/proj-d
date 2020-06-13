@@ -106,6 +106,8 @@ class Page extends Resource
             BelongsToMany::make('alerts'),
             
             HasMany::make('service'),
+
+            HasMany::make('medicalHouse'),
         ];
     }
 

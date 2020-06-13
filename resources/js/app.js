@@ -12,9 +12,11 @@ require('smartwizard/dist/js/jquery.smartWizard.min')
 window.Vue = require('vue')
 
 Vue.component('hero-banner-component', require('./components/HeroBannerComponent.vue').default);
-Vue.component('about-component', require('./components/AboutComponent.vue').default);
 Vue.component('message-alert-component', require('./components/MessageAlertComponent.vue').default);
+Vue.component('page-component', require('./components/PageComponent.vue').default);
 Vue.component('service-component', require('./components/ServiceComponent.vue').default);
+Vue.component('medical-house-component', require('./components/MedicalHouseComponent.vue').default);
+Vue.component('detail-page-component', require('./components/DetailPageComponent.vue').default);
 
 const app = new Vue({
     el: '#app',

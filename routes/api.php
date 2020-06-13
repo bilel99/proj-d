@@ -51,6 +51,11 @@ Route::group(
         Route::get('get-relations-page/{page}', 'PageController@getRelations')->name('get.relations.page');
 
         /**
+         * All Relations Houses
+         */
+        Route::get('get-relations-house/{house}', 'MedicalHouseController@getRelations')->name('get.relations.house');
+
+        /**
          * Medias
          */
         Route::get('retrieve-media/{id}', 'MediaController@get')->name('get.retrieve.media');

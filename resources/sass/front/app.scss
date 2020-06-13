@@ -2,7 +2,7 @@
 @import 'base/variables';
 @import 'base/reset';
 @import 'base/mixins';
-//@import 'base/fonts';
+@import 'base/fonts';
 @import 'base/default';
 //@import 'base/icons';
 
@@ -20,7 +20,6 @@
 //Pages
 @import "pages/auth";
 @import 'pages/home';
-@import 'pages/service';
 
 //Components
 @import 'components/buttons';
@@ -28,7 +27,7 @@
 @import 'components/sliders';
 @import 'components/navbar';
 
-//Override boostrap elements
+//Override elements
 @import 'override';
 
 
@@ -55,7 +54,6 @@
 
 // Home
 @import "modules/section-to-transition";
-@import 'modules/make-appointment';
 @import 'modules/medical-house';
 @import 'modules/other-section';
 @import 'modules/prices';

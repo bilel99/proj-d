@@ -39,9 +39,11 @@
         margin-bottom: 0;
         font-size: 14px;
         color: white;
+        font-family: $font2;
 
         span {
           color: white;
+          font-family: $font2;
 
           i {
             margin-right: 3px;
@@ -51,9 +53,11 @@
 
       .text_wrap {
         p {
+          font-family: $font2;
           a {
             color: white;
             font-size: 14px;
+            font-family: $font2;
           }
         }
 
@@ -178,7 +182,7 @@
 
   .nav-link {
     color: $color1 !important;
-    font-weight: 500;
+    font-family: $font;
     transition: all 200ms linear;
   }
 

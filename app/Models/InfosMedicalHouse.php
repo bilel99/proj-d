@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Laravel\Passport\HasApiTokens;
 
-class Transports extends BasesModel
+class InfosMedicalHouse extends BasesModel
 {
     use HasApiTokens;
 
     /**
      * @var string
      */
-    protected $table = 'transports';
+    protected $table = 'infos_medical_house';
 
     /**
      * The attributes that are mass assignables.

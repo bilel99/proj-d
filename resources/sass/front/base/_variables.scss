@@ -33,14 +33,17 @@ $animTime: .3s;
  *---------------------------------*/
 
  // Fonts
-$font: 'Agrandir','Arial', sans-serif;
+$font: 'Agrandir-Thin','Arial', sans-serif;
+$font2: 'Agrandir-Regular','Arial', sans-serif;
+$font3: 'Agrandir-TextBold','Arial', sans-serif;
+$font4: 'Agrandir-Heavy','Arial', sans-serif;
 
 // Base Font Size, applied to body tag (13px is iso SP)
 $baseFontSize: 16px;
 
 // Headings. For font-size > use pixels, the mixins does the convertion to EM
 $H1FontSize: 41px;     $H1Color:$color1;      $H1FontFamily:$font;
-$H2FontSize: 35px;     $H2Color:$color1;     $H2FontFamily:$font;
+$H2FontSize: 35px;     $H2Color:$color1;     $H2FontFamily:$font2;
 $H3FontSize: 32px;     $H3Color:black;     $H3FontFamily:$font;
 $H4FontSize: 20px;     $H4Color:black;     $H4FontFamily:$font;
 $H5FontSize: 16px;     $H5Color:black;     $H5FontFamily:$font;

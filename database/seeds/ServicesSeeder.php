@@ -15,27 +15,27 @@ class ServicesSeeder extends Seeder
         $services = [
             [
                 'page_id' => 2,
-                'title' => 'Titre Service 1',
+                'title' => 'Premium Healthcare',
                 'content' => 'du lorem ipsum',
-                'icon' => 'fas fa-plus',
+                'icon' => 'fas fa-stethoscope',
             ],
             [
                 'page_id' => 2,
-                'title' => 'Titre Service 2',
+                'title' => 'Emergency Services',
                 'content' => 'du lorem ipsum',
-                'icon' => 'fas fa-plus',
+                'icon' => 'fas fa-ambulance',
             ],
             [
                 'page_id' => 2,
-                'title' => 'Titre Service 3',
+                'title' => 'Medical Counseling',
                 'content' => 'du lorem ipsum',
-                'icon' => 'fas fa-plus',
+                'icon' => 'fas fa-user-md',
             ],
             [
                 'page_id' => 2,
-                'title' => 'Titre Service 4',
+                'title' => 'Premium Healthcare',
                 'content' => 'du lorem ipsum',
-                'icon' => 'fas fa-plus',
+                'icon' => 'fas fa-medkit',
             ],
         ];
 

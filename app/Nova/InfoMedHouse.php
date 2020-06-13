@@ -2,7 +2,7 @@
 
 namespace App\Nova;
 
-use App\Models\Transports as TransportModel;
+use App\Models\InfosMedicalHouse as InfoMedicalHouse;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
@@ -12,14 +12,14 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
 use Mdixon18\Fontawesome\Fontawesome;
 
-class Transport extends Resource
+class InfoMedHouse extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = TransportModel::class;
+    public static $model = InfoMedicalHouse::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -50,7 +50,7 @@ class Transport extends Resource
      */
     public static function label()
     {
-        return __('nova.labels.transport');
+        return __('nova.labels.infoMedicalHouse');
     }
 
     /**

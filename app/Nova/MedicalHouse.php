@@ -5,6 +5,7 @@ namespace App\Nova;
 use App\Models\MedicalHouses as MedicalHouseModel;
 use Ek0519\Quilljs\Quilljs;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -62,8 +63,7 @@ class MedicalHouse extends Resource
     {
         return [
             new Panel(__('nova.panel.info_prin'), $this->infoPrincPanel()),
-            new Panel(__('nova.panel.address'), $this->addressPanel()),
-            new Panel(__('nova.panel.transport'), $this->transportPanel()),
+            new Panel(__('nova.panel.infoMedicalHouse'), $this->infosMedicalHousePanel()),
         ];
     }
 
@@ -95,39 +95,17 @@ class MedicalHouse extends Resource
                            <li>Et enfin coller l\'Iframe ci-dessus</li>
                            </ul>'
                 )
-                ->rules('nullable', 'max:255')
+                ->rules('nullable')
                 ->hideFromIndex(),
+
+            BelongsTo::make('page'),
         ];
     }
 
-    public function addressPanel(): array
+    public function infosMedicalHousePanel(): array
     {
         return [
-            Text::make(__('globals.attributes.address'), 'address')
-                ->sortable()
-                ->rules('nullable', 'min:2', 'max:255')
-                ->hideFromIndex(),
-
-            Text::make(__('globals.attributes.compl_address'), 'compl_address')
-                ->sortable()
-                ->rules('nullable', 'min:2', 'max:255')
-                ->hideFromIndex(),
-
-            Text::make(__('globals.attributes.phone'), 'phone')
-                ->sortable()
-                ->rules('nullable', 'regex:/^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$/'),
-
-            Text::make(__('globals.attributes.hours'), 'hours')
-                ->sortable()
-                ->rules('nullable', 'max:255')
-                ->hideFromIndex(),
-        ];
-    }
-
-    public function transportPanel(): array
-    {
-        return [
-            HasMany::make('Transport'),
+            HasMany::make('InfoMedHouse'),
         ];
     }
 

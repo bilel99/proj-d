@@ -8,7 +8,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * Class User
  * @package App\Http\Resources
  */
-class Transport extends JsonResource
+class InfosMedicalHouse extends JsonResource
 {
     /**
      * Transform the resource into an array.

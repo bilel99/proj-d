@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Transports;
+use App\Models\InfosMedicalHouse;
 
-class TransportController extends BaseResourceController
+class InfoMedicalHouseController extends BaseResourceController
 {
-    protected $model = Transports::class;
-    protected $modelResource = \App\Http\Resources\Transport::class;
+    protected $model = InfosMedicalHouse::class;
+    protected $modelResource = \App\Http\Resources\InfosMedicalHouse::class;
 
     /**
      * Save a hashed password

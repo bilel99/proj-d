@@ -24,6 +24,7 @@ class Pages extends BasesModel
     public const PAGE_BANIERE_HOME = 'baniere-homepage';
     public const PAGE_BANIERE_QUI_SOMME_NOUS = 'baniere-qui-somme-nous';
     public const PAGE_BANIERE_TARIFS = 'baniere-tarifs';
+    public const PAGE_BANIERE_CONTACT = 'baniere-contact';
     public const PAGE_CE_QUE_LES_DOCTEUR_NE_FONT_PAS = 'ce-que-les-docteurs-de-garde-ne-font-pas';
     public const PAGE_UN_RDV_QUEL_DELAI = 'un-rendez-vous-dans-quel-delai';
     public const PAGE_SUIS_JE_REMBOURSER = 'suis-je-rembourse-des-consultations';
@@ -54,9 +55,20 @@ class Pages extends BasesModel
             ->withTimestamps();
     }
 
+    /**
+     * @return HasMany
+     */
     public function service(): HasMany
     {
         return $this->hasMany(Services::class, 'page_id');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function medicalHouse(): HasMany
+    {
+        return $this->hasMany(MedicalHouses::class, 'page_id');
     }
 
     /**

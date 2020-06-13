@@ -51,9 +51,8 @@
   color: white;
   display: inline-block;
   padding: 18px 24px;
-  font-family: $font1;
+  font-family: $font3;
   font-size: 14px;
-  font-weight: 400;
   border: 1px solid white;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -71,14 +70,12 @@
   color: white;
   display: inline-block;
   padding: 17px 50px;
-  font-family: $font1;
   font-size: 16px;
-  font-weight: 400;
+  font-family: $font3;
   border: 1px solid transparent;
   @include border-radius(3px);
   text-transform: uppercase;
   text-align: center;
-  color: white;
   @include transition(.5s);
   cursor: pointer;
   overflow: hidden;

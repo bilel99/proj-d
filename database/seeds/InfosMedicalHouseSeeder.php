@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Transports;
+use App\Models\InfosMedicalHouse;
 use Illuminate\Database\Seeder;
 
-class TransportsSeeder extends Seeder
+class InfosMedicalHouseSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class TransportsSeeder extends Seeder
      */
     public function run()
     {
-        $transports = [
+        $infos = [
             [
                 'title' => 'info 1',
                 'icon' => 'fa fa-plus',
@@ -35,8 +35,8 @@ class TransportsSeeder extends Seeder
             ],
         ];
 
-        foreach ($transports as $transport) {
-            Transports::create($transport);
+        foreach ($infos as $info) {
+            InfosMedicalHouse::create($info);
         }
     }
 }

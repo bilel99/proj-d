@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ContactSeeder::class);
         $this->call(ServicesSeeder::class);
         $this->call(InformationsSeeder::class);
-        $this->call(TransportsSeeder::class);
+        $this->call(InfosMedicalHouseSeeder::class);
         $this->call(MedicalHouseSeeder::class);
     }
 }
