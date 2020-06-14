@@ -13,7 +13,7 @@
                                 <h1>{{ heroBanner.title }}</h1>
                                 <p v-html="heroBanner.content"></p>
 
-                                <a href="#contact" class="contact-btn my-5 boxed-btn2">Faire une demande de rendez-vous</a>
+                                <router-link :to="{name: 'contact'}" class="contact-btn my-5 boxed-btn2">Faire une demande de contact</router-link>
                             </div>
 
                             <div class="overlay-detail text-center">

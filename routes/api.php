@@ -71,5 +71,11 @@ Route::group(
          * Medias
          */
         Route::get('retrieve-media/{id}', 'MediaController@get')->name('get.retrieve.media');
+
+        /**
+         * Contacts
+         */
+        Route::get('get-elements-to-contact', 'ContactController@getElementsToContact')->name('get.elements.contact');
+        Route::post('contact/form-create', 'ContactController@formCreate')->name('contact.formCreate');
     }
 );

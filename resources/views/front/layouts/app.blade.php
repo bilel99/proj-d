@@ -28,8 +28,6 @@
             <!-- Router view Application SPA Vue.js Framework -->
             <router-view></router-view>
 
-            @include('front.layouts.partials._footer')
-
             <!-- floating button -->
             <a href="#" id="back-to-top" class="btn-float">
                 <i class="fas fa-arrow-up position-center"></i>

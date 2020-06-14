@@ -9,8 +9,8 @@ class Contacts extends BasesModel
 {
     use HasApiTokens;
 
-    public const OBJECT_DEMANDE_1 = 'Contacter le médecin qui vous a consulté';
-    public const OBJECT_DEMANDE_2 = 'Contacter la société docteur de garde';
+    public const OBJECT_DEMANDE_1 = 1;
+    public const OBJECT_DEMANDE_2 = 2;
 
     public const CIVILITY_MR = 'Mr';
     public const CIVILITY_MS = 'Mme';

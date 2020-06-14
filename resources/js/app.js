@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Homepage from "./pages/Homepage";
-import Appointment from "./pages/Appointment";
-import Price from "./pages/Price";
+import Homepage from "./views/Homepage";
+import Appointment from "./views/Appointment";
+import Price from "./views/Price";
+import Contact from "./views/Contact";
 
 const base = document.querySelector('#app')
 
@@ -22,7 +23,8 @@ const routes = [
     { path: '*', component: Homepage },
     { path: '/', name: 'homepage', component: Homepage },
     { path: '/comment-prendre-un-rendez-vous', name: 'appointment', component: Appointment },
-    { path: '/tarifs', name: 'prices', component: Price }
+    { path: '/tarifs', name: 'prices', component: Price },
+    { path: '/contact', name: 'contact', component: Contact }
 ]
 
 /**
@@ -38,6 +40,7 @@ const router = new VueRouter({
 /**
  * Add Component Vue
  */
+Vue.component('Navbar-component', require('./components/NavbarComponent.vue').default);
 Vue.component('hero-banner-component', require('./components/HeroBannerComponent.vue').default);
 Vue.component('message-alert-component', require('./components/MessageAlertComponent.vue').default);
 Vue.component('page-component', require('./components/PageComponent.vue').default);
@@ -47,6 +50,8 @@ Vue.component('medical-house-component', require('./components/MedicalHouseCompo
 Vue.component('information-component', require('./components/InformationComponent.vue').default);
 Vue.component('detail-page-component', require('./components/DetailPageComponent.vue').default);
 Vue.component('horaire-component', require('./components/HoursComponent.vue').default);
+Vue.component('contact-component', require('./components/ContactComponent.vue').default);
+Vue.component('Footer-component', require('./components/FooterComponent.vue').default);
 
 /**
  * Initialise Vue Framework

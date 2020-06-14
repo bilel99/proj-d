@@ -43,10 +43,6 @@
  *  Responsive Bootstrap Framework
  *---------------------------------*/
 
-/** Colors */
-
-/** Typography */
-
 /*
 |-----------------------
 | 	    RESET CSS
@@ -309,7 +305,7 @@ h6 {
 p {
   font-size: 16px;
   color: #000;
-  font-family: "Abril Fatface", cursive;
+  font-family: "Agrandir-Regular", "Arial", sans-serif;
 }
 
 /* Links */
@@ -326,7 +322,7 @@ a:hover {
 .link {
   transition: opacity 1s ease-in-out;
   color: #072453;
-  font-family: "Abril Fatface", cursive;
+  font-family: "Agrandir-Regular", "Arial", sans-serif;
 }
 
 .link:hover {
@@ -2201,16 +2197,16 @@ pre code {
 .table td {
   padding: 0.75rem;
   vertical-align: top;
-  border-top: 1px solid #fdcb9e;
+  border-top: 1px solid #dee2e6;
 }
 
 .table thead th {
   vertical-align: bottom;
-  border-bottom: 2px solid #fdcb9e;
+  border-bottom: 2px solid #dee2e6;
 }
 
 .table tbody + tbody {
-  border-top: 2px solid #fdcb9e;
+  border-top: 2px solid #dee2e6;
 }
 
 .table-sm th,
@@ -2219,12 +2215,12 @@ pre code {
 }
 
 .table-bordered {
-  border: 1px solid #fdcb9e;
+  border: 1px solid #dee2e6;
 }
 
 .table-bordered th,
 .table-bordered td {
-  border: 1px solid #fdcb9e;
+  border: 1px solid #dee2e6;
 }
 
 .table-bordered thead th,
@@ -2448,7 +2444,7 @@ pre code {
 .table .thead-light th {
   color: #495057;
   background-color: #e9ecef;
-  border-color: #fdcb9e;
+  border-color: #dee2e6;
 }
 
 .table-dark {
@@ -6696,7 +6692,7 @@ a.close.disabled {
   align-items: flex-start;
   justify-content: space-between;
   padding: 1rem 1rem;
-  border-bottom: 1px solid #fdcb9e;
+  border-bottom: 1px solid #dee2e6;
   border-top-left-radius: calc(0.3rem - 1px);
   border-top-right-radius: calc(0.3rem - 1px);
 }
@@ -6723,7 +6719,7 @@ a.close.disabled {
   align-items: center;
   justify-content: flex-end;
   padding: 0.75rem;
-  border-top: 1px solid #fdcb9e;
+  border-top: 1px solid #dee2e6;
   border-bottom-right-radius: calc(0.3rem - 1px);
   border-bottom-left-radius: calc(0.3rem - 1px);
 }
@@ -7465,23 +7461,23 @@ button.bg-dark:focus {
 }
 
 .border {
-  border: 1px solid #fdcb9e !important;
+  border: 1px solid #dee2e6 !important;
 }
 
 .border-top {
-  border-top: 1px solid #fdcb9e !important;
+  border-top: 1px solid #dee2e6 !important;
 }
 
 .border-right {
-  border-right: 1px solid #fdcb9e !important;
+  border-right: 1px solid #dee2e6 !important;
 }
 
 .border-bottom {
-  border-bottom: 1px solid #fdcb9e !important;
+  border-bottom: 1px solid #dee2e6 !important;
 }
 
 .border-left {
-  border-left: 1px solid #fdcb9e !important;
+  border-left: 1px solid #dee2e6 !important;
 }
 
 .border-0 {
@@ -11307,12 +11303,12 @@ a.text-dark:focus {
   .table-dark td,
   .table-dark thead th,
   .table-dark tbody + tbody {
-    border-color: #fdcb9e;
+    border-color: #dee2e6;
   }
 
   .table .thead-dark th {
     color: inherit;
-    border-color: #fdcb9e;
+    border-color: #dee2e6;
   }
 }
 
@@ -11420,14 +11416,14 @@ hr.botm-line {
 
 .hero-banner-text h1 {
   color: white;
-  font-family: "Abril Fatface", cursive;
+  font-family: "Agrandir-Regular", "Arial", sans-serif;
   font-size: 2rem;
   text-transform: uppercase;
 }
 
 .hero-banner-text p {
   color: white;
-  font-family: "Abril Fatface", cursive;
+  font-family: "Agrandir-Regular", "Arial", sans-serif;
   font-size: 16px;
 }
 
@@ -11653,6 +11649,13 @@ footer ul.quick-links li:hover a i {
           filter: brightness(0.3);
 }
 
+.section-transition-contact {
+  background: url(/images/banniere-mobile-contact.jpg?53cdd9306a5db9bf8e85445d94f4ee41) no-repeat;
+  background-size: cover;
+  min-height: 250px;
+  position: relative;
+}
+
 /*
 |-----------------------
 | 	  MEDICAL HOUSES
@@ -11741,7 +11744,7 @@ footer ul.quick-links li:hover a i {
   background: white;
   display: inline-block;
   padding: 14px 44px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Agrandir-Regular", "Arial", sans-serif;
   font-size: 14px;
   font-weight: 400;
   border: 1px solid #072453;
@@ -11821,15 +11824,25 @@ footer ul.quick-links li:hover a i {
 |
 */
 
-form .legend {
+.mandatory {
+  color: #d63031;
+  font-family: "Agrandir-TextBold", "Arial", sans-serif;
+}
+
+.form-contact label {
+  font-size: 14px;
+  font-family: "Agrandir-TextBold", "Arial", sans-serif;
+}
+
+.form-contact .form-group {
+  margin-bottom: 30px;
+}
+
+.form-contact .custom-radio label {
   font-size: 14px;
 }
 
-form .custom-radio label {
-  font-size: 14px;
-}
-
-form .custom-radio label:before {
+.form-contact .custom-radio label:before {
   top: 50%;
   left: -22px;
   width: 13px;
@@ -11837,7 +11850,7 @@ form .custom-radio label:before {
   margin-top: -7px;
 }
 
-form .custom-radio label:after {
+.form-contact .custom-radio label:after {
   top: 50%;
   left: -23px;
   width: 15px;
@@ -11845,27 +11858,8 @@ form .custom-radio label:after {
   margin-top: -8px;
 }
 
-form input[type=text] {
-  color: black;
-  font-size: 14px;
-}
-
-.mandatory {
-  color: red;
-  font-weight: 700;
-}
-
-.form-contact label {
-  font-size: 14px;
-}
-
-.form-contact .form-group {
-  margin-bottom: 30px;
-}
-
 .form-contact .form-control {
-  border: 1px solid #e5e6e9;
-  border-radius: 0px;
+  border: 1px solid #072453;
   height: 48px;
   padding-left: 18px;
   font-size: 13px;
@@ -11879,32 +11873,31 @@ form input[type=text] {
 
 .form-contact .form-control::-moz-placeholder {
   font-weight: 300;
-  color: #999999;
+  color: #072453;
 }
 
 .form-contact .form-control:-ms-input-placeholder {
   font-weight: 300;
-  color: #999999;
+  color: #072453;
 }
 
 .form-contact .form-control::-ms-input-placeholder {
   font-weight: 300;
-  color: #999999;
+  color: #072453;
 }
 
 .form-contact .form-control::placeholder {
   font-weight: 300;
-  color: #999999;
+  color: #072453;
 }
 
 .form-contact textarea {
-  border-radius: 0px;
   height: 100% !important;
 }
 
 .form-contact #switch-radio .notActive {
-  color: #3276b1;
-  background-color: #fff;
+  color: #0984e3;
+  background-color: white;
 }
 
 /*
@@ -11962,12 +11955,12 @@ form input[type=text] {
   margin-bottom: 0;
   font-size: 14px;
   color: white;
-  font-family: "Abril Fatface", cursive;
+  font-family: "Agrandir-Regular", "Arial", sans-serif;
 }
 
 .header-area .header-top_area .header_top_wrap p span {
   color: white;
-  font-family: "Abril Fatface", cursive;
+  font-family: "Agrandir-Regular", "Arial", sans-serif;
 }
 
 .header-area .header-top_area .header_top_wrap p span i {
@@ -11975,13 +11968,13 @@ form input[type=text] {
 }
 
 .header-area .header-top_area .header_top_wrap .text_wrap p {
-  font-family: "Abril Fatface", cursive;
+  font-family: "Agrandir-Regular", "Arial", sans-serif;
 }
 
 .header-area .header-top_area .header_top_wrap .text_wrap p a {
   color: white;
   font-size: 14px;
-  font-family: "Abril Fatface", cursive;
+  font-family: "Agrandir-Regular", "Arial", sans-serif;
 }
 
 .header-area .header-top_area .header_top_wrap .text_wrap a:last-child {
@@ -12448,14 +12441,14 @@ form input[type=text] {
   color: white;
   background-color: #072453;
   border: 1px solid #826308;
-  font-family: "Abril Fatface", cursive;
+  font-family: "Agrandir-Regular", "Arial", sans-serif;
 }
 
 .membership-pricing-table table .plan-header-secondary {
   color: white;
   background-color: #072453;
   border: 1px solid #826308;
-  font-family: "Abril Fatface", cursive;
+  font-family: "Agrandir-Regular", "Arial", sans-serif;
 }
 
 .membership-pricing-table table td {
@@ -12465,7 +12458,7 @@ form input[type=text] {
   padding: 15px;
   background-color: white;
   font-size: 14px;
-  font-family: "Abril Fatface", cursive;
+  font-family: "Agrandir-Regular", "Arial", sans-serif;
 }
 
 .membership-pricing-table table tr td:first-child {
@@ -12498,59 +12491,4 @@ form input[type=text] {
 |-----------------------
 |
 */
-
-#transition-contact {
-  background: url(/images/banniere-mobile-contact.jpg?53cdd9306a5db9bf8e85445d94f4ee41) no-repeat;
-  background-size: cover;
-  min-height: 250px;
-  position: relative;
-}
-
-#contact {
-  background-color: white;
-  border-bottom: 45px solid #0cb8b6;
-}
-
-#contact h3 {
-  color: black;
-  font-size: 2em;
-  text-align: center;
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
-#contact .card {
-  padding: 15px;
-  background-color: white;
-  width: 100%;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
-.contact-info {
-  margin-bottom: 25px;
-}
-
-.contact-info__icon {
-  margin-right: 20px;
-}
-
-.contact-info__icon i,
-.contact-info__icon span {
-  color: #8f9195;
-  font-size: 27px;
-}
-
-.contact-info .media-body h3 {
-  font-size: 16px;
-  margin-bottom: 0;
-  color: #2a2a2a;
-}
-
-.contact-info .media-body h3 a:hover {
-  color: #ff5e13;
-}
-
-.contact-info .media-body p {
-  color: #8a8a8a;
-}
 

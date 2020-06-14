@@ -4,21 +4,39 @@
 |-----------------------
 |
 */
-form{
-  .legend{
-    font-size:14px;
+
+.mandatory {
+  color: $color-error;
+  font-family: $font3;
+}
+
+.form-contact {
+  label {
+    font-size: 14px;
+    font-family: $font3;
   }
-  .custom-radio{
-    label{
-      font-size:14px;
-      &:before{
+
+  .form-group {
+    margin-bottom: 30px;
+  }
+
+  select {
+    
+  }
+
+  .custom-radio {
+    label {
+      font-size: 14px;
+
+      &:before {
         top: 50%;
         left: -22px;
         width: 13px;
         height: 13px;
         margin-top: -7px;
       }
-      &:after{
+
+      &:after {
         top: 50%;
         left: -23px;
         width: 15px;
@@ -27,42 +45,9 @@ form{
       }
     }
   }
-  input[type="text"]{
-    color:black;
-    font-size:14px;
-  }
-}
-
-.mandatory {
-  color: red;
-  font-weight: 700;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.form-contact {
-  label {
-    font-size: 14px;
-  }
-
-  .form-group {
-    margin-bottom: 30px;
-  }
 
   .form-control {
-    border: 1px solid #e5e6e9;
-    border-radius: 0px;
+    border: 1px solid $color1;
     height: 48px;
     padding-left: 18px;
     font-size: 13px;
@@ -75,18 +60,17 @@ form{
 
     &::placeholder {
       font-weight: 300;
-      color: #999999;
+      color: $color1;
     }
   }
 
   textarea {
-    border-radius: 0px;
     height: 100% !important;
   }
 
-  #switch-radio .notActive{
-    color: #3276b1;
-    background-color: #fff;
+  #switch-radio .notActive {
+    color: $color-info;
+    background-color: white;
   }
 }
 

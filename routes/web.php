@@ -32,3 +32,4 @@ Route::get('nova/login', function () {
 Route::get('/', 'HomepageController@index')->name('homepage');
 Route::get('/comment-prendre-un-rendez-vous', 'HomepageController@index')->name('homepage.appointment');
 Route::get('/tarifs', 'HomepageController@index')->name('homepage.tarifs');
+Route::get('/contact', 'HomepageController@index')->name('homepage.contact');

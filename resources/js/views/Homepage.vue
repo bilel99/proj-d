@@ -42,8 +42,8 @@
         </medical-house-component>
 
         <!-- Transition Contact -->
-        <section id="transition-contact" class="transition-contact d-flex justify-content-center align-items-center">
-            <a href="" class="boxed-btn3">Nous contacter</a>
+        <section class="section-transition-contact d-flex justify-content-center align-items-center">
+            <router-link :to="{name: 'contact'}" class="boxed-btn3">Faire une demande de contact</router-link>
         </section>
         <!-- /end -->
 
@@ -53,10 +53,22 @@
                 class_section="section-bg-grey section-padding"
                 img_default="/img/informations-image.png">
         </information-component>
+
+        <Footer-component></Footer-component>
     </div>
 </template>
 
 <script>
+
 export default {
+    data() {
+        return {
+            isLoading: false,
+        }
+    },
+    created() {
+    },
+    mounted() {
+    }
 }
 </script>
