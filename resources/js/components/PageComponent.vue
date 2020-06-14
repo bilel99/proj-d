@@ -14,8 +14,7 @@
                     <hr class="botm-line">
 
                     <p class="content" v-html="page.content"></p>
-
-
+                    
                     <div v-for="(item, index) in page.alerts">
                         <message-alert-component :alert_id="item.id" :api_data="apiData"></message-alert-component>
                     </div>

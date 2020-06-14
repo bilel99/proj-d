@@ -14,29 +14,35 @@ class InfosMedicalHouseSeeder extends Seeder
     {
         $infos = [
             [
-                'title' => 'info 1',
-                'icon' => 'fa fa-plus',
-                'infos' => 'du lorem ipsum',
+                'medical_house_id' => 1,
+                'title' => 'ADULTE PEDIATRIQUE DE JOSSIGNY - Grand Hôpital de l\'Est',
+                'icon' => 'fas fa-home',
+                'infos' => '2-4 cours de la Gondoire 77600 Jossigny',
             ],
             [
-                'title' => 'info 2',
-                'icon' => 'fa fa-plus',
-                'infos' => 'du lorem ipsum',
+                'medical_house_id' => 1,
+                'title' => '+33 1 64 77 64 77',
+                'icon' => 'fas fa-mobile',
+                'infos' => 'Ouvert 7j/7 24/24h',
             ],
             [
-                'title' => 'info 3',
-                'icon' => 'fa fa-plus',
-                'infos' => 'du lorem ipsum',
+                'medical_house_id' => 1,
+                'title' => 'BUS',
+                'icon' => 'fas fa-bus',
+                'infos' => 'Lignes 22,42 et 46 - arrêt centre hospitalier',
             ],
             [
-                'title' => 'info 4',
-                'icon' => 'fa fa-plus',
-                'infos' => 'du lorem ipsum',
+                'medical_house_id' => 1,
+                'title' => 'RER A',
+                'icon' => 'fas fa-subway',
+                'infos' => 'Station Val d\'Europe',
             ],
         ];
 
         foreach ($infos as $info) {
-            InfosMedicalHouse::create($info);
+            if (null === InfosMedicalHouse::where(['title' => $info['title']])->first()) {
+                InfosMedicalHouse::create($info);
+            }
         }
     }
 }

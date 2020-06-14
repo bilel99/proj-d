@@ -20,7 +20,9 @@ class SocietySeeder extends Seeder
         ];
 
         foreach ($societies as $society) {
-            Society::create($society);
+            if (null === Society::where(['email' => $society['email']])->first()) {
+                Society::create($society);
+            }
         }
     }
 }

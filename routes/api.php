@@ -38,10 +38,11 @@ Route::group(
                 'horaire' => 'HoraireController',
                 'information' => 'InformationController',
                 'medicalHouse' => 'MedicalHouseController',
+                'price' => 'PriceController',
                 'page' => 'PageController',
                 'service' => 'ServiceController',
                 'society' => 'SocietyController',
-                'transport' => 'TransportController',
+                'infosMedicalHouse' => 'InfoMedicalHouseController',
             ]
         );
 
@@ -60,6 +61,11 @@ Route::group(
          */
         Route::get('get-relations-information/{information}', 'InformationController@getRelations')->name('get.relations.information');
         Route::get('get-all-informations', 'InformationController@findAll')->name('get.all.information');
+
+        /**
+         * Relations to Price table
+         */
+        Route::get('get-relations-price/{price}', 'PriceController@getRelations')->name('get.relations.price');
 
         /**
          * Medias

@@ -28,9 +28,9 @@ class ScheduleSeeder extends Seeder
         ];
 
         foreach ($schedules as $schedule) {
-            //if (null === Horaires::where(['id' => $schedule['id']])->first()) {
+            if (null === Horaires::where(['title' => $schedule['title']])->first()) {
                 Horaires::create($schedule);
-            //}
+            }
         }
     }
 }

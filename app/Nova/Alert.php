@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use App\Models\Alerts as AlertModel;
+use Ek0519\Quilljs\Quilljs;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;use Laravel\Nova\Fields\Text;use Laravel\Nova\Fields\Textarea;
@@ -69,9 +70,15 @@ class Alert extends Resource
                 ->nullable(true)
                 ->rules('max:255'),
 
-            Textarea::make(__('globals.attributes.content'), 'content')
-                ->sortable()
-                ->rules('required', 'min:2', 'max:255'),
+            Quilljs::make(__('globals.attributes.content'), 'content')
+                ->withFiles('public')
+                ->fullWidth('option')
+                ->height(300)
+                ->tooltip(true)
+                ->placeholder('Vous pouvez rentrer votre contenu ici ...')
+                ->nullable(true)
+                ->rules('nullable')
+                ->hideFromIndex(),
 
             Fontawesome::make(__('globals.attributes.icon'), 'icon')
                 ->addButtonText('Icone')

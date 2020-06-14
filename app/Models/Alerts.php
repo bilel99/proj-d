@@ -18,6 +18,7 @@ class Alerts extends BasesModel
     // Levels
     public const LEVELS_DEFAULT = 'default';
     public const LEVELS_INFO = 'info';
+    public const LEVELS_SUCCESS = 'success';
     public const LEVELS_WARNING = 'warning';
     public const LEVELS_DANGER = 'danger';
     
@@ -68,8 +69,9 @@ class Alerts extends BasesModel
         return [
             '1' => self::LEVELS_DEFAULT,
             '2' => self::LEVELS_INFO,
-            '3' => self::LEVELS_WARNING,
-            '4' => self::LEVELS_DANGER,
+            '3' => self::LEVELS_SUCCESS,
+            '4' => self::LEVELS_WARNING,
+            '5' => self::LEVELS_DANGER,
         ];
     }
 
@@ -109,9 +111,12 @@ class Alerts extends BasesModel
                 return self::LEVELS_INFO;
                 break;
             case 3:
-                return self::LEVELS_WARNING;
+                return self::LEVELS_SUCCESS;
                 break;
             case 4:
+                return self::LEVELS_WARNING;
+                break;
+            case 5:
                 return self::LEVELS_DANGER;
                 break;
             default:

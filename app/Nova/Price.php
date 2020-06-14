@@ -2,26 +2,22 @@
 
 namespace App\Nova;
 
-use App\Models\Pages as PageModel;
-use Benjaminhirsch\NovaSlugField\Slug;
-use Benjaminhirsch\NovaSlugField\TextWithSlug;
-use ClassicO\NovaMediaLibrary\MediaLibrary;
+use App\Models\Prices as PriceModel;
 use Ek0519\Quilljs\Quilljs;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
 
-class Page extends Resource
+class Price extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = PageModel::class;
+    public static $model = PriceModel::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -36,7 +32,7 @@ class Page extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'unique_name', 'title',
+        'id', 'title', 'content_row_1', 'content_row_2',
     ];
 
     /**
@@ -44,7 +40,7 @@ class Page extends Resource
      */
     public static function group()
     {
-        return __('nova.groups.page');
+        return __('nova.groups.admin');
     }
 
     /**
@@ -52,7 +48,7 @@ class Page extends Resource
      */
     public static function label()
     {
-        return __('nova.labels.page');
+        return __('nova.labels.prices');
     }
 
     /**
@@ -66,24 +62,24 @@ class Page extends Resource
         return [
             new Panel(__('nova.panel.info_prin'), $this->infoPrincPanel()),
             new Panel(__('nova.panel.relations'), $this->relationsPanel()),
-            new Panel(__('nova.panel.medias'), $this->mediasPanel()),
         ];
     }
 
-    /**
-     * @return array
-     */
     public function infoPrincPanel(): array
     {
         return [
             ID::make()->sortable(),
 
-            TextWithSlug::make(__('globals.attributes.title'), 'title')
-                ->slug('unique_name')
-                ->sortable()
-                ->rules('required', 'min:2', 'max:255'),
+            Quilljs::make(__('globals.attributes.title'), 'title')
+                ->withFiles('public')
+                ->fullWidth('option')
+                ->height(300)
+                ->tooltip(true)
+                ->placeholder('Vous pouvez rentrer votre titre ici ...')
+                ->rules('nullable')
+                ->hideFromIndex(),
 
-            Quilljs::make(__('globals.attributes.content'), 'content')
+            Quilljs::make(__('globals.attributes.content_row_1'), 'content_row_1')
                 ->withFiles('public')
                 ->fullWidth('option')
                 ->height(300)
@@ -92,8 +88,14 @@ class Page extends Resource
                 ->rules('nullable')
                 ->hideFromIndex(),
 
-            Slug::make('unique_name')
-                ->disableAutoUpdateWhenUpdating(),
+            Quilljs::make(__('globals.attributes.content_row_2'), 'content_row_2')
+                ->withFiles('public')
+                ->fullWidth('option')
+                ->height(300)
+                ->tooltip(true)
+                ->placeholder('Vous pouvez rentrer votre contenu ici ...')
+                ->rules('nullable')
+                ->hideFromIndex(),
         ];
     }
 
@@ -103,21 +105,7 @@ class Page extends Resource
     public function relationsPanel(): array
     {
         return [
-            BelongsToMany::make('alerts'),
-            
-            HasMany::make('service'),
-
-            HasMany::make('medicalHouse'),
-
-            HasMany::make('price'),
-        ];
-    }
-
-    public function mediasPanel(): array
-    {
-        return [
-            MediaLibrary::make('media')
-                ->preview('thumb'),
+            BelongsTo::make('Page'),
         ];
     }
 

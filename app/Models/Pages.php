@@ -72,6 +72,14 @@ class Pages extends BasesModel
     }
 
     /**
+     * @return HasMany
+     */
+    public function price(): HasMany
+    {
+        return $this->hasMany(Prices::class, 'page_id');
+    }
+
+    /**
      * @param int $id
      * @return string
      */

@@ -40,7 +40,9 @@ class ServicesSeeder extends Seeder
         ];
 
         foreach ($services as $service) {
-            Services::create($service);
+            if (null === Services::where(['title' => $service['title']])->first()) {
+                Services::create($service);
+            }
         }
     }
 }

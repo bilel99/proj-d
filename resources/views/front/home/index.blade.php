@@ -19,7 +19,7 @@
     <!--/ end section -->
 
     <!-- section transition -->
-    <section id="transition" class="section-padding"></section>
+    <section id="section-transition" class="section-transition section-padding"></section>
     <!-- /end section -->
 
     <!-- section price -->
@@ -36,7 +36,7 @@
     </section>
     <!-- /end -->
 
-    <!-- section other -->
+    <!-- section information -->
     @include('front.home.partials._information')
     <!-- /end section -->
 @endsection

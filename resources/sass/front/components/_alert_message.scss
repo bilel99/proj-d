@@ -1,0 +1,91 @@
+.alert-message {
+  margin: 20px 0;
+  padding: 20px;
+  border-left: 3px solid $color2;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  h2 {
+    color: $color1;
+    font-family: $font3;
+  }
+
+  p {
+    color: $color1; 
+    font-family: $font3;
+  }
+}
+
+.alert-message-success {
+  background-color: white;
+  border-color: $color-success;
+
+  h2 {
+    color: $color1;
+    font-family: $font3;
+  }
+
+  p {
+    color: $color1;
+    font-family: $font3;
+  }
+}
+
+.alert-message-danger {
+  background-color: white;
+  border-color: $color-error;
+
+  h2 {
+    color: $color1;
+    font-family: $font3;
+  }
+
+  p {
+    color: $color1;
+    font-family: $font3;
+  }
+}
+
+.alert-message-warning {
+  background-color: white;
+  border-color: $color-warning;
+
+  h2 {
+    color: $color1;
+    font-family: $font3;
+  }
+
+  p {
+    color: $color1;
+    font-family: $font3;
+  }
+}
+
+.alert-message-info {
+  background-color: white;
+  border-color: $color-info;
+
+  h2 {
+    color: $color1;
+    font-family: $font3;
+  }
+
+  p {
+    color: $color1;
+    font-family: $font3;
+  }
+}
+
+.alert-message-default {
+  background-color: white;
+  border-color: $color2;
+
+  h2 {
+    color: $color1;
+    font-family: $font3;
+  }
+
+  p {
+    color: $color1;
+    font-family: $font3;
+  }
+}

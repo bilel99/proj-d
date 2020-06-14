@@ -24,9 +24,15 @@
                                     <p v-html="item.content"></p>
 
                                     <!-- Hours Component -->
-                                    <horaire-component
-                                        :api_data="apiData">
-                                    </horaire-component>
+                                    <div v-if="item.id === 1">
+                                        <horaire-component
+                                            :api_data="apiData">
+                                        </horaire-component>
+                                    </div>
+
+                                    <div v-if="item.alert_id !== null">
+                                        <message-alert-component :alert_id="item.alert_id" :api_data="apiData"></message-alert-component>
+                                    </div>
                                 </div>
                             </div>
                         </div>

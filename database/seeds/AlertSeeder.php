@@ -44,7 +44,9 @@ class AlertSeeder extends Seeder
         ];
 
         foreach ($alerts as $alert) {
-            Alerts::create($alert);
+            if (null === Alerts::where(['title' => $alert['title']])->first()) {
+                Alerts::create($alert);
+            }
         }
     }
 }

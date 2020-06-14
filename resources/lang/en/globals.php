@@ -69,6 +69,8 @@ return [
         'types' => 'Types d\'alerte',
         'levels' => 'Niveau d\'alerte',
         'medias' => 'Medias',
+        'content_row_1' => 'Contenu colonne 1',
+        'content_row_2' => 'Contenu colonne 2'
     ],
 
     'helps' => [

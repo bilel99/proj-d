@@ -87,6 +87,21 @@
 
 /*
 |-----------------------
+|  SECTION - TRANSITION
+|-----------------------
+|
+*/
+
+.section-transition {
+  background: url('../../../../public/front/img/bg-banner.jpg') no-repeat fixed;
+  background-size: cover;
+  min-height: 250px;
+  position: relative;
+  filter: brightness(.3);
+}
+
+/*
+|-----------------------
 | 	  MEDICAL HOUSES
 |-----------------------
 |
@@ -135,11 +150,3 @@
     }
   }
 }
-
-/*
-|-----------------------
-| 	 INFORMATION
-|-----------------------
-|
-*/
-

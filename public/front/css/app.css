@@ -11643,6 +11643,22 @@ footer ul.quick-links li:hover a i {
 
 /*
 |-----------------------
+|  SECTION - TRANSITION
+|-----------------------
+|
+*/
+
+.section-transition {
+  background: url(/images/bg-banner.jpg?0643ffb7a7698c5f64600280bb246934) no-repeat fixed;
+  background-size: cover;
+  min-height: 250px;
+  position: relative;
+  -webkit-filter: brightness(0.3);
+          filter: brightness(0.3);
+}
+
+/*
+|-----------------------
 | 	  MEDICAL HOUSES
 |-----------------------
 |
@@ -11696,13 +11712,6 @@ footer ul.quick-links li:hover a i {
   width: 100%;
   position: absolute;
 }
-
-/*
-|-----------------------
-| 	 INFORMATION
-|-----------------------
-|
-*/
 
 /*
 |-----------------------
@@ -12332,91 +12341,104 @@ form input[type=text] {
   margin-bottom: 0;
 }
 
+.alert-message {
+  margin: 20px 0;
+  padding: 20px;
+  border-left: 3px solid #826308;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.alert-message h2 {
+  color: #072453;
+  font-family: "Agrandir-TextBold", "Arial", sans-serif;
+}
+
+.alert-message p {
+  color: #072453;
+  font-family: "Agrandir-TextBold", "Arial", sans-serif;
+}
+
+.alert-message-success {
+  background-color: white;
+  border-color: #00b894;
+}
+
+.alert-message-success h2 {
+  color: #072453;
+  font-family: "Agrandir-TextBold", "Arial", sans-serif;
+}
+
+.alert-message-success p {
+  color: #072453;
+  font-family: "Agrandir-TextBold", "Arial", sans-serif;
+}
+
+.alert-message-danger {
+  background-color: white;
+  border-color: #d63031;
+}
+
+.alert-message-danger h2 {
+  color: #072453;
+  font-family: "Agrandir-TextBold", "Arial", sans-serif;
+}
+
+.alert-message-danger p {
+  color: #072453;
+  font-family: "Agrandir-TextBold", "Arial", sans-serif;
+}
+
+.alert-message-warning {
+  background-color: white;
+  border-color: #e17055;
+}
+
+.alert-message-warning h2 {
+  color: #072453;
+  font-family: "Agrandir-TextBold", "Arial", sans-serif;
+}
+
+.alert-message-warning p {
+  color: #072453;
+  font-family: "Agrandir-TextBold", "Arial", sans-serif;
+}
+
+.alert-message-info {
+  background-color: white;
+  border-color: #0984e3;
+}
+
+.alert-message-info h2 {
+  color: #072453;
+  font-family: "Agrandir-TextBold", "Arial", sans-serif;
+}
+
+.alert-message-info p {
+  color: #072453;
+  font-family: "Agrandir-TextBold", "Arial", sans-serif;
+}
+
+.alert-message-default {
+  background-color: white;
+  border-color: #826308;
+}
+
+.alert-message-default h2 {
+  color: #072453;
+  font-family: "Agrandir-TextBold", "Arial", sans-serif;
+}
+
+.alert-message-default p {
+  color: #072453;
+  font-family: "Agrandir-TextBold", "Arial", sans-serif;
+}
+
 /*
 |-----------------------
 | 	      OVERRIDE
 |-----------------------
 |
 */
-
-.alert-message {
-  margin: 20px 0;
-  padding: 20px;
-  border-left: 3px solid #eee;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-}
-
-.alert-message h4 {
-  margin-top: 0;
-  margin-bottom: 5px;
-}
-
-.alert-message p:last-child {
-  margin-bottom: 0;
-}
-
-.alert-message-success {
-  background-color: white;
-  border-color: #3C763D;
-}
-
-.alert-message-success h4 {
-  color: #3C763D;
-}
-
-.alert-message-success p {
-  color: black;
-}
-
-.alert-message-danger {
-  background-color: white;
-  border-color: red h4;
-  border-color-color: red;
-}
-
-.alert-message-danger p {
-  color: red;
-}
-
-.alert-message-warning {
-  background-color: white;
-  border-color: #ffb737;
-}
-
-.alert-message-warning h4 {
-  color: #ffb737;
-}
-
-.alert-message-warning p {
-  color: black;
-}
-
-.alert-message-info {
-  background-color: white;
-  border-color: #5bc0de;
-}
-
-.alert-message-info h4,
-.alert-message-info h2 {
-  color: black;
-}
-
-.alert-message-info p {
-  color: black;
-}
-
-.alert-message-default {
-  background-color: white;
-  border-color: #B4B4B4;
-}
-
-.alert-message-default h4 {
-  color: black;
-}
-
-.alert-message-default p {
-  color: black;
-}
 
 .membership-pricing-table {
   width: 100%;
@@ -12477,15 +12499,6 @@ form input[type=text] {
 
 .membership-pricing-table table tr:first-child th {
   font-size: 22px;
-}
-
-#transition {
-  background: url(/images/bg-banner.jpg?0643ffb7a7698c5f64600280bb246934) no-repeat fixed;
-  background-size: cover;
-  min-height: 250px;
-  position: relative;
-  -webkit-filter: brightness(0.3);
-          filter: brightness(0.3);
 }
 
 /***************************************
@@ -12553,14 +12566,5 @@ Prices
 
 .contact-info .media-body p {
   color: #8a8a8a;
-}
-
-/***************************************
-details tarifs
-***************************************/
-
-#detail-page {
-  background-color: white;
-  border-bottom: 45px solid #0cb8b6;
 }
 

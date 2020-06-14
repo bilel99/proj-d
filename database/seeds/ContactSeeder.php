@@ -6,8 +6,6 @@ use Illuminate\Support\Facades\Hash;
 
 class ContactSeeder extends Seeder
 {
-
-
     /**
      * Run the database seeds.
      *

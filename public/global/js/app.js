@@ -1912,11 +1912,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var basicAuthUsername = 'docteur-de-garde';
 var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      classId: String,
+      classSection: String,
+      routePage: String,
       apiData: String,
       page: {},
       imgDefault: String,
@@ -1929,6 +1941,9 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
   mounted: function mounted() {
     var _this = this;
 
+    this.classId = this.$el.getAttribute('class_id');
+    this.classSection = this.$el.getAttribute('class_section');
+    this.routePage = this.$el.getAttribute('route_page');
     this.imgDefault = this.$el.getAttribute('img_default');
     this.apiData = this.$el.getAttribute('api_data'); // Get Api
 
@@ -2088,6 +2103,12 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2347,8 +2368,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 var basicAuthUsername = 'docteur-de-garde';
 var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2426,7 +2445,6 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -38161,7 +38179,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c(
+    "div",
+    [
+      _c("h2", { staticClass: "title" }, [_vm._v(_vm._s(_vm.page.title))]),
+      _vm._v(" "),
+      _c("hr", { staticClass: "botm-line" }),
+      _vm._v(" "),
+      _c("p", {
+        staticClass: "content",
+        domProps: { innerHTML: _vm._s(_vm.page.content) }
+      }),
+      _vm._v(" "),
+      _vm._l(_vm.page.alerts, function(item, index) {
+        return _c(
+          "div",
+          [
+            _c("message-alert-component", {
+              attrs: { alert_id: item.id, api_data: _vm.apiData }
+            })
+          ],
+          1
+        )
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -38384,20 +38427,38 @@ var render = function() {
                       }
                     },
                     [
-                      _c(
-                        "div",
-                        { staticClass: "panel-body" },
-                        [
-                          _c("p", {
-                            domProps: { innerHTML: _vm._s(item.content) }
-                          }),
-                          _vm._v(" "),
-                          _c("horaire-component", {
-                            attrs: { api_data: _vm.apiData }
-                          })
-                        ],
-                        1
-                      )
+                      _c("div", { staticClass: "panel-body" }, [
+                        _c("p", {
+                          domProps: { innerHTML: _vm._s(item.content) }
+                        }),
+                        _vm._v(" "),
+                        item.id === 1
+                          ? _c(
+                              "div",
+                              [
+                                _c("horaire-component", {
+                                  attrs: { api_data: _vm.apiData }
+                                })
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        item.alert_id !== null
+                          ? _c(
+                              "div",
+                              [
+                                _c("message-alert-component", {
+                                  attrs: {
+                                    alert_id: item.alert_id,
+                                    api_data: _vm.apiData
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          : _vm._e()
+                      ])
                     ]
                   )
                 ])
@@ -38614,7 +38675,7 @@ var render = function() {
     _vm._v(" "),
     _c("hr", { staticClass: "botm-line" }),
     _vm._v(" "),
-    _c("p", [_vm._v("\n        " + _vm._s(_vm.alert.content) + "\n    ")])
+    _c("p", { domProps: { innerHTML: _vm._s(_vm.alert.content) } })
   ])
 }
 var staticRenderFns = []

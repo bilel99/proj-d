@@ -3,9 +3,7 @@
         <h2 class="title"><i :class="alert.icon"></i>&nbsp; {{ alert.title }}</h2>
         <hr class="botm-line">
 
-        <p>
-            {{ alert.content }}
-        </p>
+        <p v-html="alert.content"></p>
     </div>
 </template>
 

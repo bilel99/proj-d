@@ -15,28 +15,25 @@ class InformationsSeeder extends Seeder
         $infos = [
             [
                 'alert_id' => 1,
-                'title' => 'info 1',
-                'content' => 'du lorem ipsum',
+                'title' => 'Quels sont les horaires d’ouverture ?',
+                'content' => 'Merci de vous présenter au niveau de l’accueil des services d’urgence de Meaux ou Jossigny 20 minutes avant votre Rendez-vous, afin d’être orienté vers la Maison Médicale de Garde ...',
             ],
             [
                 'alert_id' => 1,
-                'title' => 'info 2',
-                'content' => 'du lorem ipsum',
+                'title' => 'Avant la consultation :',
+                'content' => 'Merci de vous présenter au niveau de l’accueil des services d’urgence de Meaux ou Jossigny 20 minutes avant votre Rendez-vous, afin d’être orienté vers la Maison Médicale de Garde ...',
             ],
             [
                 'alert_id' => 1,
-                'title' => 'info 3',
-                'content' => 'du lorem ipsum',
-            ],
-            [
-                'alert_id' => 1,
-                'title' => 'info 4',
-                'content' => 'du lorem ipsum',
+                'title' => 'Après la consultation :',
+                'content' => 'Merci de conserver tous vos documents, aucun duplicata ne pourra être fournis ...',
             ],
         ];
 
         foreach ($infos as $info) {
-            Informations::create($info);
+            if (null === Informations::where(['title' => $info['title']])->first()) {
+                Informations::create($info);
+            }
         }
     }
 }

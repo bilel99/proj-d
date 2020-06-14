@@ -11,7 +11,6 @@
 @import '~smartwizard/dist/css/smart_wizard.min.css';
 @import '~smartwizard/dist/css/smart_wizard_theme_dots.min.css';
 
-
 //Layout
 @import 'layout/blocks';
 @import 'layout/header';
@@ -27,6 +26,7 @@
 @import 'components/sliders';
 @import 'components/navbar';
 @import 'components/accordion';
+@import 'components/alert_message';
 //@import "components/panel-tabs";
 
 //Override elements
@@ -48,13 +48,8 @@
 
 
 // Modules
-@import "modules/custom_alert";
 @import "modules/grid_prices";
 
 // Home
-@import "modules/section-to-transition";
 @import 'modules/prices';
 @import 'modules/contact';
-
-// Pages
-@import 'modules/detail-page';
