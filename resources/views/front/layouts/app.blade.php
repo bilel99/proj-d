@@ -18,7 +18,9 @@
     <link href="{{ asset('front/css/app.css') }}" rel="stylesheet">
 </head>
 <body class="sticky-footer">
-    <div id="app">
+    <div id="app"
+         data-base-api="{{ config('docteurs_gardes.api_base_url') }}"
+         data-base="{{ route('front.homepage') }}">
         <main>
             @include('front.layouts.partials._header')
 

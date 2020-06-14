@@ -22,7 +22,6 @@ export default {
             routePage: String,
             apiData: String,
             page: {},
-            imgDefault: String,
             media: String,
         }
     },
@@ -33,7 +32,6 @@ export default {
         this.classId = this.$el.getAttribute('class_id')
         this.classSection = this.$el.getAttribute('class_section')
         this.routePage = this.$el.getAttribute('route_page')
-        this.imgDefault = this.$el.getAttribute('img_default')
         this.apiData = this.$el.getAttribute('api_data')
 
         // Get Api

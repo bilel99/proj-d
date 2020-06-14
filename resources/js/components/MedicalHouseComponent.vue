@@ -72,7 +72,6 @@ export default {
             classSection: String,
             apiData: String,
             routePage: String,
-            imgDefault: String,
             media: String,
             page: {},
             house: {},
@@ -103,7 +102,6 @@ export default {
         this.classId = this.$el.getAttribute('class_id')
         this.classSection = this.$el.getAttribute('class_section')
         this.routePage = this.$el.getAttribute('route_page')
-        this.imgDefault = this.$el.getAttribute('img_default')
         this.apiData = this.$el.getAttribute('api_data')
 
         // Get Api

@@ -2,7 +2,7 @@
     <section :id="classId" :class="classSection">
         <div class="container">
             <div class="row">
-                <div v-if="imgDefault === ''">
+                <div v-if="media === null">
                     <div class="col-md-12">
                         <h2 class="title">{{ page.title }}</h2>
                         <hr class="botm-line">
@@ -21,9 +21,8 @@
                     </div>
                 </div>
 
-                <div v-if="media !== null || imgDefault !== ''" class="col-lg-6">
-                    <img v-if="media !== null" :src="media" class="img-responsive" alt="Image :id">
-                    <img v-else :src="imgDefault" class="img-responsive" alt="Image :id">
+                <div v-if="media !== null" class="col-lg-6">
+                    <img :src="media" class="img-responsive" alt="Image :id">
                 </div>
             </div>
         </div>
@@ -46,9 +45,7 @@ export default {
             apiData: String,
             routePage: String,
             page: {},
-            imgDefault: String,
             media: String,
-            isEmptyMedicalHouse: Boolean,
         }
     },
     props: {
@@ -58,9 +55,7 @@ export default {
         this.classId = this.$el.getAttribute('class_id')
         this.classSection = this.$el.getAttribute('class_section')
         this.routePage = this.$el.getAttribute('route_page')
-        this.imgDefault = this.$el.getAttribute('img_default')
         this.apiData = this.$el.getAttribute('api_data')
-        this.isEmptyMedicalHouse = _.isEmpty(this.page.medical_house !== false)
 
         // Get Api
         axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
