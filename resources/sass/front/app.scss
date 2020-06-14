@@ -27,6 +27,7 @@
 @import 'components/navbar';
 @import 'components/accordion';
 @import 'components/alert_message';
+@import 'components/grid_prices';
 //@import "components/panel-tabs";
 
 //Override elements
@@ -41,15 +42,5 @@
 
 
 
-
-
-
-
-
-
-// Modules
-@import "modules/grid_prices";
-
 // Home
-@import 'modules/prices';
 @import 'modules/contact';

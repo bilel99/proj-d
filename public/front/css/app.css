@@ -11332,10 +11332,6 @@ hr.botm-line {
   margin: 20px 0 20px 0;
 }
 
-.content p {
-  padding-bottom: 20px;
-}
-
 .info {
   padding-top: 20px;
   padding-bottom: 40px;
@@ -12433,19 +12429,12 @@ form input[type=text] {
   font-family: "Agrandir-TextBold", "Arial", sans-serif;
 }
 
-/*
-|-----------------------
-| 	      OVERRIDE
-|-----------------------
-|
-*/
-
 .membership-pricing-table {
   width: 100%;
 }
 
 .membership-pricing-table table {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .membership-pricing-table table .plan-header {
@@ -12455,16 +12444,18 @@ form input[type=text] {
   padding: 15px 0;
 }
 
-.membership-pricing-table table .plan-header-blue {
+.membership-pricing-table table .plan-header-primary {
   color: white;
-  background-color: #0cb8b6;
-  border: 1px solid white;
+  background-color: #072453;
+  border: 1px solid #826308;
+  font-family: "Abril Fatface", cursive;
 }
 
-.membership-pricing-table table .plan-header-standard {
+.membership-pricing-table table .plan-header-secondary {
   color: white;
-  background-color: #0cb8b6;
-  border: 1px solid white;
+  background-color: #072453;
+  border: 1px solid #826308;
+  font-family: "Abril Fatface", cursive;
 }
 
 .membership-pricing-table table td {
@@ -12474,7 +12465,7 @@ form input[type=text] {
   padding: 15px;
   background-color: white;
   font-size: 14px;
-  box-shadow: 0 1px 0 white inset;
+  font-family: "Abril Fatface", cursive;
 }
 
 .membership-pricing-table table tr td:first-child {
@@ -12484,7 +12475,7 @@ form input[type=text] {
 }
 
 .membership-pricing-table table td {
-  border: 1px solid #eee;
+  border: 1px solid #826308;
 }
 
 .membership-pricing-table table tr td:nth-child(5) {
@@ -12494,24 +12485,19 @@ form input[type=text] {
 .membership-pricing-table table tr:first-child th:first-child {
   border-top: none;
   border-left: none;
-  border-right-color: #eee;
+  border-right-color: #826308;
 }
 
 .membership-pricing-table table tr:first-child th {
   font-size: 22px;
 }
 
-/***************************************
-Prices
-***************************************/
-
-#prices {
-  background-color: #eee;
-}
-
-.content-info p {
-  padding-bottom: 20px;
-}
+/*
+|-----------------------
+| 	      OVERRIDE
+|-----------------------
+|
+*/
 
 #transition-contact {
   background: url(/images/banniere-mobile-contact.jpg?53cdd9306a5db9bf8e85445d94f4ee41) no-repeat;

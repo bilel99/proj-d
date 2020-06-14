@@ -15,6 +15,7 @@ Vue.component('hero-banner-component', require('./components/HeroBannerComponent
 Vue.component('message-alert-component', require('./components/MessageAlertComponent.vue').default);
 Vue.component('page-component', require('./components/PageComponent.vue').default);
 Vue.component('service-component', require('./components/ServiceComponent.vue').default);
+Vue.component('price-component', require('./components/PriceComponent.vue').default);
 Vue.component('medical-house-component', require('./components/MedicalHouseComponent.vue').default);
 Vue.component('information-component', require('./components/InformationComponent.vue').default);
 Vue.component('detail-page-component', require('./components/DetailPageComponent.vue').default);

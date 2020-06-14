@@ -18,7 +18,7 @@ class CreateInfosMedicalHouseTable extends Migration
             $table->unsignedInteger('medical_house_id')->index()->nullable();
             $table->string('icon', 255)->nullable();
             $table->string('title', 255)->nullable();
-            $table->string('infos', 255)->nullable();
+            $table->text('infos')->nullable();
             $table->timestamps();
 
             $table->foreign('medical_house_id')

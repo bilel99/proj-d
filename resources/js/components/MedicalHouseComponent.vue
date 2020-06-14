@@ -5,6 +5,7 @@
                 <div class="col-md-12">
                     <h2 class="title">{{ page.title }}</h2>
                     <hr class="botm-line">
+                    <p class="py-3" v-html="page.content"></p>
                 </div>
 
                 <div class="medical-house col-12 px-5">

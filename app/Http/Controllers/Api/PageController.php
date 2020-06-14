@@ -20,7 +20,7 @@ class PageController extends BaseResourceController
         $response = new JsonResponse();
 
         $page = Pages
-            ::with('alerts', 'service', 'medicalHouse')
+            ::with('alerts', 'service', 'medicalHouse', 'price')
             ->where('id', $page->id)
             ->first();
 

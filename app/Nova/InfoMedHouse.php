@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use App\Models\InfosMedicalHouse as InfoMedicalHouse;
+use Ek0519\Quilljs\Quilljs;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
@@ -76,9 +77,13 @@ class InfoMedHouse extends Resource
                 ->sortable()
                 ->rules('required', 'min:2', 'max:255'),
 
-            Textarea::make(__('globals.attributes.infos'), 'infos')
-                ->sortable()
-                ->rules('required', 'min:2', 'max:255')
+            Quilljs::make(__('globals.attributes.infos'), 'infos')
+                ->withFiles('public')
+                ->fullWidth('option')
+                ->height(300)
+                ->tooltip(true)
+                ->placeholder('Vous pouvez rentrer votre contenu ici ...')
+                ->rules('nullable')
                 ->hideFromIndex(),
 
             Fontawesome::make(__('globals.attributes.icon'), 'icon')

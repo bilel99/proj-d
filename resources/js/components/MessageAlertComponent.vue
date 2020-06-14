@@ -1,9 +1,28 @@
 <template>
-    <div :class="getLevel(alert.levels)">
-        <h2 class="title"><i :class="alert.icon"></i>&nbsp; {{ alert.title }}</h2>
-        <hr class="botm-line">
+    <div v-if="getType(alert.types) === 'plain_text'">
+        <div :class="getLevel(alert.levels)">
+            <span class="block red">
+                <i :class="alert.icon"></i>&nbsp; {{ alert.title }}
+            </span>
+        </div>
+    </div>
 
-        <p v-html="alert.content"></p>
+    <div v-else-if="getType(alert.types) === 'alert-message'">
+        <div :class="getLevel(alert.levels)">
+            <h2 class="title"><i :class="alert.icon"></i>&nbsp; {{ alert.title }}</h2>
+            <hr class="botm-line">
+
+            <p v-html="alert.content"></p>
+        </div>
+    </div>
+
+    <div v-else>
+        <div :class="getLevel(alert.levels)">
+            <h2 class="title"><i :class="alert.icon"></i>&nbsp; {{ alert.title }}</h2>
+            <hr class="botm-line">
+
+            <p v-html="alert.content"></p>
+        </div>
     </div>
 </template>
 

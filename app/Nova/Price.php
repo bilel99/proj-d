@@ -40,7 +40,7 @@ class Price extends Resource
      */
     public static function group()
     {
-        return __('nova.groups.admin');
+        return __('nova.groups.page');
     }
 
     /**

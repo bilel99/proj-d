@@ -2,7 +2,7 @@
   width: 100%;
 
   table {
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
     .plan-header {
       text-align: center;
@@ -11,16 +11,18 @@
       padding: 15px 0;
     }
 
-    .plan-header-blue {
+    .plan-header-primary {
       color: white;
-      background-color: $color-icon;
-      border: 1px solid white;
+      background-color: $color1;
+      border: 1px solid $color2;
+      font-family: $font2;
     }
 
-    .plan-header-standard {
+    .plan-header-secondary {
       color: white;
-      background-color: $color-icon;
-      border: 1px solid white;
+      background-color: $color1;
+      border: 1px solid $color2;
+      font-family: $font2;
     }
 
     td {
@@ -30,8 +32,7 @@
       padding: 15px;
       background-color: white;
       font-size: 14px;
-      -webkit-box-shadow: 0 1px 0 white inset;
-      box-shadow: 0 1px 0 white inset;
+      font-family: $font2;
     }
 
     tr td:first-child {
@@ -41,7 +42,7 @@
     }
 
     td {
-      border: 1px solid $color-light-gray;
+      border: 1px solid $color2;
     }
 
     tr td:nth-child(5) {
@@ -51,7 +52,7 @@
     tr:first-child th:first-child {
       border-top: none;
       border-left: none;
-      border-right-color: $color-light-gray;
+      border-right-color: $color2;
     }
 
     tr:first-child th {
