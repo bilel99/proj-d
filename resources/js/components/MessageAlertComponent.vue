@@ -69,7 +69,7 @@ export default {
         }
     },
     mounted() {
-        this.apiData = this.$el.getAttribute('api_data')
+        this.apiData = document.querySelector('#app').getAttribute('data-base-api')
         
         // Get Api
         axios.get(this.apiData + 'alert/' + this.alert_id, {

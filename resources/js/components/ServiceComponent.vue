@@ -45,7 +45,7 @@ export default {
         page_id: Number,
     },
     mounted() {
-        this.apiData = this.$el.getAttribute('api_data')
+        this.apiData = document.querySelector('#app').getAttribute('data-base-api')
 
         // Get Api
         axios.get(this.apiData + 'get-relations-page/' + this.page_id, {

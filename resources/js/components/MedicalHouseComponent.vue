@@ -71,7 +71,6 @@ export default {
             classId: String,
             classSection: String,
             apiData: String,
-            routePage: String,
             media: String,
             page: {},
             house: {},
@@ -101,8 +100,7 @@ export default {
     mounted() {
         this.classId = this.$el.getAttribute('class_id')
         this.classSection = this.$el.getAttribute('class_section')
-        this.routePage = this.$el.getAttribute('route_page')
-        this.apiData = this.$el.getAttribute('api_data')
+        this.apiData = document.querySelector('#app').getAttribute('data-base-api')
 
         // Get Api
         axios.get(this.apiData + 'get-relations-page/' + this.page_id, {

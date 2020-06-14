@@ -29,25 +29,6 @@ Route::get('nova/login', function () {
 /**
  * homepage
  */
-Route::get('/', 'HomepageController@index')->name('homepage')->middleware('auth');
-
-/**
- * About page
- */
-Route::get('/comment-prendre-un-rendez-vous', function () {
-    return view('front.appointement.index');
-})->name('appointement');
-
-/**
- * Price page
- */
-Route::get('/tarifs', function () {
-    return view('front.prices.index');
-})->name('prices');
-
-/**
- * contact page
- */
-Route::get('/nous-contacter', function () {
-    return view('front.contact.index');
-})->name('contacts');
+Route::get('/', 'HomepageController@index')->name('homepage');
+Route::get('/comment-prendre-un-rendez-vous', 'HomepageController@index')->name('homepage.appointment');
+Route::get('/tarifs', 'HomepageController@index')->name('homepage.tarifs');

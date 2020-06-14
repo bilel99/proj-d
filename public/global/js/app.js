@@ -1927,7 +1927,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
     return {
       classId: String,
       classSection: String,
-      routePage: String,
+      routerName: String,
       apiData: String,
       page: {},
       media: String
@@ -1941,8 +1941,8 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
 
     this.classId = this.$el.getAttribute('class_id');
     this.classSection = this.$el.getAttribute('class_section');
-    this.routePage = this.$el.getAttribute('route_page');
-    this.apiData = this.$el.getAttribute('api_data'); // Get Api
+    this.routerName = this.$el.getAttribute('route_name');
+    this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
 
     axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
       auth: {
@@ -2004,7 +2004,9 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      asset: String,
       apiData: String,
+      baseUri: String,
       heroBanner: {},
       heroBannerClass: String,
       logoDefault: String,
@@ -2012,16 +2014,17 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
     };
   },
   props: {
-    hero_banner_id: Number
+    page_id: Number
   },
   mounted: function mounted() {
     var _this = this;
 
     this.heroBannerClass = this.$el.getAttribute('hero_banner_class');
     this.logoDefault = this.$el.getAttribute('logo_default');
-    this.apiData = this.$el.getAttribute('api_data'); // Get Api
+    this.apiData = document.querySelector('#app').getAttribute('data-base-api');
+    this.asset = document.querySelector('#app').getAttribute('data-asset'); // Get Api
 
-    axios.get(this.apiData + 'get-relations-page/' + this.hero_banner_id, {
+    axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
       auth: {
         username: basicAuthUsername,
         password: basicAuthPassword
@@ -2073,7 +2076,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
   mounted: function mounted() {
     var _this = this;
 
-    this.apiData = this.$el.getAttribute('api_data'); // Get Api
+    this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
 
     axios.get(this.apiData + 'horaire', {
       auth: {
@@ -2156,10 +2159,10 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      asset: String,
       classId: String,
       classSection: String,
       apiData: String,
-      routePage: String,
       imgDefault: String,
       media: String,
       page: {},
@@ -2174,9 +2177,9 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
 
     this.classId = this.$el.getAttribute('class_id');
     this.classSection = this.$el.getAttribute('class_section');
-    this.routePage = this.$el.getAttribute('route_page');
     this.imgDefault = this.$el.getAttribute('img_default');
-    this.apiData = this.$el.getAttribute('api_data'); // Get Api
+    this.apiData = document.querySelector('#app').getAttribute('data-base-api');
+    this.asset = document.querySelector('#app').getAttribute('data-asset'); // Get Api
 
     axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
       auth: {
@@ -2287,7 +2290,6 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
       classId: String,
       classSection: String,
       apiData: String,
-      routePage: String,
       media: String,
       page: {},
       house: {}
@@ -2319,8 +2321,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
 
     this.classId = this.$el.getAttribute('class_id');
     this.classSection = this.$el.getAttribute('class_section');
-    this.routePage = this.$el.getAttribute('route_page');
-    this.apiData = this.$el.getAttribute('api_data'); // Get Api
+    this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
 
     axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
       auth: {
@@ -2434,7 +2435,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
   mounted: function mounted() {
     var _this = this;
 
-    this.apiData = this.$el.getAttribute('api_data'); // Get Api
+    this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
 
     axios.get(this.apiData + 'alert/' + this.alert_id, {
       auth: {
@@ -2496,6 +2497,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var basicAuthUsername = 'docteur-de-garde';
 var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2504,9 +2506,9 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
       classId: String,
       classSection: String,
       apiData: String,
-      routePage: String,
       page: {},
-      media: String
+      media: String,
+      routeName: String
     };
   },
   props: {
@@ -2517,8 +2519,8 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
 
     this.classId = this.$el.getAttribute('class_id');
     this.classSection = this.$el.getAttribute('class_section');
-    this.routePage = this.$el.getAttribute('route_page');
-    this.apiData = this.$el.getAttribute('api_data'); // Get Api
+    this.apiData = document.querySelector('#app').getAttribute('data-base-api');
+    this.routeName = this.$el.getAttribute('route_name'); // Get Api
 
     axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
       auth: {
@@ -2602,6 +2604,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var basicAuthUsername = 'docteur-de-garde';
 var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2610,10 +2613,9 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
       classId: String,
       classSection: String,
       apiData: String,
-      routePage: String,
       page: {},
       price: {},
-      btnLink: String
+      routeName: String
     };
   },
   props: {
@@ -2624,9 +2626,8 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
 
     this.classId = this.$el.getAttribute('class_id');
     this.classSection = this.$el.getAttribute('class_section');
-    this.routePage = this.$el.getAttribute('route_page');
-    this.apiData = this.$el.getAttribute('api_data');
-    this.btnLink = this.$el.getAttribute('btn_link'); // Get Api
+    this.apiData = document.querySelector('#app').getAttribute('data-base-api');
+    this.routeName = this.$el.getAttribute('route_name'); // Get Api
 
     axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
       auth: {
@@ -2701,7 +2702,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
   mounted: function mounted() {
     var _this = this;
 
-    this.apiData = this.$el.getAttribute('api_data'); // Get Api
+    this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
 
     axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
       auth: {
@@ -2719,15 +2720,181 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/PageAppointment.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/PageAppointment.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Appointment.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Appointment.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Homepage.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Homepage.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Price.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Price.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -38383,7 +38550,7 @@ var render = function() {
                     : _c("img", {
                         staticClass: "img-responsive",
                         attrs: {
-                          src: _vm.logoDefault,
+                          src: _vm.asset + _vm.logoDefault,
                           alt: "Logo docteur de garde"
                         }
                       })
@@ -38618,7 +38785,10 @@ var render = function() {
                     })
                   : _c("img", {
                       staticClass: "img-responsive",
-                      attrs: { src: _vm.imgDefault, alt: "Image :id" }
+                      attrs: {
+                        src: _vm.asset + _vm.imgDefault,
+                        alt: "Image :id"
+                      }
                     })
               ])
             : _vm._e()
@@ -38930,22 +39100,26 @@ var render = function() {
                 })
               ])
             : _vm._e()
-        ])
-      ]),
-      _vm._v(" "),
-      _vm.routePage !== ""
-        ? _c(
-            "div",
-            { staticClass: "d-flex justify-content-center mt-5 mb-3" },
-            [
-              _c(
-                "a",
-                { staticClass: "boxed-btn3", attrs: { href: _vm.routePage } },
-                [_vm._v("En savoir plus")]
-              )
-            ]
-          )
-        : _vm._e()
+        ]),
+        _vm._v(" "),
+        _vm.routeName !== null
+          ? _c(
+              "div",
+              { staticClass: "d-flex justify-content-center mt-5 mb-3" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "boxed-btn3",
+                    attrs: { to: { name: _vm.routeName } }
+                  },
+                  [_vm._v("En savoir plus")]
+                )
+              ],
+              1
+            )
+          : _vm._e()
+      ])
     ]
   )
 }
@@ -39045,22 +39219,26 @@ var render = function() {
               )
             ])
           ])
-        ])
-      ]),
-      _vm._v(" "),
-      _vm.btnLink === "true" && _vm.routePage !== ""
-        ? _c(
-            "div",
-            { staticClass: "d-flex justify-content-center mt-5 mb-3" },
-            [
-              _c(
-                "a",
-                { staticClass: "boxed-btn3", attrs: { href: _vm.routePage } },
-                [_vm._v("En savoir plus")]
-              )
-            ]
-          )
-        : _vm._e()
+        ]),
+        _vm._v(" "),
+        _vm.routeName !== null
+          ? _c(
+              "div",
+              { staticClass: "d-flex justify-content-center mt-5 mb-3" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "boxed-btn3",
+                    attrs: { to: { name: _vm.routeName } }
+                  },
+                  [_vm._v("En savoir plus")]
+                )
+              ],
+              1
+            )
+          : _vm._e()
+      ])
     ]
   )
 }
@@ -39169,10 +39347,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/PageAppointment.vue?vue&type=template&id=00f399d2&":
-/*!*************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/PageAppointment.vue?vue&type=template&id=00f399d2& ***!
-  \*************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Appointment.vue?vue&type=template&id=7e7bfd26&":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Appointment.vue?vue&type=template&id=7e7bfd26& ***!
+  \*********************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -39184,7 +39362,262 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c(
+    "div",
+    [
+      _c("hero-banner-component", {
+        attrs: {
+          page_id: 8,
+          hero_banner_class: "hero-banner-appointment",
+          logo_default: "/img/logos/logo-icon.png"
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "section",
+        {
+          staticClass: "section-bg-white section-padding",
+          attrs: { id: "detail-page" }
+        },
+        [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                { staticClass: "col-md-6 col-sm-12 py-3 px-3" },
+                [
+                  _c("detail-page-component", {
+                    attrs: {
+                      page_id: 3,
+                      class_id: "detail-page",
+                      class_section: "section-bg-white section-padding",
+                      routeName: ""
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-md-6 col-sm-12 py-3 px-3" },
+                [
+                  _c("detail-page-component", {
+                    attrs: {
+                      page_id: 12,
+                      class_id: "detail-page",
+                      class_section: "section-bg-white section-padding",
+                      routeName: ""
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-12 py-3 px-3" },
+                [
+                  _c("detail-page-component", {
+                    attrs: {
+                      page_id: 13,
+                      class_id: "detail-page",
+                      class_section: "section-bg-white section-padding",
+                      routeName: ""
+                    }
+                  })
+                ],
+                1
+              )
+            ])
+          ])
+        ]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Homepage.vue?vue&type=template&id=00e83377&":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Homepage.vue?vue&type=template&id=00e83377& ***!
+  \******************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("hero-banner-component", {
+        attrs: {
+          page_id: 8,
+          hero_banner_class: "hero-banner",
+          logo_default: "/img/logos/logo-icon.png"
+        }
+      }),
+      _vm._v(" "),
+      _c("page-component", {
+        attrs: {
+          page_id: 1,
+          class_id: "about",
+          class_section: "section-bg-white section-padding",
+          routeName: ""
+        }
+      }),
+      _vm._v(" "),
+      _c("service-component", { attrs: { page_id: 2 } }),
+      _vm._v(" "),
+      _c("page-component", {
+        attrs: {
+          page_id: 3,
+          class_id: "make-appointment",
+          class_section: "section-bg-white section-padding",
+          route_name: "appointment"
+        }
+      }),
+      _vm._v(" "),
+      _c("section", {
+        staticClass: "section-transition section-padding",
+        attrs: { id: "section-transition" }
+      }),
+      _vm._v(" "),
+      _c("price-component", {
+        attrs: {
+          page_id: 4,
+          class_id: "prices",
+          class_section: "section-bg-grey section-padding",
+          route_name: "prices"
+        }
+      }),
+      _vm._v(" "),
+      _c("medical-house-component", {
+        attrs: {
+          page_id: 5,
+          class_id: "medical-house",
+          class_section: "section-bg-white section-padding"
+        }
+      }),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("information-component", {
+        attrs: {
+          page_id: 7,
+          class_id: "information",
+          class_section: "section-bg-grey section-padding",
+          img_default: "/img/informations-image.png"
+        }
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "section",
+      {
+        staticClass:
+          "transition-contact d-flex justify-content-center align-items-center",
+        attrs: { id: "transition-contact" }
+      },
+      [
+        _c("a", { staticClass: "boxed-btn3", attrs: { href: "" } }, [
+          _vm._v("Nous contacter")
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Price.vue?vue&type=template&id=2330ad10&":
+/*!***************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Price.vue?vue&type=template&id=2330ad10& ***!
+  \***************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("hero-banner-component", {
+        attrs: {
+          page_id: 10,
+          hero_banner_class: "hero-banner-price",
+          logo_default: "/img/logos/logo-icon.png"
+        }
+      }),
+      _vm._v(" "),
+      _c("price-component", {
+        attrs: {
+          page_id: 4,
+          class_id: "prices",
+          class_section: "section-bg-white section-padding",
+          routeName: ""
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "section",
+        {
+          staticClass: "section-bg-white section-padding",
+          attrs: { id: "detail-page" }
+        },
+        [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                { staticClass: "col-md-12 col-sm-12" },
+                [
+                  _c("detail-page-component", {
+                    attrs: {
+                      page_id: 14,
+                      class_id: "detail-page",
+                      class_section: "section-bg-white section-padding",
+                      routeName: ""
+                    }
+                  })
+                ],
+                1
+              )
+            ])
+          ])
+        ]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -54382,9 +54815,16 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _pages_Homepage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Homepage */ "./resources/js/pages/Homepage.vue");
+/* harmony import */ var _pages_Appointment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/Appointment */ "./resources/js/pages/Appointment.vue");
+/* harmony import */ var _pages_Price__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/Price */ "./resources/js/pages/Price.vue");
 
 
+
+
+
+var base = document.querySelector('#app');
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -54397,6 +54837,37 @@ __webpack_require__(/*! select2/dist/js/select2.min */ "./node_modules/select2/d
 
 __webpack_require__(/*! smartwizard/dist/js/jquery.smartWizard.min */ "./node_modules/smartwizard/dist/js/jquery.smartWizard.min.js");
 
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+var routes = [{
+  path: '*',
+  component: _pages_Homepage__WEBPACK_IMPORTED_MODULE_2__["default"]
+}, {
+  path: '/',
+  name: 'homepage',
+  component: _pages_Homepage__WEBPACK_IMPORTED_MODULE_2__["default"]
+}, {
+  path: '/comment-prendre-un-rendez-vous',
+  name: 'appointment',
+  component: _pages_Appointment__WEBPACK_IMPORTED_MODULE_3__["default"]
+}, {
+  path: '/tarifs',
+  name: 'prices',
+  component: _pages_Price__WEBPACK_IMPORTED_MODULE_4__["default"]
+}];
+/**
+ * Initialise Vue Router Framework
+ * @type {VueRouter}
+ */
+
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  mode: 'history',
+  routes: routes,
+  base: base.getAttribute('data-base')
+});
+/**
+ * Add Component Vue
+ */
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('hero-banner-component', __webpack_require__(/*! ./components/HeroBannerComponent.vue */ "./resources/js/components/HeroBannerComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('message-alert-component', __webpack_require__(/*! ./components/MessageAlertComponent.vue */ "./resources/js/components/MessageAlertComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('page-component', __webpack_require__(/*! ./components/PageComponent.vue */ "./resources/js/components/PageComponent.vue")["default"]);
@@ -54406,8 +54877,13 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('medical-house-component', 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('information-component', __webpack_require__(/*! ./components/InformationComponent.vue */ "./resources/js/components/InformationComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('detail-page-component', __webpack_require__(/*! ./components/DetailPageComponent.vue */ "./resources/js/components/DetailPageComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('horaire-component', __webpack_require__(/*! ./components/HoursComponent.vue */ "./resources/js/components/HoursComponent.vue")["default"]);
-var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  el: '#app'
+/**
+ * Initialise Vue Framework
+ */
+
+new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+  el: '#app',
+  router: router
 });
 
 /***/ }),
@@ -55079,17 +55555,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/pages/PageAppointment.vue":
-/*!************************************************!*\
-  !*** ./resources/js/pages/PageAppointment.vue ***!
-  \************************************************/
+/***/ "./resources/js/pages/Appointment.vue":
+/*!********************************************!*\
+  !*** ./resources/js/pages/Appointment.vue ***!
+  \********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _PageAppointment_vue_vue_type_template_id_00f399d2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PageAppointment.vue?vue&type=template&id=00f399d2& */ "./resources/js/pages/PageAppointment.vue?vue&type=template&id=00f399d2&");
-/* harmony import */ var _PageAppointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PageAppointment.vue?vue&type=script&lang=js& */ "./resources/js/pages/PageAppointment.vue?vue&type=script&lang=js&");
+/* harmony import */ var _Appointment_vue_vue_type_template_id_7e7bfd26___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Appointment.vue?vue&type=template&id=7e7bfd26& */ "./resources/js/pages/Appointment.vue?vue&type=template&id=7e7bfd26&");
+/* harmony import */ var _Appointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Appointment.vue?vue&type=script&lang=js& */ "./resources/js/pages/Appointment.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -55099,9 +55575,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _PageAppointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _PageAppointment_vue_vue_type_template_id_00f399d2___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _PageAppointment_vue_vue_type_template_id_00f399d2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Appointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Appointment_vue_vue_type_template_id_7e7bfd26___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Appointment_vue_vue_type_template_id_7e7bfd26___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -55111,70 +55587,178 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/pages/PageAppointment.vue"
+component.options.__file = "resources/js/pages/Appointment.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/pages/PageAppointment.vue?vue&type=script&lang=js&":
-/*!*************************************************************************!*\
-  !*** ./resources/js/pages/PageAppointment.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************/
+/***/ "./resources/js/pages/Appointment.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/pages/Appointment.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PageAppointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./PageAppointment.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/PageAppointment.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PageAppointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Appointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Appointment.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Appointment.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Appointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/pages/PageAppointment.vue?vue&type=template&id=00f399d2&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/pages/PageAppointment.vue?vue&type=template&id=00f399d2& ***!
-  \*******************************************************************************/
+/***/ "./resources/js/pages/Appointment.vue?vue&type=template&id=7e7bfd26&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/pages/Appointment.vue?vue&type=template&id=7e7bfd26& ***!
+  \***************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PageAppointment_vue_vue_type_template_id_00f399d2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PageAppointment.vue?vue&type=template&id=00f399d2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/PageAppointment.vue?vue&type=template&id=00f399d2&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PageAppointment_vue_vue_type_template_id_00f399d2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Appointment_vue_vue_type_template_id_7e7bfd26___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Appointment.vue?vue&type=template&id=7e7bfd26& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Appointment.vue?vue&type=template&id=7e7bfd26&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Appointment_vue_vue_type_template_id_7e7bfd26___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PageAppointment_vue_vue_type_template_id_00f399d2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Appointment_vue_vue_type_template_id_7e7bfd26___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./resources/js/router.js":
-/*!********************************!*\
-  !*** ./resources/js/router.js ***!
-  \********************************/
+/***/ "./resources/js/pages/Homepage.vue":
+/*!*****************************************!*\
+  !*** ./resources/js/pages/Homepage.vue ***!
+  \*****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _pages_PageAppointment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/PageAppointment */ "./resources/js/pages/PageAppointment.vue");
+/* harmony import */ var _Homepage_vue_vue_type_template_id_00e83377___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Homepage.vue?vue&type=template&id=00e83377& */ "./resources/js/pages/Homepage.vue?vue&type=template&id=00e83377&");
+/* harmony import */ var _Homepage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Homepage.vue?vue&type=script&lang=js& */ "./resources/js/pages/Homepage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
-/* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  mode: 'history',
-  routes: [//{ path: '*', component: NotFoundComponent }
-  {
-    path: '/'
-  }, {
-    path: '/comment-prendre-un-rendez-vous',
-    component: _pages_PageAppointment__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }]
-}));
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Homepage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Homepage_vue_vue_type_template_id_00e83377___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Homepage_vue_vue_type_template_id_00e83377___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/Homepage.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/Homepage.vue?vue&type=script&lang=js&":
+/*!******************************************************************!*\
+  !*** ./resources/js/pages/Homepage.vue?vue&type=script&lang=js& ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Homepage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Homepage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Homepage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Homepage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/Homepage.vue?vue&type=template&id=00e83377&":
+/*!************************************************************************!*\
+  !*** ./resources/js/pages/Homepage.vue?vue&type=template&id=00e83377& ***!
+  \************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Homepage_vue_vue_type_template_id_00e83377___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Homepage.vue?vue&type=template&id=00e83377& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Homepage.vue?vue&type=template&id=00e83377&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Homepage_vue_vue_type_template_id_00e83377___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Homepage_vue_vue_type_template_id_00e83377___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/Price.vue":
+/*!**************************************!*\
+  !*** ./resources/js/pages/Price.vue ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Price_vue_vue_type_template_id_2330ad10___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Price.vue?vue&type=template&id=2330ad10& */ "./resources/js/pages/Price.vue?vue&type=template&id=2330ad10&");
+/* harmony import */ var _Price_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Price.vue?vue&type=script&lang=js& */ "./resources/js/pages/Price.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Price_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Price_vue_vue_type_template_id_2330ad10___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Price_vue_vue_type_template_id_2330ad10___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/Price.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/Price.vue?vue&type=script&lang=js&":
+/*!***************************************************************!*\
+  !*** ./resources/js/pages/Price.vue?vue&type=script&lang=js& ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Price_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Price.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Price.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Price_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/Price.vue?vue&type=template&id=2330ad10&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/pages/Price.vue?vue&type=template&id=2330ad10& ***!
+  \*********************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Price_vue_vue_type_template_id_2330ad10___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Price.vue?vue&type=template&id=2330ad10& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Price.vue?vue&type=template&id=2330ad10&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Price_vue_vue_type_template_id_2330ad10___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Price_vue_vue_type_template_id_2330ad10___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

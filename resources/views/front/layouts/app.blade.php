@@ -20,19 +20,21 @@
 <body class="sticky-footer">
     <div id="app"
          data-base-api="{{ config('docteurs_gardes.api_base_url') }}"
-         data-base="{{ route('front.homepage') }}">
+         data-base="{{ route('front.homepage', [], false) }}"
+         data-asset="{{ asset('front') }}">
         <main>
             @include('front.layouts.partials._header')
 
-            @yield('content')
+            <!-- Router view Application SPA Vue.js Framework -->
+            <router-view></router-view>
 
             @include('front.layouts.partials._footer')
-        </main>
 
-        <!-- floating button -->
-        <a href="#" id="back-to-top" class="btn-float">
-            <i class="fas fa-arrow-up position-center"></i>
-        </a>
+            <!-- floating button -->
+            <a href="#" id="back-to-top" class="btn-float">
+                <i class="fas fa-arrow-up position-center"></i>
+            </a>
+        </main>
     </div>
 </body>
 </html>
