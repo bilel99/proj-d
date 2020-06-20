@@ -5,7 +5,7 @@
                 <div class="col-md-4 col-sm-12">
                     <h2 class="title">{{ page.title }}</h2>
                     <hr class="botm-line">
-                    <p class="py-3" v-html="page.content"></p>
+                    <p v-html="page.content"></p>
                 </div>
 
                 <div class="service col-md-8 col-sm-12">
@@ -54,13 +54,13 @@ export default {
                 password: basicAuthPassword
             }
         })
-        .then((response) => {
-            const data = response.data
-            this.page = data.data
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+                .then((response) => {
+                    const data = response.data
+                    this.page = data.data
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
     }
 }
 </script>

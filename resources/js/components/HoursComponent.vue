@@ -33,13 +33,13 @@ export default {
                 password: basicAuthPassword
             }
         })
-        .then((response) => {
-            const data = response.data
-            this.hours = data.data
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+                .then((response) => {
+                    const data = response.data
+                    this.hours = data.data
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
     }
 }
 </script>

@@ -48,8 +48,8 @@
             </div>
 
             <!-- Button Link -->
-            <div v-if="routeName !== null" class="d-flex justify-content-center mt-5 mb-3">
-                <router-link :to="{name: routeName}" class="boxed-btn3">En savoir plus</router-link>
+            <div v-if="isButton === 'true' && routePage !== ''" class="d-flex justify-content-center mt-5 mb-3">
+                <a :href="routePage" class="boxed-btn3">En savoir plus</a>
             </div>
         </div>
     </section>
@@ -67,7 +67,8 @@ export default {
             apiData: String,
             page: {},
             price: {},
-            routeName: String
+            routePage: String,
+            isButton: String
         }
     },
     props: {
@@ -77,7 +78,8 @@ export default {
         this.classId = this.$el.getAttribute('class_id')
         this.classSection = this.$el.getAttribute('class_section')
         this.apiData = document.querySelector('#app').getAttribute('data-base-api')
-        this.routeName = this.$el.getAttribute('route_name')
+        this.routePage = this.$el.getAttribute('route_page')
+        this.isButton = this.$el.getAttribute('is_button')
 
         // Get Api
         axios.get(this.apiData + 'get-relations-page/' + this.page_id, {

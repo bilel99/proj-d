@@ -5,7 +5,6 @@
                 <div class="col-md-12">
                     <h2 class="title">{{ page.title }}</h2>
                     <hr class="botm-line">
-                    <p class="py-3" v-html="page.content"></p>
                 </div>
 
                 <div class="information col-lg-6 col-md-12">
@@ -27,7 +26,7 @@
                                     <!-- Hours Component -->
                                     <div v-if="item.id === 1">
                                         <horaire-component
-                                            :api_data="apiData">
+                                                :api_data="apiData">
                                         </horaire-component>
                                     </div>
 
@@ -42,7 +41,7 @@
 
                 <div v-if="media !== null || imgDefault !== ''" class="col-lg-6">
                     <img v-if="media !== null" :src="media" class="img-responsive" alt="Image :id">
-                    <img v-else :src="asset + imgDefault" class="img-responsive" alt="Image :id">
+                    <img v-else :src="imgDefault" class="img-responsive" alt="Image :id">
                 </div>
             </div>
         </div>
@@ -56,10 +55,10 @@ const basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/
 export default {
     data() {
         return {
-            asset: String,
             classId: String,
             classSection: String,
             apiData: String,
+            routePage: String,
             imgDefault: String,
             media: String,
             page: {},
@@ -72,9 +71,9 @@ export default {
     mounted() {
         this.classId = this.$el.getAttribute('class_id')
         this.classSection = this.$el.getAttribute('class_section')
+        this.routePage = this.$el.getAttribute('route_page')
         this.imgDefault = this.$el.getAttribute('img_default')
         this.apiData = document.querySelector('#app').getAttribute('data-base-api')
-        this.asset = document.querySelector('#app').getAttribute('data-asset')
 
         // Get Api
         axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
@@ -83,14 +82,14 @@ export default {
                 password: basicAuthPassword
             }
         })
-        .then((response) => {
-            const data = response.data
-            this.page = data.data
-            this.media = data.media
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+                .then((response) => {
+                    const data = response.data
+                    this.page = data.data
+                    this.media = data.media
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
 
         // Get Api
         axios.get(this.apiData + 'get-all-informations', {
@@ -99,13 +98,13 @@ export default {
                 password: basicAuthPassword
             }
         })
-        .then((response) => {
-            const data = response.data
-            this.information = data.data
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+                .then((response) => {
+                    const data = response.data
+                    this.information = data.data
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
     }
 }
 </script>

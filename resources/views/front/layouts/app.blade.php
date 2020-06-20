@@ -18,21 +18,21 @@
     <link href="{{ asset('front/css/app.css') }}" rel="stylesheet">
 </head>
 <body class="sticky-footer">
-    <div id="app"
-         data-base-api="{{ config('docteurs_gardes.api_base_url') }}"
-         data-base="{{ route('front.homepage', [], false) }}"
-         data-asset="{{ asset('front') }}">
-        <main>
-            @include('front.layouts.partials._header')
+<div id="app"
+     data-base-api="{{ config('docteurs_gardes.api_base_url') }}"
+     data-asset="{{ asset('front') }}">
+    <main>
+        @include('front.layouts.partials._header')
 
-            <!-- Router view Application SPA Vue.js Framework -->
-            <router-view></router-view>
+        @yield('content')
 
-            <!-- floating button -->
-            <a href="#" id="back-to-top" class="btn-float">
-                <i class="fas fa-arrow-up position-center"></i>
-            </a>
-        </main>
-    </div>
+        @include('front.layouts.partials._footers')
+
+        <!-- floating button -->
+        <a href="#" id="back-to-top" class="btn-float">
+            <i class="fas fa-arrow-up position-center"></i>
+        </a>
+    </main>
+</div>
 </body>
 </html>

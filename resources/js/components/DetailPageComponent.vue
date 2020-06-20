@@ -2,7 +2,8 @@
     <div>
         <h2 class="title">{{ page.title }}</h2>
         <hr class="botm-line">
-        <p class="py-3" v-html="page.content"></p>
+
+        <p class="content" v-html="page.content"></p>
 
         <div v-for="(item, index) in page.alerts">
             <message-alert-component :alert_id="item.id" :api_data="apiData"></message-alert-component>
@@ -19,9 +20,10 @@ export default {
         return {
             classId: String,
             classSection: String,
-            routerName: String,
+            routePage: String,
             apiData: String,
             page: {},
+            imgDefault: String,
             media: String,
         }
     },
@@ -31,7 +33,8 @@ export default {
     mounted() {
         this.classId = this.$el.getAttribute('class_id')
         this.classSection = this.$el.getAttribute('class_section')
-        this.routerName = this.$el.getAttribute('route_name')
+        this.routePage = this.$el.getAttribute('route_page')
+        this.imgDefault = this.$el.getAttribute('img_default')
         this.apiData = document.querySelector('#app').getAttribute('data-base-api')
 
         // Get Api
@@ -41,14 +44,14 @@ export default {
                 password: basicAuthPassword
             }
         })
-        .then((response) => {
-            const data = response.data
-            this.page = data.data
-            this.media = data.media
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+                .then((response) => {
+                    const data = response.data
+                    this.page = data.data
+                    this.media = data.media
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
     }
 }
 </script>

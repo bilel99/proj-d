@@ -5,7 +5,6 @@
                 <div class="col-md-12">
                     <h2 class="title">{{ page.title }}</h2>
                     <hr class="botm-line">
-                    <p class="py-3" v-html="page.content"></p>
                 </div>
 
                 <div class="medical-house col-12 px-5">
@@ -71,6 +70,8 @@ export default {
             classId: String,
             classSection: String,
             apiData: String,
+            routePage: String,
+            imgDefault: String,
             media: String,
             page: {},
             house: {},
@@ -88,18 +89,20 @@ export default {
                     password: basicAuthPassword
                 }
             })
-            .then((response) => {
-                const data = response.data
-                this.house = data.data
-            })
-            .catch((error) => {
-                console.log(error)
-            })
+                    .then((response) => {
+                        const data = response.data
+                        this.house = data.data
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    })
         }
     },
     mounted() {
         this.classId = this.$el.getAttribute('class_id')
         this.classSection = this.$el.getAttribute('class_section')
+        this.routePage = this.$el.getAttribute('route_page')
+        this.imgDefault = this.$el.getAttribute('img_default')
         this.apiData = document.querySelector('#app').getAttribute('data-base-api')
 
         // Get Api
@@ -109,22 +112,22 @@ export default {
                 password: basicAuthPassword
             }
         })
-        .then((response) => {
-            const data = response.data
-            this.page = data.data
-            this.media = data.media
+                .then((response) => {
+                    const data = response.data
+                    this.page = data.data
+                    this.media = data.media
 
-            // medical_house key is not empty
-            if (_.isEmpty(this.page.medical_house) === false) {
-                // get first element to array
-                let firstElement = _.head(this.page.medical_house)
-                // Get Medical house method
-                this.getMedicalHouse(firstElement.id)
-            }
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+                    // medical_house key is not empty
+                    if (_.isEmpty(this.page.medical_house) === false) {
+                        // get first element to array
+                        let firstElement = _.head(this.page.medical_house)
+                        // Get Medical house method
+                        this.getMedicalHouse(firstElement.id)
+                    }
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
     }
 }
 </script>

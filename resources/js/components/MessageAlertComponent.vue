@@ -70,7 +70,7 @@ export default {
     },
     mounted() {
         this.apiData = document.querySelector('#app').getAttribute('data-base-api')
-        
+
         // Get Api
         axios.get(this.apiData + 'alert/' + this.alert_id, {
             auth: {
@@ -78,13 +78,13 @@ export default {
                 password: basicAuthPassword
             }
         })
-        .then((response) => {
-            const data = response.data
-            this.alert = data.data
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+                .then((response) => {
+                    const data = response.data
+                    this.alert = data.data
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
     }
 }
 </script>

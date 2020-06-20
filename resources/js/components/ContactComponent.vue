@@ -154,7 +154,7 @@ export default {
             apiData: String,
             page: {},
             media: String,
-            routeName: String,
+            routePage: String,
             contactElm: {}
         }
     },
@@ -255,9 +255,9 @@ export default {
         this.classId = this.$el.getAttribute('class_id')
         this.classSection = this.$el.getAttribute('class_section')
         this.apiData = document.querySelector('#app').getAttribute('data-base-api')
-        this.routeName = this.$el.getAttribute('route_name')
+        this.routePage = this.$el.getAttribute('route_name')
 
-        // Get Api
+        // Get Api  
         axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
             auth: {
                 username: basicAuthUsername,

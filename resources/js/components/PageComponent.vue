@@ -2,7 +2,7 @@
     <section :id="classId" :class="classSection">
         <div class="container">
             <div class="row">
-                <div v-if="media === null">
+                <div v-if="imgDefault === ''">
                     <div class="col-md-12">
                         <h2 class="title">{{ page.title }}</h2>
                         <hr class="botm-line">
@@ -21,14 +21,15 @@
                     </div>
                 </div>
 
-                <div v-if="media !== null" class="col-lg-6">
-                    <img :src="media" class="img-responsive" alt="Image :id">
+                <div v-if="media !== null || imgDefault !== ''" class="col-lg-6">
+                    <img v-if="media !== null" :src="media" class="img-responsive" alt="Image :id">
+                    <img v-else :src="imgDefault" class="img-responsive" alt="Image :id">
                 </div>
             </div>
 
             <!-- Button Link -->
-            <div v-if="routeName !== null" class="d-flex justify-content-center mt-5 mb-3">
-                <router-link :to="{name: routeName}" class="boxed-btn3">En savoir plus</router-link>
+            <div v-if="routePage !== ''" class="d-flex justify-content-center mt-5 mb-3">
+                <a :href="routePage" class="boxed-btn3">En savoir plus</a>
             </div>
         </div>
     </section>
@@ -44,19 +45,21 @@ export default {
             classId: String,
             classSection: String,
             apiData: String,
+            routePage: String,
             page: {},
-            media: String,
-            routeName: String
+            imgDefault: String,
+            media: String
         }
     },
     props: {
         page_id: Number,
     },
     mounted() {
+        this.imgDefault = this.$el.getAttribute('img_default')
         this.classId = this.$el.getAttribute('class_id')
         this.classSection = this.$el.getAttribute('class_section')
         this.apiData = document.querySelector('#app').getAttribute('data-base-api')
-        this.routeName = this.$el.getAttribute('route_name')
+        this.routePage = this.$el.getAttribute('route_page')
 
         // Get Api
         axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
