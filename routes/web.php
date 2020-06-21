@@ -19,6 +19,12 @@ use Laravel\Nova\Nova;
  */
 Nova::routes();
 
+// TEST
+Route::get('/contact-mail', function () {
+    return new \App\Mail\ContactMail();
+});
+// END
+
 /**
  * Abort route nova/login
  */

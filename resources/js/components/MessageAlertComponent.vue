@@ -78,13 +78,13 @@ export default {
                 password: basicAuthPassword
             }
         })
-                .then((response) => {
-                    const data = response.data
-                    this.alert = data.data
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
+        .then((response) => {
+            const data = response.data
+            this.alert = data.data
+        })
+        .catch((error) => {
+            console.log(error)
+        })
     }
 }
 </script>

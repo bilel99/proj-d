@@ -24,8 +24,8 @@ class HoraireRequest extends FormRequest
     public function messages(): array
     {
         return [
-            //'email.required' => '',
-            //'email.email' => '',
+            'title.required' => __('globals.errors.title_bad_required'),
+            'content.required' => __('globals.errors.content_bad_required'),
         ];
 
     }

@@ -4,74 +4,85 @@
 |-----------------------
 |
 */
-
-.mandatory {
-  color: $color-error;
-  font-family: $font3;
-}
-
-.form-contact {
-  label {
-    font-size: 14px;
-    font-family: $font3;
+form {
+  input:-webkit-autofill {
+    background-color: $white !important;
   }
 
-  .form-group {
-    margin-bottom: 30px;
+  input[type="text"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="email"],
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="file"],
+  input[type="time"],
+  input[type="url"],
+  input[type="search"],
+  input[type="password"] {
+    border: 1px solid $color2;
+    background: none;
+    color: $black;
+    flex-grow: 1;
+  }
+
+  .multiselect__tags {
+    border: 1px solid $color2;
+    background: none;
+    color: $black;
+    font-size: 15px;
+    flex-grow: 1;
+    margin-bottom: 20px;
+  }
+
+  .multiselect__placeholder {
+    color: #999999;
+    font-style: italic;
+    font-family: $font;
   }
 
   select {
-    
+    border: 1px solid $color2;
+    background: none;
+    color: $black;
+    font-size: 15px;
+    flex-grow: 1;
+    margin-bottom: 20px;
   }
 
-  .custom-radio {
-    label {
-      font-size: 14px;
-
-      &:before {
-        top: 50%;
-        left: -22px;
-        width: 13px;
-        height: 13px;
-        margin-top: -7px;
-      }
-
-      &:after {
-        top: 50%;
-        left: -23px;
-        width: 15px;
-        height: 15px;
-        margin-top: -8px;
-      }
-    }
+  label {
+    font-size: 14px;
+    font-style: italic;
+    font-family: $font3;
   }
 
   .form-control {
-    border: 1px solid $color1;
+    border: 1px solid $color2;
+    border-radius: 0;
     height: 48px;
-    padding-left: 18px;
-    font-size: 13px;
-    background: transparent;
 
     &:focus {
+      border: 1px solid $color1;
       outline: 0;
       box-shadow: none;
     }
 
     &::placeholder {
-      font-weight: 300;
-      color: $color1;
+      color: #999999;
+      font-style: italic;
+      font-family: $font;
     }
   }
 
   textarea {
-    height: 100% !important;
-  }
-
-  #switch-radio .notActive {
-    color: $color-info;
-    background-color: white;
+    min-height: 40px;
+    max-height: 100px;
+    color: $black;
+    overflow-y: hidden;
   }
 }
 
-
+.mandatory {
+  color: $color-error;
+  font-family: $font3;
+}

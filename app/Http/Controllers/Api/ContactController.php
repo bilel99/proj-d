@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\ContactRequest;
 use App\Models\Contacts;
+use App\Models\Doctors;
+use App\Notifications\ContactNotifications;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class ContactController extends BaseResourceController
 {
@@ -27,22 +31,52 @@ class ContactController extends BaseResourceController
      * @return JsonResponse|\Symfony\Component\HttpFoundation\JsonResponse
      */
     public function formCreate(Request $request) {
-        $response = new JsonResponse();
-
         $validator = Validator::make($request->all(), [
-            '' => '',
+            'doctor_id' => 'nullable',
+            'objet_demande' => 'required|' .
+                Rule::in(array_keys(
+                    Contacts::objDemandeOptions()
+                )),
+            'civility' => 'required|' .
+                Rule::in(array_keys(
+                    Contacts::civilityOptions()
+                )),
+            'name' => 'required|min:2|max:255',
+            'firstname' => 'required|min:2|max:255',
+            'address' => 'required|min:7|max:255',
+            'postal_code' => 'required|numeric|min:4',
+            'email' => 'required|email|min:2|max:255',
+            'phone' => ['required', 'regex:/^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$/'],
+            'date_consultation' => 'required|date',
+            'doctor_name' => 'required|min:2|max:255',
+            'doctor_firstname' => 'required|min:2|max:255',
+            'objet_demande_doctor' => 'required|min:4|max:255',
+            'precisions' => 'nullable'
+            
         ]);
 
         if ($validator->fails()) {
-            return new JsonResponse(
-                [
-                    'error' => $validator->getMessageBag(),
-                ]
-            );
+            return response()->json([
+                'errors' => $validator->getMessageBag(),
+                'success' => false,
+                'errors_form' => true
+            ], 200);
         }
 
         $contact = new Contacts();
-        $contact->doctor_id = $request->get('doctor_id');
+
+        if (!Doctors::isFullNameDoctorExist($request->get('doctor_name'), $request->get('doctor_firstname'))) {
+            return response()->json([
+                'errors' => __('globals.contact.not_found_doctor'),
+                'success' => false,
+                'errors_form' => false
+            ], 200);
+        }
+
+        if ($doctor = Doctors::getFullNameDoctor($request->get('doctor_name'), $request->get('doctor_firstname'))) {
+            $contact->doctor_id = $doctor !== null ? $doctor->id : null;
+        }
+
         $contact->objet_demande = $request->get('objet_demande');
         $contact->civility = $request->get('civility');
         $contact->name = $request->get('name');
@@ -56,10 +90,16 @@ class ContactController extends BaseResourceController
         $contact->precisions = $request->get('precisions');
         $contact->save();
 
-        return $response->setData([
-            'contact' => $contact,
-            'message' => __('globals.message.success')
-        ]);
+        // Send mail
+        (new ContactNotifications(
+            $request->all(),
+        ))->toMail($contact);
+
+        return response()->json([
+            'data' => $contact,
+            'success' => true,
+            'message' => __('globals.contact.success'),
+        ], 200);
     }
 
     /**

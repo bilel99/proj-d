@@ -8,8 +8,7 @@
 
 // Import
 @import '~bootstrap/scss/bootstrap';
-@import '~smartwizard/dist/css/smart_wizard.min.css';
-@import '~smartwizard/dist/css/smart_wizard_theme_dots.min.css';
+@import '~sweetalert2/src/sweetalert2.scss';
 
 //Layout
 @import 'layout/blocks';
@@ -19,6 +18,7 @@
 //Pages
 @import "pages/auth";
 @import 'pages/home';
+@import 'pages/contact';
 
 //Components
 @import 'components/buttons';

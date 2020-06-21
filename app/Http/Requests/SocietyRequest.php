@@ -24,8 +24,6 @@ class SocietyRequest extends FormRequest
     public function messages(): array
     {
         return [
-            //'email.required' => '',
-            //'email.email' => '',
         ];
 
     }

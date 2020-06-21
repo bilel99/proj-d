@@ -24,8 +24,6 @@ class MedicalHouseRequest extends FormRequest
     public function messages(): array
     {
         return [
-            //'email.required' => '',
-            //'email.email' => '',
         ];
 
     }

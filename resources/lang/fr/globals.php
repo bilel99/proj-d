@@ -88,4 +88,32 @@ return [
     'basic_auth' => [
         'invalid_credentials' => 'informations d\'identification invalides',
     ],
+
+    'contact' => [
+        'success' => 'Votre demande de contact à bien été envoyé.',
+        'not_found_doctor' => 'Le nom ou le prénom du médecin sont incorrect.',
+        'error' => '',
+    ],
+
+    'errors' => [
+        'email_bad_format' => 'Le format de l\'e-mail n’est pas valide. Merci de vérifier votre saisie.',
+        'doctor_id_bad_required' => 'Ce champs est requis.',
+        'objet_demande_bad_required' => 'Ce champs est requis.',
+        'civility_bad_required' => 'Ce champs est requis.',
+        'name_bad_required' => 'Ce champs est requis.',
+        'firstname_bad_required' => 'Ce champs est requis.',
+        'address_bad_required' => 'Ce champs est requis.',
+        'postal_code_bad_required' => 'Ce champs est requis.',
+        'email_bad_required' => 'Ce champs est requis.',
+        'phone_bad_required' => 'Ce champs est requis.',
+        'phone_bad_pattern' => 'Le format du numèro de téléphone n\'est pas valide.',
+        'date_consultation_bad_required' => 'Ce champs est requis.',
+        'objet_demande_doctor_bad_required' => 'Ce champs est requis.',
+        'precisions_bad_required' => 'Ce champs est requis.',
+        'min_required' => 'Pas assez de caractère sur ce champs.',
+        'cp_valid' => 'Votre code postal n\'est pas valide.',
+        'date_valid' => 'Votre date n\'est pas valide.',
+        'title_bad_required' => 'Ce champs est requis.',
+        'content_bad_required' => 'Ce champs est requis.',
+    ]
 ];

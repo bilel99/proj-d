@@ -24,8 +24,6 @@ class TransportRequest extends FormRequest
     public function messages(): array
     {
         return [
-            //'email.required' => '',
-            //'email.email' => '',
         ];
 
     }

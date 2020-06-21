@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Alerts;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
@@ -24,8 +25,7 @@ class AlertRequest extends FormRequest
     public function messages(): array
     {
         return [
-            //'email.required' => '',
-            //'email.email' => '',
+            'title.required' => __('globals.errors.title_bad_required'),
         ];
 
     }
@@ -39,11 +39,12 @@ class AlertRequest extends FormRequest
     {
         return [
             'title' => [
+                'required',
                 'min:2',
                 'max:255',
             ],
             'content' => [
-                'required',
+                'nullable',
                 'min:2',
                 'max:255',
             ],
@@ -55,10 +56,16 @@ class AlertRequest extends FormRequest
             'types' => [
                 'nullable',
                 'numeric',
+                Rule::in(array_keys(
+                    Alerts::getTypes()
+                ))
             ],
             'levels' => [
                 'nullable',
                 'numeric',
+                Rule::in(array_keys(
+                    Alerts::getLevels()
+                ))
             ],
         ];
     }

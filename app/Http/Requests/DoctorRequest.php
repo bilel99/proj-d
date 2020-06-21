@@ -24,8 +24,11 @@ class DoctorRequest extends FormRequest
     public function messages(): array
     {
         return [
-            //'email.required' => '',
-            //'email.email' => '',
+            'civility.required' => __('globals.errors.civility_bad_required'),
+            'name.required' => __('globals.errors.name_bad_required'),
+            'firstname.required' => __('globals.errors.firstname_bad_required'),
+            'email.required' => __('globals.errors.email_bad_required'),
+            'email.email' => __('globals.errors.email_bad_format'),
         ];
 
     }

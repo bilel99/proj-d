@@ -33,4 +33,24 @@ class Doctors extends BasesModel
             static::CIVILITY_MS => __('globals.attributes.civility.ms_label'),
         ];
     }
+
+    /**
+     * @param string $name
+     * @param string $firstname
+     * @return bool
+     */
+    public static function isFullNameDoctorExist(string $name, string $firstname): bool
+    {
+        return static::where(['name' => $name, 'firstname' => $firstname])->exists();
+    }
+
+    /**
+     * @param string $name
+     * @param string $firstname
+     * @return mixed
+     */
+    public static function getFullNameDoctor(string $name, string $firstname)
+    {
+        return static::where(['name' => $name, 'firstname' => $firstname])->first();
+    }
 }

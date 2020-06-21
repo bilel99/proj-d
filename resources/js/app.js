@@ -7,8 +7,6 @@ import Vue from 'vue'
  */
 
 require('./bootstrap')
-require('select2/dist/js/select2.min')
-require('smartwizard/dist/js/jquery.smartWizard.min')
 
 /**
  * Add Component Vue
@@ -23,6 +21,7 @@ Vue.component('information-component', require('./components/InformationComponen
 Vue.component('detail-page-component', require('./components/DetailPageComponent.vue').default);
 Vue.component('horaire-component', require('./components/HoursComponent.vue').default);
 Vue.component('contact-component', require('./components/ContactComponent.vue').default);
+Vue.component('form-contact-component', require('./components/FormContactComponent.vue').default);
 
 /**
  * Initialise Vue Framework
