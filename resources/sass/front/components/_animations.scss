@@ -1,0 +1,23 @@
+.hero-banner-img {
+  animation-iteration-count: 3;
+  animation-duration: 3s;
+  animation-delay: .5s;
+}
+
+.hero-banner-title, .hero-banner-content {
+  animation-iteration-count: 1;
+  animation-duration: .5s;
+  animation-delay: .5s;
+}
+
+.contact-btn {
+  animation-iteration-count: 3;
+  animation-duration: 3s;
+  animation-delay: .5s;
+}
+
+.hero-banner-fa-angle-down {
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+  animation-delay: .5s;
+}

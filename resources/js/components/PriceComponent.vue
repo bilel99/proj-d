@@ -2,6 +2,10 @@
     <section :id="classId" :class="classSection">
         <div class="container">
             <div class="row">
+                <div v-if="isButton === 'false'" class="back-page">
+                    <a href="/" class="boxed-btn4 mx-3 mb-5">Retour</a>
+                </div>
+                
                 <div class="col-12 py-3 px-3">
                     <h2 class="title">{{ page.title }}</h2>
                     <hr class="botm-line">

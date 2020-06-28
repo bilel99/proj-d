@@ -1,6 +1,5 @@
 <template>
     <div class="col-12">
-
         <div class="card-contact">
             <h3 class="title-form text-center py-5">Demande de contact</h3>
 

@@ -41,11 +41,11 @@
                                     <div class="col-lg-3 offset-lg-1 col-sm-12 pt-3">
                                         <div v-for="(item, index) in house.info_med_house" class="media contact-info">
                                             <span class="contact-info__icon">
-                                                <i :class="item.icon"></i>
+                                                <i :class="item.icon + ' fa-2x'"></i> &nbsp;
                                             </span>
 
                                             <div class="media-body">
-                                                <h3>{{ item.title }}</h3>
+                                                <h4>{{ item.title }}</h4>
                                                 <p v-html="item.infos"></p>
                                             </div>
                                         </div>
@@ -112,22 +112,22 @@ export default {
                 password: basicAuthPassword
             }
         })
-                .then((response) => {
-                    const data = response.data
-                    this.page = data.data
-                    this.media = data.media
+        .then((response) => {
+            const data = response.data
+            this.page = data.data
+            this.media = data.media
 
-                    // medical_house key is not empty
-                    if (_.isEmpty(this.page.medical_house) === false) {
-                        // get first element to array
-                        let firstElement = _.head(this.page.medical_house)
-                        // Get Medical house method
-                        this.getMedicalHouse(firstElement.id)
-                    }
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
+            // medical_house key is not empty
+            if (_.isEmpty(this.page.medical_house) === false) {
+                // get first element to array
+                let firstElement = _.head(this.page.medical_house)
+                // Get Medical house method
+                this.getMedicalHouse(firstElement.id)
+            }
+        })
+        .catch((error) => {
+            console.log(error)
+        })
     }
 }
 </script>

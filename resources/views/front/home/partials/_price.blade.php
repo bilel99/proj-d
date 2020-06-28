@@ -1,6 +1,6 @@
 <!-- Component Prices -->
 <price-component
-        :page_id="4"
+        :page_id="{{ $tarif->id }}"
         class_id="prices"
         class_section="section-bg-white section-padding"
         is_button="true"

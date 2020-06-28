@@ -25,6 +25,8 @@ return [
             'nos-informations' => 'Nos informations',
         ],
         'back-office' => 'Mon admin',
+        'back_page' => 'Retour',
+        'back_page_homepage' => 'Retour vers la homepage'
     ],
 
     'attributes' => [

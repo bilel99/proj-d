@@ -3,19 +3,24 @@
 @section('content')
     {{-- Component HeroBanner --}}
     <hero-banner-component
-            :page_id="9"
+            :page_id="{{ $aboutHeroBanner->id }}"
             hero_banner_class="hero-banner-appointment"
-            logo_default="{{ asset('front/img/logos/logo-icon.png') }}">
+            logo_default="{{ asset('front/img/logos/logo-icon.png') }}"
+            route_contact="{{ route('front.contacts') }}">
     </hero-banner-component>
 
     <!-- section appointment -->
     <section id="detail-page" class="section-bg-white section-padding">
         <div class="container">
+            <div class="back-page">
+                <a href="{{ route('front.homepage') }}" class="boxed-btn4 mx-3 mb-5">{{ __('globals.website.back_page') }}</a>
+            </div>
+
             <div class="row">
                 <div class="col-md-6 col-sm-12 py-3 px-3">
                     {{-- Component Detail Page --}}
                     <detail-page-component
-                        :page_id="3"
+                        :page_id="{{ $appointment->id }}"
                         class_id="detail-page"
                         class_section="section-bg-white section-padding"
                         img_default=""
@@ -26,7 +31,7 @@
                 <div class="col-md-6 col-sm-12 py-3 px-3">
                     {{-- Component Detail Page --}}
                     <detail-page-component
-                        :page_id="12"
+                        :page_id="{{ $detailRdv->id }}"
                         class_id="detail-page"
                         class_section="section-bg-white section-padding"
                         img_default=""
@@ -37,7 +42,7 @@
                 <div class="col-12 py-3 px-3">
                     {{-- Component Detail Page --}}
                     <detail-page-component
-                        :page_id="13"
+                        :page_id="{{ $detaildoctors->id }}"
                         class_id="detail-page"
                         class_section="section-bg-white section-padding"
                         img_default=""

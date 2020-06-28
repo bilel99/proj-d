@@ -1,4 +1,4 @@
 {{-- Component Service --}}
 <service-component
-    :page_id="2">
+    :page_id="{{ $services->id }}">
 </service-component>

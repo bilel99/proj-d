@@ -38,22 +38,16 @@ Route::get('nova/login', function () {
 Route::get('/', 'HomepageController@index')->name('homepage');
 
 /**
- * About page
+ * Appointment page
  */
-Route::get('/comment-prendre-un-rendez-vous', function () {
-    return view('front.appointement.index');
-})->name('appointement');
+Route::get('/comment-prendre-un-rendez-vous', 'PagesController@appointment')->name('appointement');
 
 /**
  * Price page
  */
-Route::get('/tarifs', function () {
-    return view('front.prices.index');
-})->name('prices');
+Route::get('/tarifs', 'PagesController@price')->name('prices');
 
 /**
  * contact page
  */
-Route::get('/nous-contacter', function () {
-    return view('front.contact.index');
-})->name('contacts');
+Route::get('/nous-contacter', 'PagesController@contact')->name('contacts');

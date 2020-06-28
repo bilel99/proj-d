@@ -88,3 +88,22 @@
     outline: none;
   }
 }
+
+.boxed-btn4 {
+  background: transparent;
+  color: $color2;
+  display: inline-block;
+  padding: 18px 24px;
+  font-family: $font;
+  font-size: 14px;
+  border: 1px solid $color2;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  &:hover{
+    background: $color2;
+    color: $white;
+  }
+  &:focus{
+    outline: none;
+  }
+}

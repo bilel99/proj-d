@@ -1933,6 +1933,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 var basicAuthUsername = 'docteur-de-garde';
 var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2072,7 +2076,6 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-//
 //
 //
 //
@@ -2583,6 +2586,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var basicAuthUsername = 'docteur-de-garde';
 var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2592,18 +2596,28 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
       heroBanner: {},
       heroBannerClass: String,
       logoDefault: String,
-      media: String
+      media: String,
+      routeContact: String
     };
   },
   props: {
     page_id: Number
+  },
+  methods: {
+    goToByScroll: function goToByScroll(id) {
+      // Scroll
+      jQuery('html,body').animate({
+        scrollTop: jQuery("#" + id).offset().top
+      }, 'slow');
+    }
   },
   mounted: function mounted() {
     var _this = this;
 
     this.heroBannerClass = this.$el.getAttribute('hero_banner_class');
     this.logoDefault = this.$el.getAttribute('logo_default');
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
+    this.apiData = document.querySelector('#app').getAttribute('data-base-api');
+    this.routeContact = this.$el.getAttribute('route_contact'); // Get Api
 
     axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
       auth: {
@@ -3134,6 +3148,10 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -51905,6 +51923,8 @@ var render = function() {
           "div",
           { staticClass: "row" },
           [
+            _vm._m(0),
+            _vm._v(" "),
             _c("div", { staticClass: "col-12" }, [
               _c("h2", { staticClass: "title" }, [
                 _vm._v(_vm._s(_vm.page.title))
@@ -51943,7 +51963,18 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "back-page" }, [
+      _c("a", { staticClass: "boxed-btn4 mx-3 mb-5", attrs: { href: "/" } }, [
+        _vm._v("Retour")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -52916,11 +52947,13 @@ var render = function() {
                 _c("div", { staticClass: "hero-banner-logo text-center" }, [
                   _vm.media !== null
                     ? _c("img", {
-                        staticClass: "img-responsive",
+                        staticClass:
+                          "hero-banner-img img-responsive animate__animated animate__pulse",
                         attrs: { src: _vm.media, alt: "Logo docteur de garde" }
                       })
                     : _c("img", {
-                        staticClass: "img-responsive",
+                        staticClass:
+                          "hero-banner-img img-responsive animate__animated animate__pulse",
                         attrs: {
                           src: _vm.logoDefault,
                           alt: "Logo docteur de garde"
@@ -52932,24 +52965,69 @@ var render = function() {
                   "div",
                   { staticClass: "hero-banner-text text-center pt-3" },
                   [
-                    _c("h1", [_vm._v(_vm._s(_vm.heroBanner.title))]),
+                    _c(
+                      "h1",
+                      {
+                        staticClass:
+                          "hero-banner-title animate__animated animate__zoomIn"
+                      },
+                      [_vm._v(_vm._s(_vm.heroBanner.title))]
+                    ),
                     _vm._v(" "),
                     _c("p", {
+                      staticClass:
+                        "hero-banner-content animate__animated animate__zoomIn",
                       domProps: { innerHTML: _vm._s(_vm.heroBanner.content) }
                     }),
                     _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "contact-btn my-5 boxed-btn2",
-                        attrs: { href: "#contact" }
-                      },
-                      [_vm._v("Faire une demande de rendez-vous")]
-                    )
+                    _vm.routeContact !== ""
+                      ? _c(
+                          "a",
+                          {
+                            staticClass:
+                              "contact-btn my-5 boxed-btn2 animate__animated animate__pulse",
+                            attrs: { href: _vm.routeContact }
+                          },
+                          [_vm._v("Faire une demande de rendez-vous")]
+                        )
+                      : _c(
+                          "a",
+                          {
+                            staticClass:
+                              "contact-btn my-5 boxed-btn2 animate__animated animate__pulse",
+                            attrs: { href: "#contact" },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.goToByScroll("contact")
+                              }
+                            }
+                          },
+                          [_vm._v("Faire une demande de rendez-vous")]
+                        )
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(0)
+                _c("div", { staticClass: "overlay-detail text-center mt-5" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: { href: "#about" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.goToByScroll("about")
+                        }
+                      }
+                    },
+                    [
+                      _c("i", {
+                        staticClass:
+                          "hero-banner-fa-angle-down animate__animated animate__slideInDown fa fa-angle-down"
+                      })
+                    ]
+                  )
+                ])
               ])
             ])
           ])
@@ -52958,18 +53036,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "overlay-detail text-center" }, [
-      _c("a", { attrs: { href: "#service" } }, [
-        _c("i", { staticClass: "fa fa-angle-down" })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -53294,11 +53361,16 @@ var render = function() {
                                 _c(
                                   "span",
                                   { staticClass: "contact-info__icon" },
-                                  [_c("i", { class: item.icon })]
+                                  [
+                                    _c("i", { class: item.icon + " fa-2x" }),
+                                    _vm._v(
+                                      "  \n                                        "
+                                    )
+                                  ]
                                 ),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "media-body" }, [
-                                  _c("h3", [_vm._v(_vm._s(item.title))]),
+                                  _c("h4", [_vm._v(_vm._s(item.title))]),
                                   _vm._v(" "),
                                   _c("p", {
                                     domProps: { innerHTML: _vm._s(item.infos) }
@@ -53410,9 +53482,11 @@ var render = function() {
           _vm.imgDefault === ""
             ? _c("div", [
                 _c("div", { staticClass: "col-md-12" }, [
-                  _c("h2", { staticClass: "title" }, [
-                    _vm._v(_vm._s(_vm.page.title))
-                  ]),
+                  _c(
+                    "h2",
+                    { staticClass: "animate__animated animate__pulse" },
+                    [_vm._v(_vm._s(_vm.page.title))]
+                  ),
                   _vm._v(" "),
                   _c("hr", { staticClass: "botm-line" }),
                   _vm._v(" "),
@@ -53512,6 +53586,16 @@ var render = function() {
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
+          _vm.isButton === "false"
+            ? _c("div", { staticClass: "back-page" }, [
+                _c(
+                  "a",
+                  { staticClass: "boxed-btn4 mx-3 mb-5", attrs: { href: "/" } },
+                  [_vm._v("Retour")]
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
           _c("div", { staticClass: "col-12 py-3 px-3" }, [
             _c("h2", { staticClass: "title" }, [
               _vm._v(_vm._s(_vm.page.title))

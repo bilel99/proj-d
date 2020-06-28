@@ -1,6 +1,6 @@
 {{-- Component MedicalHouse --}}
 <medical-house-component
-    :page_id="5"
+    :page_id="{{ $medicalHouse->id }}"
     class_id="medical-house"
     class_section="section-bg-white section-padding"
     img_default=""
