@@ -3,9 +3,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-12">
-                    <h2 class="title">{{ page.title }}</h2>
-                    <hr class="botm-line">
-                    <p v-html="page.content"></p>
+                    <h2 class="page-title">{{ page.title }}</h2>
+                    <hr class="botm-line page-botm-line">
+                    <p class="page-content" v-html="page.content"></p>
                 </div>
 
                 <div class="service col-md-8 col-sm-12">

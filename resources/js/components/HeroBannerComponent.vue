@@ -13,12 +13,12 @@
                                 <h1 class="hero-banner-title animate__animated animate__zoomIn">{{ heroBanner.title }}</h1>
                                 <p class="hero-banner-content animate__animated animate__zoomIn" v-html="heroBanner.content"></p>
 
-                                <a v-if="routeContact !== ''" :href="routeContact" class="contact-btn my-5 boxed-btn2 animate__animated animate__pulse">Faire une demande de rendez-vous</a>
-                                <a v-else href="#contact" class="contact-btn my-5 boxed-btn2 animate__animated animate__pulse" @click.prevent="goToByScroll('contact')">Faire une demande de rendez-vous</a>
+                                <a v-if="routeContact !== ''" :href="routeContact" title="Faire une demande de rendez-vous" class="contact-btn my-5 boxed-btn2 animate__animated animate__pulse">Faire une demande de rendez-vous</a>
+                                <a v-else href="#contact" title="Faire une demande de rendez-vous" class="contact-btn my-5 boxed-btn2 animate__animated animate__pulse" @click.prevent="goToByScroll('contact')">Faire une demande de rendez-vous</a>
                             </div>
 
                             <div class="overlay-detail text-center mt-5">
-                                <a href="#about" @click.prevent="goToByScroll('about')"><i class="hero-banner-fa-angle-down animate__animated animate__slideInDown fa fa-angle-down"></i></a>
+                                <a href="#about" title="Qui sommes-nous ?" @click.prevent="goToByScroll('about')"><i class="hero-banner-fa-angle-down animate__animated animate__slideInDown fa fa-angle-down"></i></a>
                             </div>
                         </div>
                     </div>

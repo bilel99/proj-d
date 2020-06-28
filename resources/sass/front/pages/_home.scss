@@ -27,61 +27,226 @@
 
 /*
 |-----------------------
+| 	  About
+|-----------------------
+|
+*/
+
+#about {
+  .page-title {
+    opacity: 0;
+  }
+
+  .page-content {
+    opacity: 0;
+  }
+
+  .page-alert-message {
+    opacity: 0;
+  }
+
+  .page-media {
+    opacity: 0;
+  }
+
+  .page-btn {
+    opacity: 0;
+  }
+
+  .page-botm-line {
+    opacity: 0;
+  }
+}
+
+/*
+|-----------------------
 | 	  SERVICES
 |-----------------------
 |
 */
 
-.service {
-  .card {
-    padding: 20px;
-    width: 100%;
-    background-color: white;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-
-    &:hover {
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    }
+#service {
+  .page-title {
+    opacity: 0;
   }
 
-  .icon i {
-    padding: 15px;
-    background-color: $color2;
-    border-radius: 50%;
-    color: white;
-    font-size: 45px;
-    margin-bottom: 25px;
-    text-align: center;
+  .page-botm-line {
+    opacity: 0;
   }
 
-  .service-info {
-    margin-bottom: 20px;
-    text-align: center;
+  .page-content {
+    opacity: 0;
   }
 
-  .icon-info {
-    p {
-      font-family: $font;
-      font-size: 15px;
+  .service {
+    opacity: 0;
+
+    .card {
+      padding: 20px;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+      &:hover {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
     }
 
-    h4 {
-      font-family: $font;
-    }
-  }
-
-  @media #{$xs, $sm, $md} {
-    .icon {
+    .icon i {
+      padding: 15px;
+      background-color: $color2;
+      border-radius: 50%;
+      color: white;
+      font-size: 45px;
+      margin-bottom: 25px;
       text-align: center;
     }
 
-    h4 {
+    .service-info {
+      margin-bottom: 20px;
       text-align: center;
     }
 
-    p {
-      text-align: center;
+    .icon-info {
+      p {
+        font-family: $font;
+        font-size: 15px;
+      }
+
+      h4 {
+        font-family: $font;
+      }
     }
+
+    @media #{$xs, $sm, $md} {
+      .icon {
+        text-align: center;
+      }
+
+      h4 {
+        text-align: center;
+      }
+
+      p {
+        text-align: center;
+      }
+    }
+  }
+}
+
+/*
+|-----------------------
+| 	make-appointment
+|-----------------------
+|
+*/
+
+#make-appointment {
+  .page-title {
+    opacity: 0;
+  }
+
+  .page-content {
+    opacity: 0;
+  }
+
+  .page-alert-message {
+    opacity: 0;
+  }
+
+  .page-media {
+    opacity: 0;
+  }
+
+  .page-btn {
+    opacity: 0;
+  }
+
+  .page-botm-line {
+    opacity: 0;
+  }
+}
+
+/*
+|-----------------------
+| 	  prices
+|-----------------------
+|
+*/
+
+#prices {
+  .page-title {
+    opacity: 0;
+  }
+
+  .page-content {
+    opacity: 0;
+  }
+
+  .page-alert-message {
+    opacity: 0;
+  }
+
+  .page-btn {
+    opacity: 0;
+  }
+
+  .page-botm-line {
+    opacity: 0;
+  }
+
+  .prices-table {
+    opacity: 0;
+  }
+}
+
+/*
+|-----------------------
+| 	  medical-house
+|-----------------------
+|
+*/
+
+#medical-house {
+  .page-title {
+    opacity: 0;
+  }
+
+  .page-content {
+    opacity: 0;
+  }
+
+  .medical-house {
+    opacity: 0;
+  }
+
+  .page-botm-line {
+    opacity: 0;
+  }
+}
+
+/*
+|-----------------------
+| 	  information
+|-----------------------
+|
+*/
+
+#information {
+  .page-title {
+    opacity: 0;
+  }
+
+  .page-media {
+    opacity: 0;
+  }
+
+  .page-botm-line {
+    opacity: 0;
+  }
+
+  .information {
+    opacity: 0;
   }
 }
 
@@ -101,7 +266,11 @@
 }
 
 .section-transition-contact {
-  background: url('../../../../public/front/img/banniere-mobile-contact.jpg') no-repeat ;
+  .boxed-btn3 {
+    opacity: 0;
+  }
+
+  background: url('../../../../public/front/img/banniere-mobile-contact.jpg') no-repeat;
   background-size: cover;
   min-height: 250px;
   position: relative;
@@ -115,7 +284,7 @@
 */
 
 .medical-house {
-  .nav{
+  .nav {
     display: inline-flex;
     background: $color5;
     @include border-radius(3px);
@@ -125,7 +294,7 @@
       margin-bottom: 40px;
     }
 
-    a{
+    a {
       font-size: 16px;
       color: $color1;
       font-family: $font3;
@@ -134,7 +303,8 @@
       @media #{$xs, $sm, $md} {
         padding: 8px 16px;
       }
-      &.active{
+
+      &.active {
         background: $color1;
         color: white;
         @include border-radius(3px);
@@ -143,7 +313,7 @@
   }
 
   .map-responsive {
-    overflow:hidden;
+    overflow: hidden;
     padding-bottom: 56.25%;
     position: relative;
     height: 0;
@@ -154,6 +324,35 @@
       height: 100%;
       width: 100%;
       position: absolute;
+    }
+  }
+}
+
+/*
+|-----------------------
+|   DETAIL PAGE APPOINTEMENT
+|-----------------------
+|
+*/
+
+#detail-page {
+  .container {
+    .back-page {
+      opacity: 0;
+    }
+
+    .row {
+      .appointement-section-1 {
+        opacity: 0;
+      }
+
+      .appointement-section-2 {
+        opacity: 0;
+      }
+
+      .appointement-section-3 {
+        opacity: 0;
+      }
     }
   }
 }

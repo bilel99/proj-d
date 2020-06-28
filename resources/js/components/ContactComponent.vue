@@ -8,13 +8,13 @@
                 </div>
 
                 <div class="col-12">
-                    <h2 class="title">{{ page.title }}</h2>
-                    <hr class="botm-line">
-                    <p class="py-3" v-html="page.content"></p>
+                    <h2 class="page-title">{{ page.title }}</h2>
+                    <hr class="botm-line page-botm-line">
+                    <p class="page-content py-3" v-html="page.content"></p>
                 </div>
 
                 <div class="col-12 px-5 py-5">
-                    <div v-for="(item, index) in page.alerts">
+                    <div v-for="(item, index) in page.alerts" class="page-alert-message">
                         <message-alert-component :alert_id="item.id" :api_data="apiData"></message-alert-component>
                     </div>
                 </div>

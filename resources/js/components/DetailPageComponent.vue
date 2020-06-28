@@ -1,11 +1,11 @@
 <template>
     <div>
-        <h2 class="title">{{ page.title }}</h2>
-        <hr class="botm-line">
+        <h2 class="page-title">{{ page.title }}</h2>
+        <hr class="botm-line page-botm-line">
 
-        <p class="content" v-html="page.content"></p>
+        <p class="page-content" v-html="page.content"></p>
 
-        <div v-for="(item, index) in page.alerts">
+        <div v-for="(item, index) in page.alerts" class="page-alert-message">
             <message-alert-component :alert_id="item.id" :api_data="apiData"></message-alert-component>
         </div>
     </div>
@@ -44,14 +44,14 @@ export default {
                 password: basicAuthPassword
             }
         })
-                .then((response) => {
-                    const data = response.data
-                    this.page = data.data
-                    this.media = data.media
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
+        .then((response) => {
+            const data = response.data
+            this.page = data.data
+            this.media = data.media
+        })
+        .catch((error) => {
+            console.log(error)
+        })
     }
 }
 </script>

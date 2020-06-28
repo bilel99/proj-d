@@ -3,15 +3,15 @@
         <div class="container">
             <div class="row">
                 <div v-if="isButton === 'false'" class="back-page">
-                    <a href="/" class="boxed-btn4 mx-3 mb-5">Retour</a>
+                    <a href="/" title="Retour" class="boxed-btn4 mx-3 mb-5">Retour</a>
                 </div>
                 
                 <div class="col-12 py-3 px-3">
-                    <h2 class="title">{{ page.title }}</h2>
-                    <hr class="botm-line">
-                    <p class="py-3" v-html="page.content"></p>
+                    <h2 class="page-title">{{ page.title }}</h2>
+                    <hr class="botm-line page-botm-line">
+                    <p class="page-content py-3" v-html="page.content"></p>
 
-                    <div class="col-12">
+                    <div class="col-12 prices-table">
                         <div class="table-responsive">
                             <div class="membership-pricing-table">
                                 <table class="table table-responsive">
@@ -43,7 +43,7 @@
 
                     <div class="container">
                         <div class="row">
-                            <div v-for="(item, index) in page.alerts" class="col-md-6 col-sm-12">
+                            <div v-for="(item, index) in page.alerts" class="col-md-6 col-sm-12 page-alert-message">
                                 <message-alert-component :alert_id="item.id" :api_data="apiData"></message-alert-component>
                             </div>
                         </div>
@@ -53,7 +53,7 @@
 
             <!-- Button Link -->
             <div v-if="isButton === 'true' && routePage !== ''" class="d-flex justify-content-center mt-5 mb-3">
-                <a :href="routePage" class="boxed-btn3">En savoir plus</a>
+                <a :href="routePage" title="En savoir plus" class="boxed-btn3 page-btn">En savoir plus</a>
             </div>
         </div>
     </section>

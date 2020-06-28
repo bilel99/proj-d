@@ -17,7 +17,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6 col-sm-12 py-3 px-3">
+                <div class="col-md-6 col-sm-12 py-3 px-3 appointement-section-1">
                     {{-- Component Detail Page --}}
                     <detail-page-component
                         :page_id="{{ $appointment->id }}"
@@ -28,7 +28,7 @@
                     </detail-page-component>
                 </div>
 
-                <div class="col-md-6 col-sm-12 py-3 px-3">
+                <div class="col-md-6 col-sm-12 py-3 px-3 appointement-section-2">
                     {{-- Component Detail Page --}}
                     <detail-page-component
                         :page_id="{{ $detailRdv->id }}"
@@ -39,7 +39,7 @@
                     </detail-page-component>
                 </div>
 
-                <div class="col-12 py-3 px-3">
+                <div class="col-12 py-3 px-3 appointement-section-3">
                     {{-- Component Detail Page --}}
                     <detail-page-component
                         :page_id="{{ $detaildoctors->id }}"

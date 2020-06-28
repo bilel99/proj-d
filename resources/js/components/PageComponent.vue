@@ -4,32 +4,36 @@
             <div class="row">
                 <div v-if="imgDefault === ''">
                     <div class="col-md-12">
-                        <h2 class="animate__animated animate__pulse">{{ page.title }}</h2>
-                        <hr class="botm-line">
-                        <p class="py-3" v-html="page.content"></p>
+                        <h2 class="page-title">{{ page.title }}</h2>
+                        <hr class="botm-line page-botm-line">
+                        <p class="page-content py-3" v-html="page.content"></p>
+
+                        <div v-for="(item, index) in page.alerts" class="page-alert-message">
+                          <message-alert-component :alert_id="item.id" :api_data="apiData"></message-alert-component>
+                        </div>
                     </div>
                 </div>
 
                 <div v-else class="col-lg-6 col-sm-12">
-                    <h2 class="title">{{ page.title }}</h2>
-                    <hr class="botm-line">
+                    <h2 class="page-title">{{ page.title }}</h2>
+                    <hr class="botm-line page-botm-line">
 
-                    <p class="content" v-html="page.content"></p>
-                    
-                    <div v-for="(item, index) in page.alerts">
+                    <p class="page-content py-3" v-html="page.content"></p>
+
+                    <div v-for="(item, index) in page.alerts" class="page-alert-message">
                         <message-alert-component :alert_id="item.id" :api_data="apiData"></message-alert-component>
                     </div>
                 </div>
 
                 <div v-if="media !== null || imgDefault !== ''" class="col-lg-6">
-                    <img v-if="media !== null" :src="media" class="img-responsive" alt="Image :id">
-                    <img v-else :src="imgDefault" class="img-responsive" alt="Image :id">
+                    <img v-if="media !== null" :src="media" class="img-responsive page-media" alt="Image docteur">
+                    <img v-else :src="imgDefault" class="img-responsive page-media" alt="Image docteur">
                 </div>
             </div>
 
             <!-- Button Link -->
             <div v-if="routePage !== ''" class="d-flex justify-content-center mt-5 mb-3">
-                <a :href="routePage" class="boxed-btn3">En savoir plus</a>
+                <a :href="routePage" title="En savoir plus" class="boxed-btn3 page-btn">En savoir plus</a>
             </div>
         </div>
     </section>

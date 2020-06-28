@@ -3,8 +3,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="title">{{ page.title }}</h2>
-                    <hr class="botm-line">
+                    <h2 class="page-title">{{ page.title }}</h2>
+                    <hr class="botm-line page-botm-line">
                 </div>
 
                 <div class="information col-lg-6 col-md-12">
@@ -40,8 +40,8 @@
                 </div>
 
                 <div v-if="media !== null || imgDefault !== ''" class="col-lg-6">
-                    <img v-if="media !== null" :src="media" class="img-responsive" alt="Image :id">
-                    <img v-else :src="imgDefault" class="img-responsive" alt="Image :id">
+                    <img v-if="media !== null" :src="media" class="img-responsive page-media" alt="logo information">
+                    <img v-else :src="imgDefault" class="img-responsive page-media" alt="logo information">
                 </div>
             </div>
         </div>

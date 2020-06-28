@@ -3,8 +3,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="title">{{ page.title }}</h2>
-                    <hr class="botm-line">
+                    <h2 class="page-title">{{ page.title }}</h2>
+                    <hr class="botm-line page-botm-line">
                 </div>
 
                 <div class="medical-house col-12 px-5">
@@ -14,6 +14,7 @@
                                :class="index === 0 ? 'nav-item nav-link active' : 'nav-item nav-link'"
                                :id="'nav-tab-' + item.id"
                                data-toggle="tab"
+                               :title="item.title"
                                :href="'#nav-'+ item.id"
                                role="tab"
                                :aria-controls="'nav-' + item.id"

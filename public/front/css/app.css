@@ -13196,23 +13196,70 @@ footer ul.quick-links li:hover a i {
 
 /*
 |-----------------------
+| 	  About
+|-----------------------
+|
+*/
+
+#about .page-title {
+  opacity: 0;
+}
+
+#about .page-content {
+  opacity: 0;
+}
+
+#about .page-alert-message {
+  opacity: 0;
+}
+
+#about .page-media {
+  opacity: 0;
+}
+
+#about .page-btn {
+  opacity: 0;
+}
+
+#about .page-botm-line {
+  opacity: 0;
+}
+
+/*
+|-----------------------
 | 	  SERVICES
 |-----------------------
 |
 */
 
-.service .card {
+#service .page-title {
+  opacity: 0;
+}
+
+#service .page-botm-line {
+  opacity: 0;
+}
+
+#service .page-content {
+  opacity: 0;
+}
+
+#service .service {
+  opacity: 0;
+}
+
+#service .service .card {
   padding: 20px;
   width: 100%;
   background-color: white;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
-.service .card:hover {
+#service .service .card:hover {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
-.service .icon i {
+#service .service .icon i {
   padding: 15px;
   background-color: #826308;
   border-radius: 50%;
@@ -13222,32 +13269,140 @@ footer ul.quick-links li:hover a i {
   text-align: center;
 }
 
-.service .service-info {
+#service .service .service-info {
   margin-bottom: 20px;
   text-align: center;
 }
 
-.service .icon-info p {
+#service .service .icon-info p {
   font-family: "Agrandir-Thin", "Arial", sans-serif;
   font-size: 15px;
 }
 
-.service .icon-info h4 {
+#service .service .icon-info h4 {
   font-family: "Agrandir-Thin", "Arial", sans-serif;
 }
 
 @media (max-width: 575.98px), (min-width: 576px) and (max-width: 767.98px), (min-width: 768px) and (max-width: 991.98px) {
-  .service .icon {
+  #service .service .icon {
     text-align: center;
   }
 
-  .service h4 {
+  #service .service h4 {
     text-align: center;
   }
 
-  .service p {
+  #service .service p {
     text-align: center;
   }
+}
+
+/*
+|-----------------------
+| 	make-appointment
+|-----------------------
+|
+*/
+
+#make-appointment .page-title {
+  opacity: 0;
+}
+
+#make-appointment .page-content {
+  opacity: 0;
+}
+
+#make-appointment .page-alert-message {
+  opacity: 0;
+}
+
+#make-appointment .page-media {
+  opacity: 0;
+}
+
+#make-appointment .page-btn {
+  opacity: 0;
+}
+
+#make-appointment .page-botm-line {
+  opacity: 0;
+}
+
+/*
+|-----------------------
+| 	  prices
+|-----------------------
+|
+*/
+
+#prices .page-title {
+  opacity: 0;
+}
+
+#prices .page-content {
+  opacity: 0;
+}
+
+#prices .page-alert-message {
+  opacity: 0;
+}
+
+#prices .page-btn {
+  opacity: 0;
+}
+
+#prices .page-botm-line {
+  opacity: 0;
+}
+
+#prices .prices-table {
+  opacity: 0;
+}
+
+/*
+|-----------------------
+| 	  medical-house
+|-----------------------
+|
+*/
+
+#medical-house .page-title {
+  opacity: 0;
+}
+
+#medical-house .page-content {
+  opacity: 0;
+}
+
+#medical-house .medical-house {
+  opacity: 0;
+}
+
+#medical-house .page-botm-line {
+  opacity: 0;
+}
+
+/*
+|-----------------------
+| 	  information
+|-----------------------
+|
+*/
+
+#information .page-title {
+  opacity: 0;
+}
+
+#information .page-media {
+  opacity: 0;
+}
+
+#information .page-botm-line {
+  opacity: 0;
+}
+
+#information .information {
+  opacity: 0;
 }
 
 /*
@@ -13271,6 +13426,10 @@ footer ul.quick-links li:hover a i {
   background-size: cover;
   min-height: 250px;
   position: relative;
+}
+
+.section-transition-contact .boxed-btn3 {
+  opacity: 0;
 }
 
 /*
@@ -13329,6 +13488,29 @@ footer ul.quick-links li:hover a i {
   position: absolute;
 }
 
+/*
+|-----------------------
+|   DETAIL PAGE APPOINTEMENT
+|-----------------------
+|
+*/
+
+#detail-page .container .back-page {
+  opacity: 0;
+}
+
+#detail-page .container .row .appointement-section-1 {
+  opacity: 0;
+}
+
+#detail-page .container .row .appointement-section-2 {
+  opacity: 0;
+}
+
+#detail-page .container .row .appointement-section-3 {
+  opacity: 0;
+}
+
 .card-contact {
   padding: 20px;
   width: 100%;
@@ -13343,8 +13525,8 @@ footer ul.quick-links li:hover a i {
 }
 
 .hero-banner-img {
-  -webkit-animation-iteration-count: 3;
-          animation-iteration-count: 3;
+  -webkit-animation-iteration-count: 2;
+          animation-iteration-count: 2;
   -webkit-animation-duration: 3s;
           animation-duration: 3s;
   -webkit-animation-delay: 0.5s;
@@ -13362,8 +13544,8 @@ footer ul.quick-links li:hover a i {
 }
 
 .contact-btn {
-  -webkit-animation-iteration-count: 3;
-          animation-iteration-count: 3;
+  -webkit-animation-iteration-count: 2;
+          animation-iteration-count: 2;
   -webkit-animation-duration: 3s;
           animation-duration: 3s;
   -webkit-animation-delay: 0.5s;

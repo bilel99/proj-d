@@ -2875,6 +2875,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var basicAuthUsername = 'docteur-de-garde';
 var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3059,6 +3060,10 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -51926,14 +51931,14 @@ var render = function() {
             _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "col-12" }, [
-              _c("h2", { staticClass: "title" }, [
+              _c("h2", { staticClass: "page-title" }, [
                 _vm._v(_vm._s(_vm.page.title))
               ]),
               _vm._v(" "),
-              _c("hr", { staticClass: "botm-line" }),
+              _c("hr", { staticClass: "botm-line page-botm-line" }),
               _vm._v(" "),
               _c("p", {
-                staticClass: "py-3",
+                staticClass: "page-content py-3",
                 domProps: { innerHTML: _vm._s(_vm.page.content) }
               })
             ]),
@@ -51944,6 +51949,7 @@ var render = function() {
               _vm._l(_vm.page.alerts, function(item, index) {
                 return _c(
                   "div",
+                  { staticClass: "page-alert-message" },
                   [
                     _c("message-alert-component", {
                       attrs: { alert_id: item.id, api_data: _vm.apiData }
@@ -51999,18 +52005,19 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("h2", { staticClass: "title" }, [_vm._v(_vm._s(_vm.page.title))]),
+      _c("h2", { staticClass: "page-title" }, [_vm._v(_vm._s(_vm.page.title))]),
       _vm._v(" "),
-      _c("hr", { staticClass: "botm-line" }),
+      _c("hr", { staticClass: "botm-line page-botm-line" }),
       _vm._v(" "),
       _c("p", {
-        staticClass: "content",
+        staticClass: "page-content",
         domProps: { innerHTML: _vm._s(_vm.page.content) }
       }),
       _vm._v(" "),
       _vm._l(_vm.page.alerts, function(item, index) {
         return _c(
           "div",
+          { staticClass: "page-alert-message" },
           [
             _c("message-alert-component", {
               attrs: { alert_id: item.id, api_data: _vm.apiData }
@@ -52986,7 +52993,10 @@ var render = function() {
                           {
                             staticClass:
                               "contact-btn my-5 boxed-btn2 animate__animated animate__pulse",
-                            attrs: { href: _vm.routeContact }
+                            attrs: {
+                              href: _vm.routeContact,
+                              title: "Faire une demande de rendez-vous"
+                            }
                           },
                           [_vm._v("Faire une demande de rendez-vous")]
                         )
@@ -52995,7 +53005,10 @@ var render = function() {
                           {
                             staticClass:
                               "contact-btn my-5 boxed-btn2 animate__animated animate__pulse",
-                            attrs: { href: "#contact" },
+                            attrs: {
+                              href: "#contact",
+                              title: "Faire une demande de rendez-vous"
+                            },
                             on: {
                               click: function($event) {
                                 $event.preventDefault()
@@ -53012,7 +53025,7 @@ var render = function() {
                   _c(
                     "a",
                     {
-                      attrs: { href: "#about" },
+                      attrs: { href: "#about", title: "Qui sommes-nous ?" },
                       on: {
                         click: function($event) {
                           $event.preventDefault()
@@ -53107,11 +53120,11 @@ var render = function() {
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
-            _c("h2", { staticClass: "title" }, [
+            _c("h2", { staticClass: "page-title" }, [
               _vm._v(_vm._s(_vm.page.title))
             ]),
             _vm._v(" "),
-            _c("hr", { staticClass: "botm-line" })
+            _c("hr", { staticClass: "botm-line page-botm-line" })
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "information col-lg-6 col-md-12" }, [
@@ -53215,12 +53228,12 @@ var render = function() {
             ? _c("div", { staticClass: "col-lg-6" }, [
                 _vm.media !== null
                   ? _c("img", {
-                      staticClass: "img-responsive",
-                      attrs: { src: _vm.media, alt: "Image :id" }
+                      staticClass: "img-responsive page-media",
+                      attrs: { src: _vm.media, alt: "logo information" }
                     })
                   : _c("img", {
-                      staticClass: "img-responsive",
-                      attrs: { src: _vm.imgDefault, alt: "Image :id" }
+                      staticClass: "img-responsive page-media",
+                      attrs: { src: _vm.imgDefault, alt: "logo information" }
                     })
               ])
             : _vm._e()
@@ -53258,11 +53271,11 @@ var render = function() {
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
-            _c("h2", { staticClass: "title" }, [
+            _c("h2", { staticClass: "page-title" }, [
               _vm._v(_vm._s(_vm.page.title))
             ]),
             _vm._v(" "),
-            _c("hr", { staticClass: "botm-line" })
+            _c("hr", { staticClass: "botm-line page-botm-line" })
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "medical-house col-12 px-5" }, [
@@ -53284,6 +53297,7 @@ var render = function() {
                       attrs: {
                         id: "nav-tab-" + item.id,
                         "data-toggle": "tab",
+                        title: item.title,
                         href: "#nav-" + item.id,
                         role: "tab",
                         "aria-controls": "nav-" + item.id,
@@ -53481,39 +53495,56 @@ var render = function() {
         _c("div", { staticClass: "row" }, [
           _vm.imgDefault === ""
             ? _c("div", [
-                _c("div", { staticClass: "col-md-12" }, [
-                  _c(
-                    "h2",
-                    { staticClass: "animate__animated animate__pulse" },
-                    [_vm._v(_vm._s(_vm.page.title))]
-                  ),
-                  _vm._v(" "),
-                  _c("hr", { staticClass: "botm-line" }),
-                  _vm._v(" "),
-                  _c("p", {
-                    staticClass: "py-3",
-                    domProps: { innerHTML: _vm._s(_vm.page.content) }
-                  })
-                ])
+                _c(
+                  "div",
+                  { staticClass: "col-md-12" },
+                  [
+                    _c("h2", { staticClass: "page-title" }, [
+                      _vm._v(_vm._s(_vm.page.title))
+                    ]),
+                    _vm._v(" "),
+                    _c("hr", { staticClass: "botm-line page-botm-line" }),
+                    _vm._v(" "),
+                    _c("p", {
+                      staticClass: "page-content py-3",
+                      domProps: { innerHTML: _vm._s(_vm.page.content) }
+                    }),
+                    _vm._v(" "),
+                    _vm._l(_vm.page.alerts, function(item, index) {
+                      return _c(
+                        "div",
+                        { staticClass: "page-alert-message" },
+                        [
+                          _c("message-alert-component", {
+                            attrs: { alert_id: item.id, api_data: _vm.apiData }
+                          })
+                        ],
+                        1
+                      )
+                    })
+                  ],
+                  2
+                )
               ])
             : _c(
                 "div",
                 { staticClass: "col-lg-6 col-sm-12" },
                 [
-                  _c("h2", { staticClass: "title" }, [
+                  _c("h2", { staticClass: "page-title" }, [
                     _vm._v(_vm._s(_vm.page.title))
                   ]),
                   _vm._v(" "),
-                  _c("hr", { staticClass: "botm-line" }),
+                  _c("hr", { staticClass: "botm-line page-botm-line" }),
                   _vm._v(" "),
                   _c("p", {
-                    staticClass: "content",
+                    staticClass: "page-content py-3",
                     domProps: { innerHTML: _vm._s(_vm.page.content) }
                   }),
                   _vm._v(" "),
                   _vm._l(_vm.page.alerts, function(item, index) {
                     return _c(
                       "div",
+                      { staticClass: "page-alert-message" },
                       [
                         _c("message-alert-component", {
                           attrs: { alert_id: item.id, api_data: _vm.apiData }
@@ -53530,12 +53561,12 @@ var render = function() {
             ? _c("div", { staticClass: "col-lg-6" }, [
                 _vm.media !== null
                   ? _c("img", {
-                      staticClass: "img-responsive",
-                      attrs: { src: _vm.media, alt: "Image :id" }
+                      staticClass: "img-responsive page-media",
+                      attrs: { src: _vm.media, alt: "Image docteur" }
                     })
                   : _c("img", {
-                      staticClass: "img-responsive",
-                      attrs: { src: _vm.imgDefault, alt: "Image :id" }
+                      staticClass: "img-responsive page-media",
+                      attrs: { src: _vm.imgDefault, alt: "Image docteur" }
                     })
               ])
             : _vm._e()
@@ -53548,7 +53579,10 @@ var render = function() {
               [
                 _c(
                   "a",
-                  { staticClass: "boxed-btn3", attrs: { href: _vm.routePage } },
+                  {
+                    staticClass: "boxed-btn3 page-btn",
+                    attrs: { href: _vm.routePage, title: "En savoir plus" }
+                  },
                   [_vm._v("En savoir plus")]
                 )
               ]
@@ -53590,25 +53624,28 @@ var render = function() {
             ? _c("div", { staticClass: "back-page" }, [
                 _c(
                   "a",
-                  { staticClass: "boxed-btn4 mx-3 mb-5", attrs: { href: "/" } },
+                  {
+                    staticClass: "boxed-btn4 mx-3 mb-5",
+                    attrs: { href: "/", title: "Retour" }
+                  },
                   [_vm._v("Retour")]
                 )
               ])
             : _vm._e(),
           _vm._v(" "),
           _c("div", { staticClass: "col-12 py-3 px-3" }, [
-            _c("h2", { staticClass: "title" }, [
+            _c("h2", { staticClass: "page-title" }, [
               _vm._v(_vm._s(_vm.page.title))
             ]),
             _vm._v(" "),
-            _c("hr", { staticClass: "botm-line" }),
+            _c("hr", { staticClass: "botm-line page-botm-line" }),
             _vm._v(" "),
             _c("p", {
-              staticClass: "py-3",
+              staticClass: "page-content py-3",
               domProps: { innerHTML: _vm._s(_vm.page.content) }
             }),
             _vm._v(" "),
-            _c("div", { staticClass: "col-12" }, [
+            _c("div", { staticClass: "col-12 prices-table" }, [
               _c("div", { staticClass: "table-responsive" }, [
                 _c("div", { staticClass: "membership-pricing-table" }, [
                   _c("table", { staticClass: "table table-responsive" }, [
@@ -53651,7 +53688,7 @@ var render = function() {
                 _vm._l(_vm.page.alerts, function(item, index) {
                   return _c(
                     "div",
-                    { staticClass: "col-md-6 col-sm-12" },
+                    { staticClass: "col-md-6 col-sm-12 page-alert-message" },
                     [
                       _c("message-alert-component", {
                         attrs: { alert_id: item.id, api_data: _vm.apiData }
@@ -53673,7 +53710,10 @@ var render = function() {
               [
                 _c(
                   "a",
-                  { staticClass: "boxed-btn3", attrs: { href: _vm.routePage } },
+                  {
+                    staticClass: "boxed-btn3 page-btn",
+                    attrs: { href: _vm.routePage, title: "En savoir plus" }
+                  },
                   [_vm._v("En savoir plus")]
                 )
               ]
@@ -53738,13 +53778,16 @@ var render = function() {
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-4 col-sm-12" }, [
-            _c("h2", { staticClass: "title" }, [
+            _c("h2", { staticClass: "page-title" }, [
               _vm._v(_vm._s(_vm.page.title))
             ]),
             _vm._v(" "),
-            _c("hr", { staticClass: "botm-line" }),
+            _c("hr", { staticClass: "botm-line page-botm-line" }),
             _vm._v(" "),
-            _c("p", { domProps: { innerHTML: _vm._s(_vm.page.content) } })
+            _c("p", {
+              staticClass: "page-content",
+              domProps: { innerHTML: _vm._s(_vm.page.content) }
+            })
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "service col-md-8 col-sm-12" }, [

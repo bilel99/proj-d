@@ -98,6 +98,19 @@
   //disableCopyAndPaste()
   backToTop();
   navbar();
+  /**
+   * Call animated Front website
+   */
+
+  /*aboutAnimate()
+  serviceAnimate()
+  appointementAnimate()
+  pricesAnimate()
+  medicalHouseAnimate()
+  sectionContactAnimation()
+  informationAnimate()*/
+
+  detailPageAppointement();
 })(jQuery);
 /**
  * Disable copy and disable paste
@@ -156,6 +169,347 @@ function navbar() {
     } else {
       jQuery('.navigation-wrap').css('position', 'relative');
       header.removeClass("scroll-on").addClass('start-style');
+    }
+  });
+}
+/**
+ * Create animation to website
+ * Remove opacity and addClass
+ * to animate.css plugins
+ */
+
+
+function aboutAnimate() {
+  /**
+   * section 1 (#About)
+   */
+  jQuery(window).on('scroll', function () {
+    if (jQuery(window).scrollTop() >= jQuery('#about').offset().top + jQuery('#about').outerHeight() - window.innerHeight) {
+      console.log('You reached the end of the DIV about'); // remove Opacity and add class animation
+
+      var title = jQuery('#about .page-title');
+      title.css({
+        opacity: 1
+      });
+      title.addClass('animate__animated animate__zoomIn');
+      var hr = jQuery('#about .page-botm-line');
+      hr.css({
+        opacity: 1
+      });
+      hr.addClass('animate__animated animate__zoomIn');
+      setInterval(function () {
+        var content = jQuery('#about .page-content');
+        content.css({
+          opacity: 1
+        });
+        content.addClass('animate__animated animate__backInLeft');
+      }, 150);
+      setInterval(function () {
+        var alert = jQuery('#about .page-alert-message');
+        alert.css({
+          opacity: 1
+        });
+        alert.addClass('animate__animated animate__backInLeft');
+      }, 250);
+      setInterval(function () {
+        var medias = jQuery('#about .page-media');
+        medias.css({
+          opacity: 1
+        });
+        medias.addClass('animate__animated animate__backInRight');
+        var btn = jQuery('#about .page-btn');
+        btn.css({
+          opacity: 1
+        });
+        btn.addClass('animate__animated animate__zoomIn');
+      }, 350);
+    }
+  });
+}
+/**
+ * Create animation to website
+ * Remove opacity and addClass
+ * to animate.css plugins
+ */
+
+
+function serviceAnimate() {
+  /**
+   * section 2 (#service)
+   */
+  jQuery(window).on('scroll', function () {
+    if (jQuery(window).scrollTop() >= jQuery('#service').offset().top + jQuery('#service').outerHeight() - window.innerHeight) {
+      console.log('You reached the end of the DIV service'); // remove Opacity and add class animation
+
+      var title = jQuery('#service .page-title');
+      title.css({
+        opacity: 1
+      });
+      title.addClass('animate__animated animate__zoomIn');
+      var hr = jQuery('#service .page-botm-line');
+      hr.css({
+        opacity: 1
+      });
+      hr.addClass('animate__animated animate__zoomIn');
+      setInterval(function () {
+        var content = jQuery('#service .page-content');
+        content.css({
+          opacity: 1
+        });
+        content.addClass('animate__animated animate__backInLeft');
+      }, 150);
+      setInterval(function () {
+        var service = jQuery('#service .service');
+        service.css({
+          opacity: 1
+        });
+        service.addClass('animate__animated animate__backInRight');
+      }, 250);
+    }
+  });
+}
+/**
+ * Create animation to website
+ * Remove opacity and addClass
+ * to animate.css plugins
+ */
+
+
+function appointementAnimate() {
+  /**
+   * section 3 (#make-appointment)
+   */
+  jQuery(window).on('scroll', function () {
+    if (jQuery(window).scrollTop() >= jQuery('#make-appointment').offset().top + jQuery('#make-appointment').outerHeight() - window.innerHeight) {
+      console.log('You reached the end of the DIV make-appointment'); // remove Opacity and add class animation
+
+      var title = jQuery('#make-appointment .page-title');
+      title.css({
+        opacity: 1
+      });
+      title.addClass('animate__animated animate__zoomIn');
+      var hr = jQuery('#make-appointment .page-botm-line');
+      hr.css({
+        opacity: 1
+      });
+      hr.addClass('animate__animated animate__zoomIn');
+      setInterval(function () {
+        var content = jQuery('#make-appointment .page-content');
+        content.css({
+          opacity: 1
+        });
+        content.addClass('animate__animated animate__backInLeft');
+      }, 150);
+      setInterval(function () {
+        var alert = jQuery('#make-appointment .page-alert-message');
+        alert.css({
+          opacity: 1
+        });
+        alert.addClass('animate__animated animate__backInLeft');
+      }, 250);
+      setInterval(function () {
+        var medias = jQuery('#make-appointment .page-media');
+        medias.css({
+          opacity: 1
+        });
+        medias.addClass('animate__animated animate__backInRight');
+        var btn = jQuery('#make-appointment .page-btn');
+        btn.css({
+          opacity: 1
+        });
+        btn.addClass('animate__animated animate__zoomIn');
+      }, 350);
+    }
+  });
+}
+/**
+ * Create animation to website
+ * Remove opacity and addClass
+ * to animate.css plugins
+ */
+
+
+function pricesAnimate() {
+  /**
+   * section 4 (#prices)
+   */
+  jQuery(window).on('scroll', function () {
+    if (jQuery(window).scrollTop() >= jQuery('#prices').offset().top + jQuery('#prices').outerHeight() - window.innerHeight) {
+      console.log('You reached the end of the DIV prices'); // remove Opacity and add class animation
+
+      var title = jQuery('#prices .page-title');
+      title.css({
+        opacity: 1
+      });
+      title.addClass('animate__animated animate__zoomIn');
+      var hr = jQuery('#prices .page-botm-line');
+      hr.css({
+        opacity: 1
+      });
+      hr.addClass('animate__animated animate__zoomIn');
+      setInterval(function () {
+        var content = jQuery('#prices .page-content');
+        content.css({
+          opacity: 1
+        });
+        content.addClass('animate__animated animate__backInLeft');
+      }, 150);
+      setInterval(function () {
+        var alert = jQuery('#prices .page-alert-message');
+        alert.css({
+          opacity: 1
+        });
+        alert.addClass('animate__animated animate__backInLeft');
+      }, 250);
+      setInterval(function () {
+        var table = jQuery('#prices .prices-table');
+        table.css({
+          opacity: 1
+        });
+        table.addClass('animate__animated animate__backInRight');
+        var btn = jQuery('#prices .page-btn');
+        btn.css({
+          opacity: 1
+        });
+        btn.addClass('animate__animated animate__zoomIn');
+      }, 350);
+    }
+  });
+}
+/**
+ * Create animation to website
+ * Remove opacity and addClass
+ * to animate.css plugins
+ */
+
+
+function medicalHouseAnimate() {
+  /**
+   * section 5 (#medical-house)
+   */
+  jQuery(window).on('scroll', function () {
+    if (jQuery(window).scrollTop() >= jQuery('#medical-house').offset().top + jQuery('#medical-house').outerHeight() - window.innerHeight) {
+      console.log('You reached the end of the DIV prices'); // remove Opacity and add class animation
+
+      var title = jQuery('#medical-house .page-title');
+      title.css({
+        opacity: 1
+      });
+      title.addClass('animate__animated animate__zoomIn');
+      var hr = jQuery('#medical-house .page-botm-line');
+      hr.css({
+        opacity: 1
+      });
+      hr.addClass('animate__animated animate__zoomIn');
+      setInterval(function () {
+        var medicalHouse = jQuery('#medical-house .medical-house');
+        medicalHouse.css({
+          opacity: 1
+        });
+        medicalHouse.addClass('animate__animated animate__zoomIn');
+      }, 250);
+    }
+  });
+}
+/**
+ * Create animation to website
+ * Remove opacity and addClass
+ * to animate.css plugins
+ */
+
+
+function informationAnimate() {
+  /**
+   * section 6 (#information)
+   */
+  jQuery(window).on('scroll', function () {
+    if (jQuery(window).scrollTop() >= jQuery('#information').offset().top + jQuery('#information').outerHeight() - window.innerHeight) {
+      console.log('You reached the end of the DIV prices'); // remove Opacity and add class animation
+
+      var title = jQuery('#information .page-title');
+      title.css({
+        opacity: 1
+      });
+      title.addClass('animate__animated animate__zoomIn');
+      var hr = jQuery('#information .page-botm-line');
+      hr.css({
+        opacity: 1
+      });
+      hr.addClass('animate__animated animate__zoomIn');
+      setInterval(function () {
+        var content = jQuery('#information .information');
+        content.css({
+          opacity: 1
+        });
+        content.addClass('animate__animated animate__backInLeft');
+      }, 150);
+      setInterval(function () {
+        var medias = jQuery('#information .page-media');
+        medias.css({
+          opacity: 1
+        });
+        medias.addClass('animate__animated animate__backInRight');
+      }, 350);
+    }
+  });
+}
+
+function sectionContactAnimation() {
+  /**
+   * section 7 (#transition section contact)
+   */
+  jQuery(window).on('scroll', function () {
+    if (jQuery(window).scrollTop() >= jQuery('#section-transition-contact').offset().top + jQuery('#section-transition-contact').outerHeight() - window.innerHeight) {
+      // remove Opacity and add class animation
+      var btn = jQuery('#section-transition-contact .boxed-btn3');
+      btn.css({
+        opacity: 1
+      });
+      btn.addClass('animate__animated animate__zoomIn');
+    }
+  });
+}
+/**
+ * Create animation to website
+ * Remove opacity and addClass
+ * to animate.css plugins
+ */
+
+
+function detailPageAppointement() {
+  /**
+   * appointement (#detail-page)
+   */
+  jQuery(window).on('scroll', function () {
+    if (jQuery(window).scrollTop() >= jQuery('#detail-page').offset().top + jQuery('#detail-page').outerHeight() - window.innerHeight) {
+      console.log('You reached the end of the DIV detail-page'); // remove Opacity and add class animation
+
+      var btnBack = jQuery('#detail-page .back-page');
+      btnBack.css({
+        opacity: 1
+      });
+      btnBack.addClass('animate__animated animate__zoomIn');
+      setInterval(function () {
+        var section1 = jQuery('#detail-page .appointement-section-1');
+        section1.css({
+          opacity: 1
+        });
+        section1.addClass('animate__animated animate__backInLeft');
+      }, 250);
+      setInterval(function () {
+        var section1 = jQuery('#detail-page .appointement-section-2');
+        section1.css({
+          opacity: 1
+        });
+        section1.addClass('animate__animated animate__backInRight');
+      }, 350);
+      setInterval(function () {
+        var section1 = jQuery('#detail-page .appointement-section-3');
+        section1.css({
+          opacity: 1
+        });
+        section1.addClass('animate__animated animate__slideInUp');
+      }, 450);
     }
   });
 }
