@@ -16,13 +16,13 @@
                                 <p>
                                     @auth
                                         <a href="/nova" class="link">
-                                            <i class="fas fa-tachometer-alt"></i> {{ __('globals.website.back-office') }}
+                                            <i class="fas fa-tachometer-alt" style="color: white;"></i> {{ __('globals.website.back-office') }}
                                         </a>
 
                                         <a class="link" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
-                                            <i class="fas fa-sign-out-alt"></i> {{ __('auth.logout') }}
+                                            <i class="fas fa-sign-out-alt" style="color: white;"></i> {{ __('auth.logout') }}
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
@@ -30,7 +30,7 @@
                                     @endauth
                                     @guest
                                         <a href="{{ route('login') }}" class="link">
-                                            <i class="far fa-user"></i> {{ __('auth.login') }}
+                                            <i class="far fa-user" style="color: white;"></i> {{ __('auth.login') }}
                                         </a>
                                     @endguest
                                 </p>
@@ -48,10 +48,10 @@
                     <div class="col-12">
                         <nav class="navbar navbar-expand-md navbar-light">
 
-                            <a class="navbar-brand" href="{{ route('front.homepage') }}">
+                            {{-- <a class="navbar-brand" href="{{ route('front.homepage') }}">
                                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/logo.svg"
                                      alt="logo docteur de garde">
-                            </a>
+                            </a> --}}
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                     aria-expanded="false" aria-label="Toggle navigation">

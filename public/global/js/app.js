@@ -3298,6 +3298,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 var basicAuthUsername = 'docteur-de-garde';
 var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -53387,6 +53390,7 @@ var render = function() {
                                   _c("h4", [_vm._v(_vm._s(item.title))]),
                                   _vm._v(" "),
                                   _c("p", {
+                                    staticClass: "text-small text-muted",
                                     domProps: { innerHTML: _vm._s(item.infos) }
                                   })
                                 ])

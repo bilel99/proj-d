@@ -47,7 +47,7 @@
 
                                             <div class="media-body">
                                                 <h4>{{ item.title }}</h4>
-                                                <p v-html="item.infos"></p>
+                                                <p class="text-small text-muted" v-html="item.infos"></p>
                                             </div>
                                         </div>
                                     </div>

@@ -1,3 +1,6 @@
+<!--
+@todo ce composent n'es plus utilisé à SUPPRIMER!
+-->
 <template>
     <section id="service" class="section-bg-grey section-padding">
         <div class="container">
@@ -54,13 +57,13 @@ export default {
                 password: basicAuthPassword
             }
         })
-                .then((response) => {
-                    const data = response.data
-                    this.page = data.data
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
+        .then((response) => {
+            const data = response.data
+            this.page = data.data
+        })
+        .catch((error) => {
+            console.log(error)
+        })
     }
 }
 </script>

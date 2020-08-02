@@ -17,10 +17,14 @@
     <!-- Styles -->
     <link href="{{ asset('front/css/app.css') }}" rel="stylesheet">
 </head>
-<body class="sticky-footer">
+<body>
 <div id="app"
      data-base-api="{{ config('docteurs_gardes.api_base_url') }}"
-     data-asset="{{ asset('front') }}">
+     data-asset="{{ asset('front') }}"
+     data-homepage-url="{{ route('front.homepage') }}"
+     data-appointement-url="{{ route('front.appointement') }}"
+     data-prices-url="{{ route('front.prices') }}"
+     data-contacts-url="{{ route('front.contacts') }}">
     <main>
         @include('front.layouts.partials._header')
 
@@ -30,7 +34,7 @@
 
         <!-- floating button -->
         <a href="#" id="back-to-top" class="btn-float">
-            <i class="fas fa-arrow-up position-center"></i>
+            <i class="fas fa-arrow-up position-center" style="color: white;"></i>
         </a>
     </main>
 </div>

@@ -26,7 +26,12 @@ return [
         ],
         'back-office' => 'Mon admin',
         'back_page' => 'Retour',
-        'back_page_homepage' => 'Retour vers la homepage'
+        'back_page_homepage' => 'Retour vers la homepage',
+        'message_not_data_publish' => 'Oups, vous n\'avez encore rien publié, merci de bien vouloir éditer du contenu sur votre back office',
+    ],
+
+    'services' => [
+        'empty' => 'Aucun service pour le moment.',
     ],
 
     'attributes' => [
@@ -89,6 +94,10 @@ return [
 
     'basic_auth' => [
         'invalid_credentials' => 'informations d\'identification invalides',
+    ],
+
+    'btn' => [
+        'back_office_link' => 'Accèder à mon back office',
     ],
 
     'contact' => [

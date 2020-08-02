@@ -211,6 +211,12 @@ a:focus {
   font-weight: 800;
 }
 
+/** Icon */
+
+i {
+  color: #072453;
+}
+
 /*
 |-----------------------
 | 	    DEFAULTS
@@ -13067,11 +13073,9 @@ hr.botm-line {
 
 footer {
   width: 100%;
-  position: fixed;
   bottom: 0;
   padding: 60px 0;
   background: white;
-  z-index: -1;
 }
 
 footer h5 {
@@ -13488,29 +13492,6 @@ footer ul.quick-links li:hover a i {
   position: absolute;
 }
 
-/*
-|-----------------------
-|   DETAIL PAGE APPOINTEMENT
-|-----------------------
-|
-*/
-
-#detail-page .container .back-page {
-  opacity: 0;
-}
-
-#detail-page .container .row .appointement-section-1 {
-  opacity: 0;
-}
-
-#detail-page .container .row .appointement-section-2 {
-  opacity: 0;
-}
-
-#detail-page .container .row .appointement-section-3 {
-  opacity: 0;
-}
-
 .card-contact {
   padding: 20px;
   width: 100%;
@@ -13524,15 +13505,6 @@ footer ul.quick-links li:hover a i {
           text-decoration: underline #826308;
 }
 
-.hero-banner-img {
-  -webkit-animation-iteration-count: 2;
-          animation-iteration-count: 2;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
-}
-
 .hero-banner-title,
 .hero-banner-content {
   -webkit-animation-iteration-count: 1;
@@ -13544,8 +13516,8 @@ footer ul.quick-links li:hover a i {
 }
 
 .contact-btn {
-  -webkit-animation-iteration-count: 2;
-          animation-iteration-count: 2;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
   -webkit-animation-duration: 3s;
           animation-duration: 3s;
   -webkit-animation-delay: 0.5s;

@@ -93,7 +93,11 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// @todo faire que du JS 6 et ne plus utiliser jQuery essayer de créer des composant vue.js utiliser une version lite de jquery
+var homepageUrl = document.querySelector('#app').getAttribute('data-homepage-url') + '/';
+var appointementUrl = document.querySelector('#app').getAttribute('data-appointement-url');
+var pricesUrl = document.querySelector('#app').getAttribute('data-prices-url');
+var contactsUrl = document.querySelector('#app').getAttribute('data-contacts-url');
+
 (function (jQuery) {
   //disableCopyAndPaste()
   backToTop();
@@ -102,15 +106,13 @@
    * Call animated Front website
    */
 
-  /*aboutAnimate()
-  serviceAnimate()
-  appointementAnimate()
-  pricesAnimate()
-  medicalHouseAnimate()
-  sectionContactAnimation()
-  informationAnimate()*/
-
-  detailPageAppointement();
+  aboutAnimate();
+  serviceAnimate();
+  appointementAnimate();
+  pricesAnimate();
+  medicalHouseAnimate();
+  sectionContactAnimation();
+  informationAnimate(); //detailPageAppointement()
 })(jQuery);
 /**
  * Disable copy and disable paste
@@ -183,48 +185,53 @@ function aboutAnimate() {
   /**
    * section 1 (#About)
    */
-  jQuery(window).on('scroll', function () {
-    if (jQuery(window).scrollTop() >= jQuery('#about').offset().top + jQuery('#about').outerHeight() - window.innerHeight) {
-      console.log('You reached the end of the DIV about'); // remove Opacity and add class animation
+  if (window.location.href === homepageUrl) {
+    jQuery(window).on('scroll', function () {
+      if (jQuery('#about .page-title').css('opacity') == 1) {
+        return;
+      }
 
-      var title = jQuery('#about .page-title');
-      title.css({
-        opacity: 1
-      });
-      title.addClass('animate__animated animate__zoomIn');
-      var hr = jQuery('#about .page-botm-line');
-      hr.css({
-        opacity: 1
-      });
-      hr.addClass('animate__animated animate__zoomIn');
-      setInterval(function () {
-        var content = jQuery('#about .page-content');
-        content.css({
+      if (jQuery(window).scrollTop() >= jQuery('#about').offset().top + jQuery('#about').outerHeight() - window.innerHeight - 400) {
+        // remove Opacity and add class animation
+        var title = jQuery('#about .page-title');
+        title.css({
           opacity: 1
         });
-        content.addClass('animate__animated animate__backInLeft');
-      }, 150);
-      setInterval(function () {
-        var alert = jQuery('#about .page-alert-message');
-        alert.css({
+        title.addClass('animate__animated animate__zoomIn');
+        var hr = jQuery('#about .page-botm-line');
+        hr.css({
           opacity: 1
         });
-        alert.addClass('animate__animated animate__backInLeft');
-      }, 250);
-      setInterval(function () {
-        var medias = jQuery('#about .page-media');
-        medias.css({
-          opacity: 1
-        });
-        medias.addClass('animate__animated animate__backInRight');
-        var btn = jQuery('#about .page-btn');
-        btn.css({
-          opacity: 1
-        });
-        btn.addClass('animate__animated animate__zoomIn');
-      }, 350);
-    }
-  });
+        hr.addClass('animate__animated animate__zoomIn');
+        setInterval(function () {
+          var content = jQuery('#about .page-content');
+          content.css({
+            opacity: 1
+          });
+          content.addClass('animate__animated animate__backInLeft');
+        }, 100);
+        setInterval(function () {
+          var alert = jQuery('#about .page-alert-message');
+          alert.css({
+            opacity: 1
+          });
+          alert.addClass('animate__animated animate__backInLeft');
+        }, 150);
+        setInterval(function () {
+          var medias = jQuery('#about .page-media');
+          medias.css({
+            opacity: 1
+          });
+          medias.addClass('animate__animated animate__backInRight');
+          var btn = jQuery('#about .page-btn');
+          btn.css({
+            opacity: 1
+          });
+          btn.addClass('animate__animated animate__zoomIn');
+        }, 200);
+      }
+    });
+  }
 }
 /**
  * Create animation to website
@@ -237,36 +244,41 @@ function serviceAnimate() {
   /**
    * section 2 (#service)
    */
-  jQuery(window).on('scroll', function () {
-    if (jQuery(window).scrollTop() >= jQuery('#service').offset().top + jQuery('#service').outerHeight() - window.innerHeight) {
-      console.log('You reached the end of the DIV service'); // remove Opacity and add class animation
+  if (window.location.href === homepageUrl) {
+    jQuery(window).on('scroll', function () {
+      if (jQuery('#service .page-title').css('opacity') == 1) {
+        return;
+      }
 
-      var title = jQuery('#service .page-title');
-      title.css({
-        opacity: 1
-      });
-      title.addClass('animate__animated animate__zoomIn');
-      var hr = jQuery('#service .page-botm-line');
-      hr.css({
-        opacity: 1
-      });
-      hr.addClass('animate__animated animate__zoomIn');
-      setInterval(function () {
-        var content = jQuery('#service .page-content');
-        content.css({
+      if (jQuery(window).scrollTop() >= jQuery('#service').offset().top + jQuery('#service').outerHeight() - window.innerHeight - 400) {
+        // remove Opacity and add class animation
+        var title = jQuery('#service .page-title');
+        title.css({
           opacity: 1
         });
-        content.addClass('animate__animated animate__backInLeft');
-      }, 150);
-      setInterval(function () {
-        var service = jQuery('#service .service');
-        service.css({
+        title.addClass('animate__animated animate__zoomIn');
+        var hr = jQuery('#service .page-botm-line');
+        hr.css({
           opacity: 1
         });
-        service.addClass('animate__animated animate__backInRight');
-      }, 250);
-    }
-  });
+        hr.addClass('animate__animated animate__zoomIn');
+        setInterval(function () {
+          var content = jQuery('#service .page-content');
+          content.css({
+            opacity: 1
+          });
+          content.addClass('animate__animated animate__backInLeft');
+        }, 100);
+        setInterval(function () {
+          var service = jQuery('#service .service');
+          service.css({
+            opacity: 1
+          });
+          service.addClass('animate__animated animate__backInRight');
+        }, 150);
+      }
+    });
+  }
 }
 /**
  * Create animation to website
@@ -279,48 +291,53 @@ function appointementAnimate() {
   /**
    * section 3 (#make-appointment)
    */
-  jQuery(window).on('scroll', function () {
-    if (jQuery(window).scrollTop() >= jQuery('#make-appointment').offset().top + jQuery('#make-appointment').outerHeight() - window.innerHeight) {
-      console.log('You reached the end of the DIV make-appointment'); // remove Opacity and add class animation
+  if (window.location.href === homepageUrl) {
+    jQuery(window).on('scroll', function () {
+      if (jQuery('#make-appointment .page-title').css('opacity') == 1) {
+        return;
+      }
 
-      var title = jQuery('#make-appointment .page-title');
-      title.css({
-        opacity: 1
-      });
-      title.addClass('animate__animated animate__zoomIn');
-      var hr = jQuery('#make-appointment .page-botm-line');
-      hr.css({
-        opacity: 1
-      });
-      hr.addClass('animate__animated animate__zoomIn');
-      setInterval(function () {
-        var content = jQuery('#make-appointment .page-content');
-        content.css({
+      if (jQuery(window).scrollTop() >= jQuery('#make-appointment').offset().top + jQuery('#make-appointment').outerHeight() - window.innerHeight - 400) {
+        // remove Opacity and add class animation
+        var title = jQuery('#make-appointment .page-title');
+        title.css({
           opacity: 1
         });
-        content.addClass('animate__animated animate__backInLeft');
-      }, 150);
-      setInterval(function () {
-        var alert = jQuery('#make-appointment .page-alert-message');
-        alert.css({
+        title.addClass('animate__animated animate__zoomIn');
+        var hr = jQuery('#make-appointment .page-botm-line');
+        hr.css({
           opacity: 1
         });
-        alert.addClass('animate__animated animate__backInLeft');
-      }, 250);
-      setInterval(function () {
-        var medias = jQuery('#make-appointment .page-media');
-        medias.css({
-          opacity: 1
-        });
-        medias.addClass('animate__animated animate__backInRight');
-        var btn = jQuery('#make-appointment .page-btn');
-        btn.css({
-          opacity: 1
-        });
-        btn.addClass('animate__animated animate__zoomIn');
-      }, 350);
-    }
-  });
+        hr.addClass('animate__animated animate__zoomIn');
+        setInterval(function () {
+          var content = jQuery('#make-appointment .page-content');
+          content.css({
+            opacity: 1
+          });
+          content.addClass('animate__animated animate__backInLeft');
+        }, 100);
+        setInterval(function () {
+          var alert = jQuery('#make-appointment .page-alert-message');
+          alert.css({
+            opacity: 1
+          });
+          alert.addClass('animate__animated animate__backInLeft');
+        }, 150);
+        setInterval(function () {
+          var medias = jQuery('#make-appointment .page-media');
+          medias.css({
+            opacity: 1
+          });
+          medias.addClass('animate__animated animate__backInRight');
+          var btn = jQuery('#make-appointment .page-btn');
+          btn.css({
+            opacity: 1
+          });
+          btn.addClass('animate__animated animate__zoomIn');
+        }, 200);
+      }
+    });
+  }
 }
 /**
  * Create animation to website
@@ -333,48 +350,87 @@ function pricesAnimate() {
   /**
    * section 4 (#prices)
    */
-  jQuery(window).on('scroll', function () {
-    if (jQuery(window).scrollTop() >= jQuery('#prices').offset().top + jQuery('#prices').outerHeight() - window.innerHeight) {
-      console.log('You reached the end of the DIV prices'); // remove Opacity and add class animation
+  if (window.location.href === pricesUrl) {
+    // remove Opacity and add class animation
+    var title = jQuery('#prices .page-title');
+    title.css({
+      opacity: 1
+    });
+    var hr = jQuery('#prices .page-botm-line');
+    hr.css({
+      opacity: 1
+    });
+    var content = jQuery('#prices .page-content');
+    content.css({
+      opacity: 1
+    });
+    var alert = jQuery('#prices .page-alert-message');
+    alert.css({
+      opacity: 1
+    });
+    var table = jQuery('#prices .prices-table');
+    table.css({
+      opacity: 1
+    });
+    var btn = jQuery('#prices .page-btn');
+    btn.css({
+      opacity: 1
+    });
+  }
 
-      var title = jQuery('#prices .page-title');
-      title.css({
-        opacity: 1
-      });
-      title.addClass('animate__animated animate__zoomIn');
-      var hr = jQuery('#prices .page-botm-line');
-      hr.css({
-        opacity: 1
-      });
-      hr.addClass('animate__animated animate__zoomIn');
-      setInterval(function () {
-        var content = jQuery('#prices .page-content');
-        content.css({
+  if (window.location.href === homepageUrl) {
+    jQuery(window).on('scroll', function () {
+      if (jQuery('#prices .page-title').css('opacity') == 1) {
+        return;
+      }
+
+      if (jQuery(window).scrollTop() >= jQuery('#prices').offset().top + jQuery('#prices').outerHeight() - window.innerHeight - 400) {
+        // remove Opacity and add class animation
+        var _title = jQuery('#prices .page-title');
+
+        _title.css({
           opacity: 1
         });
-        content.addClass('animate__animated animate__backInLeft');
-      }, 150);
-      setInterval(function () {
-        var alert = jQuery('#prices .page-alert-message');
-        alert.css({
+
+        _title.addClass('animate__animated animate__zoomIn');
+
+        var _hr = jQuery('#prices .page-botm-line');
+
+        _hr.css({
           opacity: 1
         });
-        alert.addClass('animate__animated animate__backInLeft');
-      }, 250);
-      setInterval(function () {
-        var table = jQuery('#prices .prices-table');
-        table.css({
-          opacity: 1
-        });
-        table.addClass('animate__animated animate__backInRight');
-        var btn = jQuery('#prices .page-btn');
-        btn.css({
-          opacity: 1
-        });
-        btn.addClass('animate__animated animate__zoomIn');
-      }, 350);
-    }
-  });
+
+        _hr.addClass('animate__animated animate__zoomIn');
+
+        setInterval(function () {
+          var content = jQuery('#prices .page-content');
+          content.css({
+            opacity: 1
+          });
+          content.addClass('animate__animated animate__backInLeft');
+        }, 100);
+        setInterval(function () {
+          var alert = jQuery('#prices .page-alert-message');
+          alert.css({
+            opacity: 1
+          });
+          alert.addClass('animate__animated animate__backInLeft');
+        }, 150);
+        setInterval(function () {
+          var table = jQuery('#prices .prices-table');
+          table.css({
+            opacity: 1
+          });
+          table.addClass('animate__animated animate__backInRight');
+          var btn = jQuery('#prices .page-btn');
+          btn.css({
+            opacity: 1
+          });
+          btn.addClass('animate__animated animate__zoomIn');
+        }, 200);
+      }
+    });
+  }
 }
 /**
  * Create animation to website
@@ -387,29 +443,34 @@ function medicalHouseAnimate() {
   /**
    * section 5 (#medical-house)
    */
-  jQuery(window).on('scroll', function () {
-    if (jQuery(window).scrollTop() >= jQuery('#medical-house').offset().top + jQuery('#medical-house').outerHeight() - window.innerHeight) {
-      console.log('You reached the end of the DIV prices'); // remove Opacity and add class animation
+  if (window.location.href === homepageUrl) {
+    jQuery(window).on('scroll', function () {
+      if (jQuery('#medical-house .page-title').css('opacity') == 1) {
+        return;
+      }
 
-      var title = jQuery('#medical-house .page-title');
-      title.css({
-        opacity: 1
-      });
-      title.addClass('animate__animated animate__zoomIn');
-      var hr = jQuery('#medical-house .page-botm-line');
-      hr.css({
-        opacity: 1
-      });
-      hr.addClass('animate__animated animate__zoomIn');
-      setInterval(function () {
-        var medicalHouse = jQuery('#medical-house .medical-house');
-        medicalHouse.css({
+      if (jQuery(window).scrollTop() >= jQuery('#medical-house').offset().top + jQuery('#medical-house').outerHeight() - window.innerHeight - 400) {
+        // remove Opacity and add class animation
+        var title = jQuery('#medical-house .page-title');
+        title.css({
           opacity: 1
         });
-        medicalHouse.addClass('animate__animated animate__zoomIn');
-      }, 250);
-    }
-  });
+        title.addClass('animate__animated animate__zoomIn');
+        var hr = jQuery('#medical-house .page-botm-line');
+        hr.css({
+          opacity: 1
+        });
+        hr.addClass('animate__animated animate__zoomIn');
+        setInterval(function () {
+          var medicalHouse = jQuery('#medical-house .medical-house');
+          medicalHouse.css({
+            opacity: 1
+          });
+          medicalHouse.addClass('animate__animated animate__zoomIn');
+        }, 100);
+      }
+    });
+  }
 }
 /**
  * Create animation to website
@@ -422,96 +483,63 @@ function informationAnimate() {
   /**
    * section 6 (#information)
    */
-  jQuery(window).on('scroll', function () {
-    if (jQuery(window).scrollTop() >= jQuery('#information').offset().top + jQuery('#information').outerHeight() - window.innerHeight) {
-      console.log('You reached the end of the DIV prices'); // remove Opacity and add class animation
+  if (window.location.href === homepageUrl) {
+    jQuery(window).on('scroll', function () {
+      if (jQuery('#information .page-title').css('opacity') == 1) {
+        return;
+      }
 
-      var title = jQuery('#information .page-title');
-      title.css({
-        opacity: 1
-      });
-      title.addClass('animate__animated animate__zoomIn');
-      var hr = jQuery('#information .page-botm-line');
-      hr.css({
-        opacity: 1
-      });
-      hr.addClass('animate__animated animate__zoomIn');
-      setInterval(function () {
-        var content = jQuery('#information .information');
-        content.css({
+      if (jQuery(window).scrollTop() >= jQuery('#information').offset().top + jQuery('#information').outerHeight() - window.innerHeight - 400) {
+        // remove Opacity and add class animation
+        var title = jQuery('#information .page-title');
+        title.css({
           opacity: 1
         });
-        content.addClass('animate__animated animate__backInLeft');
-      }, 150);
-      setInterval(function () {
-        var medias = jQuery('#information .page-media');
-        medias.css({
+        title.addClass('animate__animated animate__zoomIn');
+        var hr = jQuery('#information .page-botm-line');
+        hr.css({
           opacity: 1
         });
-        medias.addClass('animate__animated animate__backInRight');
-      }, 350);
-    }
-  });
+        hr.addClass('animate__animated animate__zoomIn');
+        setInterval(function () {
+          var content = jQuery('#information .information');
+          content.css({
+            opacity: 1
+          });
+          content.addClass('animate__animated animate__backInLeft');
+        }, 100);
+        setInterval(function () {
+          var medias = jQuery('#information .page-media');
+          medias.css({
+            opacity: 1
+          });
+          medias.addClass('animate__animated animate__backInRight');
+        }, 150);
+      }
+    });
+  }
 }
 
 function sectionContactAnimation() {
   /**
    * section 7 (#transition section contact)
    */
-  jQuery(window).on('scroll', function () {
-    if (jQuery(window).scrollTop() >= jQuery('#section-transition-contact').offset().top + jQuery('#section-transition-contact').outerHeight() - window.innerHeight) {
-      // remove Opacity and add class animation
-      var btn = jQuery('#section-transition-contact .boxed-btn3');
-      btn.css({
-        opacity: 1
-      });
-      btn.addClass('animate__animated animate__zoomIn');
-    }
-  });
-}
-/**
- * Create animation to website
- * Remove opacity and addClass
- * to animate.css plugins
- */
+  if (window.location.href === homepageUrl) {
+    jQuery(window).on('scroll', function () {
+      if (jQuery('#section-transition-contact .boxed-btn3').css('opacity') == 1) {
+        return;
+      }
 
-
-function detailPageAppointement() {
-  /**
-   * appointement (#detail-page)
-   */
-  jQuery(window).on('scroll', function () {
-    if (jQuery(window).scrollTop() >= jQuery('#detail-page').offset().top + jQuery('#detail-page').outerHeight() - window.innerHeight) {
-      console.log('You reached the end of the DIV detail-page'); // remove Opacity and add class animation
-
-      var btnBack = jQuery('#detail-page .back-page');
-      btnBack.css({
-        opacity: 1
-      });
-      btnBack.addClass('animate__animated animate__zoomIn');
-      setInterval(function () {
-        var section1 = jQuery('#detail-page .appointement-section-1');
-        section1.css({
+      if (jQuery(window).scrollTop() >= jQuery('#section-transition-contact').offset().top + jQuery('#section-transition-contact').outerHeight() - window.innerHeight - 400) {
+        // remove Opacity and add class animation
+        var btn = jQuery('#section-transition-contact .boxed-btn3');
+        btn.css({
           opacity: 1
         });
-        section1.addClass('animate__animated animate__backInLeft');
-      }, 250);
-      setInterval(function () {
-        var section1 = jQuery('#detail-page .appointement-section-2');
-        section1.css({
-          opacity: 1
-        });
-        section1.addClass('animate__animated animate__backInRight');
-      }, 350);
-      setInterval(function () {
-        var section1 = jQuery('#detail-page .appointement-section-3');
-        section1.css({
-          opacity: 1
-        });
-        section1.addClass('animate__animated animate__slideInUp');
-      }, 450);
-    }
-  });
+        btn.addClass('animate__animated animate__zoomIn');
+      }
+    });
+  }
 }
 
 /***/ }),
