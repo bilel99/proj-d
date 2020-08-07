@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pages;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class HomepageController extends Controller

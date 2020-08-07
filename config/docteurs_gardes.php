@@ -20,29 +20,41 @@ return [
     ],
 
     /**
+     * society
+     */
+    'email_docteur_de_garde' => 'contactdrdegarde@gmail.com',
+
+    /**
      * Navbar links
      */
     'navbar' => [
         0 => [
             'name' => 'qui-sommes-nous',
+            'hash' => '#about',
         ],
         1 => [
             'name' => 'nos-services',
+            'hash' => '#service',
         ],
         2 => [
             'name' => 'comment-prendre-rendez-vous',
+            'hash' => '#make-appointment',
         ],
         3 => [
             'name' => 'tarifs',
+            'hash' => '#prices',
         ],
         4 => [
             'name' => 'ou-ce-situe-les-maisons-medicales-de-garde',
+            'hash' => '#medical-house',
         ],
         5 => [
             'name' => 'contact',
+            'hash' => '#section-transition-contact',
         ],
         6 => [
             'name' => 'nos-informations',
+            'hash' => '#information',
         ],
     ],
 
@@ -52,11 +64,11 @@ return [
     'objet_contact' => [
         0 => [
             'name' => 'Contacter le médecin qui vous a consulté',
-            'recipient' => '', // Envoie direct vers l'email du médecin
+            'recipient' => '', // email du médecin
         ],
         1 => [
             'name' => 'Contacter la société Docteur De Garde',
-            'recipient' => '', // Mettre l'email de la société
+            'recipient' => 'contactdrdegarde@gmail.com', // email de la société
         ],
     ]
 ];

@@ -99,7 +99,8 @@ var pricesUrl = document.querySelector('#app').getAttribute('data-prices-url');
 var contactsUrl = document.querySelector('#app').getAttribute('data-contacts-url');
 
 (function (jQuery) {
-  //disableCopyAndPaste()
+  disableCopyAndPaste();
+  smoothScrollingToHash();
   backToTop();
   navbar();
   /**
@@ -124,6 +125,25 @@ function disableCopyAndPaste() {
   jQuery('body').bind('copy paste', function (e) {
     e.preventDefault();
     return false;
+  });
+}
+/**
+ * Smooth scrolling to page anchor on click
+ */
+
+
+function smoothScrollingToHash() {
+  jQuery("a[href*='#']:not([href='#'])").click(function () {
+    if (location.hostname == this.hostname && this.pathname.replace(/^\//, "") == location.pathname.replace(/^\//, "")) {
+      var anchor = jQuery(this.hash);
+      anchor = anchor.length ? anchor : jQuery("[name=" + this.hash.slice(1) + "]");
+
+      if (anchor.length) {
+        jQuery("html, body").animate({
+          scrollTop: anchor.offset().top
+        }, 1500);
+      }
+    }
   });
 }
 /**
@@ -185,7 +205,7 @@ function aboutAnimate() {
   /**
    * section 1 (#About)
    */
-  if (window.location.href === homepageUrl) {
+  if (window.location.href !== appointementUrl && window.location.href !== pricesUrl && window.location.href !== contactsUrl) {
     jQuery(window).on('scroll', function () {
       if (jQuery('#about .page-title').css('opacity') == 1) {
         return;
@@ -244,7 +264,7 @@ function serviceAnimate() {
   /**
    * section 2 (#service)
    */
-  if (window.location.href === homepageUrl) {
+  if (window.location.href !== appointementUrl && window.location.href !== pricesUrl && window.location.href !== contactsUrl) {
     jQuery(window).on('scroll', function () {
       if (jQuery('#service .page-title').css('opacity') == 1) {
         return;
@@ -291,7 +311,7 @@ function appointementAnimate() {
   /**
    * section 3 (#make-appointment)
    */
-  if (window.location.href === homepageUrl) {
+  if (window.location.href !== appointementUrl && window.location.href !== pricesUrl && window.location.href !== contactsUrl) {
     jQuery(window).on('scroll', function () {
       if (jQuery('#make-appointment .page-title').css('opacity') == 1) {
         return;
@@ -378,7 +398,7 @@ function pricesAnimate() {
     });
   }
 
-  if (window.location.href === homepageUrl) {
+  if (window.location.href !== appointementUrl && window.location.href !== pricesUrl && window.location.href !== contactsUrl) {
     jQuery(window).on('scroll', function () {
       if (jQuery('#prices .page-title').css('opacity') == 1) {
         return;
@@ -443,7 +463,7 @@ function medicalHouseAnimate() {
   /**
    * section 5 (#medical-house)
    */
-  if (window.location.href === homepageUrl) {
+  if (window.location.href !== appointementUrl && window.location.href !== pricesUrl && window.location.href !== contactsUrl) {
     jQuery(window).on('scroll', function () {
       if (jQuery('#medical-house .page-title').css('opacity') == 1) {
         return;
@@ -483,7 +503,7 @@ function informationAnimate() {
   /**
    * section 6 (#information)
    */
-  if (window.location.href === homepageUrl) {
+  if (window.location.href !== appointementUrl && window.location.href !== pricesUrl && window.location.href !== contactsUrl) {
     jQuery(window).on('scroll', function () {
       if (jQuery('#information .page-title').css('opacity') == 1) {
         return;
@@ -524,7 +544,7 @@ function sectionContactAnimation() {
   /**
    * section 7 (#transition section contact)
    */
-  if (window.location.href === homepageUrl) {
+  if (window.location.href !== appointementUrl && window.location.href !== pricesUrl && window.location.href !== contactsUrl) {
     jQuery(window).on('scroll', function () {
       if (jQuery('#section-transition-contact .boxed-btn3').css('opacity') == 1) {
         return;

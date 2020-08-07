@@ -28,6 +28,9 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('email.contact');
+        return $this
+            ->from(config('docteurs_gardes.email_docteur_de_garde', ''))
+            ->subject(__('globals.email.subject'))
+            ->markdown('email.contact');
     }
 }

@@ -89,6 +89,10 @@ return [
         ]
     ],
 
+    'email' => [
+        'subject' => 'Votre demande de contact',
+    ],
+
     'admin' => 'Administrateur',
     'logout' => 'Je me déconnecte',
 

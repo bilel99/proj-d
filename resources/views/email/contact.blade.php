@@ -1,12 +1,8 @@
 @component('mail::message')
-# Introduction
+# Chère patiente, cher patient,
 
-The body of your message.
+Votre mail a bien été pris en compte.
+En vous remerciant de vôtre confiance, nous vous prions d’agréer l’expression de nos sentiments distingués.
 
-@component('mail::button', ['url' => ''])
-Button Text
-@endcomponent
-
-Thanks,<br>
-{{ config('app.name') }}
+La direction, {{ config('app.name') }}
 @endcomponent

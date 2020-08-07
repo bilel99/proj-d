@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Requests\ContactRequest;
+use App\Mail\ContactMail;
 use App\Models\Contacts;
 use App\Models\Doctors;
-use App\Notifications\ContactNotifications;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -91,9 +91,12 @@ class ContactController extends BaseResourceController
         $contact->save();
 
         // Send mail
-        (new ContactNotifications(
-            $request->all(),
-        ))->toMail($contact);
+        // config('docteurs_gardes.email_docteur_de_garde', '')
+        Mail::to('bilel.bekkouche@gmail.com')
+            ->send(new ContactMail());
+
+        // Accused Email
+        // ...
 
         return response()->json([
             'data' => $contact,

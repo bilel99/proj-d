@@ -13,12 +13,9 @@
 
         <!-- Button Link -->
         <div class="d-flex justify-content-center mt-5 mb-3">
-            <a href="/nova" title="mon back office" class="boxed-btn3 page-btn">{{ __('globals.btn.back_office_link') }}</a>
+            <a href="/nova" title="{{ __('globals.btn.back_office_link') }}" class="boxed-btn3 page-btn">{{ __('globals.btn.back_office_link') }}</a>
         </div>
-
     @else
-
-
         <!--banner-->
         @include('front.layouts.partials._hero-banner')
         <!--/ banner-->
@@ -57,6 +54,5 @@
         <!-- section information -->
         @include('front.home.partials._information')
         <!-- /end section -->
-
     @endif
 @endsection
