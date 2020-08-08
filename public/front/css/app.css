@@ -13505,6 +13505,76 @@ footer ul.quick-links li:hover a i {
           text-decoration: underline #826308;
 }
 
+/*
+|-----------------------
+| 	      Errors
+|-----------------------
+|
+*/
+
+.ecl-error {
+  position: relative;
+  padding-top: 150px;
+  height: 100vh;
+  width: 100vw;
+}
+
+.ecl-error img {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  max-width: 150px;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.ecl-error .code {
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: 100;
+  color: #072453;
+  line-height: 14rem;
+  z-index: 2;
+}
+
+.ecl-error .code span {
+  color: #072453;
+}
+
+.ecl-error .bg-code {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.ecl-error .bg-code > p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 40rem;
+  font-weight: 100;
+  opacity: 0.05;
+  color: #072453;
+  transform: translate(-50%, -50%);
+}
+
+.ecl-error .message {
+  position: relative;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #072453;
+  z-index: 2;
+}
+
+.ecl-error .boxed-btn3 {
+  position: relative;
+  z-index: 2;
+}
+
 .hero-banner-title,
 .hero-banner-content {
   -webkit-animation-iteration-count: 1;
