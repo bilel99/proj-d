@@ -2983,6 +2983,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var basicAuthUsername = 'docteur-de-garde';
 var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3020,9 +3021,12 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
           return 'alert-message alert-message-info';
 
         case 3:
-          return 'alert-message alert-message-warning';
+          return 'alert-message alert-message-success';
 
         case 4:
+          return 'alert-message alert-message-warning';
+
+        case 5:
           return 'alert-message alert-message-danger';
 
         default:
@@ -53439,8 +53443,10 @@ var render = function() {
         _c("div", { class: _vm.getLevel(_vm.alert.levels) }, [
           _c("span", { staticClass: "block red" }, [
             _c("i", { class: _vm.alert.icon }),
-            _vm._v("  " + _vm._s(_vm.alert.title) + "\n        ")
-          ])
+            _vm._v(" " + _vm._s(_vm.alert.title) + "\n        ")
+          ]),
+          _vm._v(" "),
+          _c("p", { domProps: { innerHTML: _vm._s(_vm.alert.content) } })
         ])
       ])
     : _vm.getType(_vm.alert.types) === "alert-message"

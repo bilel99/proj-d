@@ -74,9 +74,21 @@ class AuthServiceProvider extends ServiceProvider
             $this->registerNovaPolicies();
         });
 
+        /**
+         * Laravel Passport
+         * Default token expire in one years
+         */
         Passport::routes();
-        //Passport::personalAccessClientId(1);
-        //Passport::personalAccessTokensExpireIn(now()->addMonths(6));
+        Passport::personalAccessClientId(
+            config('passport.personal_access_client.id')
+        );
+
+        Passport::personalAccessClientSecret(
+            config('passport.personal_access_client.secret')
+        );
+        /*Passport::tokensExpireIn(now()->addYear(1));
+        Passport::refreshTokensExpireIn(now()->addYear(1));
+        Passport::personalAccessTokensExpireIn(now()->addYear(1));*/
     }
 
     /**

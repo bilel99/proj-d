@@ -33,7 +33,7 @@ class ServicesSeeder extends Seeder
             ],
             [
                 'page_id' => 2,
-                'title' => 'Premium Healthcare',
+                'title' => 'Hospital...',
                 'content' => 'du lorem ipsum',
                 'icon' => 'fas fa-medkit',
             ],

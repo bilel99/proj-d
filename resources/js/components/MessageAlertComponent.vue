@@ -2,8 +2,9 @@
     <div v-if="getType(alert.types) === 'plain_text'">
         <div :class="getLevel(alert.levels)">
             <span class="block red">
-                <i :class="alert.icon"></i>&nbsp; {{ alert.title }}
+                <i :class="alert.icon"></i>&nbsp;{{ alert.title }}
             </span>
+            <p v-html="alert.content"></p>
         </div>
     </div>
 
@@ -60,8 +61,10 @@ export default {
                 case 2:
                     return 'alert-message alert-message-info'
                 case 3:
-                    return 'alert-message alert-message-warning'
+                    return 'alert-message alert-message-success'
                 case 4:
+                    return 'alert-message alert-message-warning'
+                case 5:
                     return 'alert-message alert-message-danger'
                 default:
                     return 'alert-message alert-message-info'
