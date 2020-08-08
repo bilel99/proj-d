@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7064d3c042c9534180995749f4bf98f9",
+    "content-hash": "6d000ae001283d68cd0aff5b9cc21427",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -106,6 +106,62 @@
                 "nova"
             ],
             "time": "2019-07-05T07:23:36+00:00"
+        },
+        {
+            "name": "beyondcode/nova-laravel-update-card",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beyondcode/nova-laravel-update-card.git",
+                "reference": "a60d860a5f8b235e5e72e47d2a84a459a26316b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beyondcode/nova-laravel-update-card/zipball/a60d860a5f8b235e5e72e47d2a84a459a26316b1",
+                "reference": "a60d860a5f8b235e5e72e47d2a84a459a26316b1",
+                "shasum": ""
+            },
+            "require": {
+                "composer/semver": "^1.4",
+                "knplabs/packagist-api": "^1.5",
+                "laravel/nova": "*",
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.6",
+                "phpunit/phpunit": "7.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Beyondcode\\LaravelUpdateCard\\CardServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Beyondcode\\LaravelUpdateCard\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Pociot",
+                    "email": "marcel@beyondco.de",
+                    "homepage": "https://beyondco.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel Nova card that shows you if you're running the latest Version of Laravel.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2018-08-22T11:32:55+00:00"
         },
         {
             "name": "brick/math",
@@ -354,6 +410,67 @@
                 "support"
             ],
             "time": "2020-07-19T18:05:30+00:00"
+        },
+        {
+            "name": "composer/semver",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/semver.git",
+                "reference": "c6bea70230ef4dd483e6bbcab6005f682ed3a8de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/semver/zipball/c6bea70230ef4dd483e6bbcab6005f682ed3a8de",
+                "reference": "c6bea70230ef4dd483e6bbcab6005f682ed3a8de",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.2 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.5 || ^5.0.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Semver\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nils Adermann",
+                    "email": "naderman@naderman.de",
+                    "homepage": "http://www.naderman.de"
+                },
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                },
+                {
+                    "name": "Rob Bast",
+                    "email": "rob.bast@gmail.com",
+                    "homepage": "http://robbast.nl"
+                }
+            ],
+            "description": "Semver library that offers utilities, version constraint parsing and validation.",
+            "keywords": [
+                "semantic",
+                "semver",
+                "validation",
+                "versioning"
+            ],
+            "time": "2020-01-13T12:06:48+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -657,20 +774,20 @@
         },
         {
             "name": "doctrine/event-manager",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/event-manager.git",
-                "reference": "629572819973f13486371cb611386eb17851e85c"
+                "reference": "41370af6a30faa9dc0368c4a6814d596e81aba7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/event-manager/zipball/629572819973f13486371cb611386eb17851e85c",
-                "reference": "629572819973f13486371cb611386eb17851e85c",
+                "url": "https://api.github.com/repos/doctrine/event-manager/zipball/41370af6a30faa9dc0368c4a6814d596e81aba7f",
+                "reference": "41370af6a30faa9dc0368c4a6814d596e81aba7f",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1"
+                "php": "^7.1 || ^8.0"
             },
             "conflict": {
                 "doctrine/common": "<2.9@dev"
@@ -729,7 +846,21 @@
                 "event system",
                 "events"
             ],
-            "time": "2019-11-10T09:48:07+00:00"
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fevent-manager",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-05-29T18:28:51+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -1489,6 +1620,59 @@
             "time": "2019-11-02T09:15:47+00:00"
         },
         {
+            "name": "knplabs/packagist-api",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/packagist-api.git",
+                "reference": "415e39a61ff584a00af6cec39870d2e1f4cf2f18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/packagist-api/zipball/415e39a61ff584a00af6cec39870d2e1f4cf2f18",
+                "reference": "415e39a61ff584a00af6cec39870d2e1f4cf2f18",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/inflector": "~1.0 || ~2.0",
+                "guzzlehttp/guzzle": "~6.0",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~5.1 || ~6.0",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Packagist\\Api\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                }
+            ],
+            "description": "Packagist API client.",
+            "homepage": "http://knplabs.com",
+            "keywords": [
+                "api",
+                "composer",
+                "packagist"
+            ],
+            "time": "2020-05-27T16:48:47+00:00"
+        },
+        {
             "name": "laminas/laminas-diactoros",
             "version": "2.3.1",
             "source": {
@@ -1642,16 +1826,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v7.22.4",
+            "version": "v7.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "30e851a2b3a2af73fba0b7f4fa22b04260db98e7"
+                "reference": "71bfb1f2f89e4e31fba539d43fe287143e635e68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/30e851a2b3a2af73fba0b7f4fa22b04260db98e7",
-                "reference": "30e851a2b3a2af73fba0b7f4fa22b04260db98e7",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/71bfb1f2f89e4e31fba539d43fe287143e635e68",
+                "reference": "71bfb1f2f89e4e31fba539d43fe287143e635e68",
                 "shasum": ""
             },
             "require": {
@@ -1795,7 +1979,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-07-27T18:25:06+00:00"
+            "time": "2020-08-07T15:13:57+00:00"
         },
         {
             "name": "laravel/nova",
@@ -2632,16 +2816,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.37.0",
+            "version": "2.38.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "1f61206de973d67f36ce50f041c792ddac663c3e"
+                "reference": "d8f6a6a91d1eb9304527b040500f61923e97674b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/1f61206de973d67f36ce50f041c792ddac663c3e",
-                "reference": "1f61206de973d67f36ce50f041c792ddac663c3e",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/d8f6a6a91d1eb9304527b040500f61923e97674b",
+                "reference": "d8f6a6a91d1eb9304527b040500f61923e97674b",
                 "shasum": ""
             },
             "require": {
@@ -2656,7 +2840,7 @@
                 "kylekatarnls/multi-tester": "^2.0",
                 "phpmd/phpmd": "^2.8",
                 "phpstan/extension-installer": "^1.0",
-                "phpstan/phpstan": "^0.12.30",
+                "phpstan/phpstan": "^0.12.35",
                 "phpunit/phpunit": "^7.5 || ^8.0",
                 "squizlabs/php_codesniffer": "^3.4"
             },
@@ -2717,7 +2901,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-28T06:04:54+00:00"
+            "time": "2020-08-04T19:12:46+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -2904,6 +3088,106 @@
                 "serialize"
             ],
             "time": "2020-06-17T14:59:55+00:00"
+        },
+        {
+            "name": "paquettg/php-html-parser",
+            "version": "2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paquettg/php-html-parser.git",
+                "reference": "668c770fc5724ea3f15b8791435f054835be8d5e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paquettg/php-html-parser/zipball/668c770fc5724ea3f15b8791435f054835be8d5e",
+                "reference": "668c770fc5724ea3f15b8791435f054835be8d5e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-mbstring": "*",
+                "ext-zlib": "*",
+                "paquettg/string-encode": "~1.0.0",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "infection/infection": "^0.13.4",
+                "mockery/mockery": "^1.2",
+                "phan/phan": "^2.4",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^7.5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PHPHtmlParser\\": "src/PHPHtmlParser"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gilles Paquette",
+                    "email": "paquettg@gmail.com",
+                    "homepage": "http://gillespaquette.ca"
+                }
+            ],
+            "description": "An HTML DOM parser. It allows you to manipulate HTML. Find tags on an HTML page with selectors just like jQuery.",
+            "homepage": "https://github.com/paquettg/php-html-parser",
+            "keywords": [
+                "dom",
+                "html",
+                "parser"
+            ],
+            "time": "2020-01-20T12:59:15+00:00"
+        },
+        {
+            "name": "paquettg/string-encode",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paquettg/string-encoder.git",
+                "reference": "a8708e9fac9d5ddfc8fc2aac6004e2cd05d80fee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paquettg/string-encoder/zipball/a8708e9fac9d5ddfc8fc2aac6004e2cd05d80fee",
+                "reference": "a8708e9fac9d5ddfc8fc2aac6004e2cd05d80fee",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "stringEncode": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gilles Paquette",
+                    "email": "paquettg@gmail.com",
+                    "homepage": "http://gillespaquette.ca"
+                }
+            ],
+            "description": "Facilitating the process of altering string encoding in PHP.",
+            "homepage": "https://github.com/paquettg/string-encoder",
+            "keywords": [
+                "charset",
+                "encoding",
+                "string"
+            ],
+            "time": "2018-12-21T02:25:09+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -3779,6 +4063,63 @@
                 }
             ],
             "time": "2020-07-28T16:51:01+00:00"
+        },
+        {
+            "name": "skydiver/nova-update-card",
+            "version": "1.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/skydiver/nova-update-card.git",
+                "reference": "83658979edbc4c6b43df2a3ce34b775b155e6e85"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/skydiver/nova-update-card/zipball/83658979edbc4c6b43df2a3ce34b775b155e6e85",
+                "reference": "83658979edbc4c6b43df2a3ce34b775b155e6e85",
+                "shasum": ""
+            },
+            "require": {
+                "composer/semver": "^1.4",
+                "knplabs/packagist-api": "^1.5",
+                "laravel/nova": "*",
+                "paquettg/php-html-parser": "^2.1",
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.6",
+                "phpunit/phpunit": "7.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Skydiver\\NovaUpdateCard\\CardServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Skydiver\\NovaUpdateCard\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Pociot",
+                    "email": "marcel@beyondco.de",
+                    "homepage": "https://beyondco.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel Nova card that shows you if you're running the latest Version of Laravel.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2019-12-12T03:14:49+00:00"
         },
         {
             "name": "spatie/once",
@@ -4772,7 +5113,7 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
@@ -4848,7 +5189,7 @@
         },
         {
             "name": "symfony/polyfill-iconv",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-iconv.git",
@@ -4925,7 +5266,7 @@
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-grapheme.git",
@@ -5003,7 +5344,7 @@
         },
         {
             "name": "symfony/polyfill-intl-icu",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-icu.git",
@@ -5079,16 +5420,16 @@
         },
         {
             "name": "symfony/polyfill-intl-idn",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-idn.git",
-                "reference": "bc6549d068d0160e0f10f7a5a23c7d1406b95ebe"
+                "reference": "5dcab1bc7146cf8c1beaa4502a3d9be344334251"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/bc6549d068d0160e0f10f7a5a23c7d1406b95ebe",
-                "reference": "bc6549d068d0160e0f10f7a5a23c7d1406b95ebe",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/5dcab1bc7146cf8c1beaa4502a3d9be344334251",
+                "reference": "5dcab1bc7146cf8c1beaa4502a3d9be344334251",
                 "shasum": ""
             },
             "require": {
@@ -5160,11 +5501,11 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-14T12:35:20+00:00"
+            "time": "2020-08-04T06:02:08+00:00"
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
@@ -5245,7 +5586,7 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
@@ -5322,7 +5663,7 @@
         },
         {
             "name": "symfony/polyfill-php70",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php70.git",
@@ -5399,7 +5740,7 @@
         },
         {
             "name": "symfony/polyfill-php72",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php72.git",
@@ -5472,7 +5813,7 @@
         },
         {
             "name": "symfony/polyfill-php73",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php73.git",
@@ -5548,7 +5889,7 @@
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
@@ -7752,12 +8093,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "38ea77863c1b13199948363e9cf7f7dd35a06e37"
+                "reference": "2ef1995958f6434d5d408d7baa6612c7d239cc54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/38ea77863c1b13199948363e9cf7f7dd35a06e37",
-                "reference": "38ea77863c1b13199948363e9cf7f7dd35a06e37",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/2ef1995958f6434d5d408d7baa6612c7d239cc54",
+                "reference": "2ef1995958f6434d5d408d7baa6612c7d239cc54",
                 "shasum": ""
             },
             "conflict": {
@@ -7861,6 +8202,7 @@
                 "october/backend": ">=1.0.319,<1.0.467",
                 "october/cms": ">=1.0.319,<1.0.466",
                 "october/october": ">=1.0.319,<1.0.466",
+                "october/rain": ">=1.0.319,<1.0.468",
                 "onelogin/php-saml": "<2.10.4",
                 "oneup/uploader-bundle": "<1.9.3|>=2,<2.1.5",
                 "openid/php-openid": "<2.3",
@@ -7920,6 +8262,7 @@
                 "ssddanbrown/bookstack": "<0.29.2",
                 "stormpath/sdk": ">=0,<9.9.99",
                 "studio-42/elfinder": "<2.1.49",
+                "sulu/sulu": "<1.6.34|>=2,<2.0.10|>=2.1,<2.1.1",
                 "swiftmailer/swiftmailer": ">=4,<5.4.5",
                 "sylius/admin-bundle": ">=1,<1.0.17|>=1.1,<1.1.9|>=1.2,<1.2.2",
                 "sylius/grid": ">=1,<1.1.19|>=1.2,<1.2.18|>=1.3,<1.3.13|>=1.4,<1.4.5|>=1.5,<1.5.1",
@@ -8037,7 +8380,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-31T18:02:22+00:00"
+            "time": "2020-08-05T22:02:01+00:00"
         },
         {
             "name": "scrivo/highlight.php",
