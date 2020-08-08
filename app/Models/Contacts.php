@@ -57,15 +57,6 @@ class Contacts extends BasesModel
     }
 
     /**
-     * @param string $date
-     * @return string
-     */
-    public static function getCreatedAtAttribute(string $date): string
-    {
-        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d H:i:s');
-    }
-
-    /**
      * @param $phoneNumber
      * @return string
      */
