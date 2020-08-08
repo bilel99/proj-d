@@ -9,7 +9,13 @@
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "build-generatornewpassword": "cd nova-components/Generatornewpassword && npm run dev",
-        "build-generatornewpassword-prod": "cd nova-components/Generatornewpassword && npm run prod"
+        "build-generatornewpassword-prod": "cd nova-components/Generatornewpassword && npm run prod",
+        "build-contactcard": "cd nova-components/Contactcard && npm run dev",
+        "build-contactcard-prod": "cd nova-components/Contactcard && npm run prod",
+        "build-doctorinfocard": "cd nova-components/Doctorinfocard && npm run dev",
+        "build-doctorinfocard-prod": "cd nova-components/Doctorinfocard && npm run prod",
+        "build-doctorsinfoscard": "cd nova-components/Doctorsinfoscard && npm run dev",
+        "build-doctorsinfoscard-prod": "cd nova-components/Doctorsinfoscard && npm run prod"
     },
     "devDependencies": {
         "axios": "^0.19",
