@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Laravel\Passport\HasApiTokens;
 
@@ -36,7 +37,7 @@ class Contacts extends BasesModel
     ];
 
     /**
-     * @var string[] 
+     * @var string[]
      */
     protected $casts = [
         'date_consultation' => 'date',
@@ -56,10 +57,19 @@ class Contacts extends BasesModel
     }
 
     /**
+     * @param string $date
+     * @return string
+     */
+    public static function getCreatedAtAttribute(string $date): string
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d H:i:s');
+    }
+
+    /**
      * @param $phoneNumber
      * @return string
      */
-    public function getPhoneFormated($phoneNumber): string 
+    public function getPhoneFormated($phoneNumber): string
     {
         if ($phoneNumber) {
             return

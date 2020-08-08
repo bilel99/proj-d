@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d000ae001283d68cd0aff5b9cc21427",
+    "content-hash": "b7cadb8abbdedd1799a9b86dfcf3f7a7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -471,6 +471,39 @@
                 "versioning"
             ],
             "time": "2020-01-13T12:06:48+00:00"
+        },
+        {
+            "name": "ddg/contactcard",
+            "version": "dev-card-component-nova",
+            "dist": {
+                "type": "path",
+                "url": "./nova-components/Contactcard",
+                "reference": "1a976fd261fe0941ebcacb02552a8538aac21b2b"
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Ddg\\Contactcard\\CardServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ddg\\Contactcard\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova card.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ]
         },
         {
             "name": "defuse/php-encryption",

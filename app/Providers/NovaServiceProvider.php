@@ -8,6 +8,7 @@ use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 use Skydiver\NovaUpdateCard\LaravelUpdateCard;
 use Skydiver\NovaUpdateCard\NovaUpdateCard;
+use Ddg\Contactcard\Contactcard;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -61,6 +62,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             //new Help, <== page initialization Laravel Nova
             (new LaravelUpdateCard)->width('1/2'),
             (new NovaUpdateCard)->width('1/2'),
+            (new Contactcard)->width('1/2'),
         ];
     }
 
