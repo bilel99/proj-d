@@ -24,7 +24,8 @@
         "laravel/ui": "^2.0",
         "mdixon18/fontawesome": "^0.1.1",
         "skydiver/nova-update-card": "^1.4",
-        "ddg/contactcard": "*"
+        "ddg/contactcard": "*",
+        "ddg/doctorsinfoscard": "*"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",
@@ -52,6 +53,10 @@
         {
             "type": "path",
             "url": "./nova-components/Contactcard"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/Doctorsinfoscard"
         }
     ],
     "autoload": {

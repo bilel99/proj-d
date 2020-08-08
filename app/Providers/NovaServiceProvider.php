@@ -9,6 +9,7 @@ use Laravel\Nova\NovaApplicationServiceProvider;
 use Skydiver\NovaUpdateCard\LaravelUpdateCard;
 use Skydiver\NovaUpdateCard\NovaUpdateCard;
 use Ddg\Contactcard\Contactcard;
+use Ddg\Doctorsinfoscard\Doctorsinfoscard;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -63,6 +64,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             (new LaravelUpdateCard)->width('1/2'),
             (new NovaUpdateCard)->width('1/2'),
             (new Contactcard)->width('1/2'),
+            (new Doctorsinfoscard)->width('1/2'),
         ];
     }
 

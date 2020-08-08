@@ -13,7 +13,9 @@
         "build-contactcard": "cd nova-components/Contactcard && npm run dev",
         "build-contactcard-prod": "cd nova-components/Contactcard && npm run prod",
         "build-doctorinfocard": "cd nova-components/Doctorinfocard && npm run dev",
-        "build-doctorinfocard-prod": "cd nova-components/Doctorinfocard && npm run prod"
+        "build-doctorinfocard-prod": "cd nova-components/Doctorinfocard && npm run prod",
+        "build-doctorsinfoscard": "cd nova-components/Doctorsinfoscard && npm run dev",
+        "build-doctorsinfoscard-prod": "cd nova-components/Doctorsinfoscard && npm run prod"
     },
     "devDependencies": {
         "axios": "^0.19",
