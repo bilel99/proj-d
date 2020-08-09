@@ -63,7 +63,8 @@
                                 <ul class="navbar-nav ml-auto py-4 py-md-0">
                                     @foreach(config('docteurs_gardes.navbar') as $item)
                                         <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                            <a class="nav-link" href="{{ $item['hash'] }}">
+                                            <a class="nav-link"
+                                               href="{{ (Request::is('/')) ? $item['hash'] : route('front.homepage') . $item['hash'] }}">
                                                 {{ __('globals.website.navbar.' . $item['name']) }}
                                             </a>
                                         </li>

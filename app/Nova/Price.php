@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Models\Pages;
 use App\Models\Prices as PriceModel;
 use Ek0519\Quilljs\Quilljs;
 use Illuminate\Http\Request;
@@ -76,8 +77,7 @@ class Price extends Resource
                 ->height(300)
                 ->tooltip(true)
                 ->placeholder('Vous pouvez rentrer votre titre ici ...')
-                ->rules('nullable')
-                ->hideFromIndex(),
+                ->rules('nullable'),
 
             Quilljs::make(__('globals.attributes.content_row_1'), 'content_row_1')
                 ->withFiles('public')
@@ -104,8 +104,13 @@ class Price extends Resource
      */
     public function relationsPanel(): array
     {
+        $pagePrice = Pages::getPage(Pages::PAGE_TARIFS);
         return [
-            BelongsTo::make('Page'),
+            BelongsTo::make('page', 'page', Page::class)
+                ->withMeta([
+                    'belongsToId' => $pagePrice->id // default value for the select
+                ])
+                ->readonly(),
         ];
     }
 

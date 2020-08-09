@@ -49,7 +49,7 @@
 
         <div class="row">
             <div class="col-md-12 mt-2 mt-sm-2">
-                <p class="text-center">Copyright © 2020. nom_société.</p>
+                <p class="text-center">Copyright © {{ date('Y') }} - {{ config('app.name') }}.</p>
             </div>
         </div>
     </div>

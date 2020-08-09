@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
 use Mdixon18\Fontawesome\Fontawesome;
+use App\Nova\MedicalHouse;
 
 class InfoMedHouse extends Resource
 {
@@ -102,7 +103,7 @@ class InfoMedHouse extends Resource
     public function MedicalHousePanel(): array
     {
         return [
-            BelongsTo::make('MedicalHouse'),
+            BelongsTo::make('Maison médical', 'MedicalHouse', MedicalHouse::class),
         ];
     }
 

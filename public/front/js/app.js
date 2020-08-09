@@ -113,7 +113,7 @@ var contactsUrl = document.querySelector('#app').getAttribute('data-contacts-url
   pricesAnimate();
   medicalHouseAnimate();
   sectionContactAnimation();
-  informationAnimate(); //detailPageAppointement()
+  informationAnimate();
 })(jQuery);
 /**
  * Disable copy and disable paste
@@ -384,10 +384,6 @@ function pricesAnimate() {
     content.css({
       opacity: 1
     });
-    var alert = jQuery('#prices .page-alert-message');
-    alert.css({
-      opacity: 1
-    });
     var table = jQuery('#prices .prices-table');
     table.css({
       opacity: 1
@@ -481,13 +477,6 @@ function medicalHouseAnimate() {
           opacity: 1
         });
         hr.addClass('animate__animated animate__zoomIn');
-        setInterval(function () {
-          var medicalHouse = jQuery('#medical-house .medical-house');
-          medicalHouse.css({
-            opacity: 1
-          });
-          medicalHouse.addClass('animate__animated animate__zoomIn');
-        }, 100);
       }
     });
   }

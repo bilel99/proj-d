@@ -291,7 +291,7 @@ h5 {
 h6 {
   font-size: 14px;
   color: black;
-  font-family: "Agrandir-Thin", "Arial", sans-serif;
+  font-family: "Agrandir-Regular", "Arial", sans-serif;
 }
 
 /* Paragraph */
@@ -13021,9 +13021,9 @@ hr.botm-line {
 .bg-color {
   /* FF3.6-15 */
   /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, rgba(7, 36, 83, 0.7) 0%, rgba(130, 99, 8, 0.7) 100%);
+  background: linear-gradient(to bottom, rgba(130, 99, 8, 0.7) 0%, rgba(7, 36, 83, 0.7) 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#B3072453", endColorstr="#B3826308", GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#B3826308", endColorstr="#B3072453", GradientType=0);
   /* IE6-9 */
   min-height: 750px;
 }
@@ -13075,7 +13075,10 @@ footer {
   width: 100%;
   bottom: 0;
   padding: 60px 0;
-  background: white;
+  /* FF3.6-15 */
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(0.5turn, rgba(7, 36, 83, 0.4) 0%, rgba(235, 248, 225, 0.4) 50%, rgba(130, 99, 8, 0.4) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 footer h5 {
@@ -13347,10 +13350,6 @@ footer ul.quick-links li:hover a i {
   opacity: 0;
 }
 
-#prices .page-alert-message {
-  opacity: 0;
-}
-
 #prices .page-btn {
   opacity: 0;
 }
@@ -13375,10 +13374,6 @@ footer ul.quick-links li:hover a i {
 }
 
 #medical-house .page-content {
-  opacity: 0;
-}
-
-#medical-house .medical-house {
   opacity: 0;
 }
 
@@ -14026,7 +14021,7 @@ form textarea {
 
 .header-area .nav-link {
   color: #072453 !important;
-  font-family: "Agrandir-Thin", "Arial", sans-serif;
+  font-family: "Agrandir-TextBold", "Arial", sans-serif;
   transition: all 200ms linear;
 }
 
