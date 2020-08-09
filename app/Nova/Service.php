@@ -2,6 +2,8 @@
 
 namespace App\Nova;
 
+use App\Models\Pages;
+use App\Models\Services;
 use App\Models\Services as ServiceModel;
 use Benjaminhirsch\NovaSlugField\TextWithSlug;
 use Ek0519\Quilljs\Quilljs;
@@ -61,6 +63,7 @@ class Service extends Resource
      */
     public function fields(Request $request)
     {
+        $pageService = Pages::getPage(Pages::PAGE_NOS_SERVICES);
         return [
             ID::make()->sortable(),
 
@@ -88,7 +91,11 @@ class Service extends Resource
                 ->rules('nullable')
                 ->hideFromIndex(),
 
-            BelongsTo::make('page'),
+            BelongsTo::make('page', 'page', Page::class)
+                ->withMeta([
+                    'belongsToId' => $pageService->id // default value for the select
+                ])
+                ->readonly(),
         ];
     }
 

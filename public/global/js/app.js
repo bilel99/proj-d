@@ -2747,7 +2747,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 var basicAuthUsername = 'docteur-de-garde';
 var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2757,7 +2756,6 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
       classSection: String,
       apiData: String,
       routePage: String,
-      imgDefault: String,
       media: String,
       page: {},
       information: {}
@@ -2772,7 +2770,6 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
     this.classId = this.$el.getAttribute('class_id');
     this.classSection = this.$el.getAttribute('class_section');
     this.routePage = this.$el.getAttribute('route_page');
-    this.imgDefault = this.$el.getAttribute('img_default');
     this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
 
     axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
@@ -53134,114 +53131,118 @@ var render = function() {
             _c("hr", { staticClass: "botm-line page-botm-line" })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "information col-lg-6 col-md-12" }, [
-            _c(
-              "div",
-              {
-                staticClass: "panel-group",
-                attrs: {
-                  id: "accordion",
-                  role: "tablist",
-                  "aria-multiselectable": "true"
-                }
-              },
-              _vm._l(_vm.information, function(item, index) {
-                return _c("div", { staticClass: "panel panel-default" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "panel-heading",
-                      attrs: { role: "tab", id: "heading-" + item.id }
-                    },
-                    [
-                      _c("h4", { staticClass: "panel-title" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "collapsed",
-                            attrs: {
-                              role: "button",
-                              "data-toggle": "collapse",
-                              "data-parent": "#accordion",
-                              href: "#collapse-" + item.id,
-                              "aria-expanded": "false",
-                              "aria-controls": "collapse-" + item.id
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                    " +
-                                _vm._s(item.title) +
-                                "\n                                "
-                            )
-                          ]
-                        )
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "panel-collapse collapse in",
-                      attrs: {
-                        id: "collapse-" + item.id,
-                        role: "tabpanel",
-                        "aria-labelledby": "heading-" + item.id
-                      }
-                    },
-                    [
-                      _c("div", { staticClass: "panel-body" }, [
-                        _c("p", {
-                          domProps: { innerHTML: _vm._s(item.content) }
-                        }),
-                        _vm._v(" "),
-                        item.id === 1
-                          ? _c(
-                              "div",
-                              [
-                                _c("horaire-component", {
-                                  attrs: { api_data: _vm.apiData }
-                                })
-                              ],
-                              1
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        item.alert_id !== null
-                          ? _c(
-                              "div",
-                              [
-                                _c("message-alert-component", {
-                                  attrs: {
-                                    alert_id: item.alert_id,
-                                    api_data: _vm.apiData
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          : _vm._e()
-                      ])
-                    ]
-                  )
-                ])
-              }),
-              0
-            )
-          ]),
-          _vm._v(" "),
-          _vm.media !== null || _vm.imgDefault !== ""
-            ? _c("div", { staticClass: "col-lg-6" }, [
+          _c(
+            "div",
+            {
+              class:
                 _vm.media !== null
-                  ? _c("img", {
-                      staticClass: "img-responsive page-media",
-                      attrs: { src: _vm.media, alt: "logo information" }
-                    })
-                  : _c("img", {
-                      staticClass: "img-responsive page-media",
-                      attrs: { src: _vm.imgDefault, alt: "logo information" }
-                    })
+                  ? "information col-lg-6 col-md-12"
+                  : "information col-12"
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "panel-group",
+                  attrs: {
+                    id: "accordion",
+                    role: "tablist",
+                    "aria-multiselectable": "true"
+                  }
+                },
+                _vm._l(_vm.information, function(item, index) {
+                  return _c("div", { staticClass: "panel panel-default" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "panel-heading",
+                        attrs: { role: "tab", id: "heading-" + item.id }
+                      },
+                      [
+                        _c("h4", { staticClass: "panel-title" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "collapsed",
+                              attrs: {
+                                role: "button",
+                                "data-toggle": "collapse",
+                                "data-parent": "#accordion",
+                                href: "#collapse-" + item.id,
+                                "aria-expanded": "false",
+                                "aria-controls": "collapse-" + item.id
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(item.title) +
+                                  "\n                                "
+                              )
+                            ]
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "panel-collapse collapse in",
+                        attrs: {
+                          id: "collapse-" + item.id,
+                          role: "tabpanel",
+                          "aria-labelledby": "heading-" + item.id
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "panel-body" }, [
+                          _c("p", {
+                            domProps: { innerHTML: _vm._s(item.content) }
+                          }),
+                          _vm._v(" "),
+                          item.id === 1
+                            ? _c(
+                                "div",
+                                [
+                                  _c("horaire-component", {
+                                    attrs: { api_data: _vm.apiData }
+                                  })
+                                ],
+                                1
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          item.alert_id !== null
+                            ? _c(
+                                "div",
+                                [
+                                  _c("message-alert-component", {
+                                    attrs: {
+                                      alert_id: item.alert_id,
+                                      api_data: _vm.apiData
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            : _vm._e()
+                        ])
+                      ]
+                    )
+                  ])
+                }),
+                0
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _vm.media !== null
+            ? _c("div", { staticClass: "col-lg-6" }, [
+                _c("img", {
+                  staticClass: "img-responsive page-media",
+                  attrs: { src: _vm.media, alt: "logo information" }
+                })
               ])
             : _vm._e()
         ])
@@ -53391,7 +53392,7 @@ var render = function() {
                                 ),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "media-body" }, [
-                                  _c("h4", [_vm._v(_vm._s(item.title))]),
+                                  _c("h6", [_vm._v(_vm._s(item.title))]),
                                   _vm._v(" "),
                                   _c("p", {
                                     staticClass: "text-small text-muted",

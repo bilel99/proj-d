@@ -93,7 +93,8 @@ class Page extends Resource
                 ->hideFromIndex(),
 
             Slug::make('unique_name')
-                ->disableAutoUpdateWhenUpdating(),
+                ->disableAutoUpdateWhenUpdating()
+                ->readonly(),
         ];
     }
 
@@ -103,13 +104,13 @@ class Page extends Resource
     public function relationsPanel(): array
     {
         return [
-            BelongsToMany::make('alerts'),
+            BelongsToMany::make('Messages d\'alertes', 'alerts', Alert::class),
             
-            HasMany::make('service'),
+            HasMany::make('Services', 'service', Service::class),
 
-            HasMany::make('medicalHouse'),
+            HasMany::make('Maison médical', 'medicalHouse', MedicalHouse::class),
 
-            HasMany::make('price'),
+            HasMany::make('Prix', 'price', Price::class),
         ];
     }
 

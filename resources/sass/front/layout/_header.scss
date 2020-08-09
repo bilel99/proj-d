@@ -44,7 +44,7 @@
 }
 
 .bg-color{
-  @include linear-gradient($color1, $color2, 0.70);
+  @include linear-gradient($color2, $color1, 0.70);
   min-height: 750px;
 }
 

@@ -19,7 +19,6 @@ const contactsUrl = document.querySelector('#app').getAttribute('data-contacts-u
     medicalHouseAnimate()
     sectionContactAnimation()
     informationAnimate()
-    //detailPageAppointement()
 })(jQuery)
 
 /**
@@ -256,9 +255,6 @@ function pricesAnimate() {
         let content = jQuery('#prices .page-content')
         content.css({opacity: 1})
 
-        let alert = jQuery('#prices .page-alert-message')
-        alert.css({opacity: 1})
-
         let table = jQuery('#prices .prices-table')
         table.css({opacity: 1})
 
@@ -332,12 +328,6 @@ function medicalHouseAnimate() {
                 let hr = jQuery('#medical-house .page-botm-line')
                 hr.css({opacity: 1})
                 hr.addClass('animate__animated animate__zoomIn')
-
-                setInterval(() => {
-                    let medicalHouse = jQuery('#medical-house .medical-house')
-                    medicalHouse.css({opacity: 1})
-                    medicalHouse.addClass('animate__animated animate__zoomIn')
-                }, 100)
             }
         });
     }

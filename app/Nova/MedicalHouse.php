@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use App\Models\MedicalHouses as MedicalHouseModel;
+use App\Models\Pages;
 use Ek0519\Quilljs\Quilljs;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
@@ -69,6 +70,8 @@ class MedicalHouse extends Resource
 
     public function infoPrincPanel(): array
     {
+        $pageMedicalHouse = Pages::getPage(Pages::PAGE_MAISON_MEDICAL_GARDE);
+
         return [
             ID::make()->sortable(),
 
@@ -98,14 +101,18 @@ class MedicalHouse extends Resource
                 ->rules('nullable')
                 ->hideFromIndex(),
 
-            BelongsTo::make('page'),
+            BelongsTo::make('page', 'page', Page::class)
+                ->withMeta([
+                    'belongsToId' => $pageMedicalHouse->id // default value for the select
+                ])
+                ->readonly(),
         ];
     }
 
     public function infosMedicalHousePanel(): array
     {
         return [
-            HasMany::make('InfoMedHouse'),
+            HasMany::make('Information maison médical', 'InfoMedHouse', InfoMedHouse::class),
         ];
     }
 

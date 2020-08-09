@@ -7,7 +7,7 @@
                     <hr class="botm-line page-botm-line">
                 </div>
 
-                <div class="information col-lg-6 col-md-12">
+                <div :class="media !== null ? 'information col-lg-6 col-md-12' : 'information col-12'">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div v-for="(item, index) in information" class="panel panel-default">
                             <div class="panel-heading" role="tab" :id="'heading-' + item.id">
@@ -39,9 +39,8 @@
                     </div>
                 </div>
 
-                <div v-if="media !== null || imgDefault !== ''" class="col-lg-6">
-                    <img v-if="media !== null" :src="media" class="img-responsive page-media" alt="logo information">
-                    <img v-else :src="imgDefault" class="img-responsive page-media" alt="logo information">
+                <div v-if="media !== null" class="col-lg-6">
+                    <img :src="media" class="img-responsive page-media" alt="logo information">
                 </div>
             </div>
         </div>
@@ -59,7 +58,6 @@ export default {
             classSection: String,
             apiData: String,
             routePage: String,
-            imgDefault: String,
             media: String,
             page: {},
             information: {},
@@ -72,7 +70,6 @@ export default {
         this.classId = this.$el.getAttribute('class_id')
         this.classSection = this.$el.getAttribute('class_section')
         this.routePage = this.$el.getAttribute('route_page')
-        this.imgDefault = this.$el.getAttribute('img_default')
         this.apiData = document.querySelector('#app').getAttribute('data-base-api')
 
         // Get Api

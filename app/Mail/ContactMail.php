@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Society;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -12,13 +13,18 @@ class ContactMail extends Mailable
     use Queueable, SerializesModels;
 
     /**
+     * @var Society
+     */
+    protected Society $society;
+
+    /**
      * Create a new message instance.
      *
-     * @return void
+     * @param Society $society
      */
-    public function __construct()
+    public function __construct(Society $society)
     {
-        //
+        $this->society = $society;
     }
 
     /**
@@ -29,7 +35,11 @@ class ContactMail extends Mailable
     public function build()
     {
         return $this
-            ->from(config('docteurs_gardes.email_docteur_de_garde', ''))
+            ->from(
+                $this->society === null ? 
+                    config('docteurs_gardes.email_docteur_de_garde', '') :
+                    $this->society->email
+            )
             ->subject(__('globals.email.subject'))
             ->markdown('email.contact');
     }

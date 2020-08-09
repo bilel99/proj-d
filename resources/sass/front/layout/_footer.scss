@@ -9,7 +9,7 @@ footer {
   width: 100%;
   bottom: 0;
   padding: 60px 0;
-  background: white;
+  @include inline-linear-gradient-turn(0.50turn, $color1, #ebf8e1, $color2, 0.4);
 
   h5 {
     padding-left: 10px;

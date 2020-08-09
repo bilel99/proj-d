@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Mail\ContactMail;
 use App\Models\Contacts;
 use App\Models\Doctors;
+use App\Models\Society;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -91,12 +92,12 @@ class ContactController extends BaseResourceController
         $contact->save();
 
         // Send mail
-        // config('docteurs_gardes.email_docteur_de_garde', '')
-        Mail::to('bilel.bekkouche@gmail.com')
-            ->send(new ContactMail());
+        $society = Society::first();
+        
+        Mail::to($contact->email)
+            ->send(new ContactMail($society));
 
-        // Accused Email
-        // ...
+        // @todo faut t'il un accusé de reception ?
 
         return response()->json([
             'data' => $contact,
