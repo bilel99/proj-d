@@ -25,9 +25,9 @@ class UserSeeder extends Seeder
             [
                 'civility' => 'Mr',
                 'name' => 'Amin',
-                'firstname' => 'Dddd',
+                'firstname' => 'Ddd',
                 'email' => 'amin.d@gmail.com',
-                'password' => Hash::make('bilel999'),
+                'password' => Hash::make('amin999'),
                 'status' => User::STATUS_ACTIF,
             ],
         ];
