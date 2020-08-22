@@ -28,8 +28,7 @@
 </template>
 
 <script>
-const basicAuthUsername = 'docteur-de-garde'
-const basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e'
+const access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e'
 
 export default {
     data() {
@@ -52,12 +51,7 @@ export default {
         this.routePage = this.$el.getAttribute('route_name')
 
         // Get Api  
-        axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
-            auth: {
-                username: basicAuthUsername,
-                password: basicAuthPassword
-            }
-        })
+        axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token)
         .then((response) => {
             const data = response.data
             this.page = data.data

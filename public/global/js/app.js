@@ -1937,8 +1937,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var basicAuthUsername = 'docteur-de-garde';
-var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1961,12 +1960,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
     this.apiData = document.querySelector('#app').getAttribute('data-base-api');
     this.routePage = this.$el.getAttribute('route_name'); // Get Api  
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
-      auth: {
-        username: basicAuthUsername,
-        password: basicAuthPassword
-      }
-    }).then(function (response) {
+    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
       var data = response.data;
       _this.page = data.data;
       _this.media = data.media;
@@ -2000,8 +1994,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var basicAuthUsername = 'docteur-de-garde';
-var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2026,12 +2019,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
     this.imgDefault = this.$el.getAttribute('img_default');
     this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
-      auth: {
-        username: basicAuthUsername,
-        password: basicAuthPassword
-      }
-    }).then(function (response) {
+    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
       var data = response.data;
       _this.page = data.data;
       _this.media = data.media;
@@ -2379,8 +2367,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 luxon__WEBPACK_IMPORTED_MODULE_3__["Settings"].defaultLocale = 'fr';
-var basicAuthUsername = 'docteur-de-garde';
-var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     datetime: vue_datetime__WEBPACK_IMPORTED_MODULE_1__["Datetime"],
@@ -2428,11 +2415,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
       var _this = this;
 
       // POST Api
-      axios.post(this.apiData + 'contact/form-create', {
-        auth: {
-          username: basicAuthUsername,
-          password: basicAuthPassword
-        },
+      axios.post(this.apiData + 'contact/form-create?access_token=' + access_token, {
         // FormData
         objet_demande: this.objet_demande.key,
         civility: this.civility.key,
@@ -2509,12 +2492,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
 
     this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
 
-    axios.get(this.apiData + 'get-elements-to-contact', {
-      auth: {
-        username: basicAuthUsername,
-        password: basicAuthPassword
-      }
-    }).then(function (response) {
+    axios.get(this.apiData + 'get-elements-to-contact' + '?access_token=' + access_token).then(function (response) {
       var data = response.data;
       _this2.contactElm = data; // Create Option array to objDemandeOptions
 
@@ -2587,8 +2565,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var basicAuthUsername = 'docteur-de-garde';
-var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2619,12 +2596,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
     this.apiData = document.querySelector('#app').getAttribute('data-base-api');
     this.routeContact = this.$el.getAttribute('route_contact'); // Get Api
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
-      auth: {
-        username: basicAuthUsername,
-        password: basicAuthPassword
-      }
-    }).then(function (response) {
+    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
       var data = response.data;
       _this.heroBanner = data.data;
       _this.media = data.media;
@@ -2657,8 +2629,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var basicAuthUsername = 'docteur-de-garde';
-var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2673,12 +2644,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
 
     this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
 
-    axios.get(this.apiData + 'horaire', {
-      auth: {
-        username: basicAuthUsername,
-        password: basicAuthPassword
-      }
-    }).then(function (response) {
+    axios.get(this.apiData + 'horaire' + '?access_token=' + access_token).then(function (response) {
       var data = response.data;
       _this.hours = data.data;
     })["catch"](function (error) {
@@ -2747,8 +2713,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var basicAuthUsername = 'docteur-de-garde';
-var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2772,12 +2737,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
     this.routePage = this.$el.getAttribute('route_page');
     this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
-      auth: {
-        username: basicAuthUsername,
-        password: basicAuthPassword
-      }
-    }).then(function (response) {
+    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
       var data = response.data;
       _this.page = data.data;
       _this.media = data.media;
@@ -2785,12 +2745,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
       console.log(error);
     }); // Get Api
 
-    axios.get(this.apiData + 'get-all-informations', {
-      auth: {
-        username: basicAuthUsername,
-        password: basicAuthPassword
-      }
-    }).then(function (response) {
+    axios.get(this.apiData + 'get-all-informations' + '?access_token=' + access_token).then(function (response) {
       var data = response.data;
       _this.information = data.data;
     })["catch"](function (error) {
@@ -2873,8 +2828,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var basicAuthUsername = 'docteur-de-garde';
-var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2896,12 +2850,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
       var _this = this;
 
       // Get Api
-      axios.get(this.apiData + 'get-relations-house/' + houseId, {
-        auth: {
-          username: basicAuthUsername,
-          password: basicAuthPassword
-        }
-      }).then(function (response) {
+      axios.get(this.apiData + 'get-relations-house/' + houseId + '?access_token=' + access_token).then(function (response) {
         var data = response.data;
         _this.house = data.data;
       })["catch"](function (error) {
@@ -2918,12 +2867,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
     this.imgDefault = this.$el.getAttribute('img_default');
     this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
-      auth: {
-        username: basicAuthUsername,
-        password: basicAuthPassword
-      }
-    }).then(function (response) {
+    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
       var data = response.data;
       _this2.page = data.data;
       _this2.media = data.media; // medical_house key is not empty
@@ -2981,8 +2925,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var basicAuthUsername = 'docteur-de-garde';
-var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3036,12 +2979,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
 
     this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
 
-    axios.get(this.apiData + 'alert/' + this.alert_id, {
-      auth: {
-        username: basicAuthUsername,
-        password: basicAuthPassword
-      }
-    }).then(function (response) {
+    axios.get(this.apiData + 'alert/' + this.alert_id + '?access_token=' + access_token).then(function (response) {
       var data = response.data;
       _this.alert = data.data;
     })["catch"](function (error) {
@@ -3102,8 +3040,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var basicAuthUsername = 'docteur-de-garde';
-var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3128,12 +3065,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
     this.apiData = document.querySelector('#app').getAttribute('data-base-api');
     this.routePage = this.$el.getAttribute('route_page'); // Get Api
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
-      auth: {
-        username: basicAuthUsername,
-        password: basicAuthPassword
-      }
-    }).then(function (response) {
+    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
       var data = response.data;
       _this.page = data.data;
       _this.media = data.media;
@@ -3215,8 +3147,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var basicAuthUsername = 'docteur-de-garde';
-var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3241,12 +3172,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
     this.routePage = this.$el.getAttribute('route_page');
     this.isButton = this.$el.getAttribute('is_button'); // Get Api
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
-      auth: {
-        username: basicAuthUsername,
-        password: basicAuthPassword
-      }
-    }).then(function (response) {
+    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
       var data = response.data;
       _this.page = data.data;
       _this.price = data.data.price;
@@ -3302,8 +3228,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var basicAuthUsername = 'docteur-de-garde';
-var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3319,12 +3244,7 @@ var basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1J
 
     this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
-      auth: {
-        username: basicAuthUsername,
-        password: basicAuthPassword
-      }
-    }).then(function (response) {
+    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
       var data = response.data;
       _this.page = data.data;
     })["catch"](function (error) {

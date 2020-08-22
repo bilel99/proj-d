@@ -26,16 +26,21 @@
      data-prices-url="{{ route('front.prices') }}"
      data-contacts-url="{{ route('front.contacts') }}">
     <main>
-        @include('front.layouts.partials._header')
+        @if(isset($pages_is_empty) && $pages_is_empty)
+            @include('front.layouts.partials._page_is_empty')
+        @else
+            {{-- Web layout --}}
+            @include('front.layouts.partials._header')
 
-        @yield('content')
+            @yield('content')
 
-        @include('front.layouts.partials._footers')
+            @include('front.layouts.partials._footers')
 
-        <!-- floating button -->
-        <a href="#" id="back-to-top" class="btn-float">
-            <i class="fas fa-arrow-up position-center" style="color: white;"></i>
-        </a>
+            <!-- floating button -->
+            <a href="#" id="back-to-top" class="btn-float">
+                <i class="fas fa-arrow-up position-center" style="color: white;"></i>
+            </a>
+        @endif
     </main>
 </div>
 </body>

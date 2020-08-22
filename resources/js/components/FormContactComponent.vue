@@ -303,8 +303,7 @@ import Multiselect from 'vue-multiselect'
 import 'vue-multiselect/dist/vue-multiselect.min.css'
 
 Settings.defaultLocale = 'fr'
-const basicAuthUsername = 'docteur-de-garde'
-const basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e'
+const access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e'
 
 export default {
     components: {
@@ -350,11 +349,7 @@ export default {
         },
         submitForm() {
             // POST Api
-            axios.post(this.apiData + 'contact/form-create', {
-                auth: {
-                    username: basicAuthUsername,
-                    password: basicAuthPassword
-                },
+            axios.post(this.apiData + 'contact/form-create?access_token=' + access_token, {
                 // FormData
                 objet_demande: this.objet_demande.key,
                 civility: this.civility.key,
@@ -434,12 +429,7 @@ export default {
         this.apiData = document.querySelector('#app').getAttribute('data-base-api')
 
         // Get Api
-        axios.get(this.apiData + 'get-elements-to-contact', {
-            auth: {
-                username: basicAuthUsername,
-                password: basicAuthPassword
-            }
-        })
+        axios.get(this.apiData + 'get-elements-to-contact' + '?access_token=' + access_token)
         .then((response) => {
             const data = response.data
             this.contactElm = data

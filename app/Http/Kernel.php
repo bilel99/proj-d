@@ -3,8 +3,6 @@
 namespace App\Http;
 
 use App\Http\Middleware\AddHeaderAccessToken;
-use App\Http\Middleware\AuthBasic;
-use App\Http\Middleware\BasicAuth;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -44,13 +42,12 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
+            AddHeaderAccessToken::class,
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            AddHeaderAccessToken::class,
-            BasicAuth::class,
         ],
     ];
 
@@ -62,6 +59,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'auth.api-access_token' => AddHeaderAccessToken::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,

@@ -62,8 +62,7 @@
 </template>
 
 <script>
-const basicAuthUsername = 'docteur-de-garde'
-const basicAuthPassword = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e'
+const access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e'
 
 export default {
     data() {
@@ -84,12 +83,7 @@ export default {
     methods: {
         getMedicalHouse(houseId) {
             // Get Api
-            axios.get(this.apiData + 'get-relations-house/' + houseId, {
-                auth: {
-                    username: basicAuthUsername,
-                    password: basicAuthPassword
-                }
-            })
+            axios.get(this.apiData + 'get-relations-house/' + houseId  + '?access_token=' + access_token)
                     .then((response) => {
                         const data = response.data
                         this.house = data.data
@@ -107,12 +101,7 @@ export default {
         this.apiData = document.querySelector('#app').getAttribute('data-base-api')
 
         // Get Api
-        axios.get(this.apiData + 'get-relations-page/' + this.page_id, {
-            auth: {
-                username: basicAuthUsername,
-                password: basicAuthPassword
-            }
-        })
+        axios.get(this.apiData + 'get-relations-page/' + this.page_id  + '?access_token=' + access_token)
         .then((response) => {
             const data = response.data
             this.page = data.data
