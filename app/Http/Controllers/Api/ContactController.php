@@ -53,7 +53,6 @@ class ContactController extends BaseResourceController
             'doctor_firstname' => 'required|min:2|max:255',
             'objet_demande_doctor' => 'required|min:4|max:255',
             'precisions' => 'nullable'
-            
         ]);
 
         if ($validator->fails()) {
