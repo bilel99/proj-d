@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(
     [
-        //'middleware' => ['auth:api'], //api_token is needed in the request
+        'middleware' => ['auth.api-access_token'], //api_token is needed in the request
         'namespace' => 'Api', // Api Folder in Http\Controller
     ],
     function () {

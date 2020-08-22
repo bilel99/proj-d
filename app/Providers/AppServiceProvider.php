@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\MedicalHouses;
+use App\Models\Pages;
 use App\Models\Prices;
 use App\Models\Services;
 use App\Observers\MedicalHousesObserver;
@@ -11,6 +12,7 @@ use App\Observers\ServicesObserver;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -49,5 +51,29 @@ class AppServiceProvider extends ServiceProvider
         Services::observe(ServicesObserver::class);
         Prices::observe(PricesObserver::class);
         MedicalHouses::observe(MedicalHousesObserver::class);
+
+        /**
+         * Dependency injection
+         *
+         */
+        $this->viewComposerErrorDataIsEmpty();
+
+        /**
+         * Inject models Natures and model Services
+         */
+        //View::share('pages', new Pages());
+    }
+
+    /**
+     * View Composer
+     * Get Error data is empty
+     * inject to layout front
+     */
+    protected function viewComposerErrorDataIsEmpty(): void
+    {
+        View::composer(['front.layouts.app'], function ($view) {
+            $pagesIsEmpty = Pages::count() === 0;
+            $view->with('pages_is_empty', $pagesIsEmpty);
+        });
     }
 }
