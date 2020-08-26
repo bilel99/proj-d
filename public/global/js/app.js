@@ -51899,9 +51899,14 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "back-page" }, [
-      _c("a", { staticClass: "boxed-btn4 mx-3 mb-5", attrs: { href: "/" } }, [
-        _vm._v("Retour")
-      ])
+      _c(
+        "a",
+        {
+          staticClass: "boxed-btn4 mx-3 mb-5",
+          attrs: { href: "/", title: "Retour" }
+        },
+        [_vm._v("Retour")]
+      )
     ])
   }
 ]
@@ -53086,6 +53091,7 @@ var render = function() {
                               staticClass: "collapsed",
                               attrs: {
                                 role: "button",
+                                title: item.title,
                                 "data-toggle": "collapse",
                                 "data-parent": "#accordion",
                                 href: "#collapse-" + item.id,
