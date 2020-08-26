@@ -1,4 +1,6 @@
 @extends('front.layouts.app')
+@section('title') {{ __('globals.title.price') }}
+@endsection
 
 @section('content')
     <!-- Component Hero Banner -->

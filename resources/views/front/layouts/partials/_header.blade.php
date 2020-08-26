@@ -15,11 +15,11 @@
                             <div class="text_wrap">
                                 <p>
                                     @auth
-                                        <a href="/nova" class="link">
+                                        <a href="/nova" class="link" title="{{ __('globals.website.back-office') }}">
                                             <i class="fas fa-tachometer-alt" style="color: white;"></i> {{ __('globals.website.back-office') }}
                                         </a>
 
-                                        <a class="link" href="{{ route('logout') }}"
+                                        <a class="link" href="{{ route('logout') }}" title="{{ __('auth.logout') }}"
                                            onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
                                             <i class="fas fa-sign-out-alt" style="color: white;"></i> {{ __('auth.logout') }}
@@ -29,7 +29,7 @@
                                         </form>
                                     @endauth
                                     @guest
-                                        <a href="{{ route('login') }}" class="link">
+                                        <a href="{{ route('login') }}" class="link" title="{{ __('auth.login') }}">
                                             <i class="far fa-user" style="color: white;"></i> {{ __('auth.login') }}
                                         </a>
                                     @endguest
@@ -64,7 +64,8 @@
                                     @foreach(config('docteurs_gardes.navbar') as $item)
                                         <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                             <a class="nav-link"
-                                               href="{{ (Request::is('/')) ? $item['hash'] : route('front.homepage') . $item['hash'] }}">
+                                               href="{{ (Request::is('/')) ? $item['hash'] : route('front.homepage') . $item['hash'] }}"
+                                               title="{{ __('globals.website.navbar.' . $item['name']) }}">
                                                 {{ __('globals.website.navbar.' . $item['name']) }}
                                             </a>
                                         </li>

@@ -39,7 +39,7 @@ Route::get('/comment-prendre-un-rendez-vous', 'PagesController@appointment')->na
 /**
  * Price page
  */
-Route::get('/tarifs', 'PagesController@price')->name('prices');
+Route::get('/nos-tarifs', 'PagesController@price')->name('prices');
 
 /**
  * contact page

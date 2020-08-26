@@ -13583,8 +13583,8 @@ footer ul.quick-links li:hover a i {
 .contact-btn {
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
   -webkit-animation-delay: 0.5s;
           animation-delay: 0.5s;
 }

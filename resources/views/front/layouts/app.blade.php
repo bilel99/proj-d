@@ -2,12 +2,37 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="Société Docteur De Garde">
+    <meta name="author" content="Docteur de garde">
+    <meta name="keywords"
+          content="
+          Docteur de garde,
+          docteur de garde,
+          Docteur de garde ville,
+          docteur de garde ville,
+          docteur, docteur à ville,
+          docteur de nuit,
+          docteur de nuit à ville,
+          médecin de nuit,
+          médecin de nuit à ville,
+          médecin,
+          médecin à ville"
+    >
+
+    <!-- Icon -->
+    <link rel="icon" type="image/png" href="{{ asset('front/img/logos/logo-icon.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+    <!--link rel="manifest" href="site.webmanifest"-->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="https://kit.fontawesome.com/629711cf8f.js" crossorigin="anonymous"></script>
@@ -37,7 +62,7 @@
             @include('front.layouts.partials._footers')
 
             <!-- floating button -->
-            <a href="#" id="back-to-top" class="btn-float">
+            <a href="#" id="back-to-top" class="btn-float" title="retour en haut">
                 <i class="fas fa-arrow-up position-center" style="color: white;"></i>
             </a>
         @endif

@@ -1,4 +1,6 @@
 @extends('front.layouts.app')
+@section('title') {{ __('globals.title.appointment') }}
+@endsection
 
 @section('content')
     {{-- Component HeroBanner --}}
@@ -13,7 +15,11 @@
     <section id="detail-page" class="section-bg-white section-padding">
         <div class="container">
             <div class="back-page">
-                <a href="{{ route('front.homepage') }}" class="boxed-btn4 mx-3 mb-5">{{ __('globals.website.back_page') }}</a>
+                <a href="{{ route('front.homepage') }}"
+                   class="boxed-btn4 mx-3 mb-5"
+                   title="{{ __('globals.website.back_page') }}">
+                    {{ __('globals.website.back_page') }}
+                </a>
             </div>
 
             <div class="row">

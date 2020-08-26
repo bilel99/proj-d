@@ -1,5 +1,7 @@
-<img src="{{ asset('front/img/logos/logo-position-la-terale.jpg') }}" alt="Notre Logo">
-{{-- __('nova.title') --}}
+<img src="{{ asset('front/img/logos/logo-icon.png') }}" width="50" alt="{{ __('nova.app_name') }}">
+<span class="flex justify-content-center font-bold mx-2">
+    {{ __('nova.app_name') }}
+</span>
 
 {{-- <svg
     class="fill-current"

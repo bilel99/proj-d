@@ -14,6 +14,7 @@ return [
     */
 
     'title' => 'Mon Admin',
+    'app_name' => 'Docteur de garde',
     'groups' => [
         'admin' => 'Administration',
         'page' => 'Page',

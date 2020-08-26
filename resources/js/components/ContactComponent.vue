@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="back-page">
-                    <a href="/" class="boxed-btn4 mx-3 mb-5">Retour</a>
+                    <a href="/" class="boxed-btn4 mx-3 mb-5" title="Retour">Retour</a>
                 </div>
 
                 <div class="col-12">

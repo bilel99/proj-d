@@ -19,7 +19,8 @@ class AddHeaderAccessToken
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->has('access_token')) {
+        $url = parse_url($request->url());
+        if (isset($url['host']) && $url['host'] === config('docteurs_gardes.VALID_HOST') && $request->has('access_token')) {
             // Is Authorized
             if (ApiConsumer::where('api_token', $request->get('access_token'))->exists()) {
                 // Pass to header http the authorization

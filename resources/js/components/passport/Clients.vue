@@ -13,7 +13,7 @@
                         OAuth Clients
                     </span>
 
-                    <a class="action-link" tabindex="-1" @click="showCreateClientForm">
+                    <a class="action-link" title="Create New Client" tabindex="-1" @click="showCreateClientForm">
                         Create New Client
                     </a>
                 </div>
@@ -55,14 +55,14 @@
 
                             <!-- Edit Button -->
                             <td style="vertical-align: middle;">
-                                <a class="action-link" tabindex="-1" @click="edit(client)">
+                                <a class="action-link" title="Edit" tabindex="-1" @click="edit(client)">
                                     Edit
                                 </a>
                             </td>
 
                             <!-- Delete Button -->
                             <td style="vertical-align: middle;">
-                                <a class="action-link text-danger" @click="destroy(client)">
+                                <a class="action-link text-danger" title="Delete" @click="destroy(client)">
                                     Delete
                                 </a>
                             </td>

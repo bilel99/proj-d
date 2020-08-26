@@ -1,4 +1,6 @@
 @extends('front.layouts.app')
+@section('title') {{ __('globals.title.contact') }}
+@endsection
 
 @section('content')
     <hero-banner-component
