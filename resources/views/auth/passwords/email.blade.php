@@ -50,6 +50,7 @@
                                 @if (Route::has('login'))
                                     <div class="text-center">
                                         <a class="small auth-link"
+                                           title="{{ __('login') }}"
                                            href="{{ route('login') }}">{{ __('login') }}</a>
                                     </div>
                                 @endif

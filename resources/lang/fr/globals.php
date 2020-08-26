@@ -30,6 +30,13 @@ return [
         'message_not_data_publish' => 'Oups, vous n\'avez encore rien publié, merci de bien vouloir éditer du contenu sur votre back office',
     ],
 
+    'title' => [
+        'homepage' => 'Bienvenue sur le site Docteur de garde',
+        'price' => 'Nos tarifs de prix',
+        'contact' => 'Nous contacter',
+        'appointment' => 'Comment prendre rendez-vous',
+    ],
+
     'services' => [
         'empty' => 'Aucun service pour le moment.',
     ],

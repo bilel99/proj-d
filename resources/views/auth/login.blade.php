@@ -66,7 +66,10 @@
                                 @if (Route::has('password.request'))
                                     <div class="text-center">
                                         <a class="small auth-link"
-                                           href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
+                                           href="{{ route('password.request') }}"
+                                           title="{{ __('Forgot Your Password?') }}">
+                                            {{ __('Forgot Your Password?') }}
+                                        </a>
                                     </div>
                                 @endif
                             </div>

@@ -4,7 +4,7 @@
 @section('code', '419')
 @section('message', __('Page Expired'))
 @section('btn')
-    <a href="{{ app('router')->has('front.home') ? route('front.home') : url('/') }}" class="boxed-btn3">
+    <a href="{{ app('router')->has('front.home') ? route('front.home') : url('/') }}" class="boxed-btn3" title="Retour à l'accueil">
         Retour à l'accueil
     </a>
 @endsection

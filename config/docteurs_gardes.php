@@ -20,6 +20,11 @@ return [
     ],
 
     /**
+     * Access Token API
+     */
+    'ACCESS_API_TOKEN' => env('ACCESS_API_TOKEN', ''),
+
+    /**
      * society
      */
     'email_docteur_de_garde' => 'contactdrdegarde@gmail.com',
@@ -70,5 +75,10 @@ return [
             'name' => 'Contacter la société Docteur De Garde',
             'recipient' => 'contactdrdegarde@gmail.com', // email de la société
         ],
-    ]
+    ],
+
+    /**
+     * Valid Host Security API
+     */
+    'VALID_HOST' => env('VALID_HOST', ''),
 ];

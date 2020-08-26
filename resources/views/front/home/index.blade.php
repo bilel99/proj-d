@@ -1,4 +1,6 @@
 @extends('front.layouts.app')
+@section('title') {{ __('globals.title.homepage') }}
+@endsection
 
 @section('content')
     <!--banner-->
@@ -32,7 +34,7 @@
     <!-- Transition Contact -->
     <section id="section-transition-contact"
              class="section-transition-contact d-flex justify-content-center align-items-center">
-        <a href="{{ route('front.contacts') }}" class="boxed-btn3">Nous contacter</a>
+        <a href="{{ route('front.contacts') }}" class="boxed-btn3" title="Nous contacter">Nous contacter</a>
     </section>
     <!-- /end -->
 

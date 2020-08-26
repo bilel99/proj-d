@@ -37,7 +37,7 @@
 
                                 <!-- Revoke Button -->
                                 <td style="vertical-align: middle;">
-                                    <a class="action-link text-danger" @click="revoke(token)">
+                                    <a class="action-link text-danger" title="Revoke" @click="revoke(token)">
                                         Revoke
                                     </a>
                                 </td>

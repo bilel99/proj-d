@@ -12,7 +12,7 @@
                         <div v-for="(item, index) in information" class="panel panel-default">
                             <div class="panel-heading" role="tab" :id="'heading-' + item.id">
                                 <h4 class="panel-title">
-                                    <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" :href="'#collapse-' + item.id"
+                                    <a role="button" class="collapsed" :title="item.title" data-toggle="collapse" data-parent="#accordion" :href="'#collapse-' + item.id"
                                        aria-expanded="false" :aria-controls="'collapse-' + item.id">
                                         {{ item.title }}
                                     </a>

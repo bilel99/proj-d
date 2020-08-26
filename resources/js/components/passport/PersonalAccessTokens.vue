@@ -14,7 +14,7 @@
                             Personal Access Tokens
                         </span>
 
-                        <a class="action-link" tabindex="-1" @click="showCreateTokenForm">
+                        <a class="action-link" title="Create New Token" tabindex="-1" @click="showCreateTokenForm">
                             Create New Token
                         </a>
                     </div>
@@ -44,7 +44,7 @@
 
                                 <!-- Delete Button -->
                                 <td style="vertical-align: middle;">
-                                    <a class="action-link text-danger" @click="revoke(token)">
+                                    <a class="action-link text-danger" title="Delete" @click="revoke(token)">
                                         Delete
                                     </a>
                                 </td>
