@@ -9,15 +9,16 @@
           content="
           Docteur de garde,
           docteur de garde,
-          Docteur de garde ville,
-          docteur de garde ville,
-          docteur, docteur à ville,
+          Docteur de garde Seine et Marne,
+          docteur de garde Seine et Marne,
+          docteur,
+          docteur à Seine et Marne,
           docteur de nuit,
-          docteur de nuit à ville,
+          docteur de nuit à Seine et Marne,
           médecin de nuit,
-          médecin de nuit à ville,
+          médecin de nuit à Seine et Marne,
           médecin,
-          médecin à ville"
+          médecin à Seine et Marne"
     >
 
     <!-- Icon -->

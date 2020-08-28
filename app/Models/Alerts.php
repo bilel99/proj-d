@@ -4,12 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Laravel\Passport\HasApiTokens;
 
 class Alerts extends BasesModel
 {
-    use HasApiTokens;
-    
     // Types
     public const TYPES_ALERT = 'alert';
     public const TYPES_ALERT_MESSAGE = 'alert-message';

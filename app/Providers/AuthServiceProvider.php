@@ -29,7 +29,6 @@ use App\Policies\Nova\UserPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Nova;
-use Laravel\Passport\Passport;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -55,7 +54,7 @@ class AuthServiceProvider extends ServiceProvider
     ];
 
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+        //
     ];
 
     /**
@@ -73,22 +72,6 @@ class AuthServiceProvider extends ServiceProvider
         Nova::serving(function () {
             $this->registerNovaPolicies();
         });
-
-        /**
-         * Laravel Passport
-         * Default token expire in one years
-         */
-        Passport::routes();
-        Passport::personalAccessClientId(
-            config('passport.personal_access_client.id')
-        );
-
-        Passport::personalAccessClientSecret(
-            config('passport.personal_access_client.secret')
-        );
-        /*Passport::tokensExpireIn(now()->addYear(1));
-        Passport::refreshTokensExpireIn(now()->addYear(1));
-        Passport::personalAccessTokensExpireIn(now()->addYear(1));*/
     }
 
     /**

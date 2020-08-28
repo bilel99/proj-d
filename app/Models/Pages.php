@@ -5,12 +5,9 @@ namespace App\Models;
 use ClassicO\NovaMediaLibrary\API;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Laravel\Passport\HasApiTokens;
 
 class Pages extends BasesModel
 {
-    use HasApiTokens;
-
     /**
      * Constant to Pages
      */

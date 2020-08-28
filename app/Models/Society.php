@@ -2,12 +2,8 @@
 
 namespace App\Models;
 
-use Laravel\Passport\HasApiTokens;
-
 class Society extends BasesModel
 {
-    use HasApiTokens;
-
     /**
      * @var string
      */

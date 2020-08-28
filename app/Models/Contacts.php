@@ -4,12 +4,9 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Laravel\Passport\HasApiTokens;
 
 class Contacts extends BasesModel
 {
-    use HasApiTokens;
-
     public const OBJECT_DEMANDE_1 = 1;
     public const OBJECT_DEMANDE_2 = 2;
 

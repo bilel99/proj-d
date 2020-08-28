@@ -3,12 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Laravel\Passport\HasApiTokens;
 
 class Prices extends BasesModel
 {
-    use HasApiTokens;
-
     /**
      * The attributes that are mass assignables.
      *

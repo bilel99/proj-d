@@ -19,7 +19,6 @@ INTRODUCTION
 - Framework Vue.js ^2
 - Framework Bootstrap ^4
 - API REST
-- Laravel Passport
 - Laravel Nova
 - Lando
 - Php 7.3
@@ -72,8 +71,6 @@ $ lando composer install
 $ lando npm install
 $ lando dump-autoload
 $ lando artisan migrate:fresh --seed
-$ lando php artisan passport:install
-$ lando php artisan passport:keys
 $ lando artisan key:generate
 $ lando artisan migrate
 $ lando artisan storage:link

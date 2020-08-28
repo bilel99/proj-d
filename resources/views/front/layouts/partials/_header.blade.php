@@ -43,7 +43,7 @@
 
         <!-- Nav -->
         <div class="navigation-wrap bg-light start-header">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
                         <nav class="navbar navbar-expand-md navbar-light">
@@ -60,7 +60,7 @@
 
                             <!-- https://codepen.io/ig_design/pen/omQXoQ -->
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav ml-auto py-4 py-md-0">
+                                <ul class="navbar-nav mx-auto py-4 py-md-0">
                                     @foreach(config('docteurs_gardes.navbar') as $item)
                                         <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                             <a class="nav-link"

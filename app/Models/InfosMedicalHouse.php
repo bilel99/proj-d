@@ -3,12 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Laravel\Passport\HasApiTokens;
 
 class InfosMedicalHouse extends BasesModel
 {
-    use HasApiTokens;
-
     /**
      * @var string
      */
