@@ -8,7 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.2",
+        "php": "^7.1",
         "benjaminhirsch/nova-slug-field": "^1.2",
         "beyondcode/nova-laravel-update-card": "^0.0.1",
         "classic-o/nova-media-library": "^1.0",
