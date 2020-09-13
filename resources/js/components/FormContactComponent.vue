@@ -267,7 +267,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="precisions">Précisions </label>
+                            <label for="precisions">Précisions <i class="small" style="color: gray;">(optionnel)</i></label>
                             <textarea
                                     name="precisions"
                                     id="precisions"
@@ -417,7 +417,6 @@ export default {
                     })
 
                     // Redirect to home
-                    // @todo ici mettre la route home page
                     window.location = '/'
                 }
             }).catch((error) => {

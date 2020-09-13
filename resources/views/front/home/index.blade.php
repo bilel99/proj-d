@@ -34,7 +34,7 @@
     <!-- Transition Contact -->
     <section id="section-transition-contact"
              class="section-transition-contact d-flex justify-content-center align-items-center">
-        <a href="{{ route('front.contacts') }}" class="boxed-btn3" title="Nous contacter">Nous contacter</a>
+        <a href="{{ route('front.contacts') }}" class="boxed-btn3" title="Nous contacter">{{ __('globals.title.contact') }}</a>
     </section>
     <!-- /end -->
 

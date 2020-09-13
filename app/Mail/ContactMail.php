@@ -15,7 +15,7 @@ class ContactMail extends Mailable
     /**
      * @var Society
      */
-    protected Society $society;
+    protected $society;
 
     /**
      * Create a new message instance.

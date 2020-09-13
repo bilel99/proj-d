@@ -2477,7 +2477,6 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
             icon: 'success',
             title: _this.successMessage
           }); // Redirect to home
-          // @todo ici mettre la route home page
 
 
           window.location = '/';
@@ -52656,9 +52655,7 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "form-row" }, [
               _c("div", { staticClass: "form-group col-12" }, [
-                _c("label", { attrs: { for: "precisions" } }, [
-                  _vm._v("Précisions ")
-                ]),
+                _vm._m(12),
                 _vm._v(" "),
                 _c("textarea", {
                   directives: [
@@ -52715,7 +52712,7 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _vm._m(12)
+          _vm._m(13)
         ]
       )
     ])
@@ -52828,6 +52825,17 @@ var staticRenderFns = [
     return _c("label", { attrs: { for: "objet_demande_doctor" } }, [
       _vm._v("Objet de la demande "),
       _c("i", { staticClass: "mandatory" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "precisions" } }, [
+      _vm._v("Précisions "),
+      _c("i", { staticClass: "small", staticStyle: { color: "gray" } }, [
+        _vm._v("(optionnel)")
+      ])
     ])
   },
   function() {
