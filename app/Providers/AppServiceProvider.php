@@ -6,6 +6,7 @@ use App\Models\MedicalHouses;
 use App\Models\Pages;
 use App\Models\Prices;
 use App\Models\Services;
+use App\Models\SocialNetwotk;
 use App\Observers\MedicalHousesObserver;
 use App\Observers\PricesObserver;
 use App\Observers\ServicesObserver;
@@ -57,11 +58,7 @@ class AppServiceProvider extends ServiceProvider
          *
          */
         $this->viewComposerErrorDataIsEmpty();
-
-        /**
-         * Inject models Natures and model Services
-         */
-        //View::share('pages', new Pages());
+        $this->viewComposerSocialNetwork();
     }
 
     /**
@@ -74,6 +71,14 @@ class AppServiceProvider extends ServiceProvider
         View::composer(['front.layouts.app'], function ($view) {
             $pagesIsEmpty = Pages::count() === 0;
             $view->with('pages_is_empty', $pagesIsEmpty);
+        });
+    }
+
+    protected function viewComposerSocialNetwork(): void
+    {
+        view()->composer(['front.layouts.partials._footers'], function ($view) {
+            $socialNetwork = SocialNetwotk::all();
+            $view->with('social_network', $socialNetwork);
         });
     }
 }

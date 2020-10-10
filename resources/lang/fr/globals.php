@@ -16,6 +16,7 @@ return [
         'name' => 'Les Docteurs de garde ®:',
         'info' => 'Maison Médicale de Garde Seine et Marne',
         'navbar' => [
+            'accueil' => 'Accueil',
             'qui-sommes-nous' => 'Qui sommes-nous',
             'nos-services' => 'Nos services',
             'comment-prendre-rendez-vous' => 'Comment prendre rendez-vous',
@@ -84,7 +85,8 @@ return [
         'levels' => 'Niveau d\'alerte',
         'medias' => 'Medias',
         'content_row_1' => 'Contenu colonne 1',
-        'content_row_2' => 'Contenu colonne 2'
+        'content_row_2' => 'Contenu colonne 2',
+        'link' => 'Lien',
     ],
 
     'helps' => [

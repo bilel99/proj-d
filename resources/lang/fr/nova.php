@@ -32,7 +32,8 @@ return [
         'alert' => 'Message d\'alertes',
         'service' => 'Services',
         'information' => 'Informations',
-        'prices' => 'Tarifs'
+        'prices' => 'Tarifs',
+        'social_network' => 'Réseau social',
     ],
 
     'panel' => [
