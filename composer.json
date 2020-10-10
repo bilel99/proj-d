@@ -13,6 +13,8 @@
         "beyondcode/nova-laravel-update-card": "^0.0.1",
         "classic-o/nova-media-library": "^1.0",
         "coderello/laravel-nova-lang": "^1.5",
+        "ddg/contactcard": "*",
+        "ddg/doctorsinfoscard": "*",
         "ek0519/quilljs": "^0.2.2",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
@@ -22,9 +24,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
         "mdixon18/fontawesome": "^0.2.1",
-        "skydiver/nova-update-card": "^1.4",
-        "ddg/contactcard": "*",
-        "ddg/doctorsinfoscard": "*"
+        "moontoast/math": "1.1.2 as 1.999.999",
+        "skydiver/nova-update-card": "^1.4"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",
