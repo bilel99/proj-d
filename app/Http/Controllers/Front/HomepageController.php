@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Pages;
 use Illuminate\View\View;
 
+/**
+ * HomepageController
+ */
 class HomepageController extends Controller
 {
 
