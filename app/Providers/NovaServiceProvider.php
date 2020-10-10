@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Nova;
@@ -45,10 +46,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     protected function gate()
     {
-        Gate::define('viewNova', function ($user) {
-            return in_array($user->email, [
-                //
-            ]);
+        // All user is authorized to access nova back office
+        $allUserEmail = User::get()->pluck('email')->toArray();
+
+        Gate::define('viewNova', function ($user) use ($allUserEmail) {
+            return in_array($user->email, $allUserEmail, true);
         });
     }
 
