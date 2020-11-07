@@ -44,13 +44,7 @@
     <link href="{{ asset('front/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<div id="app"
-     data-base-api="{{ config('docteurs_gardes.api_base_url') }}"
-     data-asset="{{ asset('front') }}"
-     data-homepage-url="{{ route('front.homepage') }}"
-     data-appointement-url="{{ route('front.appointement') }}"
-     data-prices-url="{{ route('front.prices') }}"
-     data-contacts-url="{{ route('front.contacts') }}">
+<div id="app">
     <main>
         @if(isset($pages_is_empty) && $pages_is_empty)
             @include('front.layouts.partials._page_is_empty')

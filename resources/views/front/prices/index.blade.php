@@ -11,11 +11,10 @@
 
     <!-- Component Prices -->
     <price-component
-            :page_id="{{ $tarif->id }}"
+            ajax-route="{{ route('front.ajax.get.prices') }}"
             class_id="prices"
             class_section="section-bg-white section-padding"
-            is_button="false"
-            route_page="{{ route('front.prices') }}">
+            is_button="true">
     </price-component>
 
     <!-- section Prices -->
@@ -25,11 +24,9 @@
                 <div class="col-md-12 col-sm-12">
                     <!-- Component Detail Page -->
                     <detail-page-component
-                        :page_id="{{ $detailRefound->id }}"
+                        ajax-route="{{ route('front.ajax.get.prices.refound') }}"
                         class_id="detail-page"
-                        class_section="section-bg-white section-padding"
-                        img_default=""
-                        route_page="{{ route('front.homepage') }}">
+                        class_section="section-bg-white section-padding">
                     </detail-page-component>
                 </div>
             </div>

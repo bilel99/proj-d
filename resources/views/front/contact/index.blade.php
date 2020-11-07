@@ -9,9 +9,8 @@
     </hero-banner-component>
 
     <contact-component
-            :page_id="{{ $detailContact->id }}"
-            class_id="contact"
-            class_section="section-bg-white section-padding"
-            route_page="{{ route('front.homepage') }}">
+        ajax-route="{{ route('front.ajax.contact') }}"
+        class_id="contact"
+        class_section="section-bg-white section-padding">
     </contact-component>
 @endsection
