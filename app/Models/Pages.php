@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use ClassicO\NovaMediaLibrary\API;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -89,10 +91,14 @@ class Pages extends BasesModel
 
     /**
      * @param string $unique_name
-     * @return Pages
+     * @return Builder|Model|object|null
      */
-    public static function getPage(string $unique_name): ?Pages
+    public static function getPage(string $unique_name)
     {
-        return self::where('unique_name', $unique_name)->first();
+        return
+            self
+                ::with('alerts', 'service', 'medicalHouse', 'price')
+                ->where('unique_name', $unique_name)
+                ->first();
     }
 }

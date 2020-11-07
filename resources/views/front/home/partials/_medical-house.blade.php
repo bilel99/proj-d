@@ -1,10 +1,6 @@
 {{-- Component MedicalHouse --}}
-@isset($medicalHouse)
-    <medical-house-component
-            :page_id="{{ $medicalHouse->id }}"
-            class_id="medical-house"
-            class_section="section-bg-white section-padding"
-            img_default=""
-            route_page="">
-    </medical-house-component>
-@endisset
+<medical-house-component
+    ajax-route="{{ route('front.ajax.medicalHouse') }}"
+    class_id="medical-house"
+    class_section="section-bg-white section-padding">
+</medical-house-component>

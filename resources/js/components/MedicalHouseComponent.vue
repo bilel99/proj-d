@@ -62,46 +62,67 @@
 </template>
 
 <script>
-const access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e'
+import Swal from 'sweetalert2'
 
 export default {
     data() {
         return {
+            ajaxRoute: String,
+            ajaxRouteAlert: String,
+            ajaxGetHouse: String,
             classId: String,
             classSection: String,
-            apiData: String,
-            routePage: String,
-            imgDefault: String,
             media: String,
             page: {},
             house: {},
         }
     },
     props: {
-        page_id: Number,
+        //
     },
     methods: {
         getMedicalHouse(houseId) {
             // Get Api
-            axios.get(this.apiData + 'get-relations-house/' + houseId  + '?access_token=' + access_token)
-                    .then((response) => {
-                        const data = response.data
-                        this.house = data.data
+            axios.get(this.ajaxGetHouse + houseId)
+                .then((response) => {
+                    const data = response.data
+                    this.house = data.data
+                })
+                .catch((error) => {
+                    // Call notification Swal
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 7000,
+                        timerProgressBar: true,
+                        onOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
                     })
-                    .catch((error) => {
-                        console.log(error)
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
                     })
+                })
         }
     },
     mounted() {
+
+        this.ajaxRoute = this.$el.getAttribute('ajax-route')
         this.classId = this.$el.getAttribute('class_id')
         this.classSection = this.$el.getAttribute('class_section')
-        this.routePage = this.$el.getAttribute('route_page')
-        this.imgDefault = this.$el.getAttribute('img_default')
-        this.apiData = document.querySelector('#app').getAttribute('data-base-api')
+
+        // Prepare route Alert URL
+        this.ajaxRouteAlert = this.ajaxRoute.split('ajax')[0] + 'ajax-find-alert/'
+
+        // Prepare route Get House URL
+        this.ajaxGetHouse = this.ajaxRoute.split('ajax')[0] + 'ajax-get-house/'
 
         // Get Api
-        axios.get(this.apiData + 'get-relations-page/' + this.page_id  + '?access_token=' + access_token)
+        axios.get(this.ajaxRoute)
         .then((response) => {
             const data = response.data
             this.page = data.data
@@ -111,12 +132,29 @@ export default {
             if (_.isEmpty(this.page.medical_house) === false) {
                 // get first element to array
                 let firstElement = _.head(this.page.medical_house)
+
                 // Get Medical house method
                 this.getMedicalHouse(firstElement.id)
             }
         })
         .catch((error) => {
-            console.log(error)
+            // Call notification Swal
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 7000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'error',
+                title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+            })
         })
     }
 }

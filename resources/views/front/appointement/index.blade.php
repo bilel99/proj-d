@@ -5,10 +5,8 @@
 @section('content')
     {{-- Component HeroBanner --}}
     <hero-banner-component
-            :page_id="{{ $aboutHeroBanner->id }}"
-            hero_banner_class="hero-banner-appointment"
-            logo_default="{{ asset('front/img/logos/logo-icon.png') }}"
-            route_contact="{{ route('front.contacts') }}">
+        ajax-route="{{ route('front.ajax.hero-banner.appointment') }}"
+        hero-banner-class="hero-banner-appointment">
     </hero-banner-component>
 
     <!-- section appointment -->

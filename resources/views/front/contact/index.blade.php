@@ -4,10 +4,8 @@
 
 @section('content')
     <hero-banner-component
-            :page_id="{{ $contactHeroBanner->id }}"
-            hero_banner_class="hero-banner-contact"
-            logo_default="{{ asset('front/img/logos/logo-icon.png') }}"
-            route_contact="">
+        ajax-route="{{ route('front.ajax.hero-banner.contact') }}"
+        hero-banner-class="hero-banner-contact">
     </hero-banner-component>
 
     <contact-component

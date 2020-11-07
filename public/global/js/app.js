@@ -2534,6 +2534,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2564,11 +2566,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      apiData: String,
+      ajaxRoute: String,
       heroBanner: {},
       heroBannerClass: String,
       logoDefault: String,
@@ -2576,8 +2578,7 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
       routeContact: String
     };
   },
-  props: {
-    page_id: Number
+  props: {//
   },
   methods: {
     goToByScroll: function goToByScroll(id) {
@@ -2590,17 +2591,32 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
   mounted: function mounted() {
     var _this = this;
 
-    this.heroBannerClass = this.$el.getAttribute('hero_banner_class');
-    this.logoDefault = this.$el.getAttribute('logo_default');
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api');
-    this.routeContact = this.$el.getAttribute('route_contact'); // Get Api
+    this.ajaxRoute = this.$el.getAttribute('ajax-route');
+    this.heroBannerClass = this.$el.getAttribute('hero-banner-class'); // Get Ajax method
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
+    axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
       _this.heroBanner = data.data;
-      _this.media = data.media;
+      _this.media = data.data.media;
+      _this.logoDefault = data.logo_default;
+      _this.routeContact = data.route_contact;
     })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -2616,6 +2632,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2628,26 +2646,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       hours: {
-        apiData: String
+        ajaxRoute: String
       }
     };
   },
-  props: {},
+  props: {//
+  },
   mounted: function mounted() {
     var _this = this;
 
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
+    this.ajaxRoute = this.$el.getAttribute('ajax-route'); // Get Ajax method
 
-    axios.get(this.apiData + 'horaire' + '?access_token=' + access_token).then(function (response) {
+    axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
       _this.hours = data.data;
     })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -2663,6 +2697,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2712,43 +2748,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      ajaxRoute: String,
+      ajaxRouteAlert: String,
+      ajaxRouteHoraires: String,
       classId: String,
       classSection: String,
-      apiData: String,
-      routePage: String,
       media: String,
       page: {},
       information: {}
     };
   },
-  props: {
-    page_id: Number
+  props: {//
   },
   mounted: function mounted() {
     var _this = this;
 
+    this.ajaxRoute = this.$el.getAttribute('ajax-route');
     this.classId = this.$el.getAttribute('class_id');
-    this.classSection = this.$el.getAttribute('class_section');
-    this.routePage = this.$el.getAttribute('route_page');
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
+    this.classSection = this.$el.getAttribute('class_section'); // Prepare route Alert URL
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
+    this.ajaxRouteAlert = this.ajaxRoute.split('ajax')[0] + 'ajax-find-alert/'; // Prepare route Horaire URL
+
+    this.ajaxRouteHoraires = this.ajaxRoute.split('ajax')[0] + 'ajax-horaires'; // Get Ajax method
+
+    axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
       _this.page = data.data;
-      _this.media = data.media;
+      _this.media = data.data.media;
+      _this.information = data.informations;
     })["catch"](function (error) {
-      console.log(error);
-    }); // Get Api
-
-    axios.get(this.apiData + 'get-all-informations' + '?access_token=' + access_token).then(function (response) {
-      var data = response.data;
-      _this.information = data.data;
-    })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -2764,6 +2812,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2827,46 +2877,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      ajaxRoute: String,
+      ajaxRouteAlert: String,
+      ajaxGetHouse: String,
       classId: String,
       classSection: String,
-      apiData: String,
-      routePage: String,
-      imgDefault: String,
       media: String,
       page: {},
       house: {}
     };
   },
-  props: {
-    page_id: Number
+  props: {//
   },
   methods: {
     getMedicalHouse: function getMedicalHouse(houseId) {
       var _this = this;
 
       // Get Api
-      axios.get(this.apiData + 'get-relations-house/' + houseId + '?access_token=' + access_token).then(function (response) {
+      axios.get(this.ajaxGetHouse + houseId).then(function (response) {
         var data = response.data;
         _this.house = data.data;
       })["catch"](function (error) {
-        console.log(error);
+        // Call notification Swal
+        var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 7000,
+          timerProgressBar: true,
+          onOpen: function onOpen(toast) {
+            toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+            toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+          }
+        });
+        Toast.fire({
+          icon: 'error',
+          title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+        });
       });
     }
   },
   mounted: function mounted() {
     var _this2 = this;
 
+    this.ajaxRoute = this.$el.getAttribute('ajax-route');
     this.classId = this.$el.getAttribute('class_id');
-    this.classSection = this.$el.getAttribute('class_section');
-    this.routePage = this.$el.getAttribute('route_page');
-    this.imgDefault = this.$el.getAttribute('img_default');
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
+    this.classSection = this.$el.getAttribute('class_section'); // Prepare route Alert URL
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
+    this.ajaxRouteAlert = this.ajaxRoute.split('ajax')[0] + 'ajax-find-alert/'; // Prepare route Get House URL
+
+    this.ajaxGetHouse = this.ajaxRoute.split('ajax')[0] + 'ajax-get-house/'; // Get Api
+
+    axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
       _this2.page = data.data;
       _this2.media = data.media; // medical_house key is not empty
@@ -2879,7 +2945,22 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
         _this2.getMedicalHouse(firstElement.id);
       }
     })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -2895,6 +2976,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2924,16 +3007,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      apiData: String,
+      ajaxRoute: String,
       alert: {}
     };
   },
-  props: {
-    alert_id: Number
+  props: {//
   },
   methods: {
     getType: function getType(type) {
@@ -2976,13 +3058,28 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
   mounted: function mounted() {
     var _this = this;
 
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
+    this.ajaxRoute = this.$el.getAttribute('ajax-route'); // Get Api
 
-    axios.get(this.apiData + 'alert/' + this.alert_id + '?access_token=' + access_token).then(function (response) {
+    axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
       _this.alert = data.data;
     })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -2998,6 +3095,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -3039,37 +3138,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      ajaxRoute: String,
+      ajaxRouteAlert: String,
       classId: String,
       classSection: String,
-      apiData: String,
       routePage: String,
       page: {},
       imgDefault: String,
-      media: String
+      media: String,
+      isButton: String
     };
   },
-  props: {
-    page_id: Number
+  props: {//
   },
   mounted: function mounted() {
     var _this = this;
 
-    this.imgDefault = this.$el.getAttribute('img_default');
+    this.ajaxRoute = this.$el.getAttribute('ajax-route');
     this.classId = this.$el.getAttribute('class_id');
     this.classSection = this.$el.getAttribute('class_section');
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api');
-    this.routePage = this.$el.getAttribute('route_page'); // Get Api
+    this.isButton = this.$el.getAttribute('is_button'); // Prepare route Alert URL
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
+    this.ajaxRouteAlert = this.ajaxRoute.split('ajax')[0] + 'ajax-find-alert/'; // Get Api
+
+    axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
       _this.page = data.data;
       _this.media = data.media;
+      _this.routePage = data.route_page;
+      _this.imgDefault = data.img_default;
     })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -3085,6 +3203,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -3146,37 +3266,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      ajaxRoute: String,
+      ajaxRouteAlert: String,
       classId: String,
       classSection: String,
-      apiData: String,
       page: {},
       price: {},
-      routePage: String,
-      isButton: String
+      isButton: String,
+      routePage: String
     };
   },
-  props: {
-    page_id: Number
+  props: {//
   },
   mounted: function mounted() {
     var _this = this;
 
+    this.ajaxRoute = this.$el.getAttribute('ajax-route');
     this.classId = this.$el.getAttribute('class_id');
     this.classSection = this.$el.getAttribute('class_section');
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api');
-    this.routePage = this.$el.getAttribute('route_page');
-    this.isButton = this.$el.getAttribute('is_button'); // Get Api
+    this.isButton = this.$el.getAttribute('is_button'); // Prepare route Alert URL
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
+    this.ajaxRouteAlert = this.ajaxRoute.split('ajax')[0] + 'ajax-find-alert/'; // Get Api
+
+    axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
       _this.page = data.data;
       _this.price = data.data.price;
+      _this.routePage = data.route_page;
     })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -3192,6 +3329,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -3224,30 +3363,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      apiData: String,
+      ajaxRoute: String,
+      classId: String,
+      classSection: String,
       page: {}
     };
   },
-  props: {
-    page_id: Number
+  props: {//
   },
   mounted: function mounted() {
     var _this = this;
 
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
+    this.ajaxRoute = this.$el.getAttribute('ajax-route');
+    this.classId = this.$el.getAttribute('class_id');
+    this.classSection = this.$el.getAttribute('class_section'); // Get Api
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
+    axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
       _this.page = data.data;
     })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -53140,7 +53294,9 @@ var render = function() {
                                 "div",
                                 [
                                   _c("horaire-component", {
-                                    attrs: { api_data: _vm.apiData }
+                                    attrs: {
+                                      "ajax-route": _vm.ajaxRouteHoraires
+                                    }
                                   })
                                 ],
                                 1
@@ -53153,8 +53309,8 @@ var render = function() {
                                 [
                                   _c("message-alert-component", {
                                     attrs: {
-                                      alert_id: item.alert_id,
-                                      api_data: _vm.apiData
+                                      "ajax-route":
+                                        _vm.ajaxRouteAlert + item.alert_id
                                     }
                                   })
                                 ],
@@ -53461,7 +53617,9 @@ var render = function() {
                         { staticClass: "page-alert-message" },
                         [
                           _c("message-alert-component", {
-                            attrs: { alert_id: item.id, api_data: _vm.apiData }
+                            attrs: {
+                              "ajax-route": _vm.ajaxRouteAlert + item.alert_id
+                            }
                           })
                         ],
                         1
@@ -53492,7 +53650,9 @@ var render = function() {
                       { staticClass: "page-alert-message" },
                       [
                         _c("message-alert-component", {
-                          attrs: { alert_id: item.id, api_data: _vm.apiData }
+                          attrs: {
+                            "ajax-route": _vm.ajaxRouteAlert + item.alert_id
+                          }
                         })
                       ],
                       1
@@ -53502,22 +53662,20 @@ var render = function() {
                 2
               ),
           _vm._v(" "),
-          _vm.media !== null || _vm.imgDefault !== ""
-            ? _c("div", { staticClass: "col-lg-6" }, [
-                _vm.media !== null
-                  ? _c("img", {
-                      staticClass: "img-responsive page-media",
-                      attrs: { src: _vm.media, alt: "Image docteur" }
-                    })
-                  : _c("img", {
-                      staticClass: "img-responsive page-media",
-                      attrs: { src: _vm.imgDefault, alt: "Image docteur" }
-                    })
-              ])
-            : _vm._e()
+          _c("div", { staticClass: "col-lg-6" }, [
+            _vm.media !== null
+              ? _c("img", {
+                  staticClass: "img-responsive page-media",
+                  attrs: { src: _vm.media, alt: "Image docteur" }
+                })
+              : _c("img", {
+                  staticClass: "img-responsive page-media",
+                  attrs: { src: _vm.imgDefault, alt: "Image docteur" }
+                })
+          ])
         ]),
         _vm._v(" "),
-        _vm.routePage !== ""
+        _vm.isButton === "true" && _vm.routePage !== ""
           ? _c(
               "div",
               { staticClass: "d-flex justify-content-center mt-5 mb-3" },
@@ -53636,7 +53794,7 @@ var render = function() {
                     { staticClass: "col-md-6 col-sm-12 page-alert-message" },
                     [
                       _c("message-alert-component", {
-                        attrs: { alert_id: item.id, api_data: _vm.apiData }
+                        attrs: { "ajax-route": _vm.ajaxRouteAlert + item.id }
                       })
                     ],
                     1
@@ -53715,10 +53873,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "section",
-    {
-      staticClass: "section-bg-grey section-padding",
-      attrs: { id: "service" }
-    },
+    { class: _vm.classSection, attrs: { id: _vm.classId } },
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
@@ -66400,10 +66555,10 @@ var regionDayMap = {
 /*!*********************************************!*\
   !*** ./node_modules/weekstart/package.json ***!
   \*********************************************/
-/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, bugs, bundleDependencies, deprecated, description, devDependencies, homepage, keywords, license, main, module, name, repository, scripts, types, umd:main, version, default */
+/*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, author, bugs, description, devDependencies, homepage, keywords, license, main, module, name, repository, scripts, types, umd:main, version, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"_from\":\"weekstart\",\"_id\":\"weekstart@1.0.1\",\"_inBundle\":false,\"_integrity\":\"sha512-h6B1HSJxg7sZEXqIpDqAtwiDBp3x5y2jY8WYcUSBhLTcTCy7laQzBmamqMuQM5fpvo1pgpma0OCRpE2W8xrA9A==\",\"_location\":\"/weekstart\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"tag\",\"registry\":true,\"raw\":\"weekstart\",\"name\":\"weekstart\",\"escapedName\":\"weekstart\",\"rawSpec\":\"\",\"saveSpec\":null,\"fetchSpec\":\"latest\"},\"_requiredBy\":[\"#USER\",\"/\"],\"_resolved\":\"https://registry.npmjs.org/weekstart/-/weekstart-1.0.1.tgz\",\"_shasum\":\"950970b48e5797e06fc1a762f3d0f013312321e1\",\"_spec\":\"weekstart\",\"_where\":\"/app\",\"author\":{\"name\":\"Denis Sikuler\"},\"bugs\":{\"url\":\"https://github.com/gamtiq/weekstart/issues\"},\"bundleDependencies\":false,\"deprecated\":false,\"description\":\"Library to get first day of week.\",\"devDependencies\":{\"@babel/preset-env\":\"7.6.3\",\"eslint\":\"6.5.1\",\"eslint-config-guard\":\"1.0.3\",\"ink-docstrap\":\"1.3.2\",\"jest\":\"24.9.0\",\"jsdoc\":\"3.6.3\",\"microbundle\":\"0.4.4\",\"version-bump-prompt\":\"5.0.5\"},\"homepage\":\"https://github.com/gamtiq/weekstart\",\"keywords\":[\"week\",\"start\",\"first\",\"day\",\"locale\",\"country\",\"region\"],\"license\":\"MIT\",\"main\":\"dist/commonjs/main.js\",\"module\":\"dist/es-module/main.js\",\"name\":\"weekstart\",\"repository\":{\"type\":\"git\",\"url\":\"git://github.com/gamtiq/weekstart.git\"},\"scripts\":{\"all\":\"npm run check-all && npm run doc && npm run build\",\"build\":\"npm run build-umd && npm run build-commonjs && npm run build-esm && npm run build-umd-min\",\"build-commonjs\":\"microbundle build \\\"src/!(*.test).js\\\" --output dist/commonjs --format cjs --strict --no-compress\",\"build-esm\":\"microbundle build \\\"src/!(*.test).js\\\" --output dist/es-module --format es --no-compress\",\"build-umd\":\"microbundle build src/main.js src/full.js --output dist --format umd --strict --no-compress\",\"build-umd-min\":\"microbundle build src/main.js src/full.js --output dist/min --format umd --strict\",\"check\":\"npm run lint && npm test\",\"check-all\":\"npm run lint-all && npm test\",\"doc\":\"jsdoc -c jsdoc-conf.json\",\"lint\":\"eslint --cache --max-warnings 0 \\\"**/*.js\\\"\",\"lint-all\":\"eslint --max-warnings 0 \\\"**/*.js\\\"\",\"lint-all-error\":\"eslint \\\"**/*.js\\\"\",\"lint-error\":\"eslint --cache \\\"**/*.js\\\"\",\"release\":\"bump patch --commit --tag --all --push package.json package-lock.json bower.json component.json\",\"release-major\":\"bump major --commit --tag --all --push package.json package-lock.json bower.json component.json\",\"release-minor\":\"bump minor --commit --tag --all --push package.json package-lock.json bower.json component.json\",\"test\":\"jest\"},\"types\":\"./index.d.ts\",\"umd:main\":\"dist/main.js\",\"version\":\"1.0.1\"}");
+module.exports = JSON.parse("{\"_args\":[[\"weekstart@1.0.1\",\"/app\"]],\"_from\":\"weekstart@1.0.1\",\"_id\":\"weekstart@1.0.1\",\"_inBundle\":false,\"_integrity\":\"sha512-h6B1HSJxg7sZEXqIpDqAtwiDBp3x5y2jY8WYcUSBhLTcTCy7laQzBmamqMuQM5fpvo1pgpma0OCRpE2W8xrA9A==\",\"_location\":\"/weekstart\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"version\",\"registry\":true,\"raw\":\"weekstart@1.0.1\",\"name\":\"weekstart\",\"escapedName\":\"weekstart\",\"rawSpec\":\"1.0.1\",\"saveSpec\":null,\"fetchSpec\":\"1.0.1\"},\"_requiredBy\":[\"/\"],\"_resolved\":\"https://registry.npmjs.org/weekstart/-/weekstart-1.0.1.tgz\",\"_spec\":\"1.0.1\",\"_where\":\"/app\",\"author\":{\"name\":\"Denis Sikuler\"},\"bugs\":{\"url\":\"https://github.com/gamtiq/weekstart/issues\"},\"description\":\"Library to get first day of week.\",\"devDependencies\":{\"@babel/preset-env\":\"7.6.3\",\"eslint\":\"6.5.1\",\"eslint-config-guard\":\"1.0.3\",\"ink-docstrap\":\"1.3.2\",\"jest\":\"24.9.0\",\"jsdoc\":\"3.6.3\",\"microbundle\":\"0.4.4\",\"version-bump-prompt\":\"5.0.5\"},\"homepage\":\"https://github.com/gamtiq/weekstart\",\"keywords\":[\"week\",\"start\",\"first\",\"day\",\"locale\",\"country\",\"region\"],\"license\":\"MIT\",\"main\":\"dist/commonjs/main.js\",\"module\":\"dist/es-module/main.js\",\"name\":\"weekstart\",\"repository\":{\"type\":\"git\",\"url\":\"git://github.com/gamtiq/weekstart.git\"},\"scripts\":{\"all\":\"npm run check-all && npm run doc && npm run build\",\"build\":\"npm run build-umd && npm run build-commonjs && npm run build-esm && npm run build-umd-min\",\"build-commonjs\":\"microbundle build \\\"src/!(*.test).js\\\" --output dist/commonjs --format cjs --strict --no-compress\",\"build-esm\":\"microbundle build \\\"src/!(*.test).js\\\" --output dist/es-module --format es --no-compress\",\"build-umd\":\"microbundle build src/main.js src/full.js --output dist --format umd --strict --no-compress\",\"build-umd-min\":\"microbundle build src/main.js src/full.js --output dist/min --format umd --strict\",\"check\":\"npm run lint && npm test\",\"check-all\":\"npm run lint-all && npm test\",\"doc\":\"jsdoc -c jsdoc-conf.json\",\"lint\":\"eslint --cache --max-warnings 0 \\\"**/*.js\\\"\",\"lint-all\":\"eslint --max-warnings 0 \\\"**/*.js\\\"\",\"lint-all-error\":\"eslint \\\"**/*.js\\\"\",\"lint-error\":\"eslint --cache \\\"**/*.js\\\"\",\"release\":\"bump patch --commit --tag --all --push package.json package-lock.json bower.json component.json\",\"release-major\":\"bump major --commit --tag --all --push package.json package-lock.json bower.json component.json\",\"release-minor\":\"bump minor --commit --tag --all --push package.json package-lock.json bower.json component.json\",\"test\":\"jest\"},\"types\":\"./index.d.ts\",\"umd:main\":\"dist/main.js\",\"version\":\"1.0.1\"}");
 
 /***/ }),
 

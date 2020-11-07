@@ -1,60 +1,36 @@
+import Swal from 'sweetalert2'
+
 class Helpers {
-    /******************************
-     *
-     * Cookies Methods
-     *
-     *****************************/
+
 
     /**
-     *
-     * @param cname
-     * @param cvalue
-     * @param exdays
+     * Error Ajax Request
+     * @param xhr
      */
-    static setCookie(cname, cvalue, exdays) {
-        let d = new Date()
-        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000))
-        let expires = "expires="+d.toUTCString()
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"
-    }
+    static async handleErrorFn(xhr) {
+        let message = '';
+        if (xhr.status) {
+            message = xhr.statusText;
+        }else{
+            message = xhr.responseJSON ? xhr.responseJSON.message : xhr;
 
-    /**
-     *
-     * @param cname
-     * @return {string}
-     */
-    static getCookie(cname) {
-        let name = cname + "="
-        let decodedCookie = decodeURIComponent(document.cookie)
-        let ca = decodedCookie.split(';')
-        for(let i = 0; i < ca.length; i++) {
-            let c = ca[i]
-            while (c.charAt(0) === ' ') {
-                c = c.substring(1)
-            }
-            if (c.indexOf(name) === 0) {
-                return c.substring(name.length, c.length)
-            }
+            // Call notification Swal
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 7000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'error',
+                title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+            })
         }
-
-        return ""
     }
-
-    /**
-     *
-     * @return {boolean}
-     */
-    static checkCookie() {
-        let username = self.getCookie("username")
-
-        return username !== ""
-    }
-
-    
-    /******************************
-     *
-     * Axios Http Methods
-     *
-     *****************************/
-    //...
 }

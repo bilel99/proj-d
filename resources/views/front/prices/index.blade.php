@@ -5,10 +5,8 @@
 @section('content')
     <!-- Component Hero Banner -->
     <hero-banner-component
-            :page_id="{{ $priceHeroBanner->id }}"
-            hero_banner_class="hero-banner-price"
-            logo_default="{{ asset('front/img/logos/logo-icon.png') }}"
-            route_contact="{{ route('front.contacts') }}">
+        ajax-route="{{ route('front.ajax.hero-banner.price') }}"
+        hero-banner-class="hero-banner-price">
     </hero-banner-component>
 
     <!-- Component Prices -->

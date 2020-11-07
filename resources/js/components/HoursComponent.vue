@@ -11,28 +11,46 @@
 </template>
 
 <script>
-const access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e'
+import Swal from 'sweetalert2'
 
 export default {
     data() {
         return {
             hours: {
-                apiData: String,
+                ajaxRoute: String,
             }
         }
     },
-    props: {},
+    props: {
+        //
+    },
     mounted() {
-        this.apiData = document.querySelector('#app').getAttribute('data-base-api')
+        this.ajaxRoute = this.$el.getAttribute('ajax-route')
 
-        // Get Api
-        axios.get(this.apiData + 'horaire' + '?access_token=' + access_token)
+        // Get Ajax method
+        axios.get(this.ajaxRoute)
                 .then((response) => {
                     const data = response.data
                     this.hours = data.data
                 })
                 .catch((error) => {
-                    console.log(error)
+                    // Call notification Swal
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 7000,
+                        timerProgressBar: true,
+                        onOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+                    })
                 })
     }
 }

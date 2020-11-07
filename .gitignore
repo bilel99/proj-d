@@ -1,8 +1,34 @@
+# Laravel
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
 /vendor
 .env
 .env.backup
+.env.testing
+.env.test
+.env.dusk.local
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
 npm-debug.log
-yarn-error.log
+.scannerwork
+_ide_helper*
+storage/api-docs/
+
+# Project
+auth.json
+
+# PHP CS_fixer
+.php_cs.cache
+
+# Mac
+.DS_Store
+
+# Intellij
+.phpstorm*
+.idea
+.idea/
+*.iml
+*.iws
