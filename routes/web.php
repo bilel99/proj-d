@@ -3,13 +3,12 @@
 use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Front\AlertController;
 use App\Http\Controllers\Front\AppointmentController;
+use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\HeroBannerController;
 use App\Http\Controllers\Front\PriceController;
 use App\Http\Controllers\Front\ServicesController;
 use Laravel\Nova\Nova;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Front\PagesController;
-use App\Http\Controllers\Front\HomepageController;
 use App\Http\Controllers\Front\HoraireController;
 use App\Http\Controllers\Front\InformationController;
 use App\Http\Controllers\Front\MedicalHouseController;
@@ -40,43 +39,25 @@ Route::get('nova/login', function () {
 /**
  * homepage
  */
-Route
-    ::get(
-        '/',
-        [HomepageController::class, 'index']
-    )->name('homepage');
+Route::view('/', 'front.home.index')->name('homepage');
 
 /**
  * Appointment page
  */
-Route
-    ::get(
-        '/comment-prendre-un-rendez-vous',
-        [PagesController::class, 'appointment']
-    )->name('appointement');
+Route::view('/comment-prendre-un-rendez-vous', 'front.appointement.index')->name('appointement');
 
 /**
  * Price page
  */
-Route
-    ::get(
-        '/nos-tarifs',
-        [PagesController::class, 'price']
-    )->name('prices');
+Route::view('/nos-tarifs', 'front.prices.index')->name('prices');
 
 /**
- * contact page
+ * Contact page
  */
-Route
-    ::get(
-        '/nous-contacter',
-        [PagesController::class,
-        'contact']
-    )->name('contacts');
-
+Route::view('/nous-contacter', 'front.contact.index')->name('contacts');
 
 /**
- * Ajax Methods Hero Banner
+ * Ajax Methods Hero Banner homepage
  */
 Route
     ::get(
@@ -85,6 +66,9 @@ Route
         'homeHeroBanner']
     )->name('ajax.hero-banner.homepage');
 
+/**
+ * Ajax method Hero Banner price
+ */
 Route
     ::get(
         '/hero-banner-price',
@@ -92,6 +76,9 @@ Route
         'priceHeroBanner']
     )->name('ajax.hero-banner.price');
 
+/**
+ * Ajax method Hero Banner contact
+ */
 Route
     ::get(
         '/hero-banner-contact',
@@ -99,7 +86,9 @@ Route
         'contactHeroBanner']
     )->name('ajax.hero-banner.contact');
 
-
+/**
+ * Ajax method Hero Banner appointment
+ */
 Route
     ::get(
         '/hero-banner-appointment',
@@ -169,6 +158,16 @@ Route
     )->name('ajax.get.prices');
 
 /**
+ * Ajax method Price refound
+ */
+Route
+    ::get(
+        '/ajax-prices-refound',
+        [PriceController::class,
+            'getPriceRefound']
+    )->name('ajax.get.prices.refound');
+
+/**
  * Ajax method Appointment
  */
 Route
@@ -177,6 +176,26 @@ Route
         [AppointmentController::class,
             'getAppointment']
     )->name('ajax.get.appointment');
+
+/**
+ * Ajax method Appointment doctors
+ */
+Route
+    ::get(
+        '/ajax-appointment-doctors',
+        [AppointmentController::class,
+            'getAppointmentDoctors']
+    )->name('ajax.get.appointment.doctors');
+
+/**
+ * Ajax method Appointment rdv
+ */
+Route
+    ::get(
+        '/ajax-appointment-rdv',
+        [AppointmentController::class,
+            'getAppointmentRdv']
+    )->name('ajax.get.appointment.rdv');
 
 /**
  * Ajax method About
@@ -197,3 +216,33 @@ Route
         [ServicesController::class,
             'getServices']
     )->name('ajax.get.services');
+
+/**
+ * Ajax method Contact
+ */
+Route
+    ::get(
+        '/ajax-contact',
+        [ContactController::class,
+            'contactPage']
+    )->name('ajax.contact');
+
+/**
+ * Ajax method Contact civility
+ */
+Route
+    ::get(
+        '/ajax-contact-civility',
+        [ContactController::class,
+            'getElementsToContact']
+    )->name('ajax.contact.civility');
+
+/**
+ * Ajax method Contact create
+ */
+Route
+    ::post(
+        '/ajax-contact-create',
+        [ContactController::class,
+            'create']
+    )->name('ajax.contact.create');

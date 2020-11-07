@@ -6,45 +6,60 @@
         <p class="page-content" v-html="page.content"></p>
 
         <div v-for="(item, index) in page.alerts" class="page-alert-message">
-            <message-alert-component :alert_id="item.id" :api_data="apiData"></message-alert-component>
+            <message-alert-component :ajax-route="ajaxRouteAlert + item.id"></message-alert-component>
         </div>
     </div>
 </template>
 
 <script>
-const access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e'
+import Swal from 'sweetalert2'
 
 export default {
     data() {
         return {
+            ajaxRoute: String,
+            ajaxRouteAlert: String,
             classId: String,
             classSection: String,
             routePage: String,
-            apiData: String,
             page: {},
-            imgDefault: String,
             media: String,
         }
     },
     props: {
-        page_id: Number,
+        //
     },
     mounted() {
+        this.ajaxRoute = this.$el.getAttribute('ajax-route')
         this.classId = this.$el.getAttribute('class_id')
         this.classSection = this.$el.getAttribute('class_section')
-        this.routePage = this.$el.getAttribute('route_page')
-        this.imgDefault = this.$el.getAttribute('img_default')
-        this.apiData = document.querySelector('#app').getAttribute('data-base-api')
-
+        
         // Get Api
-        axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token)
+        axios.get(this.ajaxRoute)
         .then((response) => {
             const data = response.data
             this.page = data.data
             this.media = data.media
+            this.routePage = data.route_page
         })
         .catch((error) => {
-            console.log(error)
+            // Call notification Swal
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 7000,
+              timerProgressBar: true,
+              onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+              }
+            })
+
+            Toast.fire({
+              icon: 'error',
+              title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+            })
         })
     }
 }
