@@ -6,7 +6,8 @@
     <!-- Component Hero Banner -->
     <hero-banner-component
         ajax-route="{{ route('front.ajax.hero-banner.price') }}"
-        hero-banner-class="hero-banner-price">
+        hero-banner-class="hero-banner-price"
+        go-to-target="#prices">
     </hero-banner-component>
 
     <!-- Component Prices -->
@@ -14,7 +15,7 @@
             ajax-route="{{ route('front.ajax.get.prices') }}"
             class_id="prices"
             class_section="section-bg-white section-padding"
-            is_button="true">
+            is_button="false">
     </price-component>
 
     <!-- section Prices -->

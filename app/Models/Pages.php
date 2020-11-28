@@ -79,14 +79,18 @@ class Pages extends BasesModel
     }
 
     /**
-     * @param int $id
+     * @param $id
      * @return string
      */
-    public static function getRetrieveMedia(int $id)
+    public static function getRetrieveMedia($id): string
     {
+        if (null === $id || '' === $id) {
+            return '';
+        }
+
         $file = API::getFiles($id, null, true);
 
-        return asset(sprintf('storage/%s', $file->path));
+        return asset(sprintf('storage%s', $file->path));
     }
 
     /**

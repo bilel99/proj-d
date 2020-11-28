@@ -26,8 +26,8 @@
                 </div>
 
                 <div class="col-lg-6">
-                    <img v-if="media !== null" :src="media" class="img-responsive page-media" alt="Image docteur">
-                    <img v-else :src="imgDefault" class="img-responsive page-media" alt="Image docteur">
+                    <img v-if="media !== ''" :src="media" class="img-responsive page-media" alt="Qui sommes nous ?">
+                    <img v-else :src="imgDefault" class="img-responsive page-media" alt="Qui sommes nous ?">
                 </div>
             </div>
 
@@ -67,7 +67,7 @@ export default {
 
         // Prepare route Alert URL
         this.ajaxRouteAlert = this.ajaxRoute.split('ajax')[0] + 'ajax-find-alert/'
-      
+
         // Get Api
         axios.get(this.ajaxRoute)
         .then((response) => {

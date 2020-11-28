@@ -2644,6 +2644,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2653,7 +2655,8 @@ __webpack_require__.r(__webpack_exports__);
       heroBannerClass: String,
       logoDefault: String,
       media: String,
-      routeContact: String
+      routeContact: String,
+      goToTarget: String
     };
   },
   props: {//
@@ -2662,7 +2665,7 @@ __webpack_require__.r(__webpack_exports__);
     goToByScroll: function goToByScroll(id) {
       // Scroll
       jQuery('html,body').animate({
-        scrollTop: jQuery("#" + id).offset().top
+        scrollTop: jQuery(id).offset().top
       }, 'slow');
     }
   },
@@ -2670,7 +2673,8 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     this.ajaxRoute = this.$el.getAttribute('ajax-route');
-    this.heroBannerClass = this.$el.getAttribute('hero-banner-class'); // Get Ajax method
+    this.heroBannerClass = this.$el.getAttribute('hero-banner-class');
+    this.goToTarget = this.$el.getAttribute('go-to-target'); // Get Ajax method
 
     axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
@@ -53206,11 +53210,11 @@ var render = function() {
                   _c(
                     "a",
                     {
-                      attrs: { href: "#about", title: "Qui sommes-nous ?" },
+                      attrs: { href: _vm.goToTarget, title: "Lire la suite" },
                       on: {
                         click: function($event) {
                           $event.preventDefault()
-                          return _vm.goToByScroll("about")
+                          return _vm.goToByScroll(_vm.goToTarget)
                         }
                       }
                     },
@@ -53753,14 +53757,14 @@ var render = function() {
               ),
           _vm._v(" "),
           _c("div", { staticClass: "col-lg-6" }, [
-            _vm.media !== null
+            _vm.media !== ""
               ? _c("img", {
                   staticClass: "img-responsive page-media",
-                  attrs: { src: _vm.media, alt: "Image docteur" }
+                  attrs: { src: _vm.media, alt: "Qui sommes nous ?" }
                 })
               : _c("img", {
                   staticClass: "img-responsive page-media",
-                  attrs: { src: _vm.imgDefault, alt: "Image docteur" }
+                  attrs: { src: _vm.imgDefault, alt: "Qui sommes nous ?" }
                 })
           ])
         ]),

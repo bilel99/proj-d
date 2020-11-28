@@ -5,7 +5,8 @@
 @section('content')
     <hero-banner-component
         ajax-route="{{ route('front.ajax.hero-banner.contact') }}"
-        hero-banner-class="hero-banner-contact">
+        hero-banner-class="hero-banner-contact"
+        go-to-target="#contact">
     </hero-banner-component>
 
     <contact-component

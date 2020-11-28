@@ -6,7 +6,8 @@
     {{-- Component HeroBanner --}}
     <hero-banner-component
         ajax-route="{{ route('front.ajax.hero-banner.appointment') }}"
-        hero-banner-class="hero-banner-appointment">
+        hero-banner-class="hero-banner-appointment"
+        go-to-target="#detail-page">
     </hero-banner-component>
 
     <!-- section appointment -->

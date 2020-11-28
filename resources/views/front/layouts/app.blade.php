@@ -44,7 +44,12 @@
     <link href="{{ asset('front/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<div id="app">
+<div id="app"
+     data-asset="{{ asset('front') }}"
+     data-homepage-url="{{ route('front.homepage') }}"
+     data-appointement-url="{{ route('front.appointement') }}"
+     data-prices-url="{{ route('front.prices') }}"
+     data-contacts-url="{{ route('front.contacts') }}">
     <main>
         @if(isset($pages_is_empty) && $pages_is_empty)
             @include('front.layouts.partials._page_is_empty')

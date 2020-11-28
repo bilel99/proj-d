@@ -5,6 +5,7 @@ return [
     /**
      * BASE URL
      */
+    'version' => '2.0',
     'route_login' => 'login',
     'login' => '/login',
     'admin' => '/nova',

@@ -15,10 +15,13 @@ class AppointmentController extends Controller
     public function getAppointment(): JsonResponse
     {
         $response = new JsonResponse();
-        
+
+        $appointment = Pages::getPage(Pages::PAGE_COMMENT_PRENDRE_RDV);
+
         return $response->setData([
-            'data' => Pages::getPage(Pages::PAGE_COMMENT_PRENDRE_RDV),
-            'img_default' => asset('front/img/demande-contact.png'),
+            'data' => $appointment,
+            'img_default' => asset('front/img/demande-contact.png') ?? '',
+            'media' => Pages::getRetrieveMedia($appointment->media ?? null),
             'route_page' => route('front.appointement'),
         ]);
     }
@@ -30,9 +33,12 @@ class AppointmentController extends Controller
     {
         $response = new JsonResponse();
 
+        $appointmentDoctor = Pages::getPage(Pages::PAGE_CE_QUE_LES_DOCTEUR_NE_FONT_PAS);
+
         return $response->setData([
-            'data' => Pages::getPage(Pages::PAGE_CE_QUE_LES_DOCTEUR_NE_FONT_PAS),
-            'img_default' => asset('front/img/demande-contact.png'),
+            'data' => $appointmentDoctor,
+            'img_default' => asset('front/img/demande-contact.png') ?? '',
+            'media' => Pages::getRetrieveMedia($appointmentDoctor->media ?? null),
             'route_page' => route('front.homepage'),
         ]);
     }
@@ -44,9 +50,12 @@ class AppointmentController extends Controller
     {
         $response = new JsonResponse();
 
+        $appointmentRdv = Pages::getPage(Pages::PAGE_UN_RDV_QUEL_DELAI);
+
         return $response->setData([
-            'data' => Pages::getPage(Pages::PAGE_UN_RDV_QUEL_DELAI),
-            'img_default' => asset('front/img/demande-contact.png'),
+            'data' => $appointmentRdv,
+            'img_default' => asset('front/img/demande-contact.png') ?? '',
+            'media' => Pages::getRetrieveMedia($appointmentRdv->media ?? null),
             'route_page' => route('front.homepage'),
         ]);
     }

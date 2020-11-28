@@ -18,7 +18,9 @@
                             </div>
 
                             <div class="overlay-detail text-center mt-5">
-                                <a href="#about" title="Qui sommes-nous ?" @click.prevent="goToByScroll('about')"><i class="hero-banner-fa-angle-down animate__animated animate__slideInDown fa fa-angle-down"></i></a>
+                                <a :href="goToTarget" title="Lire la suite" @click.prevent="goToByScroll(goToTarget)">
+                                    <i class="hero-banner-fa-angle-down animate__animated animate__slideInDown fa fa-angle-down"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -39,7 +41,8 @@ export default {
             heroBannerClass: String,
             logoDefault: String,
             media: String,
-            routeContact: String
+            routeContact: String,
+            goToTarget: String,
         }
     },
     props: {
@@ -48,12 +51,13 @@ export default {
     methods: {
         goToByScroll(id) {
             // Scroll
-            jQuery('html,body').animate({scrollTop: jQuery("#"+id).offset().top}, 'slow');
+            jQuery('html,body').animate({scrollTop: jQuery(id).offset().top}, 'slow');
         }
     },
     mounted() {
         this.ajaxRoute = this.$el.getAttribute('ajax-route')
         this.heroBannerClass = this.$el.getAttribute('hero-banner-class')
+        this.goToTarget = this.$el.getAttribute('go-to-target')
 
         // Get Ajax method
         axios.get(this.ajaxRoute)
