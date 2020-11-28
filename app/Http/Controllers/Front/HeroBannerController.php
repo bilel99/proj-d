@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Models\Pages;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class HeroBannerController extends Controller
 {

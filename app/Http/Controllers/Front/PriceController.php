@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use App\Models\Informations;
 use App\Models\Pages;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;

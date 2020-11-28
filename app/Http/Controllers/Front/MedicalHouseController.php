@@ -6,6 +6,7 @@ use App\Models\Pages;
 use App\Models\MedicalHouses;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class MedicalHouseController extends Controller
 {
