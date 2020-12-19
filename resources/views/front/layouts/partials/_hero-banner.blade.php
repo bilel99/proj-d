@@ -1,9 +1,5 @@
-{{-- Component HeroBanner --}}
-@isset($homeHeroBanner)
-    <hero-banner-component
-            :page_id="{{ $homeHeroBanner->id }}"
-            hero_banner_class="hero-banner"
-            logo_default="{{ asset('front/img/logos/logo-icon.png') }}"
-            route_contact="{{ route('front.contacts') }}">
-    </hero-banner-component>
-@endisset
+<hero-banner-component
+    ajax-route="{{ route('front.ajax.hero-banner.homepage') }}"
+    hero-banner-class="hero-banner"
+    go-to-target="#about">
+</hero-banner-component>

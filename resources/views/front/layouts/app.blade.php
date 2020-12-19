@@ -45,7 +45,6 @@
 </head>
 <body>
 <div id="app"
-     data-base-api="{{ config('docteurs_gardes.api_base_url') }}"
      data-asset="{{ asset('front') }}"
      data-homepage-url="{{ route('front.homepage') }}"
      data-appointement-url="{{ route('front.appointement') }}"

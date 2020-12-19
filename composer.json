@@ -25,7 +25,8 @@
         "laravel/ui": "^3.0",
         "mdixon18/fontawesome": "^0.2.1",
         "moontoast/math": "1.1.2 as 1.999.999",
-        "skydiver/nova-update-card": "^1.4"
+        "Ddg/Contactcard": "*",
+        "Ddg/Doctorsinfoscard": "*"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",

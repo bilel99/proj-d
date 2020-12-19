@@ -1,10 +1,7 @@
 {{-- Component Page --}}
-@isset($about)
-    <page-component
-            :page_id="{{ $about->id }}"
-            class_id="about"
-            class_section="section-bg-white section-padding"
-            img_default="{{ asset('front/img/image_doctor2.png') }}"
-            route_page="">
-    </page-component>
-@endisset
+<page-component
+    ajax-route="{{ route('front.ajax.get.about') }}"
+    class_id="about"
+    class_section="section-bg-white section-padding"
+    is_button="false">
+</page-component>

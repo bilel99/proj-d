@@ -3,12 +3,10 @@
 namespace App\Providers;
 
 use App\Models\User;
+use ClassicO\NovaMediaLibrary\NovaMediaLibrary;
 use Illuminate\Support\Facades\Gate;
-use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
-use Skydiver\NovaUpdateCard\LaravelUpdateCard;
-use Skydiver\NovaUpdateCard\NovaUpdateCard;
 use Ddg\Contactcard\Contactcard;
 use Ddg\Doctorsinfoscard\Doctorsinfoscard;
 
@@ -62,9 +60,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            //new Help, <== page initialization Laravel Nova
-            (new LaravelUpdateCard)->width('1/2'),
-            (new NovaUpdateCard)->width('1/2'),
+            //new Help, //<== page initialization Laravel Nova
             (new Contactcard)->width('1/2'),
             (new Doctorsinfoscard)->width('1/2'),
         ];
@@ -88,7 +84,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function tools()
     {
         return [
-            new \ClassicO\NovaMediaLibrary\NovaMediaLibrary()
+            new NovaMediaLibrary()
         ];
     }
 

@@ -76,7 +76,7 @@
         <div class="row">
             <div class="col-md-12 mt-2 mt-sm-2">
                 <p class="text-center">Copyright © {{ date('Y') }} - {{ config('app.name') }}.</p>
-                <span class="d-flex justify-content-center font-italic small">v1.0</span>
+                <span class="d-flex justify-content-center font-italic small">v{{ config('docteurs_gardes.version') }}</span>
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12">
+    <div class="col-12" id="form-contact-component">
         <div class="card-contact">
             <h3 class="title-form text-center py-5">Demande de contact</h3>
 
@@ -303,7 +303,6 @@ import Multiselect from 'vue-multiselect'
 import 'vue-multiselect/dist/vue-multiselect.min.css'
 
 Settings.defaultLocale = 'fr'
-const access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e'
 
 export default {
     components: {
@@ -312,7 +311,9 @@ export default {
     },
     data() {
         return {
-            apiData: String,
+            ajaxRoute: String,
+            ajaxRouteContactElements: String,
+            ajaxRouteCreateContact: String,
             contactElm: {},
             optionsDemandeObj: [],
             optionsCivility: [],
@@ -337,6 +338,7 @@ export default {
         }
     },
     props: {
+        //
     },
     methods: {
         valueWithKey ({ key, value }) {
@@ -347,9 +349,13 @@ export default {
             textarea.style.height = 'auto';
             textarea.style.height = textarea.scrollHeight+'px';
         },
+
+        /**
+         * @todo retravailler pour refacto le status json de l'ajax et la method
+         */
         submitForm() {
             // POST Api
-            axios.post(this.apiData + 'contact/form-create?access_token=' + access_token, {
+            axios.post(this.ajaxRouteCreateContact, {
                 // FormData
                 objet_demande: this.objet_demande.key,
                 civility: this.civility.key,
@@ -368,32 +374,35 @@ export default {
             .then((response) => {
                 const data = response.data
 
-                if (data.success === false && data.errors_form === true) {
-                    this.errors = data.errors
+                // Error form is invalid
+                if (data.errors_form === true) {
+                  this.errors = data.errors
                 }
 
-                if (data.success === false && data.errors_form === false) {
-                    this.doctorNotFound = data.errors
+                // Error Doctor is invalid
+                if (data.errors_form === false) {
+                  this.doctorNotFound = data.errors
 
-                    // Call notification Swal
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 7000,
-                        timerProgressBar: true,
-                        onOpen: (toast) => {
-                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                        }
-                    })
+                  // Call notification Swal
+                  const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 7000,
+                    timerProgressBar: true,
+                    onOpen: (toast) => {
+                      toast.addEventListener('mouseenter', Swal.stopTimer)
+                      toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                  })
 
-                    Toast.fire({
-                        icon: 'error',
-                        title: this.doctorNotFound
-                    })
+                  Toast.fire({
+                    icon: 'error',
+                    title: this.doctorNotFound
+                  })
                 }
 
+                // Created is OK return Success
                 if (data.success === true) {
                     this.successMessage = data.message
                     this.responseSuccess = data.data
@@ -420,15 +429,37 @@ export default {
                     window.location = '/'
                 }
             }).catch((error) => {
-                console.log(error)
+                // Call notification Swal
+                const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'top-end',
+                  showConfirmButton: false,
+                  timer: 7000,
+                  timerProgressBar: true,
+                  onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                  }
+                })
+
+                Toast.fire({
+                  icon: 'error',
+                  title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+                })
             })
         }
     },
     mounted() {
-        this.apiData = document.querySelector('#app').getAttribute('data-base-api')
+        this.ajaxRoute = this.$parent.$el.getAttribute('ajax-route')
+
+        // Prepare route Create contact URL
+        this.ajaxRouteContactElements = this.ajaxRoute.split('ajax')[0] + 'ajax-contact-civility'
+
+        // Prepare route Create contact URL
+        this.ajaxRouteCreateContact = this.ajaxRoute.split('ajax')[0] + 'ajax-contact-create'
 
         // Get Api
-        axios.get(this.apiData + 'get-elements-to-contact' + '?access_token=' + access_token)
+        axios.get(this.ajaxRouteContactElements)
         .then((response) => {
             const data = response.data
             this.contactElm = data
@@ -444,7 +475,23 @@ export default {
             }
         })
         .catch((error) => {
-            console.log(error)
+            // Call notification Swal
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 7000,
+              timerProgressBar: true,
+              onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+              }
+            })
+
+            Toast.fire({
+              icon: 'error',
+              title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+            })
         })
     }
 }

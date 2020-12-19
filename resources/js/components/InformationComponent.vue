@@ -26,12 +26,12 @@
                                     <!-- Hours Component -->
                                     <div v-if="item.id === 1">
                                         <horaire-component
-                                                :api_data="apiData">
+                                                :ajax-route="ajaxRouteHoraires">
                                         </horaire-component>
                                     </div>
 
                                     <div v-if="item.alert_id !== null">
-                                        <message-alert-component :alert_id="item.alert_id" :api_data="apiData"></message-alert-component>
+                                        <message-alert-component :ajax-route="ajaxRouteAlert + item.alert_id"></message-alert-component>
                                     </div>
                                 </div>
                             </div>
@@ -48,48 +48,61 @@
 </template>
 
 <script>
-const access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e'
+import Swal from 'sweetalert2'
 
 export default {
     data() {
         return {
+            ajaxRoute: String,
+            ajaxRouteAlert: String,
+            ajaxRouteHoraires: String,
             classId: String,
             classSection: String,
-            apiData: String,
-            routePage: String,
             media: String,
             page: {},
             information: {},
         }
     },
     props: {
-        page_id: Number,
+        //
     },
     mounted() {
+        this.ajaxRoute = this.$el.getAttribute('ajax-route')
         this.classId = this.$el.getAttribute('class_id')
         this.classSection = this.$el.getAttribute('class_section')
-        this.routePage = this.$el.getAttribute('route_page')
-        this.apiData = document.querySelector('#app').getAttribute('data-base-api')
 
-        // Get Api
-        axios.get(this.apiData + 'get-relations-page/' + this.page_id  + '?access_token=' + access_token)
+        // Prepare route Alert URL
+        this.ajaxRouteAlert = this.ajaxRoute.split('ajax')[0] + 'ajax-find-alert/'
+
+        // Prepare route Horaire URL
+        this.ajaxRouteHoraires = this.ajaxRoute.split('ajax')[0] + 'ajax-horaires'
+
+        // Get Ajax method
+        axios.get(this.ajaxRoute)
                 .then((response) => {
                     const data = response.data
                     this.page = data.data
-                    this.media = data.media
+                    this.media = data.data.media
+                    this.information = data.informations
                 })
                 .catch((error) => {
-                    console.log(error)
-                })
+                    // Call notification Swal
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 7000,
+                        timerProgressBar: true,
+                        onOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
 
-        // Get Api
-        axios.get(this.apiData + 'get-all-informations' + '?access_token=' + access_token)
-                .then((response) => {
-                    const data = response.data
-                    this.information = data.data
-                })
-                .catch((error) => {
-                    console.log(error)
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+                    })
                 })
     }
 }

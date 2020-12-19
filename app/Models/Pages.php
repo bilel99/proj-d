@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use ClassicO\NovaMediaLibrary\API;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -77,22 +79,30 @@ class Pages extends BasesModel
     }
 
     /**
-     * @param int $id
+     * @param $id
      * @return string
      */
-    public static function getRetrieveMedia(int $id)
+    public static function getRetrieveMedia($id): string
     {
+        if (null === $id || '' === $id) {
+            return '';
+        }
+
         $file = API::getFiles($id, null, true);
 
-        return asset(sprintf('storage/%s', $file->path));
+        return asset(sprintf('storage%s', $file->path));
     }
 
     /**
      * @param string $unique_name
-     * @return Pages
+     * @return Builder|Model|object|null
      */
-    public static function getPage(string $unique_name): ?Pages
+    public static function getPage(string $unique_name)
     {
-        return self::where('unique_name', $unique_name)->first();
+        return
+            self
+                ::with('alerts', 'service', 'medicalHouse', 'price')
+                ->where('unique_name', $unique_name)
+                ->first();
     }
 }

@@ -4,16 +4,14 @@
 
 @section('content')
     <hero-banner-component
-            :page_id="{{ $contactHeroBanner->id }}"
-            hero_banner_class="hero-banner-contact"
-            logo_default="{{ asset('front/img/logos/logo-icon.png') }}"
-            route_contact="">
+        ajax-route="{{ route('front.ajax.hero-banner.contact') }}"
+        hero-banner-class="hero-banner-contact"
+        go-to-target="#contact">
     </hero-banner-component>
 
     <contact-component
-            :page_id="{{ $detailContact->id }}"
-            class_id="contact"
-            class_section="section-bg-white section-padding"
-            route_page="{{ route('front.homepage') }}">
+        ajax-route="{{ route('front.ajax.contact') }}"
+        class_id="contact"
+        class_section="section-bg-white section-padding">
     </contact-component>
 @endsection

@@ -26,7 +26,7 @@ class CreateContactsTable extends Migration
             $table->string('phone');
             $table->date('date_consultation');
             $table->string('objet_demande_doctor');
-            $table->longText('precisions');
+            $table->longText('precisions')->nullable();
             $table->timestamps();
 
             $table->foreign('doctor_id')->references('id')->on('doctors');

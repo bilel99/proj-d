@@ -18,7 +18,9 @@
                             </div>
 
                             <div class="overlay-detail text-center mt-5">
-                                <a href="#about" title="Qui sommes-nous ?" @click.prevent="goToByScroll('about')"><i class="hero-banner-fa-angle-down animate__animated animate__slideInDown fa fa-angle-down"></i></a>
+                                <a :href="goToTarget" title="Lire la suite" @click.prevent="goToByScroll(goToTarget)">
+                                    <i class="hero-banner-fa-angle-down animate__animated animate__slideInDown fa fa-angle-down"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -29,43 +31,61 @@
 </template>
 
 <script>
-const access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e'
+import Swal from 'sweetalert2'
 
 export default {
     data() {
         return {
-            apiData: String,
+            ajaxRoute: String,
             heroBanner: {},
             heroBannerClass: String,
             logoDefault: String,
             media: String,
-            routeContact: String
+            routeContact: String,
+            goToTarget: String,
         }
     },
     props: {
-        page_id: Number,
+        //
     },
     methods: {
         goToByScroll(id) {
             // Scroll
-            jQuery('html,body').animate({scrollTop: jQuery("#"+id).offset().top}, 'slow');
+            jQuery('html,body').animate({scrollTop: jQuery(id).offset().top}, 'slow');
         }
     },
     mounted() {
-        this.heroBannerClass = this.$el.getAttribute('hero_banner_class')
-        this.logoDefault = this.$el.getAttribute('logo_default')
-        this.apiData = document.querySelector('#app').getAttribute('data-base-api')
-        this.routeContact = this.$el.getAttribute('route_contact')
+        this.ajaxRoute = this.$el.getAttribute('ajax-route')
+        this.heroBannerClass = this.$el.getAttribute('hero-banner-class')
+        this.goToTarget = this.$el.getAttribute('go-to-target')
 
-        // Get Api
-        axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token)
+        // Get Ajax method
+        axios.get(this.ajaxRoute)
         .then((response) => {
             const data = response.data
             this.heroBanner = data.data
-            this.media = data.media
+            this.media = data.data.media
+            this.logoDefault = data.logo_default
+            this.routeContact = data.route_contact
         })
         .catch((error) => {
-            console.log(error)
+            // Call notification Swal
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 7000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'error',
+                title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+            })
         })
     }
 }

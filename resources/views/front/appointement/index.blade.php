@@ -5,10 +5,9 @@
 @section('content')
     {{-- Component HeroBanner --}}
     <hero-banner-component
-            :page_id="{{ $aboutHeroBanner->id }}"
-            hero_banner_class="hero-banner-appointment"
-            logo_default="{{ asset('front/img/logos/logo-icon.png') }}"
-            route_contact="{{ route('front.contacts') }}">
+        ajax-route="{{ route('front.ajax.hero-banner.appointment') }}"
+        hero-banner-class="hero-banner-appointment"
+        go-to-target="#detail-page">
     </hero-banner-component>
 
     <!-- section appointment -->
@@ -26,33 +25,27 @@
                 <div class="col-md-6 col-sm-12 py-3 px-3 appointement-section-1">
                     {{-- Component Detail Page --}}
                     <detail-page-component
-                        :page_id="{{ $appointment->id }}"
+                        ajax-route="{{ route('front.ajax.get.appointment') }}"
                         class_id="detail-page"
-                        class_section="section-bg-white section-padding"
-                        img_default=""
-                        route_page="{{ route('front.homepage') }}">
+                        class_section="section-bg-white section-padding">
                     </detail-page-component>
                 </div>
 
                 <div class="col-md-6 col-sm-12 py-3 px-3 appointement-section-2">
                     {{-- Component Detail Page --}}
                     <detail-page-component
-                        :page_id="{{ $detailRdv->id }}"
+                        ajax-route="{{ route('front.ajax.get.appointment.doctors') }}"
                         class_id="detail-page"
-                        class_section="section-bg-white section-padding"
-                        img_default=""
-                        route_page="{{ route('front.homepage') }}">
+                        class_section="section-bg-white section-padding">
                     </detail-page-component>
                 </div>
 
                 <div class="col-12 py-3 px-3 appointement-section-3">
                     {{-- Component Detail Page --}}
                     <detail-page-component
-                        :page_id="{{ $detaildoctors->id }}"
+                        ajax-route="{{ route('front.ajax.get.appointment.rdv') }}"
                         class_id="detail-page"
-                        class_section="section-bg-white section-padding"
-                        img_default=""
-                        route_page="{{ route('front.homepage') }}">
+                        class_section="section-bg-white section-padding">
                     </detail-page-component>
                 </div>
             </div>

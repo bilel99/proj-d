@@ -1908,6 +1908,8 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1937,35 +1939,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      ajaxRoute: String,
+      ajaxRouteAlert: String,
       classId: String,
       classSection: String,
-      apiData: String,
       page: {},
       media: String,
       routePage: String
     };
   },
-  props: {
-    page_id: Number
+  props: {//
   },
   mounted: function mounted() {
     var _this = this;
 
+    this.ajaxRoute = this.$el.getAttribute('ajax-route');
     this.classId = this.$el.getAttribute('class_id');
-    this.classSection = this.$el.getAttribute('class_section');
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api');
-    this.routePage = this.$el.getAttribute('route_name'); // Get Api  
+    this.classSection = this.$el.getAttribute('class_section'); // Base url
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
+    this.baseUrl = this.ajaxRoute.split('ajax')[0]; // Prepare route Alert URL
+
+    this.ajaxRouteAlert = this.ajaxRoute.split('ajax')[0] + 'ajax-find-alert/'; // Get Api  
+
+    axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
       _this.page = data.data;
       _this.media = data.media;
+      _this.routePage = data.route_page;
     })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -1981,6 +2002,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1994,37 +2017,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      ajaxRoute: String,
+      ajaxRouteAlert: String,
       classId: String,
       classSection: String,
       routePage: String,
-      apiData: String,
       page: {},
-      imgDefault: String,
       media: String
     };
   },
-  props: {
-    page_id: Number
+  props: {//
   },
   mounted: function mounted() {
     var _this = this;
 
+    this.ajaxRoute = this.$el.getAttribute('ajax-route');
     this.classId = this.$el.getAttribute('class_id');
-    this.classSection = this.$el.getAttribute('class_section');
-    this.routePage = this.$el.getAttribute('route_page');
-    this.imgDefault = this.$el.getAttribute('img_default');
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
+    this.classSection = this.$el.getAttribute('class_section'); // Get Api
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
+    axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
       _this.page = data.data;
       _this.media = data.media;
+      _this.routePage = data.route_page;
     })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -2367,7 +2403,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 luxon__WEBPACK_IMPORTED_MODULE_3__["Settings"].defaultLocale = 'fr';
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     datetime: vue_datetime__WEBPACK_IMPORTED_MODULE_1__["Datetime"],
@@ -2375,7 +2410,9 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
   },
   data: function data() {
     return {
-      apiData: String,
+      ajaxRoute: String,
+      ajaxRouteContactElements: String,
+      ajaxRouteCreateContact: String,
       contactElm: {},
       optionsDemandeObj: [],
       optionsCivility: [],
@@ -2399,7 +2436,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
       precisions: ''
     };
   },
-  props: {},
+  props: {//
+  },
   methods: {
     valueWithKey: function valueWithKey(_ref) {
       var key = _ref.key,
@@ -2411,11 +2449,15 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
       textarea.style.height = 'auto';
       textarea.style.height = textarea.scrollHeight + 'px';
     },
+
+    /**
+     * @todo retravailler pour refacto le status json de l'ajax et la method
+     */
     submitForm: function submitForm() {
       var _this = this;
 
       // POST Api
-      axios.post(this.apiData + 'contact/form-create?access_token=' + access_token, {
+      axios.post(this.ajaxRouteCreateContact, {
         // FormData
         objet_demande: this.objet_demande.key,
         civility: this.civility.key,
@@ -2431,13 +2473,14 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
         objet_demande_doctor: this.objet_demande_doctor,
         precisions: this.precisions
       }).then(function (response) {
-        var data = response.data;
+        var data = response.data; // Error form is invalid
 
-        if (data.success === false && data.errors_form === true) {
+        if (data.errors_form === true) {
           _this.errors = data.errors;
-        }
+        } // Error Doctor is invalid
 
-        if (data.success === false && data.errors_form === false) {
+
+        if (data.errors_form === false) {
           _this.doctorNotFound = data.errors; // Call notification Swal
 
           var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
@@ -2455,7 +2498,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
             icon: 'error',
             title: _this.doctorNotFound
           });
-        }
+        } // Created is OK return Success
+
 
         if (data.success === true) {
           _this.successMessage = data.message;
@@ -2482,16 +2526,35 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
           window.location = '/';
         }
       })["catch"](function (error) {
-        console.log(error);
+        // Call notification Swal
+        var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 7000,
+          timerProgressBar: true,
+          onOpen: function onOpen(toast) {
+            toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+            toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+          }
+        });
+        Toast.fire({
+          icon: 'error',
+          title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+        });
       });
     }
   },
   mounted: function mounted() {
     var _this2 = this;
 
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
+    this.ajaxRoute = this.$parent.$el.getAttribute('ajax-route'); // Prepare route Create contact URL
 
-    axios.get(this.apiData + 'get-elements-to-contact' + '?access_token=' + access_token).then(function (response) {
+    this.ajaxRouteContactElements = this.ajaxRoute.split('ajax')[0] + 'ajax-contact-civility'; // Prepare route Create contact URL
+
+    this.ajaxRouteCreateContact = this.ajaxRoute.split('ajax')[0] + 'ajax-contact-create'; // Get Api
+
+    axios.get(this.ajaxRouteContactElements).then(function (response) {
       var data = response.data;
       _this2.contactElm = data; // Create Option array to objDemandeOptions
 
@@ -2518,7 +2581,22 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
         });
       }
     })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -2534,6 +2612,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2564,43 +2644,61 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      apiData: String,
+      ajaxRoute: String,
       heroBanner: {},
       heroBannerClass: String,
       logoDefault: String,
       media: String,
-      routeContact: String
+      routeContact: String,
+      goToTarget: String
     };
   },
-  props: {
-    page_id: Number
+  props: {//
   },
   methods: {
     goToByScroll: function goToByScroll(id) {
       // Scroll
       jQuery('html,body').animate({
-        scrollTop: jQuery("#" + id).offset().top
+        scrollTop: jQuery(id).offset().top
       }, 'slow');
     }
   },
   mounted: function mounted() {
     var _this = this;
 
-    this.heroBannerClass = this.$el.getAttribute('hero_banner_class');
-    this.logoDefault = this.$el.getAttribute('logo_default');
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api');
-    this.routeContact = this.$el.getAttribute('route_contact'); // Get Api
+    this.ajaxRoute = this.$el.getAttribute('ajax-route');
+    this.heroBannerClass = this.$el.getAttribute('hero-banner-class');
+    this.goToTarget = this.$el.getAttribute('go-to-target'); // Get Ajax method
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
+    axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
       _this.heroBanner = data.data;
-      _this.media = data.media;
+      _this.media = data.data.media;
+      _this.logoDefault = data.logo_default;
+      _this.routeContact = data.route_contact;
     })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -2616,6 +2714,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2628,26 +2728,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       hours: {
-        apiData: String
+        ajaxRoute: String
       }
     };
   },
-  props: {},
+  props: {//
+  },
   mounted: function mounted() {
     var _this = this;
 
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
+    this.ajaxRoute = this.$el.getAttribute('ajax-route'); // Get Ajax method
 
-    axios.get(this.apiData + 'horaire' + '?access_token=' + access_token).then(function (response) {
+    axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
       _this.hours = data.data;
     })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -2663,6 +2779,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2712,43 +2830,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      ajaxRoute: String,
+      ajaxRouteAlert: String,
+      ajaxRouteHoraires: String,
       classId: String,
       classSection: String,
-      apiData: String,
-      routePage: String,
       media: String,
       page: {},
       information: {}
     };
   },
-  props: {
-    page_id: Number
+  props: {//
   },
   mounted: function mounted() {
     var _this = this;
 
+    this.ajaxRoute = this.$el.getAttribute('ajax-route');
     this.classId = this.$el.getAttribute('class_id');
-    this.classSection = this.$el.getAttribute('class_section');
-    this.routePage = this.$el.getAttribute('route_page');
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
+    this.classSection = this.$el.getAttribute('class_section'); // Prepare route Alert URL
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
+    this.ajaxRouteAlert = this.ajaxRoute.split('ajax')[0] + 'ajax-find-alert/'; // Prepare route Horaire URL
+
+    this.ajaxRouteHoraires = this.ajaxRoute.split('ajax')[0] + 'ajax-horaires'; // Get Ajax method
+
+    axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
       _this.page = data.data;
-      _this.media = data.media;
+      _this.media = data.data.media;
+      _this.information = data.informations;
     })["catch"](function (error) {
-      console.log(error);
-    }); // Get Api
-
-    axios.get(this.apiData + 'get-all-informations' + '?access_token=' + access_token).then(function (response) {
-      var data = response.data;
-      _this.information = data.data;
-    })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -2764,6 +2894,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2827,46 +2959,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      ajaxRoute: String,
+      ajaxRouteAlert: String,
+      ajaxGetHouse: String,
       classId: String,
       classSection: String,
-      apiData: String,
-      routePage: String,
-      imgDefault: String,
       media: String,
       page: {},
       house: {}
     };
   },
-  props: {
-    page_id: Number
+  props: {//
   },
   methods: {
     getMedicalHouse: function getMedicalHouse(houseId) {
       var _this = this;
 
       // Get Api
-      axios.get(this.apiData + 'get-relations-house/' + houseId + '?access_token=' + access_token).then(function (response) {
+      axios.get(this.ajaxGetHouse + houseId).then(function (response) {
         var data = response.data;
         _this.house = data.data;
       })["catch"](function (error) {
-        console.log(error);
+        // Call notification Swal
+        var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 7000,
+          timerProgressBar: true,
+          onOpen: function onOpen(toast) {
+            toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+            toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+          }
+        });
+        Toast.fire({
+          icon: 'error',
+          title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+        });
       });
     }
   },
   mounted: function mounted() {
     var _this2 = this;
 
+    this.ajaxRoute = this.$el.getAttribute('ajax-route');
     this.classId = this.$el.getAttribute('class_id');
-    this.classSection = this.$el.getAttribute('class_section');
-    this.routePage = this.$el.getAttribute('route_page');
-    this.imgDefault = this.$el.getAttribute('img_default');
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
+    this.classSection = this.$el.getAttribute('class_section'); // Prepare route Alert URL
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
+    this.ajaxRouteAlert = this.ajaxRoute.split('ajax')[0] + 'ajax-find-alert/'; // Prepare route Get House URL
+
+    this.ajaxGetHouse = this.ajaxRoute.split('ajax')[0] + 'ajax-get-house/'; // Get Api
+
+    axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
       _this2.page = data.data;
       _this2.media = data.media; // medical_house key is not empty
@@ -2879,7 +3027,22 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
         _this2.getMedicalHouse(firstElement.id);
       }
     })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -2895,6 +3058,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2924,16 +3089,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      apiData: String,
+      ajaxRoute: String,
       alert: {}
     };
   },
-  props: {
-    alert_id: Number
+  props: {//
   },
   methods: {
     getType: function getType(type) {
@@ -2976,13 +3140,28 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
   mounted: function mounted() {
     var _this = this;
 
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
+    this.ajaxRoute = this.$el.getAttribute('ajax-route'); // Get Api
 
-    axios.get(this.apiData + 'alert/' + this.alert_id + '?access_token=' + access_token).then(function (response) {
+    axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
       _this.alert = data.data;
     })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -2998,6 +3177,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -3039,37 +3220,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      ajaxRoute: String,
+      ajaxRouteAlert: String,
       classId: String,
       classSection: String,
-      apiData: String,
       routePage: String,
       page: {},
       imgDefault: String,
-      media: String
+      media: String,
+      isButton: String
     };
   },
-  props: {
-    page_id: Number
+  props: {//
   },
   mounted: function mounted() {
     var _this = this;
 
-    this.imgDefault = this.$el.getAttribute('img_default');
+    this.ajaxRoute = this.$el.getAttribute('ajax-route');
     this.classId = this.$el.getAttribute('class_id');
     this.classSection = this.$el.getAttribute('class_section');
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api');
-    this.routePage = this.$el.getAttribute('route_page'); // Get Api
+    this.isButton = this.$el.getAttribute('is_button'); // Prepare route Alert URL
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
+    this.ajaxRouteAlert = this.ajaxRoute.split('ajax')[0] + 'ajax-find-alert/'; // Get Api
+
+    axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
       _this.page = data.data;
       _this.media = data.media;
+      _this.routePage = data.route_page;
+      _this.imgDefault = data.img_default;
     })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -3085,6 +3285,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -3146,37 +3348,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      ajaxRoute: String,
+      ajaxRouteAlert: String,
       classId: String,
       classSection: String,
-      apiData: String,
       page: {},
       price: {},
-      routePage: String,
-      isButton: String
+      isButton: String,
+      routePage: String
     };
   },
-  props: {
-    page_id: Number
+  props: {//
   },
   mounted: function mounted() {
     var _this = this;
 
+    this.ajaxRoute = this.$el.getAttribute('ajax-route');
     this.classId = this.$el.getAttribute('class_id');
     this.classSection = this.$el.getAttribute('class_section');
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api');
-    this.routePage = this.$el.getAttribute('route_page');
-    this.isButton = this.$el.getAttribute('is_button'); // Get Api
+    this.isButton = this.$el.getAttribute('is_button'); // Prepare route Alert URL
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
+    this.ajaxRouteAlert = this.ajaxRoute.split('ajax')[0] + 'ajax-find-alert/'; // Get Api
+
+    axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
       _this.page = data.data;
       _this.price = data.data.price;
+      _this.routePage = data.route_page;
     })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -3192,6 +3411,8 @@ var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -3224,30 +3445,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-var access_token = '$2y$10$/i9/jW2Ux0oWjF3VH4VkuOMH1i0TMsSJP.sGFpoaR.4/b/1Jkd36e';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      apiData: String,
+      ajaxRoute: String,
+      classId: String,
+      classSection: String,
       page: {}
     };
   },
-  props: {
-    page_id: Number
+  props: {//
   },
   mounted: function mounted() {
     var _this = this;
 
-    this.apiData = document.querySelector('#app').getAttribute('data-base-api'); // Get Api
+    this.ajaxRoute = this.$el.getAttribute('ajax-route');
+    this.classId = this.$el.getAttribute('class_id');
+    this.classSection = this.$el.getAttribute('class_section'); // Get Api
 
-    axios.get(this.apiData + 'get-relations-page/' + this.page_id + '?access_token=' + access_token).then(function (response) {
+    axios.get(this.ajaxRoute).then(function (response) {
       var data = response.data;
       _this.page = data.data;
     })["catch"](function (error) {
-      console.log(error);
+      // Call notification Swal
+      var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        onOpen: function onOpen(toast) {
+          toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.stopTimer);
+          toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Une erreur technique est survenue, veuillez réessayer ultérieurement.'
+      });
     });
   }
 });
@@ -51875,7 +52111,7 @@ var render = function() {
                   { staticClass: "page-alert-message" },
                   [
                     _c("message-alert-component", {
-                      attrs: { alert_id: item.id, api_data: _vm.apiData }
+                      attrs: { "ajax-route": _vm.ajaxRouteAlert + item.id }
                     })
                   ],
                   1
@@ -51948,7 +52184,7 @@ var render = function() {
           { staticClass: "page-alert-message" },
           [
             _c("message-alert-component", {
-              attrs: { alert_id: item.id, api_data: _vm.apiData }
+              attrs: { "ajax-route": _vm.ajaxRouteAlert + item.id }
             })
           ],
           1
@@ -51980,110 +52216,57 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-12" }, [
-    _c("div", { staticClass: "card-contact" }, [
-      _c("h3", { staticClass: "title-form text-center py-5" }, [
-        _vm._v("Demande de contact")
-      ]),
-      _vm._v(" "),
-      _c(
-        "form",
-        {
-          staticClass: "form-contact px-5",
-          attrs: { method: "post" },
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.submitForm()
+  return _c(
+    "div",
+    { staticClass: "col-12", attrs: { id: "form-contact-component" } },
+    [
+      _c("div", { staticClass: "card-contact" }, [
+        _c("h3", { staticClass: "title-form text-center py-5" }, [
+          _vm._v("Demande de contact")
+        ]),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            staticClass: "form-contact px-5",
+            attrs: { method: "post" },
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.submitForm()
+              }
             }
-          }
-        },
-        [
-          _c("div", { attrs: { id: "step-1" } }, [
-            _c(
-              "div",
-              { staticClass: "col-12" },
-              [
-                _vm._m(0),
-                _vm._v(" "),
-                _c("multiselect", {
-                  class: _vm.errors.objet_demande ? "is-invalid" : "",
-                  attrs: {
-                    name: "objet_demande",
-                    id: "objet_demande",
-                    options: _vm.optionsDemandeObj,
-                    searchable: false,
-                    "close-on-select": true,
-                    placeholder: "Séléctionner un objet",
-                    label: "value",
-                    selectLabel: "Faite votre choix",
-                    deselectLabel: "Appuyer pour annuler votre choix",
-                    "custom-label": _vm.valueWithKey,
-                    "preselect-first": true,
-                    title: "Votre objet"
-                  },
-                  model: {
-                    value: _vm.objet_demande,
-                    callback: function($$v) {
-                      _vm.objet_demande = $$v
-                    },
-                    expression: "objet_demande"
-                  }
-                }),
-                _vm._v(" "),
-                _vm.errors.length !== 0
-                  ? _c(
-                      "span",
-                      {
-                        staticClass: "invalid-feedback",
-                        attrs: { role: "alert" }
-                      },
-                      [
-                        _vm.errors && _vm.errors.objet_demande
-                          ? _c("strong", [
-                              _vm._v(_vm._s(_vm.errors.objet_demande[0]))
-                            ])
-                          : _vm._e()
-                      ]
-                    )
-                  : _vm._e()
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "step-2" } }, [
-            _c("hr"),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row" }, [
+          },
+          [
+            _c("div", { attrs: { id: "step-1" } }, [
               _c(
                 "div",
                 { staticClass: "col-12" },
                 [
-                  _vm._m(1),
+                  _vm._m(0),
                   _vm._v(" "),
                   _c("multiselect", {
-                    class: _vm.errors.civility ? "is-invalid" : "",
+                    class: _vm.errors.objet_demande ? "is-invalid" : "",
                     attrs: {
-                      name: "civility",
-                      id: "civility",
-                      options: _vm.optionsCivility,
+                      name: "objet_demande",
+                      id: "objet_demande",
+                      options: _vm.optionsDemandeObj,
                       searchable: false,
                       "close-on-select": true,
-                      placeholder: "Séléctionner une civilité",
+                      placeholder: "Séléctionner un objet",
                       label: "value",
                       selectLabel: "Faite votre choix",
                       deselectLabel: "Appuyer pour annuler votre choix",
                       "custom-label": _vm.valueWithKey,
                       "preselect-first": true,
-                      title: "Votre civilité"
+                      title: "Votre objet"
                     },
                     model: {
-                      value: _vm.civility,
+                      value: _vm.objet_demande,
                       callback: function($$v) {
-                        _vm.civility = $$v
+                        _vm.objet_demande = $$v
                       },
-                      expression: "civility"
+                      expression: "objet_demande"
                     }
                   }),
                   _vm._v(" "),
@@ -52095,9 +52278,9 @@ var render = function() {
                           attrs: { role: "alert" }
                         },
                         [
-                          _vm.errors && _vm.errors.civility
+                          _vm.errors && _vm.errors.objet_demande
                             ? _c("strong", [
-                                _vm._v(_vm._s(_vm.errors.civility[0]))
+                                _vm._v(_vm._s(_vm.errors.objet_demande[0]))
                               ])
                             : _vm._e()
                         ]
@@ -52108,615 +52291,680 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-row" }, [
-              _c("div", { staticClass: "form-group col-md-6 col-sm-12" }, [
-                _vm._m(2),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.name,
-                      expression: "name"
-                    }
-                  ],
-                  class: _vm.errors.name
-                    ? "form-control is-invalid"
-                    : "form-control",
-                  attrs: {
-                    type: "text",
-                    name: "name",
-                    id: "name",
-                    placeholder: "Nom",
-                    required: "",
-                    minlength: "2",
-                    title: "Votre nom"
-                  },
-                  domProps: { value: _vm.name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.name = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.errors.length !== 0
-                  ? _c(
-                      "span",
-                      {
-                        staticClass: "invalid-feedback",
-                        attrs: { role: "alert" }
+            _c("div", { attrs: { id: "step-2" } }, [
+              _c("hr"),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-12" },
+                  [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("multiselect", {
+                      class: _vm.errors.civility ? "is-invalid" : "",
+                      attrs: {
+                        name: "civility",
+                        id: "civility",
+                        options: _vm.optionsCivility,
+                        searchable: false,
+                        "close-on-select": true,
+                        placeholder: "Séléctionner une civilité",
+                        label: "value",
+                        selectLabel: "Faite votre choix",
+                        deselectLabel: "Appuyer pour annuler votre choix",
+                        "custom-label": _vm.valueWithKey,
+                        "preselect-first": true,
+                        title: "Votre civilité"
                       },
-                      [
-                        _vm.errors && _vm.errors.name
-                          ? _c("strong", [_vm._v(_vm._s(_vm.errors.name[0]))])
-                          : _vm._e()
-                      ]
-                    )
-                  : _vm._e()
+                      model: {
+                        value: _vm.civility,
+                        callback: function($$v) {
+                          _vm.civility = $$v
+                        },
+                        expression: "civility"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm.errors.length !== 0
+                      ? _c(
+                          "span",
+                          {
+                            staticClass: "invalid-feedback",
+                            attrs: { role: "alert" }
+                          },
+                          [
+                            _vm.errors && _vm.errors.civility
+                              ? _c("strong", [
+                                  _vm._v(_vm._s(_vm.errors.civility[0]))
+                                ])
+                              : _vm._e()
+                          ]
+                        )
+                      : _vm._e()
+                  ],
+                  1
+                )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group col-md-6 col-sm-12" }, [
-                _vm._m(3),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.firstname,
-                      expression: "firstname"
-                    }
-                  ],
-                  class: _vm.errors.firstname
-                    ? "form-control is-invalid"
-                    : "form-control",
-                  attrs: {
-                    type: "text",
-                    name: "firstname",
-                    id: "firstname",
-                    placeholder: "Prénom",
-                    required: "",
-                    minlength: "2",
-                    title: "Votre prénom"
-                  },
-                  domProps: { value: _vm.firstname },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.firstname = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.errors.length !== 0
-                  ? _c(
-                      "span",
-                      {
-                        staticClass: "invalid-feedback",
-                        attrs: { role: "alert" }
-                      },
-                      [
-                        _vm.errors && _vm.errors.firstname
-                          ? _c("strong", [
-                              _vm._v(_vm._s(_vm.errors.firstname[0]))
-                            ])
-                          : _vm._e()
-                      ]
-                    )
-                  : _vm._e()
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row" }, [
-              _c("div", { staticClass: "form-group col-md-6 col-sm-12" }, [
-                _vm._m(4),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.email,
-                      expression: "email"
-                    }
-                  ],
-                  class: _vm.errors.email
-                    ? "form-control is-invalid"
-                    : "form-control",
-                  attrs: {
-                    type: "email",
-                    name: "email",
-                    id: "email",
-                    placeholder: "Email",
-                    required: "",
-                    minlength: "2",
-                    title: "Votre email"
-                  },
-                  domProps: { value: _vm.email },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.email = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.errors.length !== 0
-                  ? _c(
-                      "span",
-                      {
-                        staticClass: "invalid-feedback",
-                        attrs: { role: "alert" }
-                      },
-                      [
-                        _vm.errors && _vm.errors.email
-                          ? _c("strong", [_vm._v(_vm._s(_vm.errors.email[0]))])
-                          : _vm._e()
-                      ]
-                    )
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-md-6 col-sm-12" }, [
-                _vm._m(5),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.address,
-                      expression: "address"
-                    }
-                  ],
-                  class: _vm.errors.address
-                    ? "form-control is-invalid"
-                    : "form-control",
-                  attrs: {
-                    type: "text",
-                    name: "address",
-                    id: "address",
-                    placeholder: "Adresse",
-                    required: "",
-                    minlength: "7",
-                    title: "Votre adresse"
-                  },
-                  domProps: { value: _vm.address },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.address = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.errors.length !== 0
-                  ? _c(
-                      "span",
-                      {
-                        staticClass: "invalid-feedback",
-                        attrs: { role: "alert" }
-                      },
-                      [
-                        _vm.errors && _vm.errors.address
-                          ? _c("strong", [
-                              _vm._v(_vm._s(_vm.errors.address[0]))
-                            ])
-                          : _vm._e()
-                      ]
-                    )
-                  : _vm._e()
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row" }, [
-              _c("div", { staticClass: "form-group col-md-6 col-sm-12" }, [
-                _vm._m(6),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.postal_code,
-                      expression: "postal_code"
-                    }
-                  ],
-                  class: _vm.errors.postal_code
-                    ? "form-control is-invalid"
-                    : "form-control",
-                  attrs: {
-                    type: "text",
-                    name: "postal_code",
-                    id: "postal_code",
-                    placeholder: "Code postal",
-                    required: "",
-                    inputmode: "numeric",
-                    pattern: "[0-9]{5}",
-                    title: "Votre code postal"
-                  },
-                  domProps: { value: _vm.postal_code },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.postal_code = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.errors.length !== 0
-                  ? _c(
-                      "span",
-                      {
-                        staticClass: "invalid-feedback",
-                        attrs: { role: "alert" }
-                      },
-                      [
-                        _vm.errors && _vm.errors.postal_code
-                          ? _c("strong", [
-                              _vm._v(_vm._s(_vm.errors.postal_code[0]))
-                            ])
-                          : _vm._e()
-                      ]
-                    )
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-md-6 col-sm-12" }, [
-                _vm._m(7),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.phone,
-                      expression: "phone"
-                    }
-                  ],
-                  class: _vm.errors.phone
-                    ? "form-control is-invalid"
-                    : "form-control",
-                  attrs: {
-                    type: "tel",
-                    name: "phone",
-                    id: "phone",
-                    placeholder: "Téléphone",
-                    required: "",
-                    pattern:
-                      "^(?:0|\\(?\\+33\\)?\\s?|0033\\s?)[1-79](?:[\\.\\-\\s]?\\d\\d){4}$",
-                    title: "Votre numéro de téléphone"
-                  },
-                  domProps: { value: _vm.phone },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.phone = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.errors.length !== 0
-                  ? _c(
-                      "span",
-                      {
-                        staticClass: "invalid-feedback",
-                        attrs: { role: "alert" }
-                      },
-                      [
-                        _vm.errors && _vm.errors.phone
-                          ? _c("strong", [_vm._v(_vm._s(_vm.errors.phone[0]))])
-                          : _vm._e()
-                      ]
-                    )
-                  : _vm._e()
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "step-3" } }, [
-            _c("hr"),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row" }, [
-              _c(
-                "div",
-                { staticClass: "form-group col-12" },
-                [
-                  _vm._m(8),
+              _c("div", { staticClass: "form-row" }, [
+                _c("div", { staticClass: "form-group col-md-6 col-sm-12" }, [
+                  _vm._m(2),
                   _vm._v(" "),
-                  _c("datetime", {
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.name,
+                        expression: "name"
+                      }
+                    ],
+                    class: _vm.errors.name
+                      ? "form-control is-invalid"
+                      : "form-control",
                     attrs: {
-                      type: "date",
-                      id: "date_consultation",
-                      name: "date_consultation",
-                      "input-class": _vm.errors.date_consultation
-                        ? "form-control is-invalid"
-                        : "form-control",
-                      format: {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric"
-                      },
-                      phrases: { ok: "Continuer", cancel: "Fermer" },
-                      "week-start": 7,
-                      "max-datetime": new Date().toISOString(),
-                      auto: "",
-                      placeholder: "Date de consultation",
+                      type: "text",
+                      name: "name",
+                      id: "name",
+                      placeholder: "Nom",
                       required: "",
-                      title: "La date de consultation"
+                      minlength: "2",
+                      title: "Votre nom"
                     },
-                    model: {
-                      value: _vm.date_consultation,
-                      callback: function($$v) {
-                        _vm.date_consultation = $$v
-                      },
-                      expression: "date_consultation"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm.errors.length !== 0
-                    ? _c(
-                        "span",
-                        {
-                          staticClass: "invalid-feedback",
-                          attrs: { role: "alert" }
-                        },
-                        [
-                          _vm.errors && _vm.errors.date_consultation
-                            ? _c("strong", [
-                                _vm._v(_vm._s(_vm.errors.date_consultation[0]))
-                              ])
-                            : _vm._e()
-                        ]
-                      )
-                    : _vm._e()
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row" }, [
-              _c("div", { staticClass: "form-group col-md-6 col-sm-12" }, [
-                _vm._m(9),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.doctor_name,
-                      expression: "doctor_name"
-                    }
-                  ],
-                  class: _vm.errors.doctor_name
-                    ? "form-control is-invalid"
-                    : "form-control",
-                  attrs: {
-                    type: "text",
-                    name: "doctor_name",
-                    id: "doctor_name",
-                    placeholder: "Nom du docteur",
-                    required: "",
-                    minlength: "2",
-                    title: "Le nom du docteur"
-                  },
-                  domProps: { value: _vm.doctor_name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.doctor_name = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.errors.length !== 0
-                  ? _c(
-                      "span",
-                      {
-                        staticClass: "invalid-feedback",
-                        attrs: { role: "alert" }
-                      },
-                      [
-                        _vm.errors && _vm.errors.doctor_name
-                          ? _c("strong", [
-                              _vm._v(_vm._s(_vm.errors.doctor_name[0]))
-                            ])
-                          : _vm._e()
-                      ]
-                    )
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-md-6 col-sm-12" }, [
-                _vm._m(10),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.doctor_firstname,
-                      expression: "doctor_firstname"
-                    }
-                  ],
-                  class: _vm.errors.doctor_firstname
-                    ? "form-control is-invalid"
-                    : "form-control",
-                  attrs: {
-                    type: "text",
-                    name: "doctor_firstname",
-                    id: "doctor_firstname",
-                    placeholder: "Prénom du docteur",
-                    required: "",
-                    minlength: "2",
-                    title: "Le prénom du docteur"
-                  },
-                  domProps: { value: _vm.doctor_firstname },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.doctor_firstname = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.errors.length !== 0
-                  ? _c(
-                      "span",
-                      {
-                        staticClass: "invalid-feedback",
-                        attrs: { role: "alert" }
-                      },
-                      [
-                        _vm.errors && _vm.errors.doctor_firstname
-                          ? _c("strong", [
-                              _vm._v(_vm._s(_vm.errors.doctor_firstname[0]))
-                            ])
-                          : _vm._e()
-                      ]
-                    )
-                  : _vm._e()
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row" }, [
-              _c("div", { staticClass: "form-group col-12" }, [
-                _vm._m(11),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.objet_demande_doctor,
-                      expression: "objet_demande_doctor"
-                    }
-                  ],
-                  class: _vm.errors.objet_demande_doctor
-                    ? "form-control is-invalid"
-                    : "form-control",
-                  attrs: {
-                    type: "text",
-                    name: "objet_demande_doctor",
-                    id: "objet_demande_doctor",
-                    placeholder: "Objet de la demande",
-                    required: "",
-                    minlength: "4",
-                    title: "Votre objet"
-                  },
-                  domProps: { value: _vm.objet_demande_doctor },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.objet_demande_doctor = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.errors.length !== 0
-                  ? _c(
-                      "span",
-                      {
-                        staticClass: "invalid-feedback",
-                        attrs: { role: "alert" }
-                      },
-                      [
-                        _vm.errors && _vm.errors.objet_demande_doctor
-                          ? _c("strong", [
-                              _vm._v(_vm._s(_vm.errors.objet_demande_doctor[0]))
-                            ])
-                          : _vm._e()
-                      ]
-                    )
-                  : _vm._e()
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-row" }, [
-              _c("div", { staticClass: "form-group col-12" }, [
-                _vm._m(12),
-                _vm._v(" "),
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.precisions,
-                      expression: "precisions"
-                    }
-                  ],
-                  class: _vm.errors.precisions
-                    ? "form-control is-invalid"
-                    : "form-control",
-                  attrs: {
-                    name: "precisions",
-                    id: "precisions",
-                    col: "40",
-                    rows: "1",
-                    title: "Ajouter une précision"
-                  },
-                  domProps: { value: _vm.precisions },
-                  on: {
-                    input: [
-                      function($event) {
+                    domProps: { value: _vm.name },
+                    on: {
+                      input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.precisions = $event.target.value
-                      },
-                      function($event) {
-                        return _vm.updateTextareaHeight()
+                        _vm.name = $event.target.value
                       }
-                    ]
-                  }
-                }),
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.length !== 0
+                    ? _c(
+                        "span",
+                        {
+                          staticClass: "invalid-feedback",
+                          attrs: { role: "alert" }
+                        },
+                        [
+                          _vm.errors && _vm.errors.name
+                            ? _c("strong", [_vm._v(_vm._s(_vm.errors.name[0]))])
+                            : _vm._e()
+                        ]
+                      )
+                    : _vm._e()
+                ]),
                 _vm._v(" "),
-                _vm.errors.length !== 0
-                  ? _c(
-                      "span",
+                _c("div", { staticClass: "form-group col-md-6 col-sm-12" }, [
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
                       {
-                        staticClass: "invalid-feedback",
-                        attrs: { role: "alert" }
-                      },
-                      [
-                        _vm.errors && _vm.errors.precisions
-                          ? _c("strong", [
-                              _vm._v(_vm._s(_vm.errors.precisions[0]))
-                            ])
-                          : _vm._e()
-                      ]
-                    )
-                  : _vm._e()
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.firstname,
+                        expression: "firstname"
+                      }
+                    ],
+                    class: _vm.errors.firstname
+                      ? "form-control is-invalid"
+                      : "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "firstname",
+                      id: "firstname",
+                      placeholder: "Prénom",
+                      required: "",
+                      minlength: "2",
+                      title: "Votre prénom"
+                    },
+                    domProps: { value: _vm.firstname },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.firstname = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.length !== 0
+                    ? _c(
+                        "span",
+                        {
+                          staticClass: "invalid-feedback",
+                          attrs: { role: "alert" }
+                        },
+                        [
+                          _vm.errors && _vm.errors.firstname
+                            ? _c("strong", [
+                                _vm._v(_vm._s(_vm.errors.firstname[0]))
+                              ])
+                            : _vm._e()
+                        ]
+                      )
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-row" }, [
+                _c("div", { staticClass: "form-group col-md-6 col-sm-12" }, [
+                  _vm._m(4),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.email,
+                        expression: "email"
+                      }
+                    ],
+                    class: _vm.errors.email
+                      ? "form-control is-invalid"
+                      : "form-control",
+                    attrs: {
+                      type: "email",
+                      name: "email",
+                      id: "email",
+                      placeholder: "Email",
+                      required: "",
+                      minlength: "2",
+                      title: "Votre email"
+                    },
+                    domProps: { value: _vm.email },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.email = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.length !== 0
+                    ? _c(
+                        "span",
+                        {
+                          staticClass: "invalid-feedback",
+                          attrs: { role: "alert" }
+                        },
+                        [
+                          _vm.errors && _vm.errors.email
+                            ? _c("strong", [
+                                _vm._v(_vm._s(_vm.errors.email[0]))
+                              ])
+                            : _vm._e()
+                        ]
+                      )
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group col-md-6 col-sm-12" }, [
+                  _vm._m(5),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.address,
+                        expression: "address"
+                      }
+                    ],
+                    class: _vm.errors.address
+                      ? "form-control is-invalid"
+                      : "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "address",
+                      id: "address",
+                      placeholder: "Adresse",
+                      required: "",
+                      minlength: "7",
+                      title: "Votre adresse"
+                    },
+                    domProps: { value: _vm.address },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.address = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.length !== 0
+                    ? _c(
+                        "span",
+                        {
+                          staticClass: "invalid-feedback",
+                          attrs: { role: "alert" }
+                        },
+                        [
+                          _vm.errors && _vm.errors.address
+                            ? _c("strong", [
+                                _vm._v(_vm._s(_vm.errors.address[0]))
+                              ])
+                            : _vm._e()
+                        ]
+                      )
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-row" }, [
+                _c("div", { staticClass: "form-group col-md-6 col-sm-12" }, [
+                  _vm._m(6),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.postal_code,
+                        expression: "postal_code"
+                      }
+                    ],
+                    class: _vm.errors.postal_code
+                      ? "form-control is-invalid"
+                      : "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "postal_code",
+                      id: "postal_code",
+                      placeholder: "Code postal",
+                      required: "",
+                      inputmode: "numeric",
+                      pattern: "[0-9]{5}",
+                      title: "Votre code postal"
+                    },
+                    domProps: { value: _vm.postal_code },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.postal_code = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.length !== 0
+                    ? _c(
+                        "span",
+                        {
+                          staticClass: "invalid-feedback",
+                          attrs: { role: "alert" }
+                        },
+                        [
+                          _vm.errors && _vm.errors.postal_code
+                            ? _c("strong", [
+                                _vm._v(_vm._s(_vm.errors.postal_code[0]))
+                              ])
+                            : _vm._e()
+                        ]
+                      )
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group col-md-6 col-sm-12" }, [
+                  _vm._m(7),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.phone,
+                        expression: "phone"
+                      }
+                    ],
+                    class: _vm.errors.phone
+                      ? "form-control is-invalid"
+                      : "form-control",
+                    attrs: {
+                      type: "tel",
+                      name: "phone",
+                      id: "phone",
+                      placeholder: "Téléphone",
+                      required: "",
+                      pattern:
+                        "^(?:0|\\(?\\+33\\)?\\s?|0033\\s?)[1-79](?:[\\.\\-\\s]?\\d\\d){4}$",
+                      title: "Votre numéro de téléphone"
+                    },
+                    domProps: { value: _vm.phone },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.phone = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.length !== 0
+                    ? _c(
+                        "span",
+                        {
+                          staticClass: "invalid-feedback",
+                          attrs: { role: "alert" }
+                        },
+                        [
+                          _vm.errors && _vm.errors.phone
+                            ? _c("strong", [
+                                _vm._v(_vm._s(_vm.errors.phone[0]))
+                              ])
+                            : _vm._e()
+                        ]
+                      )
+                    : _vm._e()
+                ])
               ])
-            ])
-          ]),
-          _vm._v(" "),
-          _vm._m(13)
-        ]
-      )
-    ])
-  ])
+            ]),
+            _vm._v(" "),
+            _c("div", { attrs: { id: "step-3" } }, [
+              _c("hr"),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-row" }, [
+                _c(
+                  "div",
+                  { staticClass: "form-group col-12" },
+                  [
+                    _vm._m(8),
+                    _vm._v(" "),
+                    _c("datetime", {
+                      attrs: {
+                        type: "date",
+                        id: "date_consultation",
+                        name: "date_consultation",
+                        "input-class": _vm.errors.date_consultation
+                          ? "form-control is-invalid"
+                          : "form-control",
+                        format: {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric"
+                        },
+                        phrases: { ok: "Continuer", cancel: "Fermer" },
+                        "week-start": 7,
+                        "max-datetime": new Date().toISOString(),
+                        auto: "",
+                        placeholder: "Date de consultation",
+                        required: "",
+                        title: "La date de consultation"
+                      },
+                      model: {
+                        value: _vm.date_consultation,
+                        callback: function($$v) {
+                          _vm.date_consultation = $$v
+                        },
+                        expression: "date_consultation"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm.errors.length !== 0
+                      ? _c(
+                          "span",
+                          {
+                            staticClass: "invalid-feedback",
+                            attrs: { role: "alert" }
+                          },
+                          [
+                            _vm.errors && _vm.errors.date_consultation
+                              ? _c("strong", [
+                                  _vm._v(
+                                    _vm._s(_vm.errors.date_consultation[0])
+                                  )
+                                ])
+                              : _vm._e()
+                          ]
+                        )
+                      : _vm._e()
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-row" }, [
+                _c("div", { staticClass: "form-group col-md-6 col-sm-12" }, [
+                  _vm._m(9),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.doctor_name,
+                        expression: "doctor_name"
+                      }
+                    ],
+                    class: _vm.errors.doctor_name
+                      ? "form-control is-invalid"
+                      : "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "doctor_name",
+                      id: "doctor_name",
+                      placeholder: "Nom du docteur",
+                      required: "",
+                      minlength: "2",
+                      title: "Le nom du docteur"
+                    },
+                    domProps: { value: _vm.doctor_name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.doctor_name = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.length !== 0
+                    ? _c(
+                        "span",
+                        {
+                          staticClass: "invalid-feedback",
+                          attrs: { role: "alert" }
+                        },
+                        [
+                          _vm.errors && _vm.errors.doctor_name
+                            ? _c("strong", [
+                                _vm._v(_vm._s(_vm.errors.doctor_name[0]))
+                              ])
+                            : _vm._e()
+                        ]
+                      )
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group col-md-6 col-sm-12" }, [
+                  _vm._m(10),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.doctor_firstname,
+                        expression: "doctor_firstname"
+                      }
+                    ],
+                    class: _vm.errors.doctor_firstname
+                      ? "form-control is-invalid"
+                      : "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "doctor_firstname",
+                      id: "doctor_firstname",
+                      placeholder: "Prénom du docteur",
+                      required: "",
+                      minlength: "2",
+                      title: "Le prénom du docteur"
+                    },
+                    domProps: { value: _vm.doctor_firstname },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.doctor_firstname = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.length !== 0
+                    ? _c(
+                        "span",
+                        {
+                          staticClass: "invalid-feedback",
+                          attrs: { role: "alert" }
+                        },
+                        [
+                          _vm.errors && _vm.errors.doctor_firstname
+                            ? _c("strong", [
+                                _vm._v(_vm._s(_vm.errors.doctor_firstname[0]))
+                              ])
+                            : _vm._e()
+                        ]
+                      )
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-row" }, [
+                _c("div", { staticClass: "form-group col-12" }, [
+                  _vm._m(11),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.objet_demande_doctor,
+                        expression: "objet_demande_doctor"
+                      }
+                    ],
+                    class: _vm.errors.objet_demande_doctor
+                      ? "form-control is-invalid"
+                      : "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "objet_demande_doctor",
+                      id: "objet_demande_doctor",
+                      placeholder: "Objet de la demande",
+                      required: "",
+                      minlength: "4",
+                      title: "Votre objet"
+                    },
+                    domProps: { value: _vm.objet_demande_doctor },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.objet_demande_doctor = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.length !== 0
+                    ? _c(
+                        "span",
+                        {
+                          staticClass: "invalid-feedback",
+                          attrs: { role: "alert" }
+                        },
+                        [
+                          _vm.errors && _vm.errors.objet_demande_doctor
+                            ? _c("strong", [
+                                _vm._v(
+                                  _vm._s(_vm.errors.objet_demande_doctor[0])
+                                )
+                              ])
+                            : _vm._e()
+                        ]
+                      )
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-row" }, [
+                _c("div", { staticClass: "form-group col-12" }, [
+                  _vm._m(12),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.precisions,
+                        expression: "precisions"
+                      }
+                    ],
+                    class: _vm.errors.precisions
+                      ? "form-control is-invalid"
+                      : "form-control",
+                    attrs: {
+                      name: "precisions",
+                      id: "precisions",
+                      col: "40",
+                      rows: "1",
+                      title: "Ajouter une précision"
+                    },
+                    domProps: { value: _vm.precisions },
+                    on: {
+                      input: [
+                        function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.precisions = $event.target.value
+                        },
+                        function($event) {
+                          return _vm.updateTextareaHeight()
+                        }
+                      ]
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.length !== 0
+                    ? _c(
+                        "span",
+                        {
+                          staticClass: "invalid-feedback",
+                          attrs: { role: "alert" }
+                        },
+                        [
+                          _vm.errors && _vm.errors.precisions
+                            ? _c("strong", [
+                                _vm._v(_vm._s(_vm.errors.precisions[0]))
+                              ])
+                            : _vm._e()
+                        ]
+                      )
+                    : _vm._e()
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(13)
+          ]
+        )
+      ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -52962,11 +53210,11 @@ var render = function() {
                   _c(
                     "a",
                     {
-                      attrs: { href: "#about", title: "Qui sommes-nous ?" },
+                      attrs: { href: _vm.goToTarget, title: "Lire la suite" },
                       on: {
                         click: function($event) {
                           $event.preventDefault()
-                          return _vm.goToByScroll("about")
+                          return _vm.goToByScroll(_vm.goToTarget)
                         }
                       }
                     },
@@ -53140,7 +53388,9 @@ var render = function() {
                                 "div",
                                 [
                                   _c("horaire-component", {
-                                    attrs: { api_data: _vm.apiData }
+                                    attrs: {
+                                      "ajax-route": _vm.ajaxRouteHoraires
+                                    }
                                   })
                                 ],
                                 1
@@ -53153,8 +53403,8 @@ var render = function() {
                                 [
                                   _c("message-alert-component", {
                                     attrs: {
-                                      alert_id: item.alert_id,
-                                      api_data: _vm.apiData
+                                      "ajax-route":
+                                        _vm.ajaxRouteAlert + item.alert_id
                                     }
                                   })
                                 ],
@@ -53461,7 +53711,9 @@ var render = function() {
                         { staticClass: "page-alert-message" },
                         [
                           _c("message-alert-component", {
-                            attrs: { alert_id: item.id, api_data: _vm.apiData }
+                            attrs: {
+                              "ajax-route": _vm.ajaxRouteAlert + item.alert_id
+                            }
                           })
                         ],
                         1
@@ -53492,7 +53744,9 @@ var render = function() {
                       { staticClass: "page-alert-message" },
                       [
                         _c("message-alert-component", {
-                          attrs: { alert_id: item.id, api_data: _vm.apiData }
+                          attrs: {
+                            "ajax-route": _vm.ajaxRouteAlert + item.alert_id
+                          }
                         })
                       ],
                       1
@@ -53502,22 +53756,20 @@ var render = function() {
                 2
               ),
           _vm._v(" "),
-          _vm.media !== null || _vm.imgDefault !== ""
-            ? _c("div", { staticClass: "col-lg-6" }, [
-                _vm.media !== null
-                  ? _c("img", {
-                      staticClass: "img-responsive page-media",
-                      attrs: { src: _vm.media, alt: "Image docteur" }
-                    })
-                  : _c("img", {
-                      staticClass: "img-responsive page-media",
-                      attrs: { src: _vm.imgDefault, alt: "Image docteur" }
-                    })
-              ])
-            : _vm._e()
+          _c("div", { staticClass: "col-lg-6" }, [
+            _vm.media !== ""
+              ? _c("img", {
+                  staticClass: "img-responsive page-media",
+                  attrs: { src: _vm.media, alt: "Qui sommes nous ?" }
+                })
+              : _c("img", {
+                  staticClass: "img-responsive page-media",
+                  attrs: { src: _vm.imgDefault, alt: "Qui sommes nous ?" }
+                })
+          ])
         ]),
         _vm._v(" "),
-        _vm.routePage !== ""
+        _vm.isButton === "true" && _vm.routePage !== ""
           ? _c(
               "div",
               { staticClass: "d-flex justify-content-center mt-5 mb-3" },
@@ -53636,7 +53888,7 @@ var render = function() {
                     { staticClass: "col-md-6 col-sm-12 page-alert-message" },
                     [
                       _c("message-alert-component", {
-                        attrs: { alert_id: item.id, api_data: _vm.apiData }
+                        attrs: { "ajax-route": _vm.ajaxRouteAlert + item.id }
                       })
                     ],
                     1
@@ -53715,10 +53967,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "section",
-    {
-      staticClass: "section-bg-grey section-padding",
-      attrs: { id: "service" }
-    },
+    { class: _vm.classSection, attrs: { id: _vm.classId } },
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
@@ -66400,10 +66649,10 @@ var regionDayMap = {
 /*!*********************************************!*\
   !*** ./node_modules/weekstart/package.json ***!
   \*********************************************/
-/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, bugs, bundleDependencies, deprecated, description, devDependencies, homepage, keywords, license, main, module, name, repository, scripts, types, umd:main, version, default */
+/*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, author, bugs, description, devDependencies, homepage, keywords, license, main, module, name, repository, scripts, types, umd:main, version, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"_from\":\"weekstart\",\"_id\":\"weekstart@1.0.1\",\"_inBundle\":false,\"_integrity\":\"sha512-h6B1HSJxg7sZEXqIpDqAtwiDBp3x5y2jY8WYcUSBhLTcTCy7laQzBmamqMuQM5fpvo1pgpma0OCRpE2W8xrA9A==\",\"_location\":\"/weekstart\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"tag\",\"registry\":true,\"raw\":\"weekstart\",\"name\":\"weekstart\",\"escapedName\":\"weekstart\",\"rawSpec\":\"\",\"saveSpec\":null,\"fetchSpec\":\"latest\"},\"_requiredBy\":[\"#USER\",\"/\"],\"_resolved\":\"https://registry.npmjs.org/weekstart/-/weekstart-1.0.1.tgz\",\"_shasum\":\"950970b48e5797e06fc1a762f3d0f013312321e1\",\"_spec\":\"weekstart\",\"_where\":\"/app\",\"author\":{\"name\":\"Denis Sikuler\"},\"bugs\":{\"url\":\"https://github.com/gamtiq/weekstart/issues\"},\"bundleDependencies\":false,\"deprecated\":false,\"description\":\"Library to get first day of week.\",\"devDependencies\":{\"@babel/preset-env\":\"7.6.3\",\"eslint\":\"6.5.1\",\"eslint-config-guard\":\"1.0.3\",\"ink-docstrap\":\"1.3.2\",\"jest\":\"24.9.0\",\"jsdoc\":\"3.6.3\",\"microbundle\":\"0.4.4\",\"version-bump-prompt\":\"5.0.5\"},\"homepage\":\"https://github.com/gamtiq/weekstart\",\"keywords\":[\"week\",\"start\",\"first\",\"day\",\"locale\",\"country\",\"region\"],\"license\":\"MIT\",\"main\":\"dist/commonjs/main.js\",\"module\":\"dist/es-module/main.js\",\"name\":\"weekstart\",\"repository\":{\"type\":\"git\",\"url\":\"git://github.com/gamtiq/weekstart.git\"},\"scripts\":{\"all\":\"npm run check-all && npm run doc && npm run build\",\"build\":\"npm run build-umd && npm run build-commonjs && npm run build-esm && npm run build-umd-min\",\"build-commonjs\":\"microbundle build \\\"src/!(*.test).js\\\" --output dist/commonjs --format cjs --strict --no-compress\",\"build-esm\":\"microbundle build \\\"src/!(*.test).js\\\" --output dist/es-module --format es --no-compress\",\"build-umd\":\"microbundle build src/main.js src/full.js --output dist --format umd --strict --no-compress\",\"build-umd-min\":\"microbundle build src/main.js src/full.js --output dist/min --format umd --strict\",\"check\":\"npm run lint && npm test\",\"check-all\":\"npm run lint-all && npm test\",\"doc\":\"jsdoc -c jsdoc-conf.json\",\"lint\":\"eslint --cache --max-warnings 0 \\\"**/*.js\\\"\",\"lint-all\":\"eslint --max-warnings 0 \\\"**/*.js\\\"\",\"lint-all-error\":\"eslint \\\"**/*.js\\\"\",\"lint-error\":\"eslint --cache \\\"**/*.js\\\"\",\"release\":\"bump patch --commit --tag --all --push package.json package-lock.json bower.json component.json\",\"release-major\":\"bump major --commit --tag --all --push package.json package-lock.json bower.json component.json\",\"release-minor\":\"bump minor --commit --tag --all --push package.json package-lock.json bower.json component.json\",\"test\":\"jest\"},\"types\":\"./index.d.ts\",\"umd:main\":\"dist/main.js\",\"version\":\"1.0.1\"}");
+module.exports = JSON.parse("{\"_args\":[[\"weekstart@1.0.1\",\"/app\"]],\"_from\":\"weekstart@1.0.1\",\"_id\":\"weekstart@1.0.1\",\"_inBundle\":false,\"_integrity\":\"sha512-h6B1HSJxg7sZEXqIpDqAtwiDBp3x5y2jY8WYcUSBhLTcTCy7laQzBmamqMuQM5fpvo1pgpma0OCRpE2W8xrA9A==\",\"_location\":\"/weekstart\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"version\",\"registry\":true,\"raw\":\"weekstart@1.0.1\",\"name\":\"weekstart\",\"escapedName\":\"weekstart\",\"rawSpec\":\"1.0.1\",\"saveSpec\":null,\"fetchSpec\":\"1.0.1\"},\"_requiredBy\":[\"/\"],\"_resolved\":\"https://registry.npmjs.org/weekstart/-/weekstart-1.0.1.tgz\",\"_spec\":\"1.0.1\",\"_where\":\"/app\",\"author\":{\"name\":\"Denis Sikuler\"},\"bugs\":{\"url\":\"https://github.com/gamtiq/weekstart/issues\"},\"description\":\"Library to get first day of week.\",\"devDependencies\":{\"@babel/preset-env\":\"7.6.3\",\"eslint\":\"6.5.1\",\"eslint-config-guard\":\"1.0.3\",\"ink-docstrap\":\"1.3.2\",\"jest\":\"24.9.0\",\"jsdoc\":\"3.6.3\",\"microbundle\":\"0.4.4\",\"version-bump-prompt\":\"5.0.5\"},\"homepage\":\"https://github.com/gamtiq/weekstart\",\"keywords\":[\"week\",\"start\",\"first\",\"day\",\"locale\",\"country\",\"region\"],\"license\":\"MIT\",\"main\":\"dist/commonjs/main.js\",\"module\":\"dist/es-module/main.js\",\"name\":\"weekstart\",\"repository\":{\"type\":\"git\",\"url\":\"git://github.com/gamtiq/weekstart.git\"},\"scripts\":{\"all\":\"npm run check-all && npm run doc && npm run build\",\"build\":\"npm run build-umd && npm run build-commonjs && npm run build-esm && npm run build-umd-min\",\"build-commonjs\":\"microbundle build \\\"src/!(*.test).js\\\" --output dist/commonjs --format cjs --strict --no-compress\",\"build-esm\":\"microbundle build \\\"src/!(*.test).js\\\" --output dist/es-module --format es --no-compress\",\"build-umd\":\"microbundle build src/main.js src/full.js --output dist --format umd --strict --no-compress\",\"build-umd-min\":\"microbundle build src/main.js src/full.js --output dist/min --format umd --strict\",\"check\":\"npm run lint && npm test\",\"check-all\":\"npm run lint-all && npm test\",\"doc\":\"jsdoc -c jsdoc-conf.json\",\"lint\":\"eslint --cache --max-warnings 0 \\\"**/*.js\\\"\",\"lint-all\":\"eslint --max-warnings 0 \\\"**/*.js\\\"\",\"lint-all-error\":\"eslint \\\"**/*.js\\\"\",\"lint-error\":\"eslint --cache \\\"**/*.js\\\"\",\"release\":\"bump patch --commit --tag --all --push package.json package-lock.json bower.json component.json\",\"release-major\":\"bump major --commit --tag --all --push package.json package-lock.json bower.json component.json\",\"release-minor\":\"bump minor --commit --tag --all --push package.json package-lock.json bower.json component.json\",\"test\":\"jest\"},\"types\":\"./index.d.ts\",\"umd:main\":\"dist/main.js\",\"version\":\"1.0.1\"}");
 
 /***/ }),
 

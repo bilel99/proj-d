@@ -5,19 +5,17 @@
 @section('content')
     <!-- Component Hero Banner -->
     <hero-banner-component
-            :page_id="{{ $priceHeroBanner->id }}"
-            hero_banner_class="hero-banner-price"
-            logo_default="{{ asset('front/img/logos/logo-icon.png') }}"
-            route_contact="{{ route('front.contacts') }}">
+        ajax-route="{{ route('front.ajax.hero-banner.price') }}"
+        hero-banner-class="hero-banner-price"
+        go-to-target="#prices">
     </hero-banner-component>
 
     <!-- Component Prices -->
     <price-component
-            :page_id="{{ $tarif->id }}"
+            ajax-route="{{ route('front.ajax.get.prices') }}"
             class_id="prices"
             class_section="section-bg-white section-padding"
-            is_button="false"
-            route_page="{{ route('front.prices') }}">
+            is_button="false">
     </price-component>
 
     <!-- section Prices -->
@@ -27,11 +25,9 @@
                 <div class="col-md-12 col-sm-12">
                     <!-- Component Detail Page -->
                     <detail-page-component
-                        :page_id="{{ $detailRefound->id }}"
+                        ajax-route="{{ route('front.ajax.get.prices.refound') }}"
                         class_id="detail-page"
-                        class_section="section-bg-white section-padding"
-                        img_default=""
-                        route_page="{{ route('front.homepage') }}">
+                        class_section="section-bg-white section-padding">
                     </detail-page-component>
                 </div>
             </div>

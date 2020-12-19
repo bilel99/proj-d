@@ -1,10 +1,7 @@
 {{-- Component Page --}}
-@isset($appointment)
-    <page-component
-            :page_id="{{ $appointment->id }}"
-            class_id="make-appointment"
-            class_section="section-bg-white section-padding"
-            img_default="{{ asset('front/img/demande-contact.png') }}"
-            route_page="{{ route('front.appointement') }}">
-    </page-component>
-@endisset
+<page-component
+    ajax-route="{{ route('front.ajax.get.appointment') }}"
+    class_id="make-appointment"
+    class_section="section-bg-white section-padding"
+    is_button="true">
+</page-component>
